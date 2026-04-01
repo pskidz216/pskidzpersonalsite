@@ -94,7 +94,7 @@ export const skillBlocks: SkillBlock[] = [
   {
     title: "Automation & Tools",
     description:
-      "Building custom AI agents that replace entire workflows — sales intelligence bots, automated deal research, outreach engines. Small teams, outsized output.",
+      "Building custom AI agents that replace entire workflows. Sales intelligence bots, automated deal research, outreach engines. Small teams, outsized output.",
     tools: "Claude, LLMs, Custom Platforms",
   },
   {
@@ -118,7 +118,7 @@ export const skillBlocks: SkillBlock[] = [
   {
     title: "Brand & Creative",
     description:
-      "Naming, color systems, visual identity — from enterprise rebrand down to a single product launch. I get outside the box and let creative instinct drive brands that actually stand out.",
+      "Naming, color systems, visual identity, from enterprise rebrand down to a single product launch. I get outside the box and let creative instinct drive brands that actually stand out.",
     tools: "Brand Strategy, Visual Identity, Product Naming",
   },
 ];

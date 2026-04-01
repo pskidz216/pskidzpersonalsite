@@ -28,7 +28,7 @@ export function About() {
             variants={fadeUp}
             className="font-body text-text-secondary text-base md:text-lg leading-relaxed"
           >
-            I&apos;m Paul — a builder who&apos;s spent the last decade at the intersection of
+            I&apos;m Paul, a builder who&apos;s spent the last decade at the intersection of
             healthcare, technology, and growth. From selling spinal implants in
             operating rooms to leading sales and marketing at a precision manufacturing
             company, I chase problems that matter and bring people together to solve them.
@@ -38,7 +38,7 @@ export function About() {
             variants={fadeUp}
             className="font-body text-text-secondary text-base md:text-lg leading-relaxed"
           >
-            These days, AI is my unfair advantage — but people are my superpower.
+            These days, AI is my unfair advantage, but people are my superpower.
             I build custom AI agents that automate the grind so I can spend my
             time where it matters most: face-to-face, building relationships, and
             earning trust. Technology scales the work. Human connection closes it.
@@ -49,7 +49,7 @@ export function About() {
             className="font-body text-text-secondary text-base md:text-lg leading-relaxed"
           >
             The common thread across every role? I get obsessed with understanding
-            what makes people tick. AI helps me find them faster — but it&apos;s the
+            what makes people tick. AI helps me find them faster, but it&apos;s the
             genuine connection that keeps them around.
           </motion.p>
 

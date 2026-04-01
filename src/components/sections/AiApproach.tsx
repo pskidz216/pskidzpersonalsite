@@ -8,12 +8,12 @@ const approaches = [
   {
     title: "Prospecting & Research",
     description:
-      "AI pipelines that monitor CRM deals, scrape prospect websites, discover key executives, and deliver fully-briefed intelligence reports — automatically, around the clock.",
+      "AI pipelines that monitor CRM deals, scrape prospect websites, discover key executives, and deliver fully-briefed intelligence reports automatically, around the clock.",
   },
   {
     title: "Outreach & Personalization",
     description:
-      "LLM-powered systems that generate hyper-personalized messaging across email and LinkedIn. Every touchpoint is tailored to the prospect — at scale, not one by one.",
+      "LLM-powered systems that generate hyper-personalized messaging across email and LinkedIn. Every touchpoint is tailored to the prospect at scale, not one by one.",
   },
   {
     title: "Sales Intelligence",
@@ -43,7 +43,7 @@ export function AiApproach() {
           viewport={viewportOnce}
           className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-12 md:mb-16"
         >
-          AI is my force multiplier — but it&apos;ll never replace the handshake,
+          AI is my force multiplier, but it&apos;ll never replace the handshake,
           the read on a room, or the trust built over a long lunch. I use AI to
           handle the noise so I can focus on what actually closes deals: real
           human connection.

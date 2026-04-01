@@ -40,8 +40,8 @@ export function Connector() {
           variants={fadeUp}
           className="font-body text-text-secondary text-base md:text-lg leading-relaxed mt-5 max-w-2xl mx-auto"
         >
-          I see both sides of the table — two businesses, two models, two sets of
-          needs — and I make the introduction that creates something neither could
+          I see both sides of the table: two businesses, two models, two sets of
+          needs. And I make the introduction that creates something neither could
           build alone. It&apos;s not networking. It&apos;s pattern matching with people.
         </motion.p>
 
