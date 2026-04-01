@@ -76,9 +76,7 @@ export function Hero() {
             transition={{ delay: 0.35, duration: 0.7, ease }}
             className="text-text-secondary font-body text-lg md:text-xl leading-relaxed max-w-lg mx-auto md:mx-0"
           >
-            Sales Leader.{" "}
-            <span className="text-accent-coral font-medium">AI Builder.</span>{" "}
-            Growth Strategist.
+            AI Innovator · <span className="text-accent-coral font-medium">Human Connector</span> · Grow Strategist
           </motion.p>
 
           <motion.p
