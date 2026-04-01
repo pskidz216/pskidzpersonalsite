@@ -38,10 +38,10 @@ export function About() {
             variants={fadeUp}
             className="font-body text-text-secondary text-base md:text-lg leading-relaxed"
           >
-            These days, AI is my unfair advantage. I build custom AI agents that
-            automate prospect research, generate personalized outreach at scale,
-            and create sales intelligence systems that run autonomously. I don&apos;t
-            just use AI tools — I build them.
+            These days, AI is my unfair advantage — but people are my superpower.
+            I build custom AI agents that automate the grind so I can spend my
+            time where it matters most: face-to-face, building relationships, and
+            earning trust. Technology scales the work. Human connection closes it.
           </motion.p>
 
           <motion.p
@@ -49,8 +49,8 @@ export function About() {
             className="font-body text-text-secondary text-base md:text-lg leading-relaxed"
           >
             The common thread across every role? I get obsessed with understanding
-            what makes people tick, then I build systems — increasingly AI-powered
-            ones — to reach them.
+            what makes people tick. AI helps me find them faster — but it&apos;s the
+            genuine connection that keeps them around.
           </motion.p>
 
           {/* Stats row */}

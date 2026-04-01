@@ -43,8 +43,10 @@ export function AiApproach() {
           viewport={viewportOnce}
           className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-12 md:mb-16"
         >
-          AI isn&apos;t a buzzword in my workflow — it&apos;s the engine. I build custom
-          systems that let small teams operate like they&apos;re ten times their size.
+          AI is my force multiplier — but it&apos;ll never replace the handshake,
+          the read on a room, or the trust built over a long lunch. I use AI to
+          handle the noise so I can focus on what actually closes deals: real
+          human connection.
         </motion.p>
 
         <motion.div
