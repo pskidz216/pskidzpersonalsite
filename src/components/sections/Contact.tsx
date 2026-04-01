@@ -29,8 +29,7 @@ export function Contact() {
             variants={fadeUp}
             className="font-body text-text-inverse/70 text-base md:text-lg leading-relaxed mt-6"
           >
-            Whether it&apos;s a startup idea, a growth challenge, or a coffee
-            — I&apos;m always down to talk. Especially at Panther if you&apos;re in Miami.
+            Whether it&apos;s a startup idea, a growth challenge, or a coffee — I&apos;m always down to chat. Especially at Panther if you&apos;re in Miami.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-10">

@@ -106,7 +106,7 @@ export const skillBlocks: SkillBlock[] = [
   {
     title: "Business Development",
     description:
-      "Research briefs on every prospect before the first call — then real human connection closes the deal. Automated where it should be, personal where it matters.",
+      "Research briefs on every prospect before the first call. Then real human connection closes the deal. Automated where it should be, personal where it matters.",
     tools: "LinkedIn Sales Navigator, Outbound Tools",
   },
   {
