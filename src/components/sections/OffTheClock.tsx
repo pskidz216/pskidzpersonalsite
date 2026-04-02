@@ -19,8 +19,10 @@ function SunIcon({ className }: { className?: string }) {
 function PaddleIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 20l4-4M6 16l6-6M18 4l-6 6M12 10l4 4M16 14l4-4" />
-      <path d="M2 16c2-2 4-2 6 0M16 2c2 2 2 4 0 6" />
+      <path d="M12 3c3 0 6 2 6 6s-3 6-6 6" />
+      <path d="M12 15v7" />
+      <path d="M3 20c3-2 6-2.5 9-1" />
+      <path d="M21 20c-3-2-6-2.5-9-1" />
     </svg>
   );
 }
@@ -33,10 +35,12 @@ function CoffeeIcon({ className }: { className?: string }) {
   );
 }
 
-function MountainIcon({ className }: { className?: string }) {
+function WavesIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 3l4 8 5-5 5 15H2L8 3z" />
+      <path d="M2 6c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
+      <path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
+      <path d="M2 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
     </svg>
   );
 }
@@ -44,8 +48,10 @@ function MountainIcon({ className }: { className?: string }) {
 function HandshakeIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M11 17l-5-5 3-3 2 2 4-4 5 5" />
-      <path d="M2 11l5-5M17 6l5 5M7 17l-4 4M14 14l4 4" />
+      <path d="M20 8l-3-3-5.5 5.5a2 2 0 01-2.8 0L7 9l-3 3" />
+      <path d="M4 12l3 3 1.5-1.5" />
+      <path d="M20 8l-3 3-1.5-1.5" />
+      <path d="M9.5 16.5L12 14l2 2-2.5 2.5a2 2 0 01-2.8 0l-.2-.2a2 2 0 010-2.8z" />
     </svg>
   );
 }
@@ -53,7 +59,10 @@ function HandshakeIcon({ className }: { className?: string }) {
 function DumbbellIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6.5 6.5h11M4 10V6.5a1 1 0 011-1h1.5M18.5 6.5H20a1 1 0 011 1V10M4 14v3.5a1 1 0 001 1h1.5M18.5 17.5H20a1 1 0 001-1V14M2 10v4M22 10v4M6.5 17.5h11" />
+      <path d="M17.5 4.5l-3 3M19.5 6.5l-3 3" />
+      <path d="M6.5 17.5l3-3M4.5 15.5l3-3" />
+      <line x1="14.5" y1="7.5" x2="7.5" y2="14.5" />
+      <path d="M18 3l3 3M3 18l3 3" />
     </svg>
   );
 }
@@ -98,7 +107,7 @@ const ACTIVITIES: Activity[] = [
   { text: "Chasing the sunrise", icon: SunIcon },
   { text: "On the paddle board", icon: PaddleIcon },
   { text: "First one at the coffee shop", icon: CoffeeIcon },
-  { text: "Outside every chance I get", icon: MountainIcon },
+  { text: "Outside every chance I get", icon: WavesIcon },
   { text: "Connecting people who need to meet", icon: HandshakeIcon },
   { text: "In the gym", icon: DumbbellIcon },
   { text: "Deep in a good book", icon: BookIcon },
