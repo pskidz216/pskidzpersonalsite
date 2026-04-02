@@ -44,13 +44,11 @@ function WavesIcon({ className }: { className?: string }) {
   );
 }
 
-function PeopleIcon({ className }: { className?: string }) {
+function LinkIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="8" cy="6" r="3" />
-      <circle cx="16" cy="6" r="3" />
-      <path d="M2 22v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
-      <path d="M14 16h4a4 4 0 014 4v2" />
+      <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
     </svg>
   );
 }
@@ -109,7 +107,7 @@ const ACTIVITIES: Activity[] = [
   { text: "On the paddle board", icon: PaddleIcon },
   { text: "First one at the coffee shop", icon: CoffeeIcon },
   { text: "Outside every chance I get", icon: WavesIcon },
-  { text: "Connecting people who need to meet", icon: PeopleIcon },
+  { text: "Connecting people who need to meet", icon: LinkIcon },
   { text: "In the gym", icon: DumbbellIcon },
   { text: "Deep in a good book", icon: BookIcon },
   { text: "Locked into a podcast", icon: HeadphonesIcon },
@@ -173,7 +171,7 @@ export function OffTheClock() {
                 <span className="truncate">{ACTIVITIES[current].text}</span>
                 {(() => {
                   const Icon = ACTIVITIES[current].icon;
-                  return <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-accent-coral shrink-0" />;
+                  return <Icon className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-accent-coral shrink-0" />;
                 })()}
               </motion.span>
             </AnimatePresence>
