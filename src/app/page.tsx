@@ -6,6 +6,7 @@ import { Connector } from "@/components/sections/Connector";
 import { Timeline } from "@/components/sections/Timeline";
 import { Skills } from "@/components/sections/Skills";
 import { AiApproach } from "@/components/sections/AiApproach";
+import { OffTheClock } from "@/components/sections/OffTheClock";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <Timeline />
         <Skills />
         <AiApproach />
+        <OffTheClock />
         <Contact />
       </main>
       <Footer />
