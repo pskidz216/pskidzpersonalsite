@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 import {
   motion,
   useMotionValue,
@@ -16,6 +17,7 @@ interface Project {
   tag: string;
   description: string;
   tech: string;
+  image: string;
 }
 
 const PROJECTS: Project[] = [
@@ -25,6 +27,7 @@ const PROJECTS: Project[] = [
     description:
       "Portfolio company dashboard with interactive D3 radial charts, real-time deal pipeline tracking, and glassmorphic UI. Built for managing investments across the BoldX portfolio.",
     tech: "React, D3.js, Supabase, Framer Motion",
+    image: "/projects/boldx-hub.png",
   },
   {
     name: "BoldX Portal",
@@ -32,6 +35,7 @@ const PROJECTS: Project[] = [
     description:
       "AI-powered SDR platform with multi-agent architecture. Handles ICP scoring, prospect enrichment, LinkedIn coaching, and personalized outreach sequences from a single dashboard.",
     tech: "Next.js, Prisma, Anthropic SDK, Tailwind",
+    image: "/projects/boldx-portal.png",
   },
   {
     name: "BXE Intake",
@@ -39,6 +43,7 @@ const PROJECTS: Project[] = [
     description:
       "10-step capital raise application wizard with file uploads, validation, and an admin review dashboard. Takes a company from first touch to fully submitted deal package.",
     tech: "React, React Router, Supabase",
+    image: "/projects/bxe-intake.png",
   },
   {
     name: "American Labor Ladders",
@@ -46,6 +51,7 @@ const PROJECTS: Project[] = [
     description:
       "Product marketing site for the Game Changer Smart Ladder. Animated hero, spec breakdowns, and contact forms with smooth page transitions throughout.",
     tech: "React, Framer Motion, Vite",
+    image: "/projects/american-labor-ladders.png",
   },
   {
     name: "Litcor",
@@ -53,6 +59,7 @@ const PROJECTS: Project[] = [
     description:
       "Full website for Florida's premier luxury shell subcontractor. Multi-page build with project showcases, service breakdowns, careers, and animated section reveals.",
     tech: "Next.js, Framer Motion, Tailwind, TypeScript",
+    image: "/projects/litcor.png",
   },
 ];
 
@@ -60,6 +67,7 @@ const PROJECTS: Project[] = [
 
 function ProjectCard({ project }: { project: Project }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [imgError, setImgError] = useState(false);
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
   const springRotateX = useSpring(rotateX, { stiffness: 300, damping: 20 });
@@ -93,22 +101,39 @@ function ProjectCard({ project }: { project: Project }) {
         rotateY: springRotateY,
         transformPerspective: 800,
       }}
-      className="group py-6 cursor-default"
+      className="group cursor-default rounded-xl overflow-hidden bg-bg-primary shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
     >
-      <div className="flex items-center gap-3 mb-3">
-        <h3 className="font-heading font-bold text-text-primary text-lg md:text-xl">
-          {project.name}
-        </h3>
-        <span className="font-body text-[11px] font-medium uppercase tracking-[0.08em] text-accent-coral bg-accent-coral/10 px-2 py-0.5 rounded-full">
-          {project.tag}
-        </span>
+      {/* Screenshot preview */}
+      {!imgError && (
+        <div className="relative w-full aspect-[16/10] overflow-hidden bg-bg-dark">
+          <Image
+            src={project.image}
+            alt={`${project.name} screenshot`}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            onError={() => setImgError(true)}
+          />
+        </div>
+      )}
+
+      {/* Card body */}
+      <div className="p-5">
+        <div className="flex items-center gap-3 mb-3">
+          <h3 className="font-heading font-bold text-text-primary text-lg md:text-xl">
+            {project.name}
+          </h3>
+          <span className="font-body text-[11px] font-medium uppercase tracking-[0.08em] text-accent-coral bg-accent-coral/10 px-2 py-0.5 rounded-full">
+            {project.tag}
+          </span>
+        </div>
+        <p className="font-body text-text-secondary text-[15px] leading-relaxed">
+          {project.description}
+        </p>
+        <p className="font-body text-text-muted text-sm mt-3 italic">
+          {project.tech}
+        </p>
       </div>
-      <p className="font-body text-text-secondary text-[15px] leading-relaxed">
-        {project.description}
-      </p>
-      <p className="font-body text-text-muted text-sm mt-3 italic">
-        {project.tech}
-      </p>
     </motion.div>
   );
 }
