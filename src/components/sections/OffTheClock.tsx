@@ -107,7 +107,7 @@ const ACTIVITIES: Activity[] = [
   { text: "On the paddle board", icon: PaddleIcon },
   { text: "First one at the coffee shop", icon: CoffeeIcon },
   { text: "Outside every chance I get", icon: WavesIcon },
-  { text: "Connecting people who need to meet", icon: LinkIcon },
+
   { text: "In the gym", icon: DumbbellIcon },
   { text: "Deep in a good book", icon: BookIcon },
   { text: "Locked into a podcast", icon: HeadphonesIcon },
