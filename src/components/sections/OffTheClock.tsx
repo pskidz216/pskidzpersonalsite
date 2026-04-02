@@ -168,12 +168,12 @@ export function OffTheClock() {
                   duration: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="absolute inset-0 font-heading font-bold text-text-primary leading-[1.25] sm:leading-none flex items-start gap-3 sm:gap-4"
+                className="absolute inset-0 font-heading font-bold text-text-primary leading-[1.25] sm:leading-none flex items-center gap-2 sm:gap-3"
               >
-                <span>{ACTIVITIES[current].text}</span>
+                <span className="truncate">{ACTIVITIES[current].text}</span>
                 {(() => {
                   const Icon = ACTIVITIES[current].icon;
-                  return <Icon className="w-[0.65em] h-[0.65em] text-accent-coral shrink-0 mt-[0.15em]" />;
+                  return <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-accent-coral shrink-0" />;
                 })()}
               </motion.span>
             </AnimatePresence>
