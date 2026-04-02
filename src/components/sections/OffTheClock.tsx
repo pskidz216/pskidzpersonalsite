@@ -47,10 +47,10 @@ function WavesIcon({ className }: { className?: string }) {
 function PeopleIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="9" cy="7" r="3" />
-      <circle cx="17" cy="7" r="3" />
-      <path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
-      <path d="M17 15a4 4 0 014 4v2" />
+      <circle cx="8" cy="6" r="3" />
+      <circle cx="16" cy="6" r="3" />
+      <path d="M2 22v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+      <path d="M14 16h4a4 4 0 014 4v2" />
     </svg>
   );
 }
@@ -219,7 +219,7 @@ export function OffTheClock() {
                         : "text-text-muted hover:text-text-secondary"
                     }`}
                   >
-                    <span className="w-4 h-4 flex items-center justify-center shrink-0"><Icon className="w-3.5 h-3.5" /></span>
+                    <Icon className="w-4 h-4 shrink-0" />
                     {activity.text}
                   </button>
                   {i < ACTIVITIES.length - 1 && (
