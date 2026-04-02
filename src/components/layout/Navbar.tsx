@@ -53,10 +53,9 @@ export function Navbar() {
             }}
             className="flex items-center gap-2 group"
           >
-            <span className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-text-primary group-hover:border-accent-coral transition-colors duration-300">
-              <span className="font-heading font-bold text-[15px] md:text-[18px] tracking-[-0.03em] leading-none">
-                <span className="text-text-primary">P</span>
-                <span className="text-accent-coral">S</span>
+            <span className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-text-primary bg-transparent group-hover:bg-accent-coral group-hover:border-accent-coral transition-all duration-300">
+              <span className="font-heading font-bold text-[15px] md:text-[18px] tracking-[-0.03em] leading-none text-text-primary group-hover:text-white transition-colors duration-300">
+                PS
               </span>
             </span>
           </a>
