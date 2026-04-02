@@ -51,9 +51,17 @@ export function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="font-heading font-bold text-2xl md:text-3xl text-text-primary tracking-[-0.04em]"
+            className="flex items-center gap-2 group"
           >
-            PS
+            <span className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-text-primary group-hover:border-accent-coral transition-colors duration-300">
+              <span className="font-heading font-bold text-[15px] md:text-[18px] tracking-[-0.03em] leading-none">
+                <span className="text-text-primary">P</span>
+                <span className="text-accent-coral">S</span>
+              </span>
+            </span>
+            <span className="font-heading font-medium text-[10px] md:text-[11px] tracking-[0.15em] text-text-muted uppercase">
+              II
+            </span>
           </a>
 
           {/* Desktop links */}
