@@ -47,11 +47,16 @@ function WavesIcon({ className }: { className?: string }) {
 function HandshakeIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {/* Classic two-hand handshake */}
-      <path d="M2 11l4-4 3 1 4-4 3 1 4-1" />
-      <path d="M2 11l3 2 2-1 2 2 2-1 2 2" />
-      <path d="M20 4l2 7-3 2-2-1-2 2-2-1-2 2" />
-      <path d="M7 15l-2 2M9 17l-2 2M13 13l-2 2" />
+      {/* Left arm/cuff */}
+      <path d="M2 14l2-6h2.5" />
+      {/* Right arm/cuff */}
+      <path d="M22 14l-2-6h-2.5" />
+      {/* Clasped hands — simplified two curves meeting */}
+      <path d="M6.5 8l3-1.5c1.2-.4 2.2.2 2.5 1l.5 1.5" />
+      <path d="M17.5 8l-3-1.5c-1.2-.4-2.2.2-2.5 1l-.5 1.5" />
+      {/* Thumbs */}
+      <path d="M8 11.5c1.5 1 3 1.5 4.5.5" />
+      <path d="M16 11.5c-1.5 1-3 1.5-4.5.5" />
     </svg>
   );
 }
