@@ -18,11 +18,10 @@ function SunIcon({ className }: { className?: string }) {
 
 function PaddleIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3c3 0 6 2 6 6s-3 6-6 6" />
-      <path d="M12 15v7" />
-      <path d="M3 20c3-2 6-2.5 9-1" />
-      <path d="M21 20c-3-2-6-2.5-9-1" />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      {/* SUP paddle — T-handle, long shaft, blade */}
+      <path d="M8 2h4M10 2v14" />
+      <path d="M7 16l3-2 3 2v5a1 1 0 01-1 1H8a1 1 0 01-1-1v-5z" />
     </svg>
   );
 }
@@ -47,22 +46,25 @@ function WavesIcon({ className }: { className?: string }) {
 
 function HandshakeIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 8l-3-3-5.5 5.5a2 2 0 01-2.8 0L7 9l-3 3" />
-      <path d="M4 12l3 3 1.5-1.5" />
-      <path d="M20 8l-3 3-1.5-1.5" />
-      <path d="M9.5 16.5L12 14l2 2-2.5 2.5a2 2 0 01-2.8 0l-.2-.2a2 2 0 010-2.8z" />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      {/* Classic two-hand handshake */}
+      <path d="M2 11l4-4 3 1 4-4 3 1 4-1" />
+      <path d="M2 11l3 2 2-1 2 2 2-1 2 2" />
+      <path d="M20 4l2 7-3 2-2-1-2 2-2-1-2 2" />
+      <path d="M7 15l-2 2M9 17l-2 2M13 13l-2 2" />
     </svg>
   );
 }
 
 function DumbbellIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17.5 4.5l-3 3M19.5 6.5l-3 3" />
-      <path d="M6.5 17.5l3-3M4.5 15.5l3-3" />
-      <line x1="14.5" y1="7.5" x2="7.5" y2="14.5" />
-      <path d="M18 3l3 3M3 18l3 3" />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      {/* Classic dumbbell — bar with weight plates */}
+      <path d="M8 12H16" />
+      <rect x="2" y="9" width="3" height="6" rx="1" />
+      <rect x="5" y="7" width="3" height="10" rx="1" />
+      <rect x="16" y="7" width="3" height="10" rx="1" />
+      <rect x="19" y="9" width="3" height="6" rx="1" />
     </svg>
   );
 }
