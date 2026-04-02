@@ -16,7 +16,7 @@ export function Navbar() {
     function onScroll() {
       const y = window.scrollY;
       setScrolled(y > 80);
-      setHidden(y > 400 && y > lastY);
+      setHidden(false);
       setLastY(y);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -58,9 +58,6 @@ export function Navbar() {
                 <span className="text-text-primary">P</span>
                 <span className="text-accent-coral">S</span>
               </span>
-            </span>
-            <span className="font-heading font-medium text-[10px] md:text-[11px] tracking-[0.15em] text-text-muted uppercase">
-              II
             </span>
           </a>
 
