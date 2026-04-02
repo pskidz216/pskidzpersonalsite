@@ -59,8 +59,7 @@ export function OffTheClock() {
           {/* Rotating word */}
           <motion.div
             variants={fadeUp}
-            className="relative h-[1.2em] mt-4 md:mt-6 overflow-hidden"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+            className="relative h-[3.75rem] sm:h-[3rem] md:h-[4.5rem] lg:h-[5.5rem] mt-4 md:mt-6 overflow-hidden text-[1.5rem] sm:text-[2.25rem] md:text-[3.5rem] lg:text-[5rem]"
           >
             <AnimatePresence mode="wait">
               <motion.span
@@ -72,7 +71,7 @@ export function OffTheClock() {
                   duration: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="absolute inset-0 font-heading font-bold text-text-primary leading-none"
+                className="absolute inset-0 font-heading font-bold text-text-primary leading-[1.25] sm:leading-none"
               >
                 {WORDS[current]}
                 <span className="text-accent-coral">.</span>

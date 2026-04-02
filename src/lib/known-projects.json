@@ -1,0 +1,34 @@
+{
+  "-Users-paulskidmore-Desktop-BoldX": {
+    "status": "added",
+    "siteName": "BoldX Hub"
+  },
+  "-Users-paulskidmore-Desktop-BoldX-BoldX-Enterprises-SDR-Ai-Agent": {
+    "status": "added",
+    "siteName": "BoldX Portal"
+  },
+  "-Users-paulskidmore-Desktop-Ifa-App": {
+    "status": "skipped",
+    "reason": "User declined"
+  },
+  "-Users-paulskidmore-Desktop-Personal-Site": {
+    "status": "skipped",
+    "reason": "This site itself"
+  },
+  "-Users-paulskidmore-Desktop-Personal-Site-": {
+    "status": "skipped",
+    "reason": "Duplicate of Personal Site"
+  },
+  "-Users-paulskidmore-Desktop-Personal-Site--claude-worktrees-flamboyant-moore": {
+    "status": "skipped",
+    "reason": "Worktree of Personal Site"
+  },
+  "-Users-paulskidmore-Desktop-Personal-Site-node-modules": {
+    "status": "skipped",
+    "reason": "node_modules session"
+  },
+  "-Users-paulskidmore-Desktop-Arc-Arc-Ai-Platform": {
+    "status": "skipped",
+    "reason": "User declined"
+  }
+}

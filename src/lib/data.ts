@@ -123,6 +123,57 @@ export const skillBlocks: SkillBlock[] = [
   },
 ];
 
+export interface Project {
+  name: string;
+  tag: string;
+  description: string;
+  tech: string;
+  image: string;
+}
+
+export const projects: Project[] = [
+  {
+    name: "BoldX Hub",
+    tag: "Dashboard",
+    description:
+      "Portfolio company dashboard with interactive D3 radial charts, real-time deal pipeline tracking, and glassmorphic UI. Built for managing investments across the BoldX portfolio.",
+    tech: "React, D3.js, Supabase, Framer Motion",
+    image: "/projects/boldx-hub.png",
+  },
+  {
+    name: "BoldX Portal",
+    tag: "AI Agent",
+    description:
+      "AI-powered SDR platform with multi-agent architecture. Handles ICP scoring, prospect enrichment, LinkedIn coaching, and personalized outreach sequences from a single dashboard.",
+    tech: "Next.js, Prisma, Anthropic SDK, Tailwind",
+    image: "/projects/boldx-portal.png",
+  },
+  {
+    name: "BXE Intake",
+    tag: "Workflow",
+    description:
+      "10-step capital raise application wizard with file uploads, validation, and an admin review dashboard. Takes a company from first touch to fully submitted deal package.",
+    tech: "React, React Router, Supabase",
+    image: "/projects/bxe-intake.png",
+  },
+  {
+    name: "American Labor Ladders",
+    tag: "Product Site",
+    description:
+      "Product marketing site for the Game Changer Smart Ladder. Animated hero, spec breakdowns, and contact forms with smooth page transitions throughout.",
+    tech: "React, Framer Motion, Vite",
+    image: "/projects/american-labor-ladders.png",
+  },
+  {
+    name: "Litcor",
+    tag: "Company Site",
+    description:
+      "Full website for Florida's premier luxury shell subcontractor. Multi-page build with project showcases, service breakdowns, careers, and animated section reveals.",
+    tech: "Next.js, Framer Motion, Tailwind, TypeScript",
+    image: "/projects/litcor.png",
+  },
+];
+
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
