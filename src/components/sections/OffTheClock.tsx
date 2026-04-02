@@ -44,24 +44,13 @@ function WavesIcon({ className }: { className?: string }) {
   );
 }
 
-function HandshakeIcon({ className }: { className?: string }) {
+function PeopleIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Left wrist/cuff */}
-      <path d="M2 20l4-8" />
-      <path d="M6 12l3-1" />
-      {/* Right wrist/cuff */}
-      <path d="M30 20l-4-8" />
-      <path d="M26 12l-3-1" />
-      {/* Left hand going right — palm and thumb */}
-      <path d="M9 11l5-3c1.5-.6 3 .2 3.5 1.5" />
-      {/* Right hand going left — palm and thumb */}
-      <path d="M23 11l-5-3c-1.5-.6-3 .2-3.5 1.5" />
-      {/* Interlocked fingers — 3 bumps */}
-      <path d="M9 11c-.5 2 .5 4 2 5l2 1.5" />
-      <path d="M13 17.5l2 1.5c1 .7 2.2.4 2.8-.5" />
-      <path d="M23 11c.5 2-.5 4-2 5l-2 1.5" />
-      <path d="M19 17.5l-2 1.5c-1 .7-2.2.4-2.8-.5" />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="9" cy="7" r="3" />
+      <circle cx="17" cy="7" r="3" />
+      <path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+      <path d="M17 15a4 4 0 014 4v2" />
     </svg>
   );
 }
@@ -120,7 +109,7 @@ const ACTIVITIES: Activity[] = [
   { text: "On the paddle board", icon: PaddleIcon },
   { text: "First one at the coffee shop", icon: CoffeeIcon },
   { text: "Outside every chance I get", icon: WavesIcon },
-  { text: "Connecting people who need to meet", icon: HandshakeIcon },
+  { text: "Connecting people who need to meet", icon: PeopleIcon },
   { text: "In the gym", icon: DumbbellIcon },
   { text: "Deep in a good book", icon: BookIcon },
   { text: "Locked into a podcast", icon: HeadphonesIcon },
