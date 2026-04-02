@@ -5,18 +5,105 @@ import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
+/* ─── Icons ─── */
+
+function SunIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    </svg>
+  );
+}
+
+function PaddleIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 20l4-4M6 16l6-6M18 4l-6 6M12 10l4 4M16 14l4-4" />
+      <path d="M2 16c2-2 4-2 6 0M16 2c2 2 2 4 0 6" />
+    </svg>
+  );
+}
+
+function CoffeeIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 8h1a4 4 0 110 8h-1M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8zM6 2v3M10 2v3M14 2v3" />
+    </svg>
+  );
+}
+
+function MountainIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 3l4 8 5-5 5 15H2L8 3z" />
+    </svg>
+  );
+}
+
+function HandshakeIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M11 17l-5-5 3-3 2 2 4-4 5 5" />
+      <path d="M2 11l5-5M17 6l5 5M7 17l-4 4M14 14l4 4" />
+    </svg>
+  );
+}
+
+function DumbbellIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6.5 6.5h11M4 10V6.5a1 1 0 011-1h1.5M18.5 6.5H20a1 1 0 011 1V10M4 14v3.5a1 1 0 001 1h1.5M18.5 17.5H20a1 1 0 001-1V14M2 10v4M22 10v4M6.5 17.5h11" />
+    </svg>
+  );
+}
+
+function BookIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+    </svg>
+  );
+}
+
+function HeadphonesIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 18v-6a9 9 0 0118 0v6" />
+      <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
+    </svg>
+  );
+}
+
+function ControllerIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="6" width="20" height="12" rx="2" />
+      <path d="M6 12h4M8 10v4" />
+      <circle cx="17" cy="10" r="1" fill="currentColor" />
+      <circle cx="15" cy="12" r="1" fill="currentColor" />
+    </svg>
+  );
+}
+
 /* ─── Data ─── */
 
-const WORDS = [
-  "Chasing the sunrise",
-  "On the paddle board",
-  "First one at the coffee shop",
-  "Outside every chance I get",
-  "Connecting people who need to meet",
-  "In the gym",
-  "Deep in a good book",
-  "Locked into a podcast",
-  "Dropping into Fortnite",
+interface Activity {
+  text: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const ACTIVITIES: Activity[] = [
+  { text: "Chasing the sunrise", icon: SunIcon },
+  { text: "On the paddle board", icon: PaddleIcon },
+  { text: "First one at the coffee shop", icon: CoffeeIcon },
+  { text: "Outside every chance I get", icon: MountainIcon },
+  { text: "Connecting people who need to meet", icon: HandshakeIcon },
+  { text: "In the gym", icon: DumbbellIcon },
+  { text: "Deep in a good book", icon: BookIcon },
+  { text: "Locked into a podcast", icon: HeadphonesIcon },
+  { text: "Dropping into Fortnite", icon: ControllerIcon },
 ];
 
 /* ─── Main Section ─── */
@@ -26,7 +113,7 @@ export function OffTheClock() {
   const [isInView, setIsInView] = useState(false);
 
   const advance = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % WORDS.length);
+    setCurrent((prev) => (prev + 1) % ACTIVITIES.length);
   }, []);
 
   useEffect(() => {
@@ -63,7 +150,7 @@ export function OffTheClock() {
           >
             <AnimatePresence mode="wait">
               <motion.span
-                key={WORDS[current]}
+                key={ACTIVITIES[current].text}
                 initial={{ y: "100%", opacity: 0 }}
                 animate={{ y: "0%", opacity: 1 }}
                 exit={{ y: "-100%", opacity: 0 }}
@@ -71,10 +158,13 @@ export function OffTheClock() {
                   duration: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="absolute inset-0 font-heading font-bold text-text-primary leading-[1.25] sm:leading-none"
+                className="absolute inset-0 font-heading font-bold text-text-primary leading-[1.25] sm:leading-none flex items-start gap-3 sm:gap-4"
               >
-                {WORDS[current]}
-                <span className="text-accent-coral">.</span>
+                <span>{ACTIVITIES[current].text}</span>
+                {(() => {
+                  const Icon = ACTIVITIES[current].icon;
+                  return <Icon className="w-[0.65em] h-[0.65em] text-accent-coral shrink-0 mt-[0.15em]" />;
+                })()}
               </motion.span>
             </AnimatePresence>
           </motion.div>
@@ -84,12 +174,12 @@ export function OffTheClock() {
             variants={fadeUp}
             className="flex items-center gap-2 mt-8 md:mt-10"
           >
-            {WORDS.map((word, i) => (
+            {ACTIVITIES.map((activity, i) => (
               <button
-                key={word}
+                key={activity.text}
                 onClick={() => setCurrent(i)}
                 className="group relative p-1 cursor-pointer"
-                aria-label={word}
+                aria-label={activity.text}
               >
                 <span
                   className={`block w-2 h-2 rounded-full transition-all duration-300 ${
@@ -107,23 +197,27 @@ export function OffTheClock() {
             variants={fadeUp}
             className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-10 md:mt-14 pt-6 border-t border-timeline-line/50"
           >
-            {WORDS.map((word, i) => (
-              <span key={word} className="flex items-center gap-5">
-                <button
-                  onClick={() => setCurrent(i)}
-                  className={`font-body text-sm transition-colors duration-300 cursor-pointer ${
-                    i === current
-                      ? "text-accent-coral font-medium"
-                      : "text-text-muted hover:text-text-secondary"
-                  }`}
-                >
-                  {word}
-                </button>
-                {i < WORDS.length - 1 && (
-                  <span className="w-[1px] h-4 bg-timeline-line hidden sm:block" />
-                )}
-              </span>
-            ))}
+            {ACTIVITIES.map((activity, i) => {
+              const Icon = activity.icon;
+              return (
+                <span key={activity.text} className="flex items-center gap-5">
+                  <button
+                    onClick={() => setCurrent(i)}
+                    className={`font-body text-sm transition-colors duration-300 cursor-pointer flex items-center gap-1.5 ${
+                      i === current
+                        ? "text-accent-coral font-medium"
+                        : "text-text-muted hover:text-text-secondary"
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {activity.text}
+                  </button>
+                  {i < ACTIVITIES.length - 1 && (
+                    <span className="w-[1px] h-4 bg-timeline-line hidden sm:block" />
+                  )}
+                </span>
+              );
+            })}
           </motion.div>
         </motion.div>
       </div>
