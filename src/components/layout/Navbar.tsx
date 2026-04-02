@@ -51,7 +51,7 @@ export function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="font-heading font-bold text-lg text-text-primary tracking-tight"
+            className="font-heading font-bold text-2xl md:text-3xl text-text-primary tracking-[-0.04em]"
           >
             PS
           </a>
