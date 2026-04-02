@@ -46,17 +46,22 @@ function WavesIcon({ className }: { className?: string }) {
 
 function HandshakeIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      {/* Left arm/cuff */}
-      <path d="M2 14l2-6h2.5" />
-      {/* Right arm/cuff */}
-      <path d="M22 14l-2-6h-2.5" />
-      {/* Clasped hands — simplified two curves meeting */}
-      <path d="M6.5 8l3-1.5c1.2-.4 2.2.2 2.5 1l.5 1.5" />
-      <path d="M17.5 8l-3-1.5c-1.2-.4-2.2.2-2.5 1l-.5 1.5" />
-      {/* Thumbs */}
-      <path d="M8 11.5c1.5 1 3 1.5 4.5.5" />
-      <path d="M16 11.5c-1.5 1-3 1.5-4.5.5" />
+    <svg className={className} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      {/* Left wrist/cuff */}
+      <path d="M2 20l4-8" />
+      <path d="M6 12l3-1" />
+      {/* Right wrist/cuff */}
+      <path d="M30 20l-4-8" />
+      <path d="M26 12l-3-1" />
+      {/* Left hand going right — palm and thumb */}
+      <path d="M9 11l5-3c1.5-.6 3 .2 3.5 1.5" />
+      {/* Right hand going left — palm and thumb */}
+      <path d="M23 11l-5-3c-1.5-.6-3 .2-3.5 1.5" />
+      {/* Interlocked fingers — 3 bumps */}
+      <path d="M9 11c-.5 2 .5 4 2 5l2 1.5" />
+      <path d="M13 17.5l2 1.5c1 .7 2.2.4 2.8-.5" />
+      <path d="M23 11c.5 2-.5 4-2 5l-2 1.5" />
+      <path d="M19 17.5l-2 1.5c-1 .7-2.2.4-2.8-.5" />
     </svg>
   );
 }
