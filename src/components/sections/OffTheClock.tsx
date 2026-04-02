@@ -213,13 +213,13 @@ export function OffTheClock() {
                 <span key={activity.text} className="flex items-center gap-5">
                   <button
                     onClick={() => setCurrent(i)}
-                    className={`font-body text-sm transition-colors duration-300 cursor-pointer flex items-center gap-1.5 ${
+                    className={`font-body text-sm transition-colors duration-300 cursor-pointer flex items-center gap-2 ${
                       i === current
                         ? "text-accent-coral font-medium"
                         : "text-text-muted hover:text-text-secondary"
                     }`}
                   >
-                    <Icon className="w-3.5 h-3.5" />
+                    <span className="w-4 h-4 flex items-center justify-center shrink-0"><Icon className="w-3.5 h-3.5" /></span>
                     {activity.text}
                   </button>
                   {i < ACTIVITIES.length - 1 && (
