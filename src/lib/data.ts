@@ -134,7 +134,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "BoldX Hub",
-    tag: "Dashboard",
+    tag: "Interactive Portal",
     description:
       "Portfolio company dashboard with interactive D3 radial charts, real-time deal pipeline tracking, and glassmorphic UI. Built for managing investments across the BoldX portfolio.",
     tech: "React, D3.js, Supabase, Framer Motion",
@@ -142,7 +142,7 @@ export const projects: Project[] = [
   },
   {
     name: "BoldX Portal",
-    tag: "AI Agent",
+    tag: "SDR App",
     description:
       "AI-powered SDR platform with multi-agent architecture. Handles ICP scoring, prospect enrichment, LinkedIn coaching, and personalized outreach sequences from a single dashboard.",
     tech: "Next.js, Prisma, Anthropic SDK, Tailwind",
@@ -150,7 +150,7 @@ export const projects: Project[] = [
   },
   {
     name: "BXE Intake",
-    tag: "Workflow",
+    tag: "Capital Intake",
     description:
       "10-step capital raise application wizard with file uploads, validation, and an admin review dashboard. Takes a company from first touch to fully submitted deal package.",
     tech: "React, React Router, Supabase",
@@ -166,7 +166,7 @@ export const projects: Project[] = [
   },
   {
     name: "Litcor",
-    tag: "Company Site",
+    tag: "Project Oversight",
     description:
       "Full website for Florida's premier luxury shell subcontractor. Multi-page build with project showcases, service breakdowns, careers, and animated section reveals.",
     tech: "Next.js, Framer Motion, Tailwind, TypeScript",
