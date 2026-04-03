@@ -188,14 +188,16 @@ function CertGroup({
 export function Certifications() {
   const aiCerts = certifications.filter((c) => c.issuer === "Anthropic");
   const marketingCerts = certifications.filter((c) => c.issuer === "Google");
-  const proCerts = certifications.filter(
-    (c) => c.issuer !== "Anthropic" && c.issuer !== "Google"
+  const bizDevCerts = certifications.filter((c) => c.issuer === "General Assembly");
+  const healthCerts = certifications.filter(
+    (c) => c.issuer !== "Anthropic" && c.issuer !== "Google" && c.issuer !== "General Assembly"
   );
 
   const groups = [
     { label: "AI & Engineering", certs: aiCerts, defaultOpen: true },
     { label: "Digital Marketing", certs: marketingCerts, defaultOpen: false },
-    { label: "Professional", certs: proCerts, defaultOpen: false },
+    { label: "Business Development", certs: bizDevCerts, defaultOpen: false },
+    { label: "Health", certs: healthCerts, defaultOpen: false },
   ];
 
   return (
