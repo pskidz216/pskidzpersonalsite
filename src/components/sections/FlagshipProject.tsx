@@ -8,75 +8,71 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
+import { fadeUp, scaleIn, staggerContainer, viewportOnce } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const stats = [
-  { value: "23", label: "Skills" },
-  { value: "14", label: "Commands" },
-  { value: "6", label: "Agents" },
+  { value: "23", label: "Skills", color: "bg-accent-coral" },
+  { value: "14", label: "Commands", color: "bg-accent-teal" },
+  { value: "6", label: "Agents", color: "bg-accent-coral" },
 ];
 
 const capabilities = [
   {
-    icon: "⚡",
     title: "Marketing Automation",
     description:
       "Campaign planning, content creation, brand voice profiling, and analytics reporting — all from the terminal.",
+    color: "border-accent-coral/30 hover:border-accent-coral",
+    dot: "bg-accent-coral",
   },
   {
-    icon: "🛠",
     title: "Development Workflow",
     description:
       "TDD-first dev bot, feature specs, ticket creation, project management, and verification loops built in.",
+    color: "border-accent-teal/30 hover:border-accent-teal",
+    dot: "bg-accent-teal",
   },
   {
-    icon: "📊",
     title: "Business Intelligence",
     description:
       "Portfolio dashboards, weekly reviews, prospect research, and SDR automation across every active project.",
+    color: "border-accent-coral/30 hover:border-accent-coral",
+    dot: "bg-accent-coral",
   },
   {
-    icon: "🚀",
     title: "Launch & Scale",
     description:
       "Business scaffolding, web builds, campaign briefs, and go-to-market playbooks — from idea to deployed.",
+    color: "border-accent-teal/30 hover:border-accent-teal",
+    dot: "bg-accent-teal",
   },
+];
+
+const commands = [
+  "/start-build",
+  "/campaign-brief",
+  "/prospect-research",
+  "/weekly-review",
+  "/launch",
+  "/debug",
+  "/verify",
+  "/create-tickets",
 ];
 
 const easeOutQuint = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-function CountUp({ value }: { value: string }) {
+function CommandPill({ command, delay }: { command: string; delay: number }) {
   return (
     <motion.span
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.6, ease: easeOutQuint }}
-      className="font-heading font-black text-5xl md:text-6xl lg:text-7xl text-accent-coral"
-    >
-      {value}
-    </motion.span>
-  );
-}
-
-function TerminalLine({
-  delay,
-  children,
-}: {
-  delay: number;
-  children: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -10 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ delay, duration: 0.4, ease: easeOutQuint }}
-      className="flex items-center gap-2 font-mono text-sm md:text-base"
+      whileHover={{ scale: 1.05, y: -2 }}
+      className="inline-block font-mono text-xs md:text-sm px-3 py-1.5 rounded-full bg-accent-coral/10 text-accent-coral border border-accent-coral/20 cursor-default transition-colors duration-200 hover:bg-accent-coral/20"
     >
-      <span className="text-accent-coral select-none">❯</span>
-      <span className="text-text-inverse/70">{children}</span>
-    </motion.div>
+      {command}
+    </motion.span>
   );
 }
 
@@ -87,9 +83,13 @@ export function FlagshipProject() {
     offset: ["start end", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const floatY1 = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const floatY2 = useTransform(scrollYProgress, [0, 1], [40, -80]);
+  const floatY3 = useTransform(scrollYProgress, [0, 1], [80, -40]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 45]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -30]);
 
-  // Magnetic card effect
+  // Magnetic card effect for terminal
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
   const springRotateX = useSpring(rotateX, { stiffness: 200, damping: 20 });
@@ -112,58 +112,62 @@ export function FlagshipProject() {
     <section
       ref={sectionRef}
       id="flagship"
-      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-dark overflow-hidden"
+      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-primary overflow-hidden"
     >
-      {/* Subtle gradient orbs */}
-      <motion.div
-        style={{ y: bgY }}
-        className="pointer-events-none absolute inset-0"
-      >
-        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-accent-coral/8 blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-accent-teal/8 blur-[120px]" />
-      </motion.div>
+      {/* Floating geometric shapes — parallax */}
+      <div className="pointer-events-none absolute inset-0">
+        <motion.div
+          style={{ y: floatY1, rotate: rotate1 }}
+          className="absolute top-20 right-[10%] w-20 h-20 rounded-2xl border-2 border-accent-coral/15 bg-accent-coral/5"
+        />
+        <motion.div
+          style={{ y: floatY2, rotate: rotate2 }}
+          className="absolute top-1/3 left-[5%] w-14 h-14 rounded-full border-2 border-accent-teal/15 bg-accent-teal/5"
+        />
+        <motion.div
+          style={{ y: floatY3 }}
+          className="absolute bottom-32 right-[20%] w-10 h-10 rounded-lg border-2 border-accent-coral/10 bg-accent-coral/5 rotate-12"
+        />
+        <motion.div
+          style={{ y: floatY1 }}
+          className="absolute bottom-48 left-[15%] w-16 h-16 rounded-full border-2 border-accent-teal/10 bg-accent-teal/5"
+        />
+        {/* Large soft gradient blobs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent-coral/[0.04] blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-teal/[0.04] blur-[100px]" />
+      </div>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Section label */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="flex items-center gap-4 mb-16 md:mb-20"
-        >
-          <h2 className="text-[13px] font-body font-medium uppercase tracking-[0.08em] text-text-inverse/40 whitespace-nowrap">
-            Flagship Build
-          </h2>
-          <div className="h-[1px] flex-1 bg-text-inverse/10" />
-        </motion.div>
+        <SectionHeading>Flagship Build</SectionHeading>
 
         {/* Hero area */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20 md:mb-28">
-          {/* Left — Title + description */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start mb-20 md:mb-28">
+          {/* Left — Title + description (3 cols) */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
+            className="lg:col-span-3"
           >
-            <motion.div variants={fadeUp} className="mb-2">
-              <span className="inline-block font-mono text-xs md:text-sm text-accent-coral/80 tracking-wider uppercase">
+            <motion.div variants={fadeUp} className="mb-3">
+              <span className="inline-block font-mono text-xs md:text-sm text-accent-teal tracking-wider uppercase font-medium">
                 Claude Code Plugin
               </span>
             </motion.div>
 
             <motion.h3
               variants={fadeUp}
-              className="font-heading font-black text-text-inverse leading-[0.95] tracking-tight mb-6"
+              className="font-heading font-black text-text-primary leading-[0.95] tracking-tight mb-6"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
             >
-              2.16 OS
+              2.16{" "}
+              <span className="text-accent-coral">OS</span>
             </motion.h3>
 
             <motion.p
               variants={fadeUp}
-              className="font-body text-text-inverse/60 text-base md:text-lg leading-relaxed max-w-lg mb-8"
+              className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-xl mb-8"
             >
               A personal operating system for Claude Code. 23 skills, 14 commands,
               and 6 specialized agents that handle marketing, development, and
@@ -171,61 +175,104 @@ export function FlagshipProject() {
               everything.
             </motion.p>
 
-            {/* Terminal preview */}
+            {/* Stats row */}
             <motion.div
               variants={fadeUp}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                rotateX: springRotateX,
-                rotateY: springRotateY,
-                transformPerspective: 800,
-              }}
-              className="rounded-xl border border-text-inverse/10 bg-text-inverse/[0.03] backdrop-blur-sm p-5 md:p-6 space-y-2.5"
+              className="flex gap-8 md:gap-12 mb-10"
             >
-              <div className="flex items-center gap-1.5 mb-4">
-                <div className="w-2.5 h-2.5 rounded-full bg-accent-coral/60" />
-                <div className="w-2.5 h-2.5 rounded-full bg-text-inverse/20" />
-                <div className="w-2.5 h-2.5 rounded-full bg-text-inverse/20" />
-              </div>
-              <TerminalLine delay={0.1}>
-                /start-build — picks up next ticket, ships with TDD
-              </TerminalLine>
-              <TerminalLine delay={0.2}>
-                /campaign-brief — generates full campaign plan
-              </TerminalLine>
-              <TerminalLine delay={0.3}>
-                /prospect-research — deep dive on any company
-              </TerminalLine>
-              <TerminalLine delay={0.4}>
-                /weekly-review — portfolio-wide status report
-              </TerminalLine>
-              <TerminalLine delay={0.5}>
-                /launch — full go-to-market workflow
-              </TerminalLine>
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5, ease: easeOutQuint }}
+                    className="block font-heading font-black text-4xl md:text-5xl text-text-primary"
+                  >
+                    {stat.value}
+                  </motion.span>
+                  <span className="font-body text-text-muted text-xs md:text-sm uppercase tracking-[0.08em] mt-1 block">
+                    {stat.label}
+                  </span>
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ delay: 0.3, duration: 0.4, ease: easeOutQuint }}
+                    className={`h-0.5 w-full ${stat.color} mt-2 origin-left rounded-full`}
+                  />
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Command pills */}
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
+              {commands.map((cmd, i) => (
+                <CommandPill key={cmd} command={cmd} delay={i * 0.06} />
+              ))}
             </motion.div>
           </motion.div>
 
-          {/* Right — Stats */}
+          {/* Right — Terminal card (2 cols) */}
           <motion.div
-            variants={staggerContainer}
+            variants={scaleIn}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="flex flex-row lg:flex-col gap-8 md:gap-12 justify-center lg:justify-start"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              rotateX: springRotateX,
+              rotateY: springRotateY,
+              transformPerspective: 800,
+            }}
+            className="lg:col-span-2 rounded-2xl bg-bg-dark p-5 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-bg-dark/5"
           >
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeUp}
-                className="text-center lg:text-left"
-              >
-                <CountUp value={stat.value} />
-                <p className="font-body text-text-inverse/40 text-sm md:text-base uppercase tracking-[0.08em] mt-1">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
+            {/* Terminal chrome */}
+            <div className="flex items-center gap-1.5 mb-5">
+              <div className="w-3 h-3 rounded-full bg-accent-coral" />
+              <div className="w-3 h-3 rounded-full bg-accent-coral-light/60" />
+              <div className="w-3 h-3 rounded-full bg-accent-teal/40" />
+              <span className="ml-3 font-mono text-[11px] text-white/30">
+                ~/2.16-os
+              </span>
+            </div>
+
+            {/* Terminal lines */}
+            <div className="space-y-3">
+              {[
+                { cmd: "/start-build", desc: "picking up next ticket..." },
+                { cmd: "/campaign-brief", desc: "generating campaign plan..." },
+                { cmd: "/prospect-research", desc: "deep dive on Acme Corp..." },
+                { cmd: "/weekly-review", desc: "scanning 6 projects..." },
+                { cmd: "/launch", desc: "running GTM workflow..." },
+              ].map((line, i) => (
+                <motion.div
+                  key={line.cmd}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ delay: 0.2 + i * 0.1, duration: 0.4, ease: easeOutQuint }}
+                >
+                  <div className="flex items-center gap-2 font-mono text-xs md:text-sm">
+                    <span className="text-accent-coral select-none">{">"}</span>
+                    <span className="text-white font-medium">{line.cmd}</span>
+                  </div>
+                  <p className="font-mono text-[11px] md:text-xs text-white/30 ml-5 mt-0.5">
+                    {line.desc}
+                  </p>
+                </motion.div>
+              ))}
+              {/* Blinking cursor */}
+              <div className="flex items-center gap-2 font-mono text-xs md:text-sm">
+                <span className="text-accent-coral select-none">{">"}</span>
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                  className="inline-block w-2 h-4 bg-accent-coral/80"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
 
@@ -235,21 +282,20 @@ export function FlagshipProject() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8"
         >
           {capabilities.map((cap) => (
             <motion.div
               key={cap.title}
               variants={fadeUp}
-              className="group relative rounded-xl border border-text-inverse/8 bg-text-inverse/[0.02] p-6 md:p-8 transition-colors duration-300 hover:border-accent-coral/20 hover:bg-text-inverse/[0.04]"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className={`group relative rounded-2xl border-2 ${cap.color} bg-bg-primary p-6 md:p-8 transition-colors duration-300 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]`}
             >
-              <span className="text-2xl mb-4 block" role="img" aria-label={cap.title}>
-                {cap.icon}
-              </span>
-              <h4 className="font-heading font-bold text-text-inverse text-lg md:text-xl mb-2">
+              <div className={`w-2.5 h-2.5 rounded-full ${cap.dot} mb-4`} />
+              <h4 className="font-heading font-bold text-text-primary text-lg md:text-xl mb-2">
                 {cap.title}
               </h4>
-              <p className="font-body text-text-inverse/50 text-[15px] leading-relaxed">
+              <p className="font-body text-text-secondary text-[15px] leading-relaxed">
                 {cap.description}
               </p>
             </motion.div>
