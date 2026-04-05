@@ -180,6 +180,7 @@ export const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Certs", href: "#certifications" },
   { label: "AI", href: "#ai" },
+  { label: "2.16 OS", href: "#flagship" },
   { label: "Builds", href: "#built" },
   { label: "Life", href: "#offclock" },
   { label: "Contact", href: "#contact" },

@@ -7,6 +7,7 @@ import { Timeline } from "@/components/sections/Timeline";
 import { Skills } from "@/components/sections/Skills";
 import { Certifications } from "@/components/sections/Certifications";
 import { AiApproach } from "@/components/sections/AiApproach";
+import { FlagshipProject } from "@/components/sections/FlagshipProject";
 import { Built } from "@/components/sections/Built";
 import { OffTheClock } from "@/components/sections/OffTheClock";
 import { Contact } from "@/components/sections/Contact";
@@ -23,6 +24,7 @@ export default function Home() {
         <Skills />
         <Certifications />
         <AiApproach />
+        <FlagshipProject />
         <Built />
         <OffTheClock />
         <Contact />
