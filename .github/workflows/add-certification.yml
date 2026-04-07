@@ -1,0 +1,55 @@
+name: Add Certification
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Certification name"
+        required: true
+        type: string
+      issuer:
+        description: "Issuer (e.g. Anthropic, Google)"
+        required: true
+        type: string
+      date:
+        description: "Date (e.g. Apr 2026)"
+        required: true
+        type: string
+      credentialId:
+        description: "Credential ID (optional)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  add-cert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add certification to JSON
+        run: |
+          if [ -n "${{ inputs.credentialId }}" ]; then
+            jq --arg name "${{ inputs.name }}" \
+               --arg issuer "${{ inputs.issuer }}" \
+               --arg date "${{ inputs.date }}" \
+               --arg cred "${{ inputs.credentialId }}" \
+               '[{name: $name, issuer: $issuer, date: $date, credentialId: $cred}] + .' \
+               src/data/certifications.json > tmp.json && mv tmp.json src/data/certifications.json
+          else
+            jq --arg name "${{ inputs.name }}" \
+               --arg issuer "${{ inputs.issuer }}" \
+               --arg date "${{ inputs.date }}" \
+               '[{name: $name, issuer: $issuer, date: $date}] + .' \
+               src/data/certifications.json > tmp.json && mv tmp.json src/data/certifications.json
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/certifications.json
+          git commit -m "feat: add ${{ inputs.name }} certification"
+          git push
