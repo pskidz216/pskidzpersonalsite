@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Claude Cowork Intro",
+    "issuer": "Anthropic",
+    "date": "Apr 2026"
+  },
+  {
+    "name": "Certificate of completion: Claude 101",
+    "issuer": "Anthropic",
+    "date": "Apr 2026",
+    "credentialId": "d7ft8ra34hjc"
+  },
+  {
+    "name": "Claude Code in Action",
+    "issuer": "Anthropic",
+    "date": "Mar 2026",
+    "credentialId": "3xpeoq9yzcfe"
+  },
+  {
+    "name": "Make the Sale: Build, Launch, and Manage E-commerce Stores",
+    "issuer": "Google",
+    "date": "Apr 2024",
+    "credentialId": "2UDH8JW68SLK"
+  },
+  {
+    "name": "Assess for Success: Marketing Analytics and Measurement",
+    "issuer": "Google",
+    "date": "Mar 2024",
+    "credentialId": "JAA6XMP4F5NH"
+  },
+  {
+    "name": "Think Outside the Inbox: Email Marketing",
+    "issuer": "Google",
+    "date": "Mar 2024",
+    "credentialId": "EBUXLZMKQ7L9"
+  },
+  {
+    "name": "From Likes to Leads: Interact with Customers Online",
+    "issuer": "Google",
+    "date": "Mar 2024",
+    "credentialId": "UVK94PGKYHKC"
+  },
+  {
+    "name": "Attract and Engage Customers with Digital Marketing",
+    "issuer": "Google",
+    "date": "Mar 2024",
+    "credentialId": "WWV38P6XSRVR"
+  },
+  {
+    "name": "Foundations of Digital Marketing and E-commerce",
+    "issuer": "Google",
+    "date": "Mar 2024",
+    "credentialId": "76CJU8JHMSBH"
+  },
+  {
+    "name": "Product Manager",
+    "issuer": "General Assembly",
+    "date": "May 2020"
+  },
+  {
+    "name": "Certified Strength and Conditioning Specialist (CSCS)",
+    "issuer": "NSCA",
+    "date": "Apr 2010"
+  },
+  {
+    "name": "Poliquin Practitioner",
+    "issuer": "Poliquin Group",
+    "date": "Sep 2010"
+  },
+  {
+    "name": "CHEK Practitioner",
+    "issuer": "CHEK Institute",
+    "date": "Jun 2010"
+  }
+]
