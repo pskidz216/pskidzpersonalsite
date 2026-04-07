@@ -95,6 +95,19 @@ function ControllerIcon({ className }: { className?: string }) {
   );
 }
 
+function FamilyIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="5" r="3" />
+      <path d="M12 8c-3.31 0-6 2.24-6 5v2h12v-2c0-2.76-2.69-5-6-5z" />
+      <circle cx="5" cy="9" r="2" />
+      <path d="M5 11c-2.21 0-4 1.49-4 3.33V16h4" />
+      <circle cx="19" cy="9" r="2" />
+      <path d="M19 11c2.21 0 4 1.49 4 3.33V16h-4" />
+    </svg>
+  );
+}
+
 /* ─── Data ─── */
 
 interface Activity {
@@ -112,6 +125,7 @@ const ACTIVITIES: Activity[] = [
   { text: "Deep in a good book", icon: BookIcon },
   { text: "Locked into a podcast", icon: HeadphonesIcon },
   { text: "Dropping into Fortnite", icon: ControllerIcon },
+  { text: "Spending time with family", icon: FamilyIcon },
 ];
 
 /* ─── Main Section ─── */
