@@ -78,9 +78,9 @@ export const careerEntries: CareerEntry[] = [
     dateRange: "2025 — Present",
     type: "corporate",
     description:
-      "Leading sales and marketing for a precision CNC machining and hermetic connector manufacturer. Launched 3-5 new product assembly lines, spearheading the Sun Belt Ladder initiative for customer acquisition, and opening new revenue in aerospace, military, and defense. Built AI-powered sales intelligence systems to automate prospecting and deal research. Tracking to push revenue past $18M in 2026.",
-    metric: { value: "$18M+", label: "projected 2026 revenue" },
-    tags: ["Aerospace & Defense", "Hermetic Connectors", "AI-Powered Sales"],
+      "Leading sales and marketing for a precision CNC machining and hermetic connector manufacturer. Launched 3-5 new product assembly lines, spearheading the Sun Belt Ladder initiative for customer acquisition, and opening new revenue in aerospace, military, and defense. Built AI-powered sales intelligence systems using Claude and Grok to automate prospecting and deal research. Drove HubSpot-ERP integration for streamlined customer data management. Expanding into aerospace with industry conference presence at PBExpo. Tracking to push revenue past $24M in 2026.",
+    metric: { value: "$24M+", label: "projected 2026 revenue" },
+    tags: ["Aerospace & Defense", "Hermetic Connectors", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
 ];
 
