@@ -4,11 +4,19 @@ import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
+function DuolingoIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm-2-4c-2.33 0-4.32 1.45-5.12 3.5h1.67c.69-1.19 1.97-2 3.45-2s2.76.81 3.45 2h1.67c-.8-2.05-2.79-3.5-5.12-3.5z" />
+    </svg>
+  );
+}
+
 const stats = [
   "10+ years in health & tech",
   "3 startups",
   "AI-powered workflows",
-  "Custom AI tools built",
+  "Expanding in aerospace, defense & product assembly",
 ];
 
 export function About() {
@@ -30,7 +38,7 @@ export function About() {
           >
             I&apos;m Paul, a builder who&apos;s spent the last decade at the intersection of
             healthcare, technology, and growth. From selling spinal implants in
-            operating rooms to leading sales and marketing at a precision manufacturing
+            operating rooms to leading sales and marketing at a full service manufacturing
             company, I chase problems that matter and bring people together to solve them.
           </motion.p>
 
@@ -68,6 +76,34 @@ export function About() {
                 )}
               </span>
             ))}
+          </motion.div>
+
+          {/* Languages */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2"
+          >
+            <span className="flex items-center gap-1.5">
+              <span className="font-body font-medium text-sm text-text-muted">
+                English
+              </span>
+              <span className="font-body text-xs text-text-muted/60">
+                Native
+              </span>
+            </span>
+            <span className="w-[1px] h-4 bg-timeline-line hidden sm:block" />
+            <span className="flex items-center gap-2">
+              <span className="font-body font-medium text-sm text-text-muted">
+                Spanish
+              </span>
+              <span className="font-body text-xs text-text-muted/60">
+                Elementary
+              </span>
+              <span className="inline-flex items-center gap-1 bg-[#58CC02]/10 text-[#58CC02] text-xs font-medium px-2 py-0.5 rounded-full">
+                <DuolingoIcon className="w-3.5 h-3.5" />
+                Score 44
+              </span>
+            </span>
           </motion.div>
         </motion.div>
       </div>
