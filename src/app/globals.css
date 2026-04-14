@@ -93,3 +93,15 @@ html.lenis, html.lenis body {
     transform: translateY(0);
   }
 }
+
+@property --border-beam-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes border-beam-spin {
+  to {
+    --border-beam-angle: 360deg;
+  }
+}

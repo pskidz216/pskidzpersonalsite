@@ -3,13 +3,40 @@
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 
+function GridPattern() {
+  return (
+    <svg
+      className="pointer-events-none absolute inset-0 h-full w-full"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern
+          id="contact-grid"
+          width="40"
+          height="40"
+          patternUnits="userSpaceOnUse"
+        >
+          <circle cx="1" cy="1" r="1" fill="currentColor" />
+        </pattern>
+      </defs>
+      <rect
+        width="100%"
+        height="100%"
+        fill="url(#contact-grid)"
+        className="text-white/[0.03]"
+      />
+    </svg>
+  );
+}
+
 export function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-dark"
+      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-dark overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      <GridPattern />
+      <div className="relative max-w-7xl mx-auto">
         <motion.div
           variants={staggerContainer}
           initial="hidden"

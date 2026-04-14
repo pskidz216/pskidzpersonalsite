@@ -226,8 +226,21 @@ export function FlagshipProject() {
               rotateY: springRotateY,
               transformPerspective: 800,
             }}
-            className="lg:col-span-2 rounded-2xl bg-bg-dark p-5 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-bg-dark/5"
+            className="lg:col-span-2 relative rounded-2xl bg-bg-dark p-5 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-bg-dark/5 overflow-hidden"
           >
+            {/* BorderBeam */}
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl"
+              style={{
+                background:
+                  "linear-gradient(var(--border-beam-angle, 0deg), transparent 70%, var(--accent-coral, #E8735A) 85%, transparent 100%)",
+                mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                maskComposite: "exclude",
+                WebkitMaskComposite: "xor",
+                padding: "1.5px",
+                animation: "border-beam-spin 6s linear infinite",
+              }}
+            />
             {/* Terminal chrome */}
             <div className="flex items-center gap-1.5 mb-5">
               <div className="w-3 h-3 rounded-full bg-accent-coral" />
