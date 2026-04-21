@@ -15,10 +15,20 @@ export function HeroVideo() {
   useEffect(() => {
     const el = videoRef.current;
     if (!el || !shouldPlay) return;
+
+    el.muted = true;
+    const tryPlay = () => {
+      el.play().catch(() => {});
+    };
+
+    tryPlay();
+    el.addEventListener("canplay", tryPlay);
+    el.addEventListener("loadeddata", tryPlay);
+
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.play().catch(() => {});
+          tryPlay();
         } else {
           el.pause();
         }
@@ -26,7 +36,12 @@ export function HeroVideo() {
       { threshold: 0.1 },
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    return () => {
+      io.disconnect();
+      el.removeEventListener("canplay", tryPlay);
+      el.removeEventListener("loadeddata", tryPlay);
+    };
   }, [shouldPlay]);
 
   if (!shouldPlay) return null;
@@ -40,6 +55,7 @@ export function HeroVideo() {
         muted
         loop
         playsInline
+        preload="auto"
       >
         <source src="/hero/pingpong-loop.mp4" type="video/mp4" />
       </video>
