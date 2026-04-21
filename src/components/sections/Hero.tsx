@@ -10,7 +10,6 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
-import { HeroVideo } from "@/components/ui/HeroVideo";
 
 const nameWords = ["Paul", "Skidmore"];
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -48,8 +47,7 @@ export function Hero() {
       ref={sectionRef}
       className="relative min-h-svh flex items-center justify-center px-6 md:px-12 lg:px-20 overflow-hidden"
     >
-      <HeroVideo />
-      <div className="relative z-10 max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-20 py-24">
+      <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-20 py-24">
         {/* Text */}
         <motion.div
           style={{ y: textY }}
@@ -76,9 +74,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.7, ease }}
-            className="text-text-secondary font-body font-semibold text-lg md:text-xl leading-relaxed max-w-lg mx-auto md:mx-0"
+            className="text-text-secondary font-body text-lg md:text-xl leading-relaxed max-w-lg mx-auto md:mx-0"
           >
-            AI Innovator · <span className="text-accent-coral font-bold">Human Connector</span> · Growth Strategist
+            AI Innovator · <span className="text-accent-coral font-medium">Human Connector</span> · Growth Strategist
           </motion.p>
 
           <motion.p

@@ -15,20 +15,6 @@ import { Contact } from "@/components/sections/Contact";
 export default function Home() {
   return (
     <>
-      <link
-        rel="preload"
-        as="video"
-        href="/hero/pingpong-loop.webm"
-        type="video/webm"
-        media="(min-width: 769px)"
-      />
-      <link
-        rel="preload"
-        as="video"
-        href="/hero/chrome-loop-mobile.webm"
-        type="video/webm"
-        media="(max-width: 768px)"
-      />
       <Navbar />
       <main>
         <Hero />
