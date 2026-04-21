@@ -8,8 +8,7 @@ export function HeroVideo() {
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    if (reduceMotion || isMobile) return;
+    if (reduceMotion) return;
     setShouldPlay(true);
   }, []);
 
