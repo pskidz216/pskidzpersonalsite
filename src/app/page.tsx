@@ -15,6 +15,20 @@ import { Contact } from "@/components/sections/Contact";
 export default function Home() {
   return (
     <>
+      <link
+        rel="preload"
+        as="video"
+        href="/hero/pingpong-loop.mp4"
+        type="video/mp4"
+        media="(min-width: 769px)"
+      />
+      <link
+        rel="preload"
+        as="video"
+        href="/hero/chrome-loop-mobile.mp4"
+        type="video/mp4"
+        media="(max-width: 768px)"
+      />
       <Navbar />
       <main>
         <Hero />
