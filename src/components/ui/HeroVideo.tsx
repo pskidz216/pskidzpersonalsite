@@ -2,23 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const DESKTOP_SRC = "/hero/pingpong-loop.mp4";
-const MOBILE_SRC = "/hero/chrome-loop-mobile.mp4";
+const DESKTOP = { webm: "/hero/pingpong-loop.webm", mp4: "/hero/pingpong-loop.mp4" };
+const MOBILE = { webm: "/hero/chrome-loop-mobile.webm", mp4: "/hero/chrome-loop-mobile.mp4" };
+
+type Sources = typeof DESKTOP;
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [src, setSrc] = useState<string | null>(null);
+  const [sources, setSources] = useState<Sources | null>(null);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    setSrc(isMobile ? MOBILE_SRC : DESKTOP_SRC);
+    setSources(isMobile ? MOBILE : DESKTOP);
   }, []);
 
   useEffect(() => {
     const el = videoRef.current;
-    if (!el || !src) return;
+    if (!el || !sources) return;
 
     el.muted = true;
     const tryPlay = () => {
@@ -46,9 +48,9 @@ export function HeroVideo() {
       el.removeEventListener("canplay", tryPlay);
       el.removeEventListener("loadeddata", tryPlay);
     };
-  }, [src]);
+  }, [sources]);
 
-  if (!src) return null;
+  if (!sources) return null;
 
   return (
     <div aria-hidden="true" className="absolute inset-0 pointer-events-none opacity-60">
@@ -61,7 +63,8 @@ export function HeroVideo() {
         playsInline
         preload="auto"
       >
-        <source src={src} type="video/mp4" />
+        <source src={sources.webm} type="video/webm" />
+        <source src={sources.mp4} type="video/mp4" />
       </video>
     </div>
   );

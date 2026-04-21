@@ -18,15 +18,15 @@ export default function Home() {
       <link
         rel="preload"
         as="video"
-        href="/hero/pingpong-loop.mp4"
-        type="video/mp4"
+        href="/hero/pingpong-loop.webm"
+        type="video/webm"
         media="(min-width: 769px)"
       />
       <link
         rel="preload"
         as="video"
-        href="/hero/chrome-loop-mobile.mp4"
-        type="video/mp4"
+        href="/hero/chrome-loop-mobile.webm"
+        type="video/webm"
         media="(max-width: 768px)"
       />
       <Navbar />
