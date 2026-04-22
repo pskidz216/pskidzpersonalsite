@@ -31,12 +31,12 @@ export function StickySectionTitle({
   const scale = useTransform(
     scrollYProgress,
     [0, 1],
-    [1, reduced ? 1 : 0.78]
+    [1, reduced ? 1 : 0.92]
   );
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.6, 1],
-    [1, reduced ? 1 : 0.4, reduced ? 1 : 0.15]
+    [0, 0.85, 1],
+    [1, reduced ? 1 : 1, reduced ? 1 : 0.85]
   );
 
   const titleColor =
