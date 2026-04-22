@@ -109,19 +109,19 @@ function CardContent({
     >
       <motion.span
         variants={fadeUp}
-        className="text-[13px] font-body font-medium uppercase tracking-[0.08em] text-text-muted"
+        className="text-[14px] md:text-[15px] font-body font-medium uppercase tracking-[0.08em] text-text-muted"
       >
         {entry.dateRange}
       </motion.span>
 
       <h3
-        className="font-heading font-bold text-text-primary mt-2"
-        style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.5rem)" }}
+        className="font-heading font-bold text-text-primary mt-2 leading-tight"
+        style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}
       >
         {entry.company}
       </h3>
 
-      <p className="font-body text-text-secondary text-sm mt-0.5">
+      <p className="font-body text-text-secondary text-base md:text-lg mt-1">
         {entry.role}
       </p>
 
@@ -129,7 +129,7 @@ function CardContent({
       <motion.span
         animate={{ rotate: expanded ? 180 : 0 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`inline-block text-accent-coral text-xs mt-2 select-none ${side === "left" ? "mr-0" : "ml-0"}`}
+        className={`inline-block text-accent-coral text-sm mt-3 select-none ${side === "left" ? "mr-0" : "ml-0"}`}
       >
         {expanded ? "▲" : "▼"}
       </motion.span>
@@ -144,7 +144,7 @@ function CardContent({
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="font-body text-text-secondary text-[15px] leading-relaxed mt-3">
+            <p className="font-body text-text-secondary text-base md:text-[17px] leading-relaxed mt-3">
               {entry.description}
             </p>
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
 import { certifications, type Certification } from "@/lib/data";
 
 /* ─── Issuer Icons ─── */
@@ -71,21 +71,27 @@ function ChevronIcon({ className, open }: { className?: string; open: boolean })
   );
 }
 
-function getIssuerIcon(issuer: string) {
+function IssuerIcon({
+  issuer,
+  className,
+}: {
+  issuer: string;
+  className?: string;
+}) {
   switch (issuer) {
     case "Anthropic":
-      return AnthropicIcon;
+      return <AnthropicIcon className={className} />;
     case "Google":
-      return GoogleIcon;
+      return <GoogleIcon className={className} />;
     case "General Assembly":
-      return GAIcon;
+      return <GAIcon className={className} />;
     case "NSCA":
-      return ShieldIcon;
+      return <ShieldIcon className={className} />;
     case "Poliquin Group":
     case "CHEK Institute":
-      return WellnessIcon;
+      return <WellnessIcon className={className} />;
     default:
-      return GoogleIcon;
+      return <GoogleIcon className={className} />;
   }
 }
 
@@ -108,7 +114,6 @@ function getIssuerColor(issuer: string) {
 }
 
 function CertItem({ cert, index }: { cert: Certification; index: number }) {
-  const Icon = getIssuerIcon(cert.issuer);
   const color = getIssuerColor(cert.issuer);
 
   return (
@@ -120,7 +125,7 @@ function CertItem({ cert, index }: { cert: Certification; index: number }) {
       className="flex items-center gap-3 py-2.5"
     >
       <div className={`shrink-0 w-5 h-5 ${color}`}>
-        <Icon className="w-5 h-5" />
+        <IssuerIcon issuer={cert.issuer} className="w-5 h-5" />
       </div>
       <div className="min-w-0">
         <p className="font-body text-text-primary text-[13px] leading-snug">
@@ -201,27 +206,27 @@ export function Certifications() {
   ];
 
   return (
-    <section id="certifications" className="py-16 md:py-24 px-6 md:px-12 lg:px-20">
+    <section id="certifications" className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHeading>Certifications</SectionHeading>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-4xl"
-        >
-          {groups.map((group) => (
-            <CertGroup
-              key={group.label}
-              label={group.label}
-              count={group.certs.length}
-              certs={group.certs}
-              defaultOpen={group.defaultOpen}
-            />
-          ))}
-        </motion.div>
+        <SectionWithStickyTitle title="Certs">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
+          >
+            {groups.map((group) => (
+              <CertGroup
+                key={group.label}
+                label={group.label}
+                count={group.certs.length}
+                certs={group.certs}
+                defaultOpen={group.defaultOpen}
+              />
+            ))}
+          </motion.div>
+        </SectionWithStickyTitle>
       </div>
     </section>
   );

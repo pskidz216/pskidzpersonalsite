@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
+import { usePrefersReducedMotion } from "@/lib/useParallax";
 
 function parseMetric(value: string) {
   const prefix = value.match(/^[^0-9]*/)?.[0] || "";
@@ -21,19 +22,12 @@ export function TimelineMetric({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
-  const [display, setDisplay] = useState("0");
+  const prefersReduced = usePrefersReducedMotion();
+  const [animated, setAnimated] = useState("0");
   const { prefix, suffix, num, hasDecimal } = parseMetric(value);
 
   useEffect(() => {
-    if (!isInView) return;
-
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReduced) {
-      setDisplay(value);
-      return;
-    }
+    if (!isInView || prefersReduced) return;
 
     const duration = 800;
     const start = performance.now();
@@ -45,25 +39,31 @@ export function TimelineMetric({
       const current = eased * num;
 
       if (hasDecimal) {
-        setDisplay(`${prefix}${current.toFixed(1)}${suffix}`);
+        setAnimated(`${prefix}${current.toFixed(1)}${suffix}`);
       } else {
-        setDisplay(`${prefix}${Math.round(current)}${suffix}`);
+        setAnimated(`${prefix}${Math.round(current)}${suffix}`);
       }
 
       if (progress < 1) {
         requestAnimationFrame(tick);
       } else {
-        setDisplay(value);
+        setAnimated(value);
       }
     }
 
     requestAnimationFrame(tick);
-  }, [isInView, value, prefix, suffix, num, hasDecimal]);
+  }, [isInView, prefersReduced, value, prefix, suffix, num, hasDecimal]);
+
+  const display = !isInView
+    ? `${prefix}0${suffix}`
+    : prefersReduced
+      ? value
+      : animated;
 
   return (
     <div ref={ref} className="mt-4">
       <span className="font-mono text-accent-coral font-bold" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}>
-        {isInView ? display : `${prefix}0${suffix}`}
+        {display}
       </span>
       <p className="font-body text-[13px] text-text-muted mt-0.5">{label}</p>
     </div>

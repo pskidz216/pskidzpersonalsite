@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
 
 /* ─── Icons ─── */
 
@@ -40,15 +40,6 @@ function WavesIcon({ className }: { className?: string }) {
       <path d="M2 6c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
       <path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
       <path d="M2 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
-    </svg>
-  );
-}
-
-function LinkIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
-      <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
     </svg>
   );
 }
@@ -147,15 +138,19 @@ export function OffTheClock() {
   return (
     <section id="offclock" className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHeading>Off the Clock</SectionHeading>
-
+        <SectionWithStickyTitle
+          title={
+            <>
+              Off the <span className="text-accent-coral">Clock</span>
+            </>
+          }
+        >
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           onViewportEnter={() => setIsInView(true)}
-          className="mt-8 md:mt-12"
         >
           {/* Static intro */}
           <motion.p
@@ -242,6 +237,7 @@ export function OffTheClock() {
             })}
           </motion.div>
         </motion.div>
+        </SectionWithStickyTitle>
       </div>
     </section>
   );

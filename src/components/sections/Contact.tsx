@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
+import { StickySectionTitle } from "@/components/ui/StickySectionTitle";
 
 function GridPattern() {
   return (
@@ -37,21 +38,18 @@ export function Contact() {
     >
       <GridPattern />
       <div className="relative max-w-7xl mx-auto">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="max-w-2xl"
-        >
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading font-bold text-text-inverse leading-tight"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,22rem)_1fr] gap-10 md:gap-16">
+          <StickySectionTitle tone="inverse">
+            Let&apos;s Build{" "}
+            <span className="text-accent-coral">Something</span>
+          </StickySectionTitle>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="max-w-2xl"
           >
-            Let&apos;s Build Something
-          </motion.h2>
-
           <motion.p
             variants={fadeUp}
             className="font-body text-text-inverse/70 text-base md:text-lg leading-relaxed mt-6"
@@ -89,7 +87,8 @@ export function Contact() {
               Email
             </a>
           </motion.div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

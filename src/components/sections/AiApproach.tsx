@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
 import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 
 const approaches = [
@@ -39,48 +39,54 @@ export function AiApproach() {
     >
       <ParallaxLayer sectionRef={sectionRef} variant="teal" intensity="subtle" />
       <div className="relative max-w-7xl mx-auto">
-        <SectionHeading>How I Use AI</SectionHeading>
-
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-12 md:mb-16"
+        <SectionWithStickyTitle
+          title={
+            <>
+              How I Use <span className="text-accent-coral">AI</span>
+            </>
+          }
         >
-          AI is my force multiplier, but it&apos;ll never replace the handshake,
-          the read on a room, or the trust built over a long lunch. I use AI to
-          handle the noise so I can focus on what actually closes deals: real
-          human connection.
-        </motion.p>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-12 md:mb-16"
+          >
+            AI is my force multiplier, but it&apos;ll never replace the handshake,
+            the read on a room, or the trust built over a long lunch. I use AI to
+            handle the noise so I can focus on what actually closes deals: real
+            human connection.
+          </motion.p>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12"
-        >
-          {approaches.map((item) => (
-            <motion.div
-              key={item.title}
-              variants={fadeUp}
-              className="group"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-2 h-2 rounded-full bg-accent-coral mt-2.5 flex-shrink-0" />
-                <div>
-                  <h3 className="font-heading font-bold text-text-primary text-lg md:text-xl">
-                    {item.title}
-                  </h3>
-                  <p className="font-body text-text-secondary text-[15px] leading-relaxed mt-2">
-                    {item.description}
-                  </p>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12"
+          >
+            {approaches.map((item) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                className="group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 rounded-full bg-accent-coral mt-2.5 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-heading font-bold text-text-primary text-lg md:text-xl">
+                      {item.title}
+                    </h3>
+                    <p className="font-body text-text-secondary text-[15px] leading-relaxed mt-2">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </SectionWithStickyTitle>
       </div>
     </section>
   );

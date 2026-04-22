@@ -178,7 +178,7 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
-  { label: "Certs", href: "#certifications" },
+  { label: "Certifications", href: "#certifications" },
   { label: "AI", href: "#ai" },
   { label: "2.16 OS", href: "#flagship" },
   { label: "Builds", href: "#built" },

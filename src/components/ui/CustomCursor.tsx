@@ -1,10 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+function subscribeToFinePointer(callback: () => void) {
+  const mql = window.matchMedia("(pointer: fine)");
+  mql.addEventListener("change", callback);
+  return () => mql.removeEventListener("change", callback);
+}
+
+function getFinePointerSnapshot() {
+  return window.matchMedia("(pointer: fine)").matches;
+}
+
+function getFinePointerServerSnapshot() {
+  return false;
+}
+
 export function CustomCursor() {
-  const [mounted, setMounted] = useState(false);
+  const hasFinePointer = useSyncExternalStore(
+    subscribeToFinePointer,
+    getFinePointerSnapshot,
+    getFinePointerServerSnapshot
+  );
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
@@ -14,10 +32,8 @@ export function CustomCursor() {
   const ringY = useSpring(mouseY, { stiffness: 150, damping: 20 });
 
   useEffect(() => {
-    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!hasFinePointer) return;
 
-    setMounted(true);
     document.documentElement.style.cursor = "none";
 
     function onMouseMove(e: MouseEvent) {
@@ -30,9 +46,9 @@ export function CustomCursor() {
       window.removeEventListener("mousemove", onMouseMove);
       document.documentElement.style.cursor = "";
     };
-  }, [mouseX, mouseY]);
+  }, [hasFinePointer, mouseX, mouseY]);
 
-  if (!mounted) return null;
+  if (!hasFinePointer) return null;
 
   return (
     <>

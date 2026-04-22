@@ -9,7 +9,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { fadeUp, scaleIn, staggerContainer, viewportOnce } from "@/lib/animations";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
 
 const stats = [
   { value: "23", label: "Skills", color: "bg-accent-coral" },
@@ -138,11 +138,17 @@ export function FlagshipProject() {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        <SectionHeading>Flagship Build</SectionHeading>
-
+        <SectionWithStickyTitle
+          eyebrow="Flagship Build"
+          title={
+            <>
+              2.16 <span className="text-accent-coral">OS</span>
+            </>
+          }
+        >
         {/* Hero area */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start mb-20 md:mb-28">
-          {/* Left — Title + description (3 cols) */}
+          {/* Left — description (3 cols) */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -150,20 +156,11 @@ export function FlagshipProject() {
             viewport={viewportOnce}
             className="lg:col-span-3"
           >
-            <motion.div variants={fadeUp} className="mb-3">
+            <motion.div variants={fadeUp} className="mb-6">
               <span className="inline-block font-mono text-xs md:text-sm text-accent-teal tracking-wider uppercase font-medium">
                 Claude Code Plugin
               </span>
             </motion.div>
-
-            <motion.h3
-              variants={fadeUp}
-              className="font-heading font-black text-text-primary leading-[0.95] tracking-tight mb-6"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
-            >
-              2.16{" "}
-              <span className="text-accent-coral">OS</span>
-            </motion.h3>
 
             <motion.p
               variants={fadeUp}
@@ -314,6 +311,7 @@ export function FlagshipProject() {
             </motion.div>
           ))}
         </motion.div>
+        </SectionWithStickyTitle>
       </div>
     </section>
   );

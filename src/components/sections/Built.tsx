@@ -8,7 +8,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
 import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 import { projects, type Project } from "@/lib/data";
 
@@ -99,30 +99,36 @@ export function Built() {
     >
       <ParallaxLayer sectionRef={sectionRef} variant="coral" intensity="subtle" />
       <div className="relative max-w-7xl mx-auto">
-        <SectionHeading>What I&apos;ve Built</SectionHeading>
-
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-12 md:mb-16"
+        <SectionWithStickyTitle
+          title={
+            <>
+              What I&apos;ve <span className="text-accent-coral">Built</span>
+            </>
+          }
         >
-          Apps, dashboards, and AI tools I&apos;ve shipped using Claude Code.
-          From internal platforms to client-facing products.
-        </motion.p>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-12 md:mb-16"
+          >
+            Apps, dashboards, and AI tools I&apos;ve shipped using Claude Code.
+            From internal platforms to client-facing products.
+          </motion.p>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
-        >
-          {projects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
-          ))}
-        </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10"
+          >
+            {projects.map((project) => (
+              <ProjectCard key={project.name} project={project} />
+            ))}
+          </motion.div>
+        </SectionWithStickyTitle>
       </div>
     </section>
   );

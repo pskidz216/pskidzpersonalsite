@@ -15,7 +15,10 @@ export function Connector() {
   const rightX = useTransform(scrollYProgress, [0.1, 0.5], [240, 170]);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 px-6 md:px-12 lg:px-20">
+    <section
+      ref={sectionRef}
+      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20"
+    >
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -31,9 +34,10 @@ export function Connector() {
         <motion.h2
           variants={fadeUp}
           className="font-heading font-bold text-text-primary leading-tight"
-          style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.5rem)" }}
+          style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
         >
-          I connect people who should know each other.
+          I <span className="text-accent-coral">connect</span> people who
+          should know each other.
         </motion.h2>
 
         <motion.p

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { fadeUp, viewportOnce } from "@/lib/animations";
 import { TimelineNode } from "@/components/timeline/TimelineNode";
 import { careerEntries } from "@/lib/data";
 
@@ -18,10 +18,19 @@ export function Timeline() {
     <section
       id="experience"
       ref={sectionRef}
-      className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary"
+      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary"
     >
       <div className="max-w-7xl mx-auto">
-        <SectionHeading>The Journey</SectionHeading>
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="font-heading font-black text-text-primary leading-[0.95] tracking-tight mb-14 md:mb-20"
+          style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+        >
+          The <span className="text-accent-coral">Journey</span>
+        </motion.h2>
 
         <div className="relative">
           {/* Timeline track */}

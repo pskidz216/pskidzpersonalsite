@@ -7,7 +7,7 @@ import {
   useSpring,
 } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
 import { skillBlocks, type SkillBlock } from "@/lib/data";
 
 function TiltCard({ skill }: { skill: SkillBlock }) {
@@ -64,19 +64,25 @@ export function Skills() {
   return (
     <section id="skills" className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHeading>What I Do</SectionHeading>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+        <SectionWithStickyTitle
+          title={
+            <>
+              What I <span className="text-accent-coral">Do</span>
+            </>
+          }
         >
-          {skillBlocks.map((skill) => (
-            <TiltCard key={skill.title} skill={skill} />
-          ))}
-        </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10"
+          >
+            {skillBlocks.map((skill) => (
+              <TiltCard key={skill.title} skill={skill} />
+            ))}
+          </motion.div>
+        </SectionWithStickyTitle>
       </div>
     </section>
   );

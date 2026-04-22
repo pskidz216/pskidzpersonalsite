@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
+import { useParallax } from "@/lib/useParallax";
 
 const nameWords = ["Paul", "Skidmore"];
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -21,9 +22,12 @@ export function Hero() {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  // 3-layer depth: background slowest (via ParallaxLayer), image medium, text fastest
+  const textY = useParallax(scrollYProgress, -380);
+  const imageY = useParallax(scrollYProgress, -200);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const imageRotate = useTransform(scrollYProgress, [0, 1], [0, 20]);
+  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   // Magnetic headshot
   const magnetX = useMotionValue(0);
@@ -58,18 +62,40 @@ export function Hero() {
         >
           <h1
             className="font-heading font-black text-text-primary leading-[0.95] tracking-tight mb-6"
-            style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
+            style={{ fontSize: "clamp(3.5rem, 10vw, 8.5rem)" }}
           >
-            {nameWords.map((word, i) => (
-              <motion.span
+            {nameWords.map((word, wi) => (
+              <span
                 key={word}
-                initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ delay: i * 0.18, duration: 0.8, ease }}
-                className="inline-block mr-[0.25em]"
+                className="inline-block overflow-hidden pb-[0.08em] mr-[0.25em] align-bottom"
               >
-                {word}
-              </motion.span>
+                <motion.span
+                  initial={{ y: "110%", rotate: 8 }}
+                  animate={{ y: "0%", rotate: 0 }}
+                  transition={{
+                    delay: 0.1 + wi * 0.14,
+                    duration: 1,
+                    ease,
+                  }}
+                  className="inline-block"
+                >
+                  {word.split("").map((char, ci) => (
+                    <motion.span
+                      key={`${word}-${ci}`}
+                      initial={{ filter: "blur(20px)", opacity: 0 }}
+                      animate={{ filter: "blur(0px)", opacity: 1 }}
+                      transition={{
+                        delay: 0.1 + wi * 0.14 + ci * 0.04,
+                        duration: 0.6,
+                        ease,
+                      }}
+                      className="inline-block"
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </motion.span>
+              </span>
             ))}
           </h1>
 
@@ -103,7 +129,7 @@ export function Hero() {
           onMouseLeave={handleMouseLeave}
         >
           <motion.div
-            style={{ y: springY, scale: imageScale }}
+            style={{ y: springY, scale: imageScale, rotate: imageRotate }}
             className="w-56 h-56 md:w-72 md:h-72 lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
           >
             <Image
@@ -118,7 +144,9 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <ScrollIndicator />
+      <motion.div style={{ opacity: scrollIndicatorOpacity }}>
+        <ScrollIndicator />
+      </motion.div>
     </section>
   );
 }

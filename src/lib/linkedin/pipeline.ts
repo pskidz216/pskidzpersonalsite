@@ -1,6 +1,5 @@
 import type {
   LinkedInSnapshotData,
-  DetectedChange,
   PipelineResult,
 } from "@/types/linkedin";
 import { fetchLinkedInProfile } from "./fetcher";

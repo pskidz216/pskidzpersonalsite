@@ -33,7 +33,7 @@ export function buildNotificationPayload(
   );
 
   return {
-    title: `LinkedIn Sync: ${changes.length} change${changes.length !== 1 ? "s" : ""} need review`,
+    title: `LinkedIn Sync: ${changes.length} change${changes.length === 1 ? " needs" : "s need"} review`,
     summary:
       summaryParts.length > 0 ? summaryParts.join(", ") : "No changes detected",
     changes: changeDetails,
