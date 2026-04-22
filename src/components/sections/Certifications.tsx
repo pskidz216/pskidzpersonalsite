@@ -199,7 +199,7 @@ export function Certifications() {
   );
 
   const groups = [
-    { label: "AI & Engineering", certs: aiCerts, defaultOpen: true },
+    { label: "AI & Engineering", certs: aiCerts, defaultOpen: false },
     { label: "Digital Marketing", certs: marketingCerts, defaultOpen: false },
     { label: "Business Development", certs: bizDevCerts, defaultOpen: false },
     { label: "Health", certs: healthCerts, defaultOpen: false },
