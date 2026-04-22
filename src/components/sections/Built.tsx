@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 import { projects, type Project } from "@/lib/data";
 
 /* ─── Project Card ─── */
@@ -89,12 +90,15 @@ function ProjectCard({ project }: { project: Project }) {
 /* ─── Main Section ─── */
 
 export function Built() {
+  const sectionRef = useRef<HTMLElement>(null);
   return (
     <section
+      ref={sectionRef}
       id="built"
-      className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary"
+      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      <ParallaxLayer sectionRef={sectionRef} variant="coral" intensity="subtle" />
+      <div className="relative max-w-7xl mx-auto">
         <SectionHeading>What I&apos;ve Built</SectionHeading>
 
         <motion.p

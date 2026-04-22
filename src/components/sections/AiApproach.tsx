@@ -1,14 +1,16 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 
 const approaches = [
   {
     title: "Prospecting & Research",
     description:
-      "AI pipelines that monitor CRM deals, scrape prospect websites, discover key executives, and deliver fully-briefed intelligence reports automatically, around the clock.",
+      "AI pipelines powered by Claude and Grok that monitor CRM deals, scrape prospect websites, discover key executives, and deliver fully-briefed intelligence reports automatically, around the clock.",
   },
   {
     title: "Outreach & Personalization",
@@ -28,12 +30,15 @@ const approaches = [
 ];
 
 export function AiApproach() {
+  const sectionRef = useRef<HTMLElement>(null);
   return (
     <section
+      ref={sectionRef}
       id="ai"
-      className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary"
+      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      <ParallaxLayer sectionRef={sectionRef} variant="teal" intensity="subtle" />
+      <div className="relative max-w-7xl mx-auto">
         <SectionHeading>How I Use AI</SectionHeading>
 
         <motion.p

@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
+import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 
 const nameWords = ["Paul", "Skidmore"];
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -21,7 +22,8 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
   const textY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   // Magnetic headshot
   const magnetX = useMotionValue(0);
@@ -47,7 +49,8 @@ export function Hero() {
       ref={sectionRef}
       className="relative min-h-svh flex items-center justify-center px-6 md:px-12 lg:px-20 overflow-hidden"
     >
-      <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-20 py-24">
+      <ParallaxLayer sectionRef={sectionRef} variant="coral" intensity="subtle" />
+      <div className="relative max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-20 py-24">
         {/* Text */}
         <motion.div
           style={{ y: textY }}
@@ -100,7 +103,7 @@ export function Hero() {
           onMouseLeave={handleMouseLeave}
         >
           <motion.div
-            style={{ y: springY }}
+            style={{ y: springY, scale: imageScale }}
             className="w-56 h-56 md:w-72 md:h-72 lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
           >
             <Image
