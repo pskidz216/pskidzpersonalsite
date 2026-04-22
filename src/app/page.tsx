@@ -11,7 +11,6 @@ import { FlagshipProject } from "@/components/sections/FlagshipProject";
 import { Built } from "@/components/sections/Built";
 import { OffTheClock } from "@/components/sections/OffTheClock";
 import { Contact } from "@/components/sections/Contact";
-import { Marquee } from "@/components/ui/Marquee";
 
 export default function Home() {
   return (
@@ -21,25 +20,11 @@ export default function Home() {
         <Hero />
         <About />
         <Connector />
-        <Marquee
-          words={[
-            "AI INNOVATOR",
-            "HUMAN CONNECTOR",
-            "GROWTH STRATEGIST",
-            "BUILDER",
-          ]}
-        />
         <Timeline />
         <Skills />
         <Certifications />
         <AiApproach />
         <FlagshipProject />
-        <Marquee
-          words={["BUILT WITH CLAUDE", "SHIPPED FAST", "AI-POWERED", "2.16 OS"]}
-          baseDuration={32}
-          reverse
-          tone="coral"
-        />
         <Built />
         <OffTheClock />
         <Contact />
