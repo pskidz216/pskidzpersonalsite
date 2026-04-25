@@ -133,14 +133,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "BoldX Hub",
-    tag: "Interactive Portal",
-    description:
-      "Portfolio company dashboard with interactive D3 radial charts, real-time deal pipeline tracking, and glassmorphic UI. Built for managing investments across the BoldX portfolio.",
-    tech: "React, D3.js, Supabase, Framer Motion",
-    image: "/projects/boldx-hub.png",
-  },
-  {
     name: "BoldX Portal",
     tag: "SDR App",
     description:
@@ -149,12 +141,12 @@ export const projects: Project[] = [
     image: "/projects/boldx-portal.png",
   },
   {
-    name: "BXE Intake",
-    tag: "Capital Intake",
+    name: "Human OS",
+    tag: "Wellness Platform",
     description:
-      "10-step capital raise application wizard with file uploads, validation, and an admin review dashboard. Takes a company from first touch to fully submitted deal package.",
-    tech: "React, React Router, Supabase",
-    image: "/projects/bxe-intake.png",
+      "Personalized wellness operating system featuring Ziggy, an AI chat agent that guides users through supplement protocols, quiz-driven recommendations, and daily routines. Conversational, context-aware, and built to feel like a coach in your pocket.",
+    tech: "Next.js, Supabase, Anthropic SDK, Tailwind",
+    image: "/projects/human-os.png",
   },
   {
     name: "American Labor Ladders",
