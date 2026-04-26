@@ -1,32 +1,19 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeUp, viewportOnce } from "@/lib/animations";
 
 export function Connector() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const leftX = useTransform(scrollYProgress, [0.1, 0.5], [60, 130]);
-  const rightX = useTransform(scrollYProgress, [0.1, 0.5], [240, 170]);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20"
-    >
+    <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
         className="max-w-3xl mx-auto text-center"
       >
-        <motion.div variants={fadeUp} className="inline-block mb-4">
-          <span className="text-[13px] font-body font-medium uppercase tracking-[0.12em] text-accent-coral">
+        <motion.div variants={fadeUp} className="inline-block mb-5">
+          <span className="text-sm md:text-base font-body font-bold uppercase tracking-[0.22em] text-accent-coral">
             Superpower
           </span>
         </motion.div>
@@ -49,67 +36,36 @@ export function Connector() {
           build alone. It&apos;s not networking. It&apos;s pattern matching with people.
         </motion.p>
 
-        {/* Two-circle overlap */}
-        <motion.div variants={fadeUp} className="mt-8 flex justify-center">
-          <svg
-            width="300"
-            height="120"
-            viewBox="0 0 300 120"
-            className="overflow-visible"
-          >
-            <defs>
-              <clipPath id="circle-left-clip">
-                <motion.circle cx={leftX} cy="60" r="45" />
-              </clipPath>
-              <clipPath id="circle-right-clip">
-                <motion.circle cx={rightX} cy="60" r="45" />
-              </clipPath>
-            </defs>
-
-            {/* Left circle */}
-            <motion.circle
-              cx={leftX}
-              cy="60"
-              r="45"
-              fill="none"
-              stroke="var(--color-accent-coral)"
-              strokeWidth="1.5"
-              opacity="0.6"
+        <motion.div
+          variants={fadeUp}
+          className="mt-12 md:mt-16 flex justify-center"
+        >
+          <div className="relative w-full max-w-2xl group">
+            <div
+              aria-hidden
+              className="absolute -inset-8 rounded-[2.5rem] opacity-60 blur-3xl transition-opacity duration-700 group-hover:opacity-90 motion-safe:animate-[pulse_6s_ease-in-out_infinite]"
+              style={{
+                background:
+                  "radial-gradient(55% 55% at 28% 50%, rgba(232,115,90,0.40), transparent 65%), radial-gradient(55% 55% at 72% 50%, rgba(45,155,155,0.40), transparent 65%)",
+              }}
             />
-
-            {/* Right circle */}
-            <motion.circle
-              cx={rightX}
-              cy="60"
-              r="45"
-              fill="none"
-              stroke="var(--color-accent-teal)"
-              strokeWidth="1.5"
-              opacity="0.6"
-            />
-
-            {/* Overlap fill — left circle clipped by right */}
-            <g clipPath="url(#circle-right-clip)">
-              <motion.circle
-                cx={leftX}
-                cy="60"
-                r="45"
-                fill="var(--color-accent-coral)"
-                opacity="0.12"
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.30)] transition-transform duration-700 group-hover:-translate-y-1">
+              <video
+                src="/videos/connector.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Two worlds meeting in the middle"
+                className="block w-full h-auto"
               />
-            </g>
-
-            {/* Overlap fill — right circle clipped by left */}
-            <g clipPath="url(#circle-left-clip)">
-              <motion.circle
-                cx={rightX}
-                cy="60"
-                r="45"
-                fill="var(--color-accent-teal)"
-                opacity="0.12"
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"
               />
-            </g>
-          </svg>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </section>
