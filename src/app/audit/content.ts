@@ -46,8 +46,6 @@ export const auditContent = {
     freeCallSubtitle: "Always free",
     scopeNote:
       "Pricing is per engagement. Every business runs different — what I'd do for a 5-person operator isn't the work I'd do for a 50-person team. We size it together on the call.",
-    creditPrefix: "If we agree there's work worth doing after, your audit fee credits ",
-    creditSuffix: " toward the build.",
   },
   domain: "paulskidmoreii.com / audit",
 } as const;

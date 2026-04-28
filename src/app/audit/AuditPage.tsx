@@ -215,29 +215,9 @@ export function AuditPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.7, ease }}
-              className="font-body text-text-primary text-lg md:text-xl leading-relaxed mb-6 max-w-2xl"
+              className="font-body text-text-primary text-lg md:text-xl leading-relaxed max-w-2xl"
             >
               {c.pricing.scopeNote}
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.7, delay: 0.15, ease }}
-              className="font-body text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl"
-            >
-              {c.pricing.creditPrefix}
-              <span className="relative inline-block text-text-primary font-medium">
-                <Counter
-                  target={100}
-                  suffix="%"
-                  duration={0.9}
-                  className="text-text-primary"
-                />
-                <SketchUnderline delay={1.2} />
-              </span>
-              {c.pricing.creditSuffix}
             </motion.p>
 
             <motion.div
