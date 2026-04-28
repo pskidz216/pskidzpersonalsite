@@ -6,6 +6,7 @@ import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://paulskidmoreii.com"),
   title: "Paul Skidmore | AI Innovator · Human Connector · Growth Strategist",
   description:
     "AI Innovator · Human Connector · Growth Strategist. Based in Miami, FL.",
