@@ -1,5 +1,11 @@
 [
   {
+    "name": "AI Capabilities and Limitations",
+    "issuer": "Anthropic",
+    "date": "May 2026",
+    "credentialId": "p49f4mb7omho"
+  },
+  {
     "name": "Certificate of completion: Claude Code 101",
     "issuer": "Anthropic",
     "date": "Apr 2026",
