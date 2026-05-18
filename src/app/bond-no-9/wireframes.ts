@@ -62,7 +62,7 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         tagline: "Asymmetric magazine-spread tile mosaic.",
         description:
           "One large hero tile, four supporting tiles arranged asymmetrically around it. Editorial intro band above the grid. Hover reveals scent count + featured fragrance. Pairs with Homepage B (Two Doors). Ships fastest.",
-        htmlPath: "/bond-no-9/wireframes/neighborhoods-page.html#option-a",
+        htmlPath: "/bond-no-9/wireframes/neighborhoods-mosaic.html",
       },
       {
         slug: "neighborhoods-map",
@@ -71,7 +71,7 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         tagline: "Stylized NYC map with five labeled hotspots.",
         description:
           "Geography-as-fragrance made literal. Click a pin, a side panel reveals the neighborhood's image, tagline, featured fragrance, and CTAs. Pairs with Homepage C (Hybrid). Highest brand differentiation.",
-        htmlPath: "/bond-no-9/wireframes/neighborhoods-page.html#option-b",
+        htmlPath: "/bond-no-9/wireframes/neighborhoods-map.html",
       },
       {
         slug: "neighborhoods-stories",
@@ -80,7 +80,7 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         tagline: "Five alternating long-form spreads, one per neighborhood.",
         description:
           "Each neighborhood becomes a chapter: 60% parallax imagery, 40% editorial pane (eyebrow, name, tagline, ~50-word story, featured fragrance card, CTA). Alternates left/right. Pairs with Homepage A (Editorial Front).",
-        htmlPath: "/bond-no-9/wireframes/neighborhoods-page.html#option-c",
+        htmlPath: "/bond-no-9/wireframes/neighborhoods-stories.html",
       },
     ],
   },
@@ -97,7 +97,7 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         tagline: "The neighborhood as a magazine cover story.",
         description:
           "Cinematic hero, perfumer pull-quote, two-column editorial (story + metadata), 'The Curated Three' picks, full 8-fragrance grid, discovery-set CTA, next-neighborhood handoff. Most editorial. Pairs with Homepage A.",
-        htmlPath: "/bond-no-9/wireframes/neighborhood-detail.html#option-a",
+        htmlPath: "/bond-no-9/wireframes/detail-editorial-spread.html",
       },
       {
         slug: "detail-filterable",
@@ -106,7 +106,7 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         tagline: "Curated catalog with filters and side-by-side compare.",
         description:
           "Compressed hero, filter chip row (family · notes · intensity · occasion), 8-fragrance grid with Add + Try Sample buttons, sticky compare bar, gold discovery-set CTA, neighborhood pill row. Pairs with Homepage B. Highest conversion velocity.",
-        htmlPath: "/bond-no-9/wireframes/neighborhood-detail.html#option-b",
+        htmlPath: "/bond-no-9/wireframes/detail-filterable.html",
       },
       {
         slug: "detail-guided",
@@ -115,7 +115,7 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         tagline: "Find your fragrance in 30 seconds — embedded mini-quiz.",
         description:
           "Split hero with a 3-step mini-quiz on the right. After 3 taps, the page reveals 'Your three matches' with match percentages, then the full grid for browsers. Quiz feeds Attentive segmentation. Pairs with Homepage C — the recommended pick.",
-        htmlPath: "/bond-no-9/wireframes/neighborhood-detail.html#option-c",
+        htmlPath: "/bond-no-9/wireframes/detail-guided.html",
       },
     ],
   },
