@@ -232,6 +232,35 @@
   margin-top: 64px;
 }
 
+.bond-group-heading {
+  font-family: var(--bond-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--bond-black);
+  font-variation-settings: "opsz" 144;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bond-group-heading-spaced {
+  margin-top: 56px;
+}
+
+.bond-group-subtitle {
+  font-family: var(--bond-sans);
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--bond-charcoal-muted);
+  line-height: 1.45;
+}
+
 .bond-index-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

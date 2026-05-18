@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { hasAccess } from "../../auth";
-import { getWireframeBySlug, WIREFRAMES } from "../../wireframes";
+import { WIREFRAME_GROUPS } from "../../wireframes";
 
 export const dynamic = "force-dynamic";
 
@@ -15,19 +15,23 @@ export default async function WireframeViewer({ params }: PageProps) {
   }
 
   const { variant } = await params;
-  const wireframe = getWireframeBySlug(variant);
-  if (!wireframe) notFound();
 
-  const currentIndex = WIREFRAMES.findIndex((w) => w.slug === wireframe.slug);
-  const prev = WIREFRAMES[(currentIndex - 1 + WIREFRAMES.length) % WIREFRAMES.length];
-  const next = WIREFRAMES[(currentIndex + 1) % WIREFRAMES.length];
+  const group = WIREFRAME_GROUPS.find((g) =>
+    g.variants.some((v) => v.slug === variant)
+  );
+  const wireframe = group?.variants.find((v) => v.slug === variant);
+  if (!group || !wireframe) notFound();
+
+  const idx = group.variants.findIndex((v) => v.slug === wireframe.slug);
+  const prev = group.variants[(idx - 1 + group.variants.length) % group.variants.length];
+  const next = group.variants[(idx + 1) % group.variants.length];
 
   return (
     <main>
       <nav className="bond-viewer-bar" aria-label="Wireframe viewer">
         <Link href="/bond-no-9/wireframes">← All options</Link>
         <div className="bond-viewer-title">
-          Option {wireframe.letter} · {wireframe.title}
+          {group.groupTitle} · Option {wireframe.letter} · {wireframe.title}
         </div>
         <div className="bond-viewer-nav">
           <Link href={`/bond-no-9/wireframes/${prev.slug}`}>
@@ -40,7 +44,7 @@ export default async function WireframeViewer({ params }: PageProps) {
       </nav>
 
       <iframe
-        title={`Bond No. 9 wireframe — Option ${wireframe.letter} ${wireframe.title}`}
+        title={`Bond No. 9 — ${group.groupTitle} Option ${wireframe.letter} ${wireframe.title}`}
         src={wireframe.htmlPath}
         className="bond-viewer-frame"
         loading="eager"

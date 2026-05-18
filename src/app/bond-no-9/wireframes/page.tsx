@@ -2,7 +2,11 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { hasAccess } from "../auth";
 import { logoutAction } from "../actions";
-import { BRAND_COMPARISONS, POPUPS, WIREFRAMES } from "../wireframes";
+import {
+  BRAND_COMPARISONS,
+  POPUPS,
+  WIREFRAME_GROUPS,
+} from "../wireframes";
 
 export const dynamic = "force-dynamic";
 
@@ -17,11 +21,12 @@ export default async function WireframesIndex() {
         <div>
           <span className="bond-eyebrow">Private Review · Bond No. 9</span>
           <h1 className="bond-h1" style={{ marginTop: 18 }}>
-            <em>Homepage</em> directions
+            <em>Bond No. 9</em> private review
           </h1>
           <p className="bond-lede" style={{ marginTop: 14 }}>
-            Three ways into the same neighborhood. Open each, sit with it, then
-            tell me which door feels like Bond.
+            Homepage, neighborhoods page, neighborhood detail page — each with
+            three options. Pop-ups and brand comparison follow. Open anything,
+            sit with it, then tell me which door feels like Bond.
           </p>
         </div>
         <form action={logoutAction}>
@@ -32,22 +37,37 @@ export default async function WireframesIndex() {
       </header>
 
       <h2 className="bond-section-label">Wireframes</h2>
-      <section className="bond-index-grid">
-        {WIREFRAMES.map((w) => (
-          <Link
-            key={w.slug}
-            href={`/bond-no-9/wireframes/${w.slug}`}
-            className="bond-card"
-            aria-label={`Open ${w.title} wireframe`}
+
+      {WIREFRAME_GROUPS.map((group, idx) => (
+        <div key={group.groupSlug}>
+          <h3
+            className={
+              idx === 0
+                ? "bond-group-heading"
+                : "bond-group-heading bond-group-heading-spaced"
+            }
           >
-            <span className="bond-card-letter">{w.letter}</span>
-            <h3 className="bond-card-title">{w.title}</h3>
-            <p className="bond-card-tagline">{w.tagline}</p>
-            <p className="bond-card-description">{w.description}</p>
-            <span className="bond-card-cta">Open wireframe →</span>
-          </Link>
-        ))}
-      </section>
+            {group.groupTitle}
+            <span className="bond-group-subtitle">{group.groupSubtitle}</span>
+          </h3>
+          <section className="bond-index-grid">
+            {group.variants.map((w) => (
+              <Link
+                key={w.slug}
+                href={`/bond-no-9/wireframes/${w.slug}`}
+                className="bond-card"
+                aria-label={`Open ${group.groupTitle} — Option ${w.letter} ${w.title}`}
+              >
+                <span className="bond-card-letter">{w.letter}</span>
+                <h4 className="bond-card-title">{w.title}</h4>
+                <p className="bond-card-tagline">{w.tagline}</p>
+                <p className="bond-card-description">{w.description}</p>
+                <span className="bond-card-cta">Open Option {w.letter} →</span>
+              </Link>
+            ))}
+          </section>
+        </div>
+      ))}
 
       <h2 className="bond-section-label bond-section-label-spaced">Pop-ups</h2>
       <section className="bond-index-grid bond-index-grid-single">
@@ -59,7 +79,7 @@ export default async function WireframesIndex() {
             aria-label={`Open ${p.title}`}
           >
             <span className="bond-card-letter">{p.letter}</span>
-            <h3 className="bond-card-title">{p.title}</h3>
+            <h4 className="bond-card-title">{p.title}</h4>
             <p className="bond-card-tagline">{p.tagline}</p>
             <p className="bond-card-description">{p.description}</p>
             <span className="bond-card-cta">Open pop-up doc →</span>
@@ -79,7 +99,7 @@ export default async function WireframesIndex() {
             aria-label={`Open ${b.title}`}
           >
             <span className="bond-card-letter">{b.letter}</span>
-            <h3 className="bond-card-title">{b.title}</h3>
+            <h4 className="bond-card-title">{b.title}</h4>
             <p className="bond-card-tagline">{b.tagline}</p>
             <p className="bond-card-description">{b.description}</p>
             <span className="bond-card-cta">Open comparison →</span>
