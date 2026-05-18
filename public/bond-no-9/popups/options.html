@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bond No. 9 — Popup Options · Three Variants Paired to Homepage A/B/C</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,700;1,9..144,900&family=Karla:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF;--black:#000000;--gold:#C5A55A;--gold-hover:#B8964D;
+  --charcoal:#1F2020;--charcoal-muted:#525353;--smoke:#6B6B6B;--surface:#F6F6F6;
+  --warning:#B43F3F;--success:#3F7A4F;
+  --display:'Fraunces','Recoleta','Playfair Display',Georgia,serif;
+  --sans:'Karla',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--white);color:var(--charcoal);line-height:1.55;font-size:14px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:1280px;margin:0 auto;padding:48px 32px 96px}
+
+/* Logo */
+.bond-logo{display:block;height:auto;flex-shrink:0}
+.logo-sm{width:120px}
+
+/* Header */
+.head{border-top:1px solid var(--black);border-bottom:1px solid var(--gold);padding:36px 0 32px;margin-bottom:48px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
+.eyebrow{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
+h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(36px,4.5vw,52px);line-height:1;letter-spacing:-.01em;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:14px}
+.lede{font-family:var(--display);font-style:italic;font-weight:500;font-size:18px;line-height:1.4;color:var(--charcoal-muted);max-width:780px}
+.head-meta{display:flex;flex-direction:column;align-items:flex-end;gap:14px;font-family:var(--sans);font-size:10px;letter-spacing:.16em;color:var(--smoke);text-transform:uppercase;line-height:1.8}
+.head-meta-stack{text-align:right}
+
+/* Sections */
+section{margin-bottom:80px}
+.s-num{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.01em;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:14px;max-width:840px}
+.s-lede{font-family:var(--sans);font-size:15px;line-height:1.55;max-width:780px;color:var(--charcoal);margin-bottom:32px}
+
+/* Context grid (Bond's situation) */
+.ctx{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--black);background:var(--surface);margin-bottom:18px}
+.ctx-cell{padding:20px 22px;border-right:1px solid var(--gold);background:var(--white);display:flex;flex-direction:column;gap:8px}
+.ctx-cell:last-child{border-right:none}
+.ctx-cell .label{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.ctx-cell .v{font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1;letter-spacing:-.005em}
+.ctx-cell .ev{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal-muted);margin-top:auto;padding-top:8px;border-top:1px dashed var(--surface)}
+
+/* Issues / current state */
+.current-frame{border:1px solid var(--black);background:var(--surface)}
+.current-bar{background:var(--charcoal);color:var(--gold);padding:10px 22px;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.current-canvas{padding:24px;background:var(--surface)}
+
+/* Reference grid */
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--black);background:var(--surface)}
+.ref{padding:20px 22px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);background:var(--white)}
+.ref-name{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:4px}
+.ref-tag{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.ref-pattern{font-family:var(--sans);font-size:12px;line-height:1.5;color:var(--charcoal)}
+
+/* Option / variant card */
+.option{background:var(--surface);border:1px solid var(--black);padding:32px 36px;margin-bottom:32px}
+.option-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--gold)}
+.option-head .left{flex:1}
+.option-head h3{font-family:var(--display);font-style:italic;font-weight:700;font-size:30px;line-height:1.05;color:var(--black);font-variation-settings:"opsz" 144;letter-spacing:-.01em;margin-bottom:8px}
+.option-head .v-tag{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.option-head .pair{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--black);color:var(--white);padding:8px 14px;white-space:nowrap}
+.option-head .pair em{font-family:var(--display);font-style:italic;color:var(--gold);text-transform:none;font-size:13px;letter-spacing:0;font-weight:700;font-variation-settings:"opsz" 144;margin-left:4px}
+.option-desc{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--charcoal);max-width:820px;margin-bottom:24px}
+
+/* Step flow */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:14px;align-items:stretch}
+.flow.three-step{grid-template-columns:repeat(4,1fr)}
+.flow.two-step{grid-template-columns:repeat(3,1fr)}
+.flow.quiz{grid-template-columns:repeat(3,1fr)}
+.step-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--gold);position:relative}
+.step-card .step-tag{padding:10px 14px;background:var(--charcoal);color:var(--gold);font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gold)}
+.step-card .step-tag .nm{color:var(--white)}
+.step-card .body{padding:0;flex:1;display:flex;flex-direction:column;background:var(--surface)}
+
+/* Popup mockup inside step */
+.popup-mock{background:repeating-linear-gradient(45deg,#EAEAEA 0,#EAEAEA 6px,var(--surface) 6px,var(--surface) 12px);padding:18px;flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:240px}
+.popup-mock::before{content:"page · dimmed";position:absolute;top:8px;left:10px;font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase;font-weight:700;background:var(--surface);padding:2px 6px;border:1px solid var(--gold)}
+.popup-card{background:var(--white);border:1px solid var(--black);padding:18px 18px 16px;width:100%;max-width:240px;position:relative}
+.popup-card .x{position:absolute;top:6px;right:8px;font-family:var(--mono);font-size:14px;color:var(--smoke);font-weight:700;line-height:1}
+.popup-card .ey{font-family:var(--sans);font-size:8px;letter-spacing:.24em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:6px;text-align:center}
+.popup-card .h{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1.15;text-align:center;margin-bottom:8px;letter-spacing:-.005em}
+.popup-card .h.tight{font-size:16px}
+.popup-card .sub{font-family:var(--sans);font-size:10px;line-height:1.45;color:var(--charcoal-muted);text-align:center;margin-bottom:10px}
+.popup-card .yn{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.popup-card .yn .btn{padding:9px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;text-align:center;font-weight:700;text-transform:uppercase}
+.popup-card .yn .btn.yes{background:var(--black);color:var(--white)}
+.popup-card .yn .btn.no{background:var(--white);color:var(--charcoal-muted);border:1px solid var(--charcoal-muted)}
+.popup-card .field{height:30px;background:var(--surface);border:1px solid var(--charcoal);font-family:var(--mono);font-size:9px;color:var(--smoke);display:flex;align-items:center;padding:0 10px;margin:8px 0}
+.popup-card .btn-full{display:block;width:100%;padding:10px;font-family:var(--sans);font-size:9px;letter-spacing:.18em;text-align:center;font-weight:700;text-transform:uppercase;background:var(--gold);color:var(--black);border:1px solid var(--gold)}
+.popup-card .btn-full.dark{background:var(--black);color:var(--white);border-color:var(--black)}
+.popup-card .skip{display:block;text-align:center;font-family:var(--sans);font-size:8px;color:var(--smoke);font-style:italic;margin-top:8px;text-decoration:underline}
+.popup-card .footer-line{font-family:var(--sans);font-size:8px;color:var(--gold);font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-align:center;margin-top:8px;padding-top:8px;border-top:1px dashed var(--surface)}
+.popup-card .opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
+.popup-card .opts-grid .opt{padding:7px 4px;background:var(--surface);border:1px solid var(--gold);font-family:var(--sans);font-size:8px;letter-spacing:.14em;color:var(--charcoal);font-weight:600;text-transform:uppercase;text-align:center;cursor:pointer}
+.popup-card .opts-grid .opt.on{background:var(--charcoal);color:var(--white);border-color:var(--charcoal)}
+.popup-card .progress{display:flex;gap:3px;margin-top:8px}
+.popup-card .progress i{height:3px;flex:1;background:var(--surface);border:1px solid var(--gold)}
+.popup-card .progress i.on{background:var(--gold);border-color:var(--gold)}
+.popup-card.confirm{border:2px solid var(--gold);text-align:center}
+.popup-card.confirm .check{font-family:var(--display);font-style:italic;font-weight:700;font-size:30px;color:var(--gold);font-variation-settings:"opsz" 144;line-height:1;margin-bottom:6px}
+.popup-card.confirm .code{font-family:var(--mono);font-size:11px;color:var(--charcoal);background:var(--surface);padding:6px 10px;border:1px dashed var(--gold);margin:8px auto;display:inline-block}
+
+/* Step note (under each card) */
+.step-note{padding:12px 14px;background:var(--white);border-top:1px solid var(--gold);font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal)}
+.step-note strong{color:var(--black);font-weight:700;display:block;margin-bottom:3px}
+
+/* Trigger annotation */
+.trigger-row{padding:12px 16px;background:var(--charcoal);color:var(--white);display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--gold)}
+.trigger-row .gold{color:var(--gold);font-weight:700}
+
+/* Pros/Cons */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:18px;border:1px solid var(--gold)}
+.pc-cell{padding:18px 22px;font-family:var(--sans);font-size:12px;line-height:1.55;background:var(--white)}
+.pc-cell.pros{border-right:1px solid var(--gold)}
+.pc-cell h4{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px}
+.pc-cell.pros h4{color:var(--gold)}
+.pc-cell.cons h4{color:var(--smoke)}
+.pc-cell ul{list-style:none;padding:0}
+.pc-cell li{padding:6px 0;border-bottom:1px dashed var(--surface)}
+.pc-cell li:last-child{border-bottom:none}
+.pc-cell.pros li::before{content:'+ ';color:var(--gold);font-weight:700}
+.pc-cell.cons li::before{content:'— ';color:var(--smoke);font-weight:700}
+
+/* Mobile preview rail */
+.mobile-rail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}
+.mobile-card{display:flex;flex-direction:column}
+.mobile-tag{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;text-align:center}
+.mobile-cap{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);text-align:center;margin-bottom:6px;font-variation-settings:"opsz" 144}
+.mobile-pair{font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);text-align:center;margin-bottom:14px}
+.mob-frame{max-width:300px;width:100%;margin:0 auto;border:1px solid var(--black);background:var(--white);position:relative}
+.mob-page{height:240px;background:repeating-linear-gradient(45deg,var(--surface) 0,var(--surface) 8px,#EAEAEA 8px,#EAEAEA 16px);position:relative;display:flex;align-items:center;justify-content:center;padding:18px}
+.mob-page::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.mob-popup{background:var(--white);border:1px solid var(--black);padding:14px;width:100%;position:relative;z-index:2}
+.mob-popup .x{position:absolute;top:4px;right:6px;font-family:var(--mono);font-size:12px;color:var(--smoke);font-weight:700}
+.mob-popup .ey{font-family:var(--sans);font-size:7px;letter-spacing:.22em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:5px;text-align:center}
+.mob-popup .h{font-family:var(--display);font-style:italic;font-weight:700;font-size:14px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1.15;text-align:center;margin-bottom:6px}
+.mob-popup .sub{font-family:var(--sans);font-size:9px;line-height:1.45;color:var(--charcoal-muted);text-align:center;margin-bottom:8px}
+.mob-popup .yn{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.mob-popup .yn .btn{padding:7px;font-family:var(--sans);font-size:8px;letter-spacing:.16em;text-align:center;font-weight:700;text-transform:uppercase}
+.mob-popup .yn .btn.yes{background:var(--black);color:var(--white)}
+.mob-popup .yn .btn.no{background:var(--white);color:var(--charcoal-muted);border:1px solid var(--charcoal-muted)}
+.mob-popup .opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mob-popup .opts-grid .opt{padding:6px 4px;background:var(--surface);border:1px solid var(--gold);font-family:var(--sans);font-size:7px;letter-spacing:.12em;color:var(--charcoal);font-weight:600;text-transform:uppercase;text-align:center}
+.mob-popup .opts-grid .opt.on{background:var(--charcoal);color:var(--white);border-color:var(--charcoal)}
+.mob-popup .field{height:24px;background:var(--surface);border:1px solid var(--charcoal);font-family:var(--mono);font-size:8px;color:var(--smoke);display:flex;align-items:center;padding:0 8px;margin:6px 0}
+.mob-popup .btn-full{display:block;width:100%;padding:7px;font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-align:center;font-weight:700;text-transform:uppercase;background:var(--gold);color:var(--black)}
+.mob-note{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal);margin-top:14px;padding:12px 14px;background:var(--surface);border-left:2px solid var(--gold)}
+
+/* Pairing summary table */
+.pair-table{width:100%;border-collapse:collapse;margin-top:16px;border:1px solid var(--black)}
+.pair-table th{background:var(--black);color:var(--white);padding:12px 16px;text-align:left;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.pair-table td{padding:14px 16px;border-bottom:1px solid var(--gold);background:var(--white);font-family:var(--sans);font-size:13px;line-height:1.5;vertical-align:top}
+.pair-table td:first-child{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--gold);width:80px;font-variation-settings:"opsz" 144}
+.pair-table td strong{color:var(--black);font-weight:700}
+
+/* Cross-cuts */
+.crosscuts{padding:24px 28px;background:var(--surface);border-left:3px solid var(--gold);margin-top:20px}
+.crosscuts h4{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.crosscuts ul{list-style:none;padding:0;font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--charcoal)}
+.crosscuts li{padding:6px 0;border-bottom:1px dashed var(--surface)}
+.crosscuts li:last-child{border-bottom:none}
+.crosscuts li strong{color:var(--black);font-weight:700}
+.crosscuts li code{font-family:var(--mono);font-size:11px;color:var(--gold);background:var(--white);padding:1px 4px;border:1px solid var(--gold)}
+
+/* Anti-patterns */
+.anti{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:18px;border:1px solid var(--warning)}
+.anti-cell{padding:16px 20px;background:var(--white);border-right:1px solid var(--warning);border-bottom:1px solid var(--warning);display:flex;flex-direction:column;gap:6px}
+.anti-cell:nth-child(2n){border-right:none}
+.anti-cell:nth-last-child(-n+2){border-bottom:none}
+.anti-cell .x{font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--warning);font-variation-settings:"opsz" 144;line-height:1}
+.anti-cell .h{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--warning);text-transform:uppercase}
+.anti-cell .body{font-family:var(--sans);font-size:12px;line-height:1.55;color:var(--charcoal)}
+.anti-cell .body strong{color:var(--black);font-weight:700}
+
+/* Attentive config block */
+.attentive{margin-top:18px;padding:20px 24px;background:var(--charcoal);color:var(--white);font-family:var(--mono);font-size:12px;line-height:1.7;border-left:3px solid var(--gold);overflow-x:auto}
+.attentive .k{color:var(--gold)}
+.attentive .c{color:#7F8C8D;font-style:italic}
+.attentive .h{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;font-style:normal}
+
+/* QA checklist */
+.qa{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:18px;border:1px solid var(--black)}
+.qa-cell{padding:14px 20px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);background:var(--white);display:flex;gap:12px;align-items:flex-start;font-family:var(--sans);font-size:12px;line-height:1.5}
+.qa-cell:nth-child(2n){border-right:none}
+.qa-cell:nth-last-child(-n+2){border-bottom:none}
+.qa-cell .box{width:14px;height:14px;border:1.5px solid var(--charcoal);flex-shrink:0;margin-top:2px}
+.qa-cell strong{color:var(--black);font-weight:700;display:block;margin-bottom:2px}
+
+/* Footer */
+.foot{margin-top:48px;padding-top:24px;border-top:1px solid var(--gold);display:grid;grid-template-columns:1fr auto;gap:24px;font-family:var(--sans);font-size:10px;letter-spacing:.04em;color:var(--smoke)}
+.foot .l strong{display:block;font-family:var(--display);font-style:italic;font-weight:700;color:var(--black);font-size:15px;letter-spacing:0;margin-bottom:4px;font-variation-settings:"opsz" 144}
+.foot .r{text-align:right;color:var(--gold);font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+
+@media (max-width:980px){
+  .ctx{grid-template-columns:1fr 1fr}
+  .ctx-cell:nth-child(2){border-right:none}
+  .ctx-cell:nth-child(1),.ctx-cell:nth-child(2){border-bottom:1px solid var(--gold)}
+  .flow,.flow.three-step,.flow.two-step,.flow.quiz{grid-template-columns:1fr 1fr}
+  .anti,.qa{grid-template-columns:1fr}
+  .anti-cell,.qa-cell{border-right:none}
+}
+@media (max-width:820px){
+  .head{grid-template-columns:1fr}
+  .head-meta{align-items:flex-start;text-align:left}
+  .head-meta-stack{text-align:left}
+  .pc{grid-template-columns:1fr}
+  .pc-cell.pros{border-right:none;border-bottom:1px solid var(--gold)}
+  .option-head{flex-direction:column}
+  .mobile-rail{grid-template-columns:1fr;gap:36px}
+  .ctx{grid-template-columns:1fr}
+  .ctx-cell{border-right:none;border-bottom:1px solid var(--gold)}
+  .ctx-cell:last-child{border-bottom:none}
+  .flow,.flow.three-step,.flow.two-step,.flow.quiz{grid-template-columns:1fr}
+}
+@media print{body{background:#fff;font-size:10pt}.wrap{padding:0;max-width:none}}
+</style>
+</head>
+<body>
+
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+  <symbol id="bond-logo" viewBox="0 0 792 312.2">
+    <g fill="#C5A55A">
+      <path d="M308.96,257.76h.08v-12.6c0-.48-.22-.84-1.02-.84v-.43h5.06v.43c-.79,0-1,.37-1,.84v16.02c0,.49.2.83,1,.83v.44h-5.38v-.44c.55,0,.85-.07.85-.28,0-.3-.3-.53-.45-.68l-15.05-14.25v14.38c0,.49.22.83,1,.83v.44h-5.08v-.44c.83,0,1.06-.35,1.06-.83v-16.02c0-.48-.22-.84-1.06-.84v-.43h7.19v.43c-.65,0-.83.1-.83.39,0,.14.18.33.35.46l13.28,12.6Z"/>
+      <path d="M328.99,245.15c0-.48-.18-.84-1-.84v-.43h17.73c1.4,0,1.69-.16,1.69-.68h.51v4.01h-.51c0-.62-.39-1-1.67-1h-13.18v5.57h8.59c1,0,1.71-.24,1.71-1h.51v4.26h-.51c0-.68-.45-.94-1.65-.94h-8.65v6.01h14.12c1.18,0,1.73-.35,1.73-1.21h.51v4.3h-.51c0-.57-.41-.76-1.46-.76h-18.95v-.44c.81,0,1-.35,1-.83v-16.02Z"/>
+      <path d="M365.27,262.44v-.44c.71,0,.81-.1.81-.39,0-.33-.2-.79-.35-1.1l-6.76-15.01c-.33-.81-.65-1.2-1.42-1.2v-.43h5.57v.43c-.75,0-.95.22-.95.53,0,.28.26.65.47,1.11l5.71,12.75h.08l5.67-13.43c.08-.2.14-.39.14-.53,0-.32-.22-.43-.65-.43v-.43h5.89v.43c-.51,0-.79.1-.79.47,0,.24.24.6.39,1l5.5,12.49h.08l5.63-12.67c.12-.33.28-.51.28-.77,0-.28-.39-.51-.95-.51v-.43h5.32v.43c-.71,0-.95.28-1.4,1.2l-6.6,14.94c-.28.59-.49.86-.49,1.23,0,.25.2.33.83.33v.44h-5.59v-.44c.71,0,.85-.13.85-.35,0-.35-.3-.83-.47-1.21l-5.67-12.82h-.08l-5.67,13.18c-.12.27-.26.5-.26.84,0,.21.32.35.87.35v.44h-5.99Z"/>
+      <path d="M426.51,262.44v-.44c.81,0,1.02-.35,1.02-.83v-6.42l-8.17-9.24c-.73-.83-1.12-1.2-1.81-1.2v-.43h6.38v.43c-.67.04-1.04.22-1.04.51,0,.24.43.51.71.91l5.83,6.62,6.17-6.85c.22-.24.59-.55.59-.77,0-.25-.28-.43-.93-.43v-.43h6.09v.43c-.79,0-1.14.39-1.91,1.2l-8.37,9.24v6.42c0,.49.22.83,1.04.83v.44h-5.61Z"/>
+      <path d="M473.53,253.17c0,6.09-5.4,9.47-12.72,9.47s-12.76-3.37-12.76-9.47,5.44-9.49,12.76-9.49,12.72,3.37,12.72,9.49ZM451.82,253.17c0,4.39,3.33,7.09,9,7.09s9-2.7,9-7.09-3.33-7.09-9-7.09-9,2.68-9,7.09Z"/>
+      <path d="M489.27,261.17c0,.49.22.83,1.04.83v.44h-5.61v-.44c.81,0,1.02-.35,1.02-.83v-16.02c0-.48-.2-.84-1.02-.84v-.43h14.18c5.59,0,7.82,1.82,7.82,5.16,0,2.86-1.79,4.73-5.97,5.17l5.32,6.88c.59.73.81.91,1.65.91v.44h-6.07v-.44c.71,0,.85-.1.85-.33,0-.08-.14-.26-.2-.39l-5.22-6.89h-7.78v6.76ZM489.27,251.99h9.24c3.43,0,4.71-1.16,4.71-3.03s-.95-2.68-4.92-2.68h-9.04v5.71Z"/>
+      <path d="M526.53,243.89v.43c-.81,0-1.02.37-1.02.84v7.2l11.52-7.2c.39-.21.59-.34.59-.52,0-.15-.16-.33-.65-.33v-.43h6.34v.43c-.83,0-1.06.22-2.09.84l-8.12,5.07,10.2,10.95c.51.59.75.83,1.38.83v.44h-5.83v-.44c.43,0,.55-.07.55-.28,0-.23-.2-.53-.55-.89l-8.33-8.96-5,3.09v6.22c0,.49.2.83,1.02.83v.44h-5.59v-.44c.81,0,1.02-.35,1.02-.83v-16.02c0-.48-.2-.84-1.02-.84v-.43h5.59Z"/>
+    </g>
+    <g fill="#000000">
+      <path d="M303.02,175.2c-1.79,4.67-4.93,8.71-9.38,14.23-2.58-3.39-2.93-8.43-1.65-13.1,1.58-5.05,3.57-8.73,6.57-11.09,5.44-4.28,6.06.38,6.16,1.29.29,2.73-.59,5.84-1.7,8.66ZM277.78,167.38l-.21.07c-13.04,4.09-19.63,10.77-25.51,19.54-14.11,21.04,7.79,42.4,44.54,8.99l1.2-1.05c3.64-3.63,7.63-8.67,11.33-14.14,12.02-17.77-.89-29.46-13.32-18.2-13.76,12.46-10.13,26.79-5.4,30.91-3.64,4.3-13,11.84-19.95,13.87-7.99,2.33-13-2.09-7.8-12.28,4.32-8.46,16.03-23.94,25.27-26.38l-10.13-1.33Z"/>
+      <path d="M615.03,201.97c5.12,4.55,13.82-5.97,8.56-10.29-5.67-4.66-13.77,5.66-8.56,10.29Z"/>
+      <path d="M605.24,169.59c12.3.7,2.75,18.66-5.84,24.88-22.18,16.03-10.89-21.17,6.12-21.01-4.39-8.21-26.37,2-27.73,17.3-1.82,20.46,20.85,14.97,34.21-.55,15.34-17.81,2.43-31.13-6.75-20.62Z"/>
+      <path d="M287.91,168.72c-.21-.12-3.12-2.85-16.53-2.85s-31.61,2.91-52.32,8.65c-2.8-6.74-7.57-15.43-15.83-21.93,17.41-4.63,34.93-10.24,48.91-23.23,31.74-29.49,4.34-79.31-53.99-49.05-56.08,29.09-95.92,116.38-100.32,130.58l-.18.59.32,1.21s20.02.43,22.64.36c14.62-40.7,36.61-80.29,59.35-105.98,52.96-59.82,94.02-20.07,56.81,16.2-9.03,8.81-22.21,19.72-38.85,26.18-3.45-1.41-6.92-2.61-13.39-3.82-18.54-3.46-21.03,10.07-3.32,9.99,4.71-.02,10.78-.65,13.24-.98,1.85,1.28,10.19,9.66,10.86,24.13-13.4,4.3-59.45,19.93-91.45,50.17-38.01,35.92-3.8,76.46,63.85,34.77,28.81-17.75,50.49-53.56,42.77-84.69,23.19-6.91,43.25-8.6,53.92-8.94,9.57-.3,13.52-1.38,13.52-1.38ZM205.38,183.66c.05,3.63-1.18,43.02-50.32,76.81-53.12,36.52-70.87-5.86-22.17-40,17.9-12.55,39.02-24.19,72.49-36.8ZM175.7,151.64c-2.29-.54-3.73-2.93,1.4-3.14,4.77-.19,9.85,1.12,13.04,3.14-5.32,1.54-11.99.57-14.44,0Z"/>
+      <path d="M506.34,148c26.67.89,38.72,8.4,14.78,39.39-12.5,16.17-1.21,18.41,10.95,7.43,8.67-7.83,19.57-18.22,27.25-21.57-21.45,24.01-9.92,43.72,20.59,19.37l1.82-6.11c-3.34,3.13-8.77,6.74-14.19,9.71-7.37,4.04-10.7-.61-3.1-10.43,12.02-15.51,4.81-32.17-29.64-.52,22.81-35.17-2.8-41.8-26.39-41.89l-2.06,4.63Z"/>
+      <path d="M644.93,141.52c-4.18,6.46-6.3,14.09-6.72,21.8-1.13,20.67,22.52,29.1,32.91,5.14.37-.84.69-2.41-.48-2.8s-2.19,1.1-2.53,1.87c-6,13.49-26.32,18.74-19.38-5.7,3.33-11.73,6.28-17.11,12.13-25.44,13.03-18.57,25.72-11.52,23.46,3.4-6.78,44.84-51.36,92.02-70.14,92.99-6.35.33-2.67,3.89,6.34,1.96,18.9-4.06,46.32-28.19,60.52-51.64,35.14-58.01-9.25-83.07-36.09-41.58Z"/>
+      <path d="M476.3,49.52c-58.04-16.98-100.42,48.88-56.06,83.19,14.52,11.24,38.49,18.03,73.27,15.65-10.07,17.61-33.48,41.83-51.49,55.86-14.6,11.38-21.79,3.3-3.09-18.47,9.41-10.96,23.17-15.81,26.91-13.61.65.39,1.19.63,1.67.3.2-.14.23-.21.3-.6.3-1.79-4.17-6.98-17.29-4.87-15.01,2.41-29.3,13.76-33.55,29.62-3.6,2.22-11.66,6.51-22.06,10.18-5.52,1.94-12.93,1.9-5.62-8.02,7.31-9.92,12.56-14.5,14.44-18.71,4.41-9.89-3.28-16.07-15.52-11.09-12.24,4.98-36.28,25.55-37.51,26.56,23.89-27.95,8.78-39.69-18.85-18.22-24.04,18.69-32.77,16.03-36.96,13.24-.21,1.39-1.02,3.64-1.96,4.75,10.58,5.21,26.16-3.01,41.27-14.15,21.32-15.72,16.75-7.53,14.27-4.69-6.96,7.98-14.76,18.12-17.52,22.04-10.87,15.45-2.19,19.8,10.15,10.47,6.01-4.54,31.33-25.09,47.48-35.5,2.51-1.62,2.71-.34,2.13.56-2.77,4.27-6.64,8.43-14.41,18.24-11.75,14.84-4.39,36.02,40.09,10.03,4.02,28.28,50.17,12.16,91.12-54.30l2.04-4.15c22.53-52.67-1.88-85.17-33.23-94.34ZM496.4,143.26c-25.72,1.11-50.16-5.79-66.8-16.66-50.69-33.1,2.65-93.32,51.76-70.37,23.73,11.09,38.52,41.12,15.04,87.03Z"/>
+    </g>
+  </symbol>
+</svg>
+
+<div class="wrap">
+
+<header class="head">
+  <div>
+    <div class="eyebrow">Paul Skidmore · Bond No. 9 · Popup Strategy · Three Variants</div>
+    <h1>The popup, on Bond's terms.</h1>
+    <p class="lede">The standard 3-step popup runs 10% / 15% off discount steps. Bond's price point ($265–$490) and editorial register ("we don't run sale theater") forbid it. Three Bond-specific variants follow — each rebuilt around exclusivity, discovery, or cashback instead of percent-off discount. Each paired to a homepage option from Page 01 so the popup voice agrees with the site voice. North Star: opt-in rate 15%+ email · 5%+ phone · with Revenue Per Session of opted-in &gt;&gt; non-opted-in.</p>
+  </div>
+  <div class="head-meta">
+    <svg class="bond-logo logo-sm"><use href="#bond-logo"/></svg>
+    <span class="head-meta-stack">
+      Popup · v1<br>
+      Three variants<br>
+      Attentive-ready · 05.08.26
+    </span>
+  </div>
+</header>
+
+<!-- ============ 00 BOND CONTEXT ============ -->
+<section>
+  <div class="s-num">00 / Bond's situation</div>
+  <h2>Why the default Perfect Popup <em>doesn't ship as written</em>.</h2>
+  <p class="s-lede">The canonical 3-step popup uses a 10% / 15% off double discount. That works for a $50 mass-prestige beauty brand. It cheapens a $265–$490 niche-luxury fragrance — and Bond's editorial register explicitly forbids it. Below is the four-factor situation that drives popup variant selection for Bond specifically.</p>
+
+  <div class="ctx">
+    <div class="ctx-cell">
+      <div class="label">AOV</div>
+      <div class="v">$265–$490</div>
+      <div class="ev">High-priced, low-volume, high-intent strategy. Trigger logic: exit-intent OR 50% scroll. Never load-immediate.</div>
+    </div>
+    <div class="ctx-cell">
+      <div class="label">Bond's stance</div>
+      <div class="v" style="font-size:18px">No sale theater.</div>
+      <div class="ev">"We do not run urgency badges, sale theater, or DTC countdown timers." Disqualifies % off, spin-to-win, scarcity countdowns. The discount IS the sale theater.</div>
+    </div>
+    <div class="ctx-cell">
+      <div class="label">Standing offer</div>
+      <div class="v" style="font-size:18px">Free samples</div>
+      <div class="ev">"Complimentary samples with every order" already runs on the announcement bar. The Power of Free is in place — pull it into the popup as the deliverable, not a new % off code.</div>
+    </div>
+    <div class="ctx-cell">
+      <div class="label">Quiz · in build</div>
+      <div class="v" style="font-size:18px">Discovery</div>
+      <div class="ev">Bond is building a fragrance discovery quiz separately. The popup is the natural top-of-funnel hook — quiz becomes the value exchange instead of a discount.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 CURRENT STATE ============ -->
+<section>
+  <div class="s-num">01 / Current state</div>
+  <h2>What's running on bondno9.com today.</h2>
+  <p class="s-lede">Per the 05.08 audit: the immediate SMS popup that fired on the 05.01 audit has been removed. There is currently <em>no popup running</em>. Email opt-in lives in the footer only — a passive form that captures a fraction of what a triggered popup would. Phone numbers aren't being captured at all. This is leaving 15–20% opt-in on the table for an audience that will never see the footer because the page bounces at 35s LCP.</p>
+
+  <div class="current-frame">
+    <div class="current-bar">
+      <span>Live · bondno9.com · No popup · Footer-only newsletter form</span>
+      <span style="font-size:9px">Audited 05.08.26</span>
+    </div>
+    <div class="current-canvas">
+      <div style="background:var(--white);border:1px solid var(--gold);padding:24px 28px;text-align:center;max-width:560px;margin:0 auto">
+        <div style="font-family:var(--sans);font-size:9px;letter-spacing:.22em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px">Footer · "Sign up for our newsletter"</div>
+        <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);font-variation-settings:'opsz' 144;margin-bottom:12px">Be the first to hear about new launches</div>
+        <div style="height:32px;background:var(--surface);border:1px solid var(--charcoal);font-family:var(--mono);font-size:10px;color:var(--smoke);display:flex;align-items:center;padding:0 14px;margin-bottom:8px">your-email@domain.com</div>
+        <div style="background:var(--black);color:var(--white);padding:9px;font-family:var(--sans);font-size:10px;letter-spacing:.18em;font-weight:700;text-transform:uppercase">Subscribe</div>
+        <div style="font-family:var(--sans);font-size:10px;color:var(--smoke);margin-top:14px;line-height:1.5">Single-step · email-only · no value exchange · no SMS · invisible to anyone who bounces above the fold.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 REFERENCE PATTERNS ============ -->
+<section>
+  <div class="s-num">02 / Reference patterns</div>
+  <h2>How niche-luxury houses run their <em>opt-in</em>.</h2>
+  <p class="s-lede">The default Perfect Popup is calibrated for mass-prestige and DTC. Below: how five reference brands at Bond's register handle email/phone capture differently. The pattern: discovery, exclusivity, or service — never percent-off discount.</p>
+
+  <div class="refs">
+    <div class="ref">
+      <div class="ref-name">Le Labo</div>
+      <div class="ref-tag">No popup · footer only</div>
+      <div class="ref-pattern">Famously austere. No popup, no exit-intent, no discount. Footer signup with editorial copy. Opt-in is lower volume, but every email is high-intent. Brand-coherent but leaves growth on the table.</div>
+    </div>
+    <div class="ref">
+      <div class="ref-name">Parfums de Marly</div>
+      <div class="ref-tag">Single-step · sample offer</div>
+      <div class="ref-pattern">Light delayed popup (10s) offering "Complimentary sample with your first order." No %, no urgency. Single-step email capture. Discovery / sample is the value exchange.</div>
+    </div>
+    <div class="ref">
+      <div class="ref-name">Frederic Malle</div>
+      <div class="ref-tag">Service-led capture</div>
+      <div class="ref-pattern">"Speak with a perfumer" CTA in the buy box that triggers a contact form. Captures email + phone for high-intent customers as a service, not a discount.</div>
+    </div>
+    <div class="ref">
+      <div class="ref-name">Byredo</div>
+      <div class="ref-tag">Quiz-led discovery</div>
+      <div class="ref-pattern">"Find your scent" quiz reachable from the homepage. Quiz output emails the user their match. Email capture is built into the quiz flow, never separately. Output also segments by note family.</div>
+    </div>
+    <div class="ref">
+      <div class="ref-name">MFK</div>
+      <div class="ref-tag">VIP / private-list angle</div>
+      <div class="ref-pattern">Email opt-in framed as "Be the first to know" for limited editions. Exclusivity language replaces discount language. Higher-AOV customers are recognition-seekers, not coupon-seekers.</div>
+    </div>
+    <div class="ref">
+      <div class="ref-name">Bond No. 9 today</div>
+      <div class="ref-tag" style="color:var(--warning)">Footer only</div>
+      <div class="ref-pattern">Single-step footer form. No trigger. No SMS. No value exchange beyond "be the first to hear." Closer to MFK in restraint, but without the editorial copy or VIP framing that earns the lower volume.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 OPTION A · 3-STEP PERFECT POPUP (BOND VARIANT) ============ -->
+<section>
+  <div class="s-num">03 / Option A</div>
+
+  <div class="option">
+    <div class="option-head">
+      <div class="left">
+        <div class="v-tag">3-step Perfect Popup · Bond variant · exclusivity-led</div>
+        <h3>The Perfect Popup, without the discount.</h3>
+      </div>
+      <div class="pair">Pairs with Homepage <em>A · Editorial Front</em></div>
+    </div>
+    <p class="option-desc">A canonical 3-step structure (Yes/No → Email → SMS), with every "% off" replaced by exclusivity, discovery, and service. Step 1 hooks with the discovery quiz instead of a discount. Step 2 captures email and delivers two complimentary samples (free-trial mechanic, already a standing offer). Step 3 captures phone with a VIP exclusivity frame — limited editions, private boutique invitations, three messages a month. Confirmation routes to the editorial homepage. Most brand-coherent of the three options. Pairs with Homepage A because both options bet on long-form brand-world reading time and editorial register over fast conversion.</p>
+
+    <div class="trigger-row">
+      <span>Trigger · <span class="gold">Exit-intent</span> OR <span class="gold">50% scroll</span> · whichever fires first · NEVER load-immediate</span>
+      <span>Frequency · 1 per 7 days · session count = 1 only</span>
+    </div>
+
+    <div class="flow three-step">
+
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Step 01</span><span>Yes / No</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card">
+              <span class="x">×</span>
+              <div class="ey">A 60-second quiz</div>
+              <div class="h">Find your Bond Street?</div>
+              <div class="sub">Five neighborhoods. Twenty-eight scents. One match — sent to your inbox.</div>
+              <div class="yn"><span class="btn yes">Yes, find mine</span><span class="btn no">Not today</span></div>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>The hook</strong>
+            Discovery, not discount. The quiz framing immediately tells the visitor what value they get for sharing their email — the actual answer to "which Bond fragrance is mine." On register.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Step 02</span><span>Email · after Yes</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card">
+              <span class="x">×</span>
+              <div class="ey">Step 02 of 03</div>
+              <div class="h">Where should we send your match?</div>
+              <div class="field">your-email@domain.com</div>
+              <div class="btn-full">Send my match →</div>
+              <div class="footer-line">+ 2 complimentary samples · first order</div>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>The Power of Free</strong>
+            Two complimentary samples gets surfaced here as the upgrade for opting in — not as the promo bar text it currently lives in. Reframes the existing standing offer as an exclusive opt-in benefit.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Step 03</span><span>SMS · VIP frame</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card">
+              <span class="x">×</span>
+              <div class="ey">One more · Step 03 of 03</div>
+              <div class="h tight">Want first access to limited editions?</div>
+              <div class="sub">The Bond inner circle — text only · never sold · three messages a month.</div>
+              <div class="field">+1 · phone</div>
+              <div class="btn-full dark">Join the circle</div>
+              <span class="skip">No thanks · just send my match</span>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>VIP, not discount</strong>
+            The visitor who bought a $400 fragrance is recognition-seeking, not coupon-seeking. The SMS step reframes phone capture as inner-circle access — limited editions, private boutique invitations, never a discount code.
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirmation -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Confirm</span><span>Continue browsing</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card confirm">
+              <span class="x">×</span>
+              <div class="check">✓</div>
+              <div class="h tight">Your match is on its way.</div>
+              <div class="sub">Check your inbox in 60 seconds. Two complimentary samples ship with your first order.</div>
+              <div class="btn-full">Continue browsing</div>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>Continue Browsing, not Save for Later</strong>
+            The confirmation CTA routes to <code style="font-family:var(--mono);font-size:10px;color:var(--gold)">/pages/new-york-neighborhoods</code>, not the cart. The user just shared their email — they want to keep exploring, not commit to a purchase yet.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-cell pros">
+        <h4>Why this works</h4>
+        <ul>
+          <li>On Bond's register — zero percent-off references, zero sale theater language</li>
+          <li>Reuses the existing "Free samples with every order" standing offer as the email step's value exchange — no new offer to build</li>
+          <li>Quiz hook connects to the discovery quiz Bond is already building separately — popup feeds the quiz funnel</li>
+          <li>VIP / inner circle framing reads as service, not coupon — recognition-seeking customer behavior</li>
+          <li>3-step structure captures both email and phone without overlapping the asks</li>
+          <li>Confirmation CTA routes to neighborhoods page — keeps the exploration path open</li>
+        </ul>
+      </div>
+      <div class="pc-cell cons">
+        <h4>Trade-offs</h4>
+        <ul>
+          <li>Quiz must actually exist for the email-deliverable to be real — couples this popup to the quiz build timeline</li>
+          <li>"Two samples" must be reliably deliverable — fulfillment process needs to confirm the standing offer applies to opt-in subscribers without a separate SKU</li>
+          <li>Higher copy investment than a discount popup — every line is brand-voice work</li>
+          <li>Phone step opt-in rate may be lower than discount-driven SMS popups (industry benchmark for non-discount SMS opt-in: 3–5% vs 5–8% with discount)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 OPTION B · QUESTION-BASED QUIZ POPUP ============ -->
+<section>
+  <div class="s-num">04 / Option B</div>
+
+  <div class="option">
+    <div class="option-head">
+      <div class="left">
+        <div class="v-tag">Question-based · 3-question quiz · most differentiated</div>
+        <h3>The popup IS the quiz.</h3>
+      </div>
+      <div class="pair">Pairs with Homepage <em>C · The Hybrid</em></div>
+    </div>
+    <p class="option-desc">Skip the Yes/No entirely. Open with the first quiz question — "Which Bond Street are you?" — with five visual options (Uptown · Downtown · Parks · City Scents · Beaches). Three questions total, then email capture to deliver the match. The popup BECOMES the quiz, not a precursor to it. Highest-friction first step but every interaction segments the customer for Attentive Journeys downstream — every answer populates a custom attribute on the subscriber profile. Most differentiated of the three. Pairs with Homepage C because both options run the discovery quiz mechanic at the page level (Homepage C's Two Doors at scroll 1 is the quiz door).</p>
+
+    <div class="trigger-row">
+      <span>Trigger · <span class="gold">10s delay</span> OR <span class="gold">exit-intent</span> · whichever fires first</span>
+      <span>Frequency · 1 per 14 days · resume on return if mid-quiz</span>
+    </div>
+
+    <div class="flow quiz">
+
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Step 01</span><span>Q1 · Neighborhood</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card">
+              <span class="x">×</span>
+              <div class="ey">Question 01 of 03</div>
+              <div class="h tight">Which New York are you?</div>
+              <div class="opts-grid">
+                <span class="opt on">Uptown</span>
+                <span class="opt">Downtown</span>
+                <span class="opt">Parks</span>
+                <span class="opt">City</span>
+              </div>
+              <div class="opts-grid" style="margin-top:5px">
+                <span class="opt">Beaches</span>
+                <span class="opt">Show me all</span>
+              </div>
+              <div class="progress"><i class="on"></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>The first question is the hook</strong>
+            No yes/no. The visitor is engaging with the brand thesis (geography-as-fragrance) on the first interaction. Each answer feeds Attentive as a custom attribute — opens segmented Journeys downstream.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Step 02</span><span>Q2 · Occasion</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card">
+              <span class="x">×</span>
+              <div class="ey">Question 02 of 03</div>
+              <div class="h tight">When do you wear fragrance?</div>
+              <div class="opts-grid">
+                <span class="opt">Daytime</span>
+                <span class="opt on">Evening</span>
+                <span class="opt">Office</span>
+                <span class="opt">All</span>
+              </div>
+              <div class="progress"><i class="on"></i><i class="on"></i><i></i></div>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>Occasion = match weight</strong>
+            Drives the match algorithm. Also feeds Attentive segmentation: evening-wearers get different email + SMS Journeys than office-wearers downstream. Free intelligence for ad retargeting too.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Step 03</span><span>Email + match</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card">
+              <span class="x">×</span>
+              <div class="ey">Almost there · 03 of 03</div>
+              <div class="h tight">Where should we send your match?</div>
+              <div class="sub">Plus your full scent profile and 2 complimentary samples.</div>
+              <div class="field">your-email@domain.com</div>
+              <div class="btn-full">Send my match →</div>
+              <span class="skip">No thanks</span>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>Email after engagement</strong>
+            By the time the visitor sees the email field, they've already invested in two answers. Email capture rate is materially higher than a cold ask. Industry benchmark for question-based: 22–28% completion vs 7–10% for cold popup.
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirmation -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Confirm</span><span>Match → page</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card confirm">
+              <span class="x">×</span>
+              <div class="check">✓</div>
+              <div class="ey">Your Bond Street is</div>
+              <div class="h tight">Uptown.</div>
+              <div class="sub">Park Avenue · 96% match · sent to your inbox now.</div>
+              <div class="btn-full">View Park Avenue →</div>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>Direct to the matched fragrance</strong>
+            The confirmation CTA routes to the matched fragrance's PDP — not the homepage, not the cart. Closes the loop in one click. The user came in cold and left with a specific named product.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-cell pros">
+        <h4>Why this works</h4>
+        <ul>
+          <li>Most differentiated — no Bond competitor uses a popup-as-quiz on the homepage</li>
+          <li>Highest completion rate of the three (industry: 22–28% for question-based vs 15–18% for 3-step Perfect)</li>
+          <li>Every interaction segments the customer — Attentive downstream Journeys are pre-built by the popup itself</li>
+          <li>Confirmation routes to a specific named PDP, not the homepage — highest conversion-attribution</li>
+          <li>Connects directly to the discovery quiz being built — same questions, same scoring, popup is the entry point</li>
+          <li>Brand-coherent: the brand IS geography-as-fragrance, the popup makes that the first interaction</li>
+        </ul>
+      </div>
+      <div class="pc-cell cons">
+        <h4>Trade-offs</h4>
+        <ul>
+          <li>Quiz scoring engine must exist — couples popup launch to quiz build timeline</li>
+          <li>No SMS capture in the 3-step flow — phone capture would need a separate moment (PDP, post-purchase)</li>
+          <li>Visitors who want to skip get one click less than Option A — risk of perceived friction on first interaction</li>
+          <li>Highest build cost — 5 neighborhood matches × 3 occasion segments = 15 confirmation states minimum</li>
+          <li>Mobile completion rate sensitive to viewport — quiz cards must fit comfortably on 375px without scroll inside the popup</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 OPTION C · 2-STEP CASHBACK POPUP ============ -->
+<section>
+  <div class="s-num">05 / Option C</div>
+
+  <div class="option">
+    <div class="option-head">
+      <div class="left">
+        <div class="v-tag">2-step cashback · Fondue-mechanic · most conservative · highest opt-in</div>
+        <h3>The cashback move — discount without the discount voice.</h3>
+      </div>
+      <div class="pair">Pairs with Homepage <em>B · Two Doors</em></div>
+    </div>
+    <p class="option-desc">A 2-step popup using cashback (via Fondue or similar) instead of upfront percent-off. Step 1: "$25 cashback on your first Bond order — no code, no minimum." Step 2: email to claim. The cashback mechanic preserves luxury price perception (the price never gets reduced — the customer gets money back as a credit) while still creating a measurable opt-in incentive. On Bond's register because the price label and product page never show a discount. Highest opt-in of the three (industry: 25–32% for cashback-led). No SMS step — phone capture happens elsewhere. Pairs with Homepage B because both options optimize for fast comprehension and direct conversion paths.</p>
+
+    <div class="trigger-row">
+      <span>Trigger · <span class="gold">Exit-intent</span> OR <span class="gold">50% scroll</span> · whichever fires first</span>
+      <span>Frequency · 1 per 7 days · session count = 1 only · cashback delivered as Visa gift card or store credit</span>
+    </div>
+
+    <div class="flow two-step">
+
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Step 01</span><span>Yes / No · cashback</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card">
+              <span class="x">×</span>
+              <div class="ey">A small thank-you</div>
+              <div class="h">$25 cashback on your first order.</div>
+              <div class="sub">No code · no minimum · sent to you after your order ships. Use it on Bond, or use it anywhere.</div>
+              <div class="yn"><span class="btn yes">Claim my $25</span><span class="btn no">No thanks</span></div>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>Cashback ≠ discount</strong>
+            The price tag never changes. The luxury frame stays intact. The customer gets a Visa gift card or store credit after their order ships. Reads as "thank you" not "sale." Fondue is the canonical tool.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Step 02</span><span>Email · after Yes</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card">
+              <span class="x">×</span>
+              <div class="ey">One step</div>
+              <div class="h">Where should we send your $25?</div>
+              <div class="sub">Your cashback ships after your first order.</div>
+              <div class="field">your-email@domain.com</div>
+              <div class="btn-full">Claim my $25 →</div>
+              <span class="skip">No thanks · I'll pass</span>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>Email is the only capture</strong>
+            No SMS step. Phone capture for Bond happens via the post-purchase flow, the quiz, or the inner-circle frame in Option A — keeping each capture moment focused on one ask.
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirmation -->
+      <div class="step-card">
+        <div class="step-tag"><span class="nm">Confirm</span><span>Continue browsing</span></div>
+        <div class="body">
+          <div class="popup-mock">
+            <div class="popup-card confirm">
+              <span class="x">×</span>
+              <div class="check">✓</div>
+              <div class="h tight">Your $25 is locked in.</div>
+              <div class="sub">It'll ship to you as a Visa gift card after your first order. Check your inbox for confirmation.</div>
+              <div class="btn-full">Continue browsing</div>
+            </div>
+          </div>
+          <div class="step-note">
+            <strong>Cashback confirmation is itself a brand asset</strong>
+            "Locked in" reads as luxury concierge service language — the brand "locks in" your benefit. Compare to "Code SAVE10 applied" which reads as transactional. Tone is the differentiator.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-cell pros">
+        <h4>Why this works</h4>
+        <ul>
+          <li>Highest opt-in rate of the three (industry: 25–32% for cashback-led — beats both 3-step and quiz formats)</li>
+          <li>On Bond's register — price tag never reduced, product page never shows a discount</li>
+          <li>Lowest build complexity — Fondue handles the cashback logistics, Attentive handles the email</li>
+          <li>$25 is a meaningful incentive at Bond's price point (vs 10% off $360 = $36, but reads as "discount") — same dollar value, different brand perception</li>
+          <li>Single email capture — no phone step to complicate or reduce conversion</li>
+          <li>Works at launch with no other dependencies — does not couple to quiz or sample-fulfillment timeline</li>
+        </ul>
+      </div>
+      <div class="pc-cell cons">
+        <h4>Trade-offs</h4>
+        <ul>
+          <li>Requires Fondue (or equivalent) integration — additional vendor + monthly cost</li>
+          <li>Cashback margin hit is ~$25 per first-order acquisition — model the LTV vs CAC carefully</li>
+          <li>No phone capture in this popup — phone has to be captured elsewhere in the funnel</li>
+          <li>Less brand-distinctive than Options A or B — "$25 cashback" is a known DTC pattern even if luxury-coherent</li>
+          <li>Doesn't connect to the quiz or to Bond's neighborhood thesis — it's a transactional moment, not a discovery moment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 MOBILE PREVIEWS ============ -->
+<section>
+  <div class="s-num">06 / Mobile · 375px</div>
+  <h2>How each popup <em>renders on small screen.</em></h2>
+  <p class="s-lede">Mobile is where popups go to die when not designed for it. Each option below has been adjusted for 375px viewport — popup centered, page dimmed at 35% opacity, ≤90% viewport height, X close target ≥44px hit area. Option A and C use compact 3-step / 2-step flow; Option B's quiz adapts to single-column option grid.</p>
+
+  <div class="mobile-rail">
+
+    <!-- Option A · Mobile (Step 1) -->
+    <div class="mobile-card">
+      <div class="mobile-tag">Option A · Mobile · Step 01</div>
+      <div class="mobile-cap">3-Step Perfect (Bond)</div>
+      <div class="mobile-pair">Pairs with Homepage A</div>
+      <div class="mob-frame">
+        <div class="mob-page">
+          <div class="mob-popup">
+            <span class="x">×</span>
+            <div class="ey">A 60-second quiz</div>
+            <div class="h">Find your Bond Street?</div>
+            <div class="sub">Five neighborhoods · 28 scents · one match.</div>
+            <div class="yn"><span class="btn yes">Yes, find mine</span><span class="btn no">Not today</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mob-note">Compact card · subhead trims one phrase · Yes/No buttons stack to 2-up at narrowest breakpoint. Each step rendered as separate viewport — never two-column on mobile.</div>
+    </div>
+
+    <!-- Option B · Mobile (Q1) -->
+    <div class="mobile-card">
+      <div class="mobile-tag">Option B · Mobile · Q1</div>
+      <div class="mobile-cap">Question-Based Quiz</div>
+      <div class="mobile-pair">Pairs with Homepage C · pick</div>
+      <div class="mob-frame">
+        <div class="mob-page">
+          <div class="mob-popup">
+            <span class="x">×</span>
+            <div class="ey">Q 01 of 03</div>
+            <div class="h">Which New York are you?</div>
+            <div class="opts-grid">
+              <span class="opt on">Uptown</span>
+              <span class="opt">Downtown</span>
+              <span class="opt">Parks</span>
+              <span class="opt">City</span>
+              <span class="opt">Beaches</span>
+              <span class="opt">All</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mob-note">Six options on mobile = 3 rows of 2 (vs 2 rows of 3 on desktop). Touch targets ≥44px hit area each. Progress bar drops to single thin line at base of card.</div>
+    </div>
+
+    <!-- Option C · Mobile (Step 1) -->
+    <div class="mobile-card">
+      <div class="mobile-tag">Option C · Mobile · Step 01</div>
+      <div class="mobile-cap">2-Step Cashback</div>
+      <div class="mobile-pair">Pairs with Homepage B</div>
+      <div class="mob-frame">
+        <div class="mob-page">
+          <div class="mob-popup">
+            <span class="x">×</span>
+            <div class="ey">A small thank-you</div>
+            <div class="h">$25 cashback on your first order.</div>
+            <div class="sub">No code · no minimum · ships after your order.</div>
+            <div class="yn"><span class="btn yes">Claim my $25</span><span class="btn no">No thanks</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mob-note">Smallest of the three cards — single value prop, two CTAs. Best mobile completion rate (industry: 30%+). $25 number stays the focal point at every viewport.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 07 PAIRING SUMMARY ============ -->
+<section>
+  <div class="s-num">07 / Pairing summary</div>
+  <h2>Which popup <em>goes with which homepage.</em></h2>
+  <p class="s-lede">The popup voice has to agree with the page voice. A cashback popup with an editorial homepage reads inconsistent. A 3-step exclusivity popup with a fast-conversion homepage reads inconsistent. The pairings below match register across the entire above-the-fold experience.</p>
+
+  <table class="pair-table">
+    <tr>
+      <th style="width:80px">Popup</th>
+      <th>Pair</th>
+      <th>Why this pair</th>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td><strong>3-Step Perfect (Bond) → Homepage A · Editorial Front</strong></td>
+      <td>Both options bet on long-form brand-world reading time and editorial register over fast conversion. Editorial Front opens the site as cinema; the 3-step popup uses the longest, most editorial flow — quiz hook, exclusivity SMS step, brand-voice copy throughout. The luxury-magazine pairing.</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td><strong>Question-Based Quiz → Homepage C · The Hybrid</strong></td>
+      <td>Both options earn their weight through the discovery quiz mechanic. Hybrid runs Two Doors at scroll 1 (quiz being one of the doors); the question-based popup IS the quiz at the popup level. Same mechanic, two surfaces. The brand-defining, most-differentiated pairing — the recommended pick.</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td><strong>2-Step Cashback → Homepage B · Two Doors</strong></td>
+      <td>Both options optimize for fast comprehension and direct conversion paths. Two Doors splits the homepage into clear funnels at the hero; the 2-step cashback popup runs the shortest possible flow with the highest opt-in rate. Lowest joint build cost, fastest to ship, most conversion-velocity.</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ============ 08 CROSS-CUTS ============ -->
+<section>
+  <div class="s-num">08 / Cross-cuts · apply to all three options</div>
+  <h2>Trigger logic, frequency, and brand discipline — <em>identical across all three.</em></h2>
+  <p class="s-lede">Below is the framework that applies to whichever option ships. Trigger rules, frequency caps, dim-treatment, close behavior, and voice boundaries are all option-independent.</p>
+
+  <div class="crosscuts">
+    <h4>Trigger + frequency</h4>
+    <ul>
+      <li><strong>— Trigger: Exit-intent OR 50% scroll-depth.</strong> Whichever fires first. NEVER load-immediate (doubles bounce rate). Option B may use 10s delay as the third trigger because the quiz is the value, but Options A and C must use exit-intent / scroll only.</li>
+      <li><strong>— Frequency cap: 1 per 7 days per user.</strong> Cookie-based. Session count = 1 only (do not show on second session within 24h). If the user closes the popup, do not re-fire on the same session.</li>
+      <li><strong>— New visitors only by default.</strong> Attentive display rule: <code>session count = 1</code> AND <code>not yet subscribed</code>. Returning subscribers get a different Creative (or none).</li>
+      <li><strong>— No popup on cart, checkout, account, or PDPs above the fold.</strong> Popup fires on home, collection, neighborhood index, neighborhood detail, story / about pages only.</li>
+    </ul>
+  </div>
+
+  <div class="crosscuts" style="margin-top:18px">
+    <h4>Brand discipline</h4>
+    <ul>
+      <li><strong>— Bond voice, every line.</strong> Cabinet Grotesk display headlines, Karla body, gold accent on eyebrows. No exclamation marks. No "AMAZING" / "INCREDIBLE" / "Save Big". Editorial register, NYC-native voice.</li>
+      <li><strong>— No urgency, no countdown, no scarcity.</strong> Per Bond's editorial register. No "OFFER ENDS IN 4:32" timers. No "ONLY 3 LEFT IN STOCK" badges in the popup. No "LAST CHANCE" copy.</li>
+      <li><strong>— Bond Gold (#C5A55A) for accents only, never for button backgrounds.</strong> Per Bond's logo treatment rules. CTAs are black or white; gold is for eyebrows, hairlines, and "claim my $25" highlight underlines only. Option C is the exception (gold CTA on the cashback step) because the gold IS the offer.</li>
+      <li><strong>— Wordmark allowed in the popup but never larger than 90px width.</strong> The popup is not the masthead. The script wordmark may appear muted in the corner if needed, but the popup card carries its own typographic hierarchy.</li>
+    </ul>
+  </div>
+
+  <div class="crosscuts" style="margin-top:18px">
+    <h4>Confirmation state</h4>
+    <ul>
+      <li><strong>— "Continue browsing" CTA, never "Save for later" or "Got it."</strong> Routes vary by option: A → /pages/new-york-neighborhoods · B → matched fragrance PDP · C → /pages/new-york-neighborhoods.</li>
+      <li><strong>— No discount code displayed in confirmation.</strong> Options A and B never display a code. Option C displays "$25 locked in" in plain language, not a code.</li>
+      <li><strong>— Cookie set immediately on confirmation.</strong> Suppresses re-fire for 7 days. Subscribed customers never see the popup again until segmented otherwise.</li>
+    </ul>
+  </div>
+
+  <!-- Anti-patterns -->
+  <h3 style="margin-top:36px;font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--black);font-variation-settings:'opsz' 144;letter-spacing:-.005em">Anti-patterns · never ship</h3>
+  <div class="anti">
+    <div class="anti-cell">
+      <span class="x">✕</span>
+      <span class="h">Page-load popup</span>
+      <span class="body"><strong>Doubles bounce rate.</strong> Bond removed this from the previous SMS popup — do not bring it back. Trigger must be exit-intent / scroll / time-delay (≥7s) at minimum.</span>
+    </div>
+    <div class="anti-cell">
+      <span class="x">✕</span>
+      <span class="h">% off discount in copy</span>
+      <span class="body"><strong>Off register.</strong> "10% off" / "15% off" / "Save 20%" all forbidden. Substitute: cashback (Option C), exclusivity (Option A), discovery (Option B).</span>
+    </div>
+    <div class="anti-cell">
+      <span class="x">✕</span>
+      <span class="h">Email + phone on same step</span>
+      <span class="body"><strong>Kills opt-in.</strong> Option A separates email (Step 2) from phone (Step 3). Option C drops phone entirely. Never on the same form.</span>
+    </div>
+    <div class="anti-cell">
+      <span class="x">✕</span>
+      <span class="h">Hidden / unclosable X</span>
+      <span class="body"><strong>Illegal in some jurisdictions, always bad UX.</strong> X close button visible in top-right of every step at minimum 14×14px hit target on desktop, 24×24px on mobile.</span>
+    </div>
+    <div class="anti-cell">
+      <span class="x">✕</span>
+      <span class="h">Stacked popups in one session</span>
+      <span class="body"><strong>One popup per session, period.</strong> No newsletter + SMS + country selector + age-gate cascade. If multiple are needed (rare), sequence them across sessions, not stacked.</span>
+    </div>
+    <div class="anti-cell">
+      <span class="x">✕</span>
+      <span class="h">"Save for Later" final CTA</span>
+      <span class="body"><strong>Use "Continue browsing" instead.</strong> "Save for Later" reads as the user is leaving the site — exactly the wrong signal at the moment of opt-in.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 ATTENTIVE IMPLEMENTATION ============ -->
+<section>
+  <div class="s-num">09 / Attentive implementation · per option</div>
+  <h2>How each option <em>ships as an Attentive Creative.</em></h2>
+  <p class="s-lede">Bond runs Attentive for unified email + SMS — already loaded on the site via the Attentive Tag (<code>cdn.attn.tv/bondno9/dtag.js</code>). All three options build as Multi-Step Creatives in Attentive's Creative Builder. Below is the configuration sketch per option — display rules, custom attributes, downstream Journey triggers. Email and SMS opt-ins land in the same subscriber profile; SMS uses Attentive's TCPA-compliant two-tap consent.</p>
+
+  <div class="attentive">
+    <div class="h">Option A · 3-Step Perfect (Bond Variant)</div>
+    <span class="c">// Creative type</span><br>
+    Multi-Step Creative · 3 steps + confirmation · email + SMS unified<br><br>
+    <span class="c">// Display rules</span><br>
+    Show on: <span class="k">exit-intent</span> OR <span class="k">scroll-depth ≥50%</span><br>
+    Display frequency: <span class="k">once every 7 days</span><br>
+    Audience: <span class="k">session count = 1</span> AND <span class="k">not subscribed (email or SMS)</span><br>
+    Pages: <span class="k">home · /collections/* · /pages/new-york-neighborhoods · /pages/neighborhood/*</span><br>
+    Suppress: <span class="k">/cart · /checkout · /account*</span><br><br>
+    <span class="c">// Custom attributes captured</span><br>
+    <span class="k">popup_quiz_intent</span> = "yes" / "no"<br>
+    <span class="k">popup_email_captured</span> = timestamp<br>
+    <span class="k">popup_sms_captured</span> = timestamp (optional · null if Step 3 skipped) · written on TCPA two-tap confirm<br>
+    <span class="k">vip_circle_member</span> = tag (applied if Step 3 completed)<br><br>
+    <span class="c">// Downstream Journeys triggered</span><br>
+    On email captured → <span class="k">Welcome Series · Discovery Quiz Email</span> (delivers quiz link)<br>
+    On SMS captured (two-tap confirmed) → <span class="k">VIP Inner Circle Welcome SMS Journey</span><br>
+    On 7 days no purchase → <span class="k">Bond to Go Sample Set Email</span> (cross-sell)
+  </div>
+
+  <div class="attentive">
+    <div class="h">Option B · Question-Based Quiz</div>
+    <span class="c">// Creative type</span><br>
+    Multi-Step Creative · 3 questions + email + confirmation<br><br>
+    <span class="c">// Display rules</span><br>
+    Show on: <span class="k">10s delay</span> OR <span class="k">exit-intent</span><br>
+    Display frequency: <span class="k">once every 14 days</span><br>
+    Resume: <span class="k">on return if quiz mid-flow</span> (localStorage + Attentive subscriber attribute fallback)<br><br>
+    <span class="c">// Custom attributes captured</span><br>
+    <span class="k">quiz_neighborhood</span> = "uptown" | "downtown" | "parks" | "city" | "beaches" | "all"<br>
+    <span class="k">quiz_occasion</span> = "daytime" | "evening" | "office" | "all"<br>
+    <span class="k">quiz_intensity</span> = "soft" | "medium" | "bold"<br>
+    <span class="k">quiz_match_top</span> = matched fragrance product handle<br>
+    <span class="k">quiz_match_score</span> = 0-100<br><br>
+    <span class="c">// Downstream Journeys triggered</span><br>
+    On quiz complete → <span class="k">Personalized Match Email</span> (uses match_top to fill PDP link)<br>
+    On 5 days no purchase → <span class="k">Neighborhood Story Drip</span> (5-email series, one per neighborhood)<br>
+    Segment by quiz_occasion → <span class="k">Evening-Wearer Journey</span> vs <span class="k">Office-Wearer Journey</span> (separate creatives)
+  </div>
+
+  <div class="attentive">
+    <div class="h">Option C · 2-Step Cashback</div>
+    <span class="c">// Creative type</span><br>
+    Multi-Step Creative · 2 steps + confirmation<br>
+    Cashback delivery: <span class="k">Fondue integration</span> (Shopify order webhook → Attentive event)<br><br>
+    <span class="c">// Display rules</span><br>
+    Show on: <span class="k">exit-intent</span> OR <span class="k">scroll-depth ≥50%</span><br>
+    Display frequency: <span class="k">once every 7 days</span><br>
+    Audience: <span class="k">session count = 1</span> AND <span class="k">not subscribed</span><br><br>
+    <span class="c">// Custom attributes captured</span><br>
+    <span class="k">cashback_pledged</span> = boolean<br>
+    <span class="k">cashback_amount</span> = 25 (USD)<br>
+    <span class="k">cashback_status</span> = "pledged" / "earned" / "redeemed" / "expired"<br><br>
+    <span class="c">// Downstream Journeys triggered</span><br>
+    On email captured → <span class="k">Welcome Series · Cashback Confirmation</span><br>
+    On first order → <span class="k">Fondue webhook</span> (Visa gift card delivery, $25) + Attentive attribute update<br>
+    On 7 days no purchase → <span class="k">Cashback Reminder Email</span> ("$25 still waiting")
+  </div>
+</section>
+
+<!-- ============ 10 PRE-LAUNCH QA ============ -->
+<section>
+  <div class="s-num">10 / Pre-launch QA · ship checklist</div>
+  <h2>Run every box <em>before turning a popup on.</em></h2>
+  <p class="s-lede">All three options share the same QA gate. Skip nothing. The most common popup failures are the boring ones — discount code not auto-applying, X close hidden behind chat bubble on iOS Safari, popup re-firing on every page load because cookie wasn't set. Test on real devices, not BrowserStack alone.</p>
+
+  <div class="qa">
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>iOS Safari · iPhone Chrome · Android Chrome</strong>Test on real devices, not just emulators. Especially X close hit area and field tap target.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>X close button works on every step</strong>Including Step 3 / confirmation state. Closing should set the cookie and never re-queue.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>"No Thanks" / "Not Today" path closes cleanly</strong>Should close popup AND set the cookie. No re-fire on next page load.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>Discount code / cashback auto-applies at checkout</strong>Option C: Fondue webhook fires on order ship. No manual code-paste required.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>Phone field validates US + international</strong>Option A only. International formats accepted (E.164). Bond ships to UK, EU, UAE.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>Confirmation Continue Browsing CTA goes somewhere useful</strong>A → /pages/new-york-neighborhoods · B → matched PDP · C → /pages/new-york-neighborhoods. Never the cart.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>Cookie / frequency cap set on confirmation AND on close</strong>7-day cap (14-day for Option B). Confirm via DevTools → Application → Cookies.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>Suppression on /cart, /checkout, /account works</strong>No popup fires on those URLs even if all triggers met.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>Attentive custom attributes write correctly</strong>Verify <code style="font-family:var(--mono);font-size:11px;color:var(--gold);background:var(--surface);padding:1px 4px;border:1px solid var(--gold)">popup_email_captured</code>, <code style="font-family:var(--mono);font-size:11px;color:var(--gold);background:var(--surface);padding:1px 4px;border:1px solid var(--gold)">quiz_neighborhood</code>, etc. land on the subscriber profile in Attentive.</div>
+    </div>
+    <div class="qa-cell">
+      <span class="box"></span>
+      <div><strong>Downstream flow fires on opt-in</strong>Welcome email arrives within 60s. SMS arrives within 60s (Option A only). Cashback confirmation within 60s (Option C only).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 MEASURING SUCCESS ============ -->
+<section>
+  <div class="s-num">11 / Measuring success</div>
+  <h2>The metrics that matter.</h2>
+  <p class="s-lede">Opt-in rate alone is a vanity metric. The real test is whether opted-in users carry materially higher Revenue Per Session than non-opted-in. If opt-in is 25% but Revenue Per Session of opt-ins is the same as non-opt-ins, the popup is collecting low-quality leads — tighten the trigger.</p>
+
+  <div class="ctx" style="margin-bottom:0">
+    <div class="ctx-cell">
+      <div class="label">Primary · email opt-in</div>
+      <div class="v">15%+</div>
+      <div class="ev">Across all three options. Question-based (B) targets 22–28%. Cashback (C) targets 25–32%.</div>
+    </div>
+    <div class="ctx-cell">
+      <div class="label">Primary · phone opt-in</div>
+      <div class="v">5%+</div>
+      <div class="ev">Option A only. 3–5% range without discount, 5–8% with discount — Bond's exclusivity frame is closer to 4–6%.</div>
+    </div>
+    <div class="ctx-cell">
+      <div class="label">Secondary · RPS lift</div>
+      <div class="v">2×+</div>
+      <div class="ev">Opted-in user RPS should be at minimum 2× non-opted-in. If flat, popup is collecting low-quality leads.</div>
+    </div>
+    <div class="ctx-cell">
+      <div class="label">Long-term · LTV / CAC</div>
+      <div class="v">3:1+</div>
+      <div class="ev">Email + SMS flows triggered post-opt-in must produce LTV at 3× the cost of acquiring the opt-in (popup tool cost + cashback margin if Option C).</div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="l">
+    <strong>Paul Skidmore · Bond No. 9</strong>
+    Popup Strategy · Three variants · Paired to Homepage A/B/C · On Bond's register · Attentive-ready · Companion to wireframes Page 01 + Page 02 + Page 03 + CRO audit
+  </div>
+  <div class="r">
+    Pre-launch · v1 · 05.08.26
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
