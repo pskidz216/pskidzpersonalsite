@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,700;1,9..144,900&family=Karla:wght@300;400;500;600;700&display=swap");
+
+.bond-shell {
+  --bond-white: #ffffff;
+  --bond-black: #000000;
+  --bond-gold: #c5a55a;
+  --bond-gold-hover: #b8964d;
+  --bond-charcoal: #1f2020;
+  --bond-charcoal-muted: #525353;
+  --bond-smoke: #6b6b6b;
+  --bond-surface: #f6f6f6;
+  --bond-warning: #b43f3f;
+  --bond-display: "Fraunces", "Recoleta", "Playfair Display", Georgia, serif;
+  --bond-sans: "Karla", system-ui, -apple-system, sans-serif;
+
+  min-height: 100vh;
+  background: var(--bond-white);
+  color: var(--bond-charcoal);
+  font-family: var(--bond-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.bond-shell *,
+.bond-shell *::before,
+.bond-shell *::after {
+  box-sizing: border-box;
+}
+
+.bond-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 32px 96px;
+}
+
+.bond-eyebrow {
+  font-family: var(--bond-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--bond-gold);
+  text-transform: uppercase;
+}
+
+.bond-h1 {
+  font-family: var(--bond-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--bond-black);
+  font-variation-settings: "opsz" 144;
+}
+
+.bond-lede {
+  font-family: var(--bond-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--bond-charcoal-muted);
+  max-width: 680px;
+}
+
+.bond-rule {
+  height: 1px;
+  background: var(--bond-gold);
+  margin: 28px 0;
+  border: 0;
+}
+
+.bond-rule-thin {
+  height: 1px;
+  background: var(--bond-black);
+  border: 0;
+}
+
+.bond-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bond-smoke);
+}
+
+/* Login */
+.bond-login {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  padding: 48px 24px;
+}
+
+.bond-login-card {
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid var(--bond-black);
+  background: var(--bond-white);
+  padding: 56px 40px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.bond-login-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bond-login-mark .bond-eyebrow {
+  margin-bottom: 4px;
+}
+
+.bond-login-mark .bond-h1 {
+  font-size: clamp(32px, 5vw, 42px);
+}
+
+.bond-login-mark .bond-lede {
+  font-size: 16px;
+}
+
+.bond-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bond-field label {
+  font-family: var(--bond-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bond-charcoal-muted);
+}
+
+.bond-field input {
+  font-family: var(--bond-sans);
+  font-size: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--bond-black);
+  background: var(--bond-white);
+  color: var(--bond-charcoal);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 160ms ease;
+}
+
+.bond-field input:focus {
+  border-color: var(--bond-gold);
+}
+
+.bond-error {
+  font-family: var(--bond-sans);
+  font-size: 13px;
+  color: var(--bond-warning);
+}
+
+.bond-btn {
+  font-family: var(--bond-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 16px 22px;
+  background: var(--bond-black);
+  color: var(--bond-white);
+  border: 1px solid var(--bond-black);
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.bond-btn:hover {
+  background: var(--bond-gold);
+  border-color: var(--bond-gold);
+}
+
+.bond-btn[disabled] {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.bond-btn-ghost {
+  background: transparent;
+  color: var(--bond-charcoal);
+  border-color: var(--bond-charcoal);
+}
+
+.bond-btn-ghost:hover {
+  background: var(--bond-black);
+  color: var(--bond-white);
+  border-color: var(--bond-black);
+}
+
+/* Wireframes index */
+.bond-index-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  padding: 36px 0 28px;
+  border-top: 1px solid var(--bond-black);
+  border-bottom: 1px solid var(--bond-gold);
+  margin-bottom: 64px;
+}
+
+@media (max-width: 720px) {
+  .bond-index-head {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bond-section-label {
+  font-family: var(--bond-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bond-gold);
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--bond-gold);
+}
+
+.bond-section-label-spaced {
+  margin-top: 64px;
+}
+
+.bond-group-heading {
+  font-family: var(--bond-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--bond-black);
+  font-variation-settings: "opsz" 144;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bond-group-heading-spaced {
+  margin-top: 56px;
+}
+
+.bond-group-subtitle {
+  font-family: var(--bond-sans);
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--bond-charcoal-muted);
+  line-height: 1.45;
+}
+
+.bond-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.bond-index-grid-single {
+  grid-template-columns: minmax(0, 560px);
+}
+
+@media (max-width: 960px) {
+  .bond-index-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bond-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 28px 28px;
+  border: 1px solid var(--bond-black);
+  background: var(--bond-white);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.bond-card:hover {
+  border-color: var(--bond-gold);
+  transform: translateY(-2px);
+}
+
+.bond-card-letter {
+  font-family: var(--bond-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--bond-gold);
+  font-variation-settings: "opsz" 144;
+}
+
+.bond-card-title {
+  font-family: var(--bond-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--bond-black);
+  font-variation-settings: "opsz" 144;
+}
+
+.bond-card-tagline {
+  font-family: var(--bond-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bond-charcoal);
+}
+
+.bond-card-description {
+  font-family: var(--bond-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--bond-charcoal-muted);
+  flex: 1;
+}
+
+.bond-card-cta {
+  font-family: var(--bond-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bond-gold);
+  margin-top: 12px;
+}
+
+/* Viewer */
+.bond-viewer-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bond-black);
+  color: var(--bond-white);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+}
+
+.bond-viewer-bar a,
+.bond-viewer-bar button {
+  font-family: var(--bond-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bond-white);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.bond-viewer-bar a:hover,
+.bond-viewer-bar button:hover {
+  border-color: var(--bond-gold);
+  color: var(--bond-gold);
+}
+
+.bond-viewer-title {
+  font-family: var(--bond-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--bond-white);
+  text-align: center;
+  font-variation-settings: "opsz" 144;
+}
+
+.bond-viewer-frame {
+  width: 100%;
+  height: calc(100vh - 56px);
+  border: 0;
+  background: var(--bond-white);
+  display: block;
+}
+
+.bond-viewer-nav {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}

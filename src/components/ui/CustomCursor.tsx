@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+
+const PATH_PREFIXES_WITH_DEFAULT_CURSOR = ["/bond-no-9"];
 
 function subscribeToFinePointer(callback: () => void) {
   const mql = window.matchMedia("(pointer: fine)");
@@ -18,6 +21,11 @@ function getFinePointerServerSnapshot() {
 }
 
 export function CustomCursor() {
+  const pathname = usePathname();
+  const useDefaultCursor = PATH_PREFIXES_WITH_DEFAULT_CURSOR.some((p) =>
+    pathname?.startsWith(p)
+  );
+
   const hasFinePointer = useSyncExternalStore(
     subscribeToFinePointer,
     getFinePointerSnapshot,
@@ -33,6 +41,10 @@ export function CustomCursor() {
 
   useEffect(() => {
     if (!hasFinePointer) return;
+    if (useDefaultCursor) {
+      document.documentElement.style.cursor = "";
+      return;
+    }
 
     document.documentElement.style.cursor = "none";
 
@@ -46,9 +58,10 @@ export function CustomCursor() {
       window.removeEventListener("mousemove", onMouseMove);
       document.documentElement.style.cursor = "";
     };
-  }, [hasFinePointer, mouseX, mouseY]);
+  }, [hasFinePointer, useDefaultCursor, mouseX, mouseY]);
 
   if (!hasFinePointer) return null;
+  if (useDefaultCursor) return null;
 
   return (
     <>
