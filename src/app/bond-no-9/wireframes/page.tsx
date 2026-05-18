@@ -107,6 +107,31 @@ export default async function WireframesIndex() {
         ))}
       </section>
 
+      <h2 className="bond-section-label bond-section-label-spaced">
+        Live Quiz
+      </h2>
+      <section className="bond-index-grid bond-index-grid-single">
+        <a
+          href="/bond-no-9/quiz/"
+          className="bond-card"
+          aria-label="Open the Bond No. 9 Neighborhood Finder quiz"
+        >
+          <span className="bond-card-letter">★</span>
+          <h4 className="bond-card-title">Neighborhood Finder Quiz</h4>
+          <p className="bond-card-tagline">
+            Working build · 3 questions · matched neighborhood + fragrance pick.
+          </p>
+          <p className="bond-card-description">
+            The actual quiz, running here under /bond-no-9/quiz/. Take it as a
+            visitor would — three questions, then your matched New York
+            neighborhood with the corresponding Bond fragrance. This is the
+            mechanic that the Pop-ups Option B and the Neighborhood Detail
+            Option C wireframes are built to surface.
+          </p>
+          <span className="bond-card-cta">Take the quiz →</span>
+        </a>
+      </section>
+
       <hr className="bond-rule" style={{ marginTop: 64 }} aria-hidden />
       <p className="bond-mono">
         Wireframes are exploratory directions, not finished design.
