@@ -42,3 +42,28 @@ export function getWireframeBySlug(
 ): WireframeVariant | undefined {
   return WIREFRAMES.find((w) => w.slug === slug);
 }
+
+export type PopupVariant = {
+  slug: "options";
+  letter: "1";
+  title: string;
+  tagline: string;
+  description: string;
+  htmlPath: string;
+};
+
+export const POPUPS: readonly PopupVariant[] = [
+  {
+    slug: "options",
+    letter: "1",
+    title: "Popup Options",
+    tagline: "Three variants paired to each homepage direction.",
+    description:
+      "Why the default Perfect Popup doesn't ship as written, what's currently running on bondno9.com, how niche-luxury houses run opt-in, mobile renders, trigger logic, and the Attentive Creative ship checklist — one document.",
+    htmlPath: "/bond-no-9/popups/options.html",
+  },
+] as const;
+
+export function getPopupBySlug(slug: string): PopupVariant | undefined {
+  return POPUPS.find((p) => p.slug === slug);
+}
