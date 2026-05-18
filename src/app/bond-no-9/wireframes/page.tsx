@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { hasAccess } from "../auth";
 import { logoutAction } from "../actions";
-import { POPUPS, WIREFRAMES } from "../wireframes";
+import { BRAND_COMPARISONS, POPUPS, WIREFRAMES } from "../wireframes";
 
 export const dynamic = "force-dynamic";
 
@@ -63,6 +63,26 @@ export default async function WireframesIndex() {
             <p className="bond-card-tagline">{p.tagline}</p>
             <p className="bond-card-description">{p.description}</p>
             <span className="bond-card-cta">Open pop-up doc →</span>
+          </Link>
+        ))}
+      </section>
+
+      <h2 className="bond-section-label bond-section-label-spaced">
+        Brand Comparison
+      </h2>
+      <section className="bond-index-grid bond-index-grid-single">
+        {BRAND_COMPARISONS.map((b) => (
+          <Link
+            key={b.slug}
+            href={`/bond-no-9/brand-comparison/${b.slug}`}
+            className="bond-card"
+            aria-label={`Open ${b.title}`}
+          >
+            <span className="bond-card-letter">{b.letter}</span>
+            <h3 className="bond-card-title">{b.title}</h3>
+            <p className="bond-card-tagline">{b.tagline}</p>
+            <p className="bond-card-description">{b.description}</p>
+            <span className="bond-card-cta">Open comparison →</span>
           </Link>
         ))}
       </section>

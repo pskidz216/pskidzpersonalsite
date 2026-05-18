@@ -67,3 +67,30 @@ export const POPUPS: readonly PopupVariant[] = [
 export function getPopupBySlug(slug: string): PopupVariant | undefined {
   return POPUPS.find((p) => p.slug === slug);
 }
+
+export type BrandComparisonVariant = {
+  slug: "full";
+  letter: "1";
+  title: string;
+  tagline: string;
+  description: string;
+  htmlPath: string;
+};
+
+export const BRAND_COMPARISONS: readonly BrandComparisonVariant[] = [
+  {
+    slug: "full",
+    letter: "1",
+    title: "Brand Comparison",
+    tagline: "Bond vs. Creed, MFK, Marly, Le Labo, Byredo — measured.",
+    description:
+      "Live cross-site comparison across typography scale, image-to-canvas ratio, hero treatment, the product-listing grid, and the product-detail page. Every measurement taken from the actual sites on 2026-05-13. The 'stuff seems a little big' reviewer note tested against real numbers, dimension by dimension.",
+    htmlPath: "/bond-no-9/presentations/brand-comparison.html",
+  },
+] as const;
+
+export function getBrandComparisonBySlug(
+  slug: string
+): BrandComparisonVariant | undefined {
+  return BRAND_COMPARISONS.find((b) => b.slug === slug);
+}

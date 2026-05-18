@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bond No. 9 — Popup Options · Three Variants Paired to Homepage A/B/C</title>
+<title>Bond No. 9 — Popup Options · Three Brand-Safe Variants</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,700;1,9..144,900&family=Karla:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -11,112 +11,88 @@
 :root{
   --white:#FFFFFF;--black:#000000;--gold:#C5A55A;--gold-hover:#B8964D;
   --charcoal:#1F2020;--charcoal-muted:#525353;--smoke:#6B6B6B;--surface:#F6F6F6;
-  --warning:#B43F3F;--success:#3F7A4F;
+  --warning:#B43F3F;
   --display:'Fraunces','Recoleta','Playfair Display',Georgia,serif;
   --sans:'Karla',system-ui,-apple-system,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --script:'Allura','Snell Roundhand',cursive;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--sans);background:var(--white);color:var(--charcoal);line-height:1.55;font-size:14px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-.wrap{max-width:1280px;margin:0 auto;padding:48px 32px 96px}
+.wrap{max-width:1180px;margin:0 auto;padding:48px 32px 96px}
 
-/* Logo */
-.bond-logo{display:block;height:auto;flex-shrink:0}
-.logo-sm{width:120px}
-
-/* Header */
-.head{border-top:1px solid var(--black);border-bottom:1px solid var(--gold);padding:36px 0 32px;margin-bottom:48px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
+/* ============ MASTER HEADER ============ */
+.head{border-top:1px solid var(--black);border-bottom:1px solid var(--gold);padding:36px 0 32px;margin-bottom:64px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
 .eyebrow{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
-h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(36px,4.5vw,52px);line-height:1;letter-spacing:-.01em;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:14px}
-.lede{font-family:var(--display);font-style:italic;font-weight:500;font-size:18px;line-height:1.4;color:var(--charcoal-muted);max-width:780px}
+h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(40px,5vw,56px);line-height:1;letter-spacing:-.01em;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:14px}
+.lede{font-family:var(--display);font-style:italic;font-weight:500;font-size:19px;line-height:1.4;color:var(--charcoal-muted);max-width:680px}
 .head-meta{display:flex;flex-direction:column;align-items:flex-end;gap:14px;font-family:var(--sans);font-size:10px;letter-spacing:.16em;color:var(--smoke);text-transform:uppercase;line-height:1.8}
-.head-meta-stack{text-align:right}
+.head-meta .head-mark{width:160px;height:auto;display:block}
+.head-meta .head-meta-stack{display:block;text-align:right}
+.head-meta .badge{display:block;font-family:var(--display);font-style:italic;font-weight:700;font-size:36px;color:var(--gold);letter-spacing:0;text-transform:none;line-height:1;margin-bottom:10px;font-variation-settings:"opsz" 144}
 
-/* Sections */
-section{margin-bottom:80px}
-.s-num{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
-h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.01em;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:14px;max-width:840px}
-.s-lede{font-family:var(--sans);font-size:15px;line-height:1.55;max-width:780px;color:var(--charcoal);margin-bottom:32px}
+/* ============ TOP-LEVEL PARTS ============ */
+.part{margin-bottom:96px}
+.part-head{margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--gold)}
+.part-num{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(26px,3vw,36px);line-height:1.05;letter-spacing:-.015em;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:14px;max-width:820px}
+h2 em{color:var(--gold)}
+.part-lede{font-family:var(--sans);font-size:16px;line-height:1.6;color:var(--charcoal);max-width:740px}
 
-/* Context grid (Bond's situation) */
-.ctx{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--black);background:var(--surface);margin-bottom:18px}
-.ctx-cell{padding:20px 22px;border-right:1px solid var(--gold);background:var(--white);display:flex;flex-direction:column;gap:8px}
-.ctx-cell:last-child{border-right:none}
-.ctx-cell .label{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
-.ctx-cell .v{font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1;letter-spacing:-.005em}
-.ctx-cell .ev{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal-muted);margin-top:auto;padding-top:8px;border-top:1px dashed var(--surface)}
+/* ============ SUBSECTIONS ============ */
+.sub{margin-bottom:64px}
+.sub-num{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+h3{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(20px,2.4vw,26px);line-height:1.1;letter-spacing:-.01em;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:14px;max-width:780px}
+.sub-lede{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--charcoal);max-width:680px;margin-bottom:28px}
 
-/* Issues / current state */
+/* ============ CURRENT STATE DIAGNOSTIC ============ */
 .current-frame{border:1px solid var(--black);background:var(--surface)}
-.current-bar{background:var(--charcoal);color:var(--gold);padding:10px 22px;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.current-bar{background:var(--warning);color:var(--white);padding:10px 22px;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
 .current-canvas{padding:24px;background:var(--surface)}
+.promo-bar{background:var(--black);color:var(--white);text-align:center;padding:10px;font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;position:relative}
+.promo-bar .flag{position:absolute;top:50%;right:14px;transform:translateY(-50%);background:var(--warning);color:var(--white);padding:3px 10px;font-size:9px;font-weight:700;letter-spacing:.18em}
+.issue-list{background:var(--white);border:1px solid var(--warning);padding:20px 24px;margin-top:14px;border-left:3px solid var(--warning)}
+.issue-list .head-tag{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--warning);text-transform:uppercase;margin-bottom:12px}
+.issue-list ol{list-style:none;padding:0;counter-reset:i}
+.issue-list li{font-family:var(--sans);font-size:13px;line-height:1.55;padding:8px 0 8px 32px;position:relative;counter-increment:i;border-bottom:1px solid var(--surface)}
+.issue-list li:last-child{border-bottom:none}
+.issue-list li::before{content:counter(i,decimal-leading-zero);position:absolute;left:0;top:9px;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--warning)}
+.issue-list li strong{color:var(--black);font-weight:700}
 
-/* Reference grid */
+/* ============ REFERENCE GRID ============ */
 .refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--black);background:var(--surface)}
 .ref{padding:20px 22px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);background:var(--white)}
 .ref-name{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);font-variation-settings:"opsz" 144;margin-bottom:4px}
 .ref-tag{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.ref-tag.warn{color:var(--warning)}
 .ref-pattern{font-family:var(--sans);font-size:12px;line-height:1.5;color:var(--charcoal)}
 
-/* Option / variant card */
-.option{background:var(--surface);border:1px solid var(--black);padding:32px 36px;margin-bottom:32px}
-.option-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--gold)}
-.option-head .left{flex:1}
-.option-head h3{font-family:var(--display);font-style:italic;font-weight:700;font-size:30px;line-height:1.05;color:var(--black);font-variation-settings:"opsz" 144;letter-spacing:-.01em;margin-bottom:8px}
-.option-head .v-tag{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
-.option-head .pair{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--black);color:var(--white);padding:8px 14px;white-space:nowrap}
-.option-head .pair em{font-family:var(--display);font-style:italic;color:var(--gold);text-transform:none;font-size:13px;letter-spacing:0;font-weight:700;font-variation-settings:"opsz" 144;margin-left:4px}
-.option-desc{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--charcoal);max-width:820px;margin-bottom:24px}
+/* ============ NAV VARIANT CARDS ============ */
+.variant{background:var(--surface);border:1px solid var(--black);padding:28px 32px;margin-bottom:24px}
+.variant-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--gold)}
+.variant-head .left{flex:1}
+.variant-head h3{font-size:26px;line-height:1.1;margin-bottom:6px}
+.variant-head .v-tag{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.variant-head .pair{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--black);color:var(--white);padding:8px 14px;white-space:nowrap}
+.variant-head .pair .pick{background:var(--gold);color:var(--white);padding:2px 7px;margin-left:6px;font-size:9px}
+.variant-desc{font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--charcoal);max-width:680px;margin-bottom:20px}
 
-/* Step flow */
-.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:14px;align-items:stretch}
-.flow.three-step{grid-template-columns:repeat(4,1fr)}
-.flow.two-step{grid-template-columns:repeat(3,1fr)}
-.flow.quiz{grid-template-columns:repeat(3,1fr)}
-.step-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--gold);position:relative}
-.step-card .step-tag{padding:10px 14px;background:var(--charcoal);color:var(--gold);font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gold)}
-.step-card .step-tag .nm{color:var(--white)}
-.step-card .body{padding:0;flex:1;display:flex;flex-direction:column;background:var(--surface)}
+/* nav diagrams (inside variant cards) */
+.nav-diag{border:1px solid var(--black);margin-bottom:8px;background:var(--white)}
+.nav-row{padding:18px 28px;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+.nav-row.utility{padding:8px 28px;background:var(--surface);border-bottom:1px solid var(--gold);font-size:10px}
+.nav-row.utility .left,.nav-row.utility .right{display:flex;gap:16px;align-items:center;font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase}
+.nav-row.utility .left{color:var(--gold)}
+.nav-row.center{justify-content:center;flex-direction:column;padding:22px 28px;border-bottom:1px solid var(--gold)}
+.nav-row.links-row{padding:14px 28px;border-top:1px solid var(--gold);background:var(--white);justify-content:center}
+.nav-diag .links{display:flex;gap:24px;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--charcoal);align-items:center}
+.nav-diag .links span.primary{color:var(--black);font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.nav-diag .icons{display:flex;gap:10px;align-items:center}
+.nav-diag .icon{width:24px;height:24px;border:1px solid var(--black);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--charcoal)}
+.nav-diag .country{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase;margin-left:8px}
 
-/* Popup mockup inside step */
-.popup-mock{background:repeating-linear-gradient(45deg,#EAEAEA 0,#EAEAEA 6px,var(--surface) 6px,var(--surface) 12px);padding:18px;flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:240px}
-.popup-mock::before{content:"page · dimmed";position:absolute;top:8px;left:10px;font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase;font-weight:700;background:var(--surface);padding:2px 6px;border:1px solid var(--gold)}
-.popup-card{background:var(--white);border:1px solid var(--black);padding:18px 18px 16px;width:100%;max-width:240px;position:relative}
-.popup-card .x{position:absolute;top:6px;right:8px;font-family:var(--mono);font-size:14px;color:var(--smoke);font-weight:700;line-height:1}
-.popup-card .ey{font-family:var(--sans);font-size:8px;letter-spacing:.24em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:6px;text-align:center}
-.popup-card .h{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1.15;text-align:center;margin-bottom:8px;letter-spacing:-.005em}
-.popup-card .h.tight{font-size:16px}
-.popup-card .sub{font-family:var(--sans);font-size:10px;line-height:1.45;color:var(--charcoal-muted);text-align:center;margin-bottom:10px}
-.popup-card .yn{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
-.popup-card .yn .btn{padding:9px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;text-align:center;font-weight:700;text-transform:uppercase}
-.popup-card .yn .btn.yes{background:var(--black);color:var(--white)}
-.popup-card .yn .btn.no{background:var(--white);color:var(--charcoal-muted);border:1px solid var(--charcoal-muted)}
-.popup-card .field{height:30px;background:var(--surface);border:1px solid var(--charcoal);font-family:var(--mono);font-size:9px;color:var(--smoke);display:flex;align-items:center;padding:0 10px;margin:8px 0}
-.popup-card .btn-full{display:block;width:100%;padding:10px;font-family:var(--sans);font-size:9px;letter-spacing:.18em;text-align:center;font-weight:700;text-transform:uppercase;background:var(--gold);color:var(--black);border:1px solid var(--gold)}
-.popup-card .btn-full.dark{background:var(--black);color:var(--white);border-color:var(--black)}
-.popup-card .skip{display:block;text-align:center;font-family:var(--sans);font-size:8px;color:var(--smoke);font-style:italic;margin-top:8px;text-decoration:underline}
-.popup-card .footer-line{font-family:var(--sans);font-size:8px;color:var(--gold);font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-align:center;margin-top:8px;padding-top:8px;border-top:1px dashed var(--surface)}
-.popup-card .opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
-.popup-card .opts-grid .opt{padding:7px 4px;background:var(--surface);border:1px solid var(--gold);font-family:var(--sans);font-size:8px;letter-spacing:.14em;color:var(--charcoal);font-weight:600;text-transform:uppercase;text-align:center;cursor:pointer}
-.popup-card .opts-grid .opt.on{background:var(--charcoal);color:var(--white);border-color:var(--charcoal)}
-.popup-card .progress{display:flex;gap:3px;margin-top:8px}
-.popup-card .progress i{height:3px;flex:1;background:var(--surface);border:1px solid var(--gold)}
-.popup-card .progress i.on{background:var(--gold);border-color:var(--gold)}
-.popup-card.confirm{border:2px solid var(--gold);text-align:center}
-.popup-card.confirm .check{font-family:var(--display);font-style:italic;font-weight:700;font-size:30px;color:var(--gold);font-variation-settings:"opsz" 144;line-height:1;margin-bottom:6px}
-.popup-card.confirm .code{font-family:var(--mono);font-size:11px;color:var(--charcoal);background:var(--surface);padding:6px 10px;border:1px dashed var(--gold);margin:8px auto;display:inline-block}
-
-/* Step note (under each card) */
-.step-note{padding:12px 14px;background:var(--white);border-top:1px solid var(--gold);font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal)}
-.step-note strong{color:var(--black);font-weight:700;display:block;margin-bottom:3px}
-
-/* Trigger annotation */
-.trigger-row{padding:12px 16px;background:var(--charcoal);color:var(--white);display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--gold)}
-.trigger-row .gold{color:var(--gold);font-weight:700}
-
-/* Pros/Cons */
-.pc{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:18px;border:1px solid var(--gold)}
-.pc-cell{padding:18px 22px;font-family:var(--sans);font-size:12px;line-height:1.55;background:var(--white)}
+/* pros/cons grid */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:16px;border:1px solid var(--gold)}
+.pc-cell{padding:16px 20px;font-family:var(--sans);font-size:12px;line-height:1.55}
 .pc-cell.pros{border-right:1px solid var(--gold)}
 .pc-cell h4{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px}
 .pc-cell.pros h4{color:var(--gold)}
@@ -127,102 +103,498 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .pc-cell.pros li::before{content:'+ ';color:var(--gold);font-weight:700}
 .pc-cell.cons li::before{content:'— ';color:var(--smoke);font-weight:700}
 
-/* Mobile preview rail */
-.mobile-rail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}
-.mobile-card{display:flex;flex-direction:column}
-.mobile-tag{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;text-align:center}
-.mobile-cap{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);text-align:center;margin-bottom:6px;font-variation-settings:"opsz" 144}
-.mobile-pair{font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);text-align:center;margin-bottom:14px}
-.mob-frame{max-width:300px;width:100%;margin:0 auto;border:1px solid var(--black);background:var(--white);position:relative}
-.mob-page{height:240px;background:repeating-linear-gradient(45deg,var(--surface) 0,var(--surface) 8px,#EAEAEA 8px,#EAEAEA 16px);position:relative;display:flex;align-items:center;justify-content:center;padding:18px}
-.mob-page::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35)}
-.mob-popup{background:var(--white);border:1px solid var(--black);padding:14px;width:100%;position:relative;z-index:2}
-.mob-popup .x{position:absolute;top:4px;right:6px;font-family:var(--mono);font-size:12px;color:var(--smoke);font-weight:700}
-.mob-popup .ey{font-family:var(--sans);font-size:7px;letter-spacing:.22em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:5px;text-align:center}
-.mob-popup .h{font-family:var(--display);font-style:italic;font-weight:700;font-size:14px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1.15;text-align:center;margin-bottom:6px}
-.mob-popup .sub{font-family:var(--sans);font-size:9px;line-height:1.45;color:var(--charcoal-muted);text-align:center;margin-bottom:8px}
-.mob-popup .yn{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.mob-popup .yn .btn{padding:7px;font-family:var(--sans);font-size:8px;letter-spacing:.16em;text-align:center;font-weight:700;text-transform:uppercase}
-.mob-popup .yn .btn.yes{background:var(--black);color:var(--white)}
-.mob-popup .yn .btn.no{background:var(--white);color:var(--charcoal-muted);border:1px solid var(--charcoal-muted)}
-.mob-popup .opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.mob-popup .opts-grid .opt{padding:6px 4px;background:var(--surface);border:1px solid var(--gold);font-family:var(--sans);font-size:7px;letter-spacing:.12em;color:var(--charcoal);font-weight:600;text-transform:uppercase;text-align:center}
-.mob-popup .opts-grid .opt.on{background:var(--charcoal);color:var(--white);border-color:var(--charcoal)}
-.mob-popup .field{height:24px;background:var(--surface);border:1px solid var(--charcoal);font-family:var(--mono);font-size:8px;color:var(--smoke);display:flex;align-items:center;padding:0 8px;margin:6px 0}
-.mob-popup .btn-full{display:block;width:100%;padding:7px;font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-align:center;font-weight:700;text-transform:uppercase;background:var(--gold);color:var(--black)}
-.mob-note{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal);margin-top:14px;padding:12px 14px;background:var(--surface);border-left:2px solid var(--gold)}
-
-/* Pairing summary table */
+/* pairing table */
 .pair-table{width:100%;border-collapse:collapse;margin-top:16px;border:1px solid var(--black)}
 .pair-table th{background:var(--black);color:var(--white);padding:12px 16px;text-align:left;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
 .pair-table td{padding:14px 16px;border-bottom:1px solid var(--gold);background:var(--white);font-family:var(--sans);font-size:13px;line-height:1.5;vertical-align:top}
 .pair-table td:first-child{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--gold);width:80px;font-variation-settings:"opsz" 144}
 .pair-table td strong{color:var(--black);font-weight:700}
+.cross-cuts{margin-top:32px;padding:24px 28px;background:var(--surface);border-left:3px solid var(--gold)}
+.cross-cuts .head-tag{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.cross-cuts ul{list-style:none;padding:0;font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--charcoal)}
+.cross-cuts li{padding:6px 0;border-bottom:1px dashed var(--surface)}
+.cross-cuts li:last-child{border-bottom:none}
+.cross-cuts li strong{color:var(--black);font-weight:700}
 
-/* Cross-cuts */
-.crosscuts{padding:24px 28px;background:var(--surface);border-left:3px solid var(--gold);margin-top:20px}
-.crosscuts h4{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
-.crosscuts ul{list-style:none;padding:0;font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--charcoal)}
-.crosscuts li{padding:6px 0;border-bottom:1px dashed var(--surface)}
-.crosscuts li:last-child{border-bottom:none}
-.crosscuts li strong{color:var(--black);font-weight:700}
-.crosscuts li code{font-family:var(--mono);font-size:11px;color:var(--gold);background:var(--white);padding:1px 4px;border:1px solid var(--gold)}
+/* ============ OPTION HEADER ============ */
+.opt{margin-bottom:80px;padding-top:24px;border-top:1px dashed var(--gold)}
+.opt-head{margin-bottom:24px;display:grid;grid-template-columns:120px 1fr;gap:32px;align-items:end}
+.opt-num{font-family:var(--display);font-style:italic;font-weight:700;font-size:56px;line-height:.85;color:var(--gold);letter-spacing:-.02em;font-variation-settings:"opsz" 144;text-align:center}
+.opt-title h3{font-size:36px;margin-bottom:6px}
+.opt-tag{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.opt-tag .pick{background:var(--gold);color:var(--white);padding:3px 8px;margin-left:8px;font-size:9px;letter-spacing:.2em}
+.opt-lede{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--charcoal);max-width:680px;margin-bottom:0}
 
-/* Anti-patterns */
-.anti{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:18px;border:1px solid var(--warning)}
-.anti-cell{padding:16px 20px;background:var(--white);border-right:1px solid var(--warning);border-bottom:1px solid var(--warning);display:flex;flex-direction:column;gap:6px}
-.anti-cell:nth-child(2n){border-right:none}
-.anti-cell:nth-last-child(-n+2){border-bottom:none}
-.anti-cell .x{font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--warning);font-variation-settings:"opsz" 144;line-height:1}
-.anti-cell .h{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--warning);text-transform:uppercase}
-.anti-cell .body{font-family:var(--sans);font-size:12px;line-height:1.55;color:var(--charcoal)}
-.anti-cell .body strong{color:var(--black);font-weight:700}
+/* ============ NAV REASONING CALLOUT ============ */
+.nav-note{margin-bottom:18px;padding:22px 28px;background:var(--white);border:1px solid var(--black);border-left:3px solid var(--gold);display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:start}
+.nav-note-tag{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;line-height:1.5;border-right:1px dashed var(--gold);padding-right:20px}
+.nav-note-tag em{display:block;font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--black);letter-spacing:-.01em;text-transform:none;font-variation-settings:"opsz" 144;margin-top:6px;line-height:1.1}
+.nav-note-tag .pick{display:inline-block;background:var(--gold);color:var(--white);padding:2px 8px;font-size:9px;font-weight:700;letter-spacing:.2em;margin-left:8px;text-transform:uppercase}
+.nav-note-body{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--charcoal)}
+.nav-note-body strong{color:var(--black);font-weight:700}
 
-/* Attentive config block */
-.attentive{margin-top:18px;padding:20px 24px;background:var(--charcoal);color:var(--white);font-family:var(--mono);font-size:12px;line-height:1.7;border-left:3px solid var(--gold);overflow-x:auto}
-.attentive .k{color:var(--gold)}
-.attentive .c{color:#7F8C8D;font-style:italic}
-.attentive .h{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;font-style:normal}
+/* ============ WIREFRAME FRAME ============ */
+.wf{background:var(--surface);border:1px solid var(--black)}
+.wf-bar{background:var(--black);color:var(--white);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.wf-bar .device{color:var(--gold);font-size:9px;letter-spacing:.2em}
+.wf-canvas{padding:24px;background:var(--surface)}
+.s{margin-bottom:14px;position:relative}
+.s-label{position:absolute;top:-8px;left:14px;background:var(--surface);padding:0 10px;font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;z-index:2}
+.s-body{background:var(--white);border:1px solid var(--black);padding:18px}
+.s-body.flat{padding:0;border:none}
+.fold{margin:14px -24px;height:0;border-top:1px dashed var(--gold);position:relative}
+.fold::before{content:'↓ BELOW THE FOLD';position:absolute;top:-7px;left:24px;background:var(--surface);padding:0 12px;font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.fold::after{content:'1080PX ↑ ABOVE';position:absolute;top:-7px;right:24px;background:var(--surface);padding:0 12px;font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
 
-/* QA checklist */
-.qa{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:18px;border:1px solid var(--black)}
-.qa-cell{padding:14px 20px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);background:var(--white);display:flex;gap:12px;align-items:flex-start;font-family:var(--sans);font-size:12px;line-height:1.5}
-.qa-cell:nth-child(2n){border-right:none}
-.qa-cell:nth-last-child(-n+2){border-bottom:none}
-.qa-cell .box{width:14px;height:14px;border:1.5px solid var(--charcoal);flex-shrink:0;margin-top:2px}
-.qa-cell strong{color:var(--black);font-weight:700;display:block;margin-bottom:2px}
+/* ============ NAV VARIANTS (inside option wireframes) ============ */
+/* Variant 01 — Magazine masthead (Option A) */
+.masthead{background:var(--white);border:1px solid var(--black);margin-bottom:14px}
+.masthead-utility{background:var(--surface);border-bottom:1px solid var(--gold);padding:9px 28px;display:flex;justify-content:space-between;align-items:center}
+.utility-left{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+.utility-right{display:flex;gap:20px;font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase}
+.masthead-mark{padding:24px;text-align:center;border-bottom:1px solid var(--gold);display:flex;justify-content:center}
+.masthead-links{padding:14px 28px;display:flex;justify-content:center;gap:36px;font-family:var(--sans);font-size:10px;letter-spacing:.22em;font-weight:600;color:var(--charcoal);text-transform:uppercase}
 
-/* Footer */
-.foot{margin-top:48px;padding-top:24px;border-top:1px solid var(--gold);display:grid;grid-template-columns:1fr auto;gap:24px;font-family:var(--sans);font-size:10px;letter-spacing:.04em;color:var(--smoke)}
+/* Variant 02 — Refined left-logo (Option B) */
+.nav-refined{background:var(--white);border:1px solid var(--black);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.nav-refined .links{display:flex;gap:24px;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--charcoal)}
+.nav-refined .links span.primary{color:var(--black);font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.nav-refined .icons{display:flex;gap:10px;align-items:center}
+.nav-refined .icon{width:24px;height:24px;border:1px solid var(--black);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--charcoal)}
+.nav-refined .country{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase;margin-left:10px}
+
+/* Variant 03 — Centered flanked (Option C) */
+.nav-flanked{background:var(--white);border:1px solid var(--black);padding:16px 22px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.nav-flanked .links{display:flex;gap:24px;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--charcoal);align-items:center}
+.nav-flanked .links-left{flex:1;justify-content:flex-start}
+.nav-flanked .links-right{flex:1;justify-content:flex-end}
+.nav-flanked .logo-center{flex:0 0 auto;margin:0 32px;display:flex;align-items:center;justify-content:center}
+.nav-flanked .nav-icons{display:flex;gap:10px;align-items:center;margin-left:24px;border-left:1px solid var(--gold);padding-left:18px}
+.nav-flanked .icon{width:24px;height:24px;border:1px solid var(--black);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--charcoal)}
+.nav-flanked .country{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase;margin-left:8px}
+
+/* ============ BOND LOGO SVG ============ */
+.bond-logo{display:block;height:auto;flex-shrink:0;aspect-ratio:792/312.2}
+.masthead-mark .bond-logo{width:280px;max-width:100%}
+.nav-refined .bond-logo{width:130px}
+.nav-flanked .logo-center .bond-logo{width:200px}
+
+/* ============ WIREFRAME PRIMITIVES ============ */
+.img{background:var(--surface);border:1px solid var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);position:relative}
+.img.xtall{min-height:420px}
+.img.xtall-c{min-height:420px}
+.img.tall{min-height:340px}
+.img.med{min-height:200px}
+.img.short{min-height:90px}
+.img.square{aspect-ratio:1/1;min-height:auto}
+.anno-tl{position:absolute;top:12px;left:14px;font-family:var(--sans);font-size:8px;letter-spacing:.2em;font-weight:700;color:var(--gold);text-transform:uppercase}
+
+.bar{height:10px;background:var(--smoke);margin-bottom:8px}
+.bar.lg{height:24px;background:var(--black);width:70%}
+.bar.md{height:14px;background:var(--charcoal);width:55%}
+.bar.sm{height:8px;background:var(--smoke);width:90%}
+.bar.xs{height:6px;background:var(--smoke);width:60%}
+
+.btn{display:inline-block;padding:14px 26px;background:var(--black);color:var(--white);font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--black);text-decoration:none;margin-right:8px;margin-top:8px}
+.btn.outline{background:transparent;color:var(--black)}
+.btn.full{display:block;width:100%;text-align:center;margin:0}
+.btn.sm{font-size:9px;padding:10px 18px;letter-spacing:.16em}
+
+.hero-copy{background:rgba(255,255,255,.95);padding:32px 44px;max-width:540px;text-align:center;border:1px solid var(--gold)}
+.door-copy{padding:36px;text-align:center;max-width:380px;margin:0 auto}
+.h-eye{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.h-statement{font-family:var(--display);font-style:italic;font-weight:700;font-size:34px;line-height:1.05;color:var(--black);margin-bottom:14px;font-variation-settings:"opsz" 144;letter-spacing:-.01em}
+.h-sub{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal);margin-bottom:24px;letter-spacing:.02em}
+
+.wf-row{display:flex;gap:16px;margin-bottom:0}
+
+/* ============ MOBILE WIREFRAMES ============ */
+.device-split{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+.device-tag{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;text-align:center}
+.wf.mobile{max-width:400px;margin:0 auto;border:1px solid var(--black);background:var(--surface)}
+.wf.mobile .wf-bar{font-size:9px;letter-spacing:.16em;padding:10px 14px}
+.wf.mobile .wf-bar .device{font-size:8px}
+.wf.mobile .wf-canvas{padding:14px}
+.wf.mobile .s{margin-bottom:10px}
+.wf.mobile .s-label{font-size:8px;letter-spacing:.16em;left:10px;padding:0 6px;top:-7px}
+.wf.mobile .s-body{padding:14px}
+.wf.mobile .img{font-size:8px;letter-spacing:.16em}
+.wf.mobile .anno-tl{font-size:7px;top:8px;left:10px;letter-spacing:.18em}
+.wf.mobile .hero-copy,.wf.mobile .door-copy{padding:20px 22px;max-width:280px}
+.wf.mobile .h-statement{font-size:22px;letter-spacing:-.005em}
+.wf.mobile .h-eye{font-size:8px;letter-spacing:.2em;margin-bottom:8px}
+.wf.mobile .h-sub{font-size:10px;margin-bottom:14px}
+.wf.mobile .btn{padding:10px 16px;font-size:9px;letter-spacing:.16em}
+.wf.mobile .bar.lg{height:18px}
+.wf.mobile .fold{margin:10px -14px}
+.wf.mobile .fold::before,.wf.mobile .fold::after{font-size:7px;letter-spacing:.16em;padding:0 8px}
+
+/* Mobile masthead — Variant 01 (Option A) */
+.m-mast{background:var(--white);border:1px solid var(--black);margin-bottom:10px}
+.m-mast .util{background:var(--surface);border-bottom:1px solid var(--gold);padding:6px 14px;text-align:center;font-family:var(--sans);font-size:8px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;font-weight:700}
+.m-mast .row{padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.m-mast .ham{font-size:18px;line-height:1;width:24px;color:var(--black)}
+.m-mast .right{display:flex;gap:10px;font-size:13px;line-height:1;color:var(--black)}
+
+/* Mobile left-logo nav — Variant 02 (Option B) */
+.m-left{background:var(--white);border:1px solid var(--black);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.m-left .right{display:flex;gap:10px;align-items:center;font-size:13px;line-height:1;color:var(--black)}
+.m-left .ham{font-size:16px}
+
+/* Mobile centered nav — Variant 03 (Option C) */
+.m-cent{background:var(--white);border:1px solid var(--black);padding:10px 14px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;margin-bottom:10px}
+.m-cent .ham{font-size:18px;line-height:1;color:var(--black)}
+.m-cent .c-mid{display:flex;justify-content:center}
+.m-cent .right{display:flex;gap:10px;font-size:13px;line-height:1;color:var(--black)}
+
+/* ============ ANNOTATIONS ============ */
+.notes{margin-top:32px;padding:32px 36px;background:var(--white);border:1px solid var(--black);border-left:3px solid var(--gold)}
+.notes .lede-sm{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.notes h4{font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--black);margin-bottom:18px;letter-spacing:-.01em;font-variation-settings:"opsz" 144}
+.notes ol{list-style:none;padding:0;counter-reset:co}
+.notes li{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--charcoal);padding:10px 0 10px 36px;position:relative;counter-increment:co;border-bottom:1px solid var(--surface)}
+.notes li:last-child{border-bottom:none}
+.notes li::before{content:counter(co,decimal-leading-zero);position:absolute;left:0;top:11px;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--gold)}
+.notes li strong{color:var(--black);font-weight:700}
+
+/* ============ FOOTER ============ */
+.foot{margin-top:64px;padding-top:24px;border-top:1px solid var(--gold);display:grid;grid-template-columns:1fr auto;gap:24px;font-family:var(--sans);font-size:10px;letter-spacing:.04em;color:var(--smoke)}
 .foot .l strong{display:block;font-family:var(--display);font-style:italic;font-weight:700;color:var(--black);font-size:15px;letter-spacing:0;margin-bottom:4px;font-variation-settings:"opsz" 144}
 .foot .r{text-align:right;color:var(--gold);font-weight:700;letter-spacing:.2em;text-transform:uppercase}
 
+/* ============ TOC ============ */
+.toc{background:var(--surface);border:1px solid var(--black);padding:24px 28px;margin-bottom:64px}
+.toc-head{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.toc ol{list-style:none;padding:0;counter-reset:t}
+.toc li{font-family:var(--sans);font-size:13px;line-height:1.7;padding:6px 0;border-bottom:1px dashed var(--gold);counter-increment:t;display:grid;grid-template-columns:60px 1fr 220px;gap:16px;align-items:baseline}
+.toc li:last-child{border-bottom:none}
+.toc li a{color:var(--black);text-decoration:none;font-weight:500;text-align:center}
+.toc li a:hover{color:var(--gold)}
+.toc li .sec{font-family:var(--display);font-style:italic;font-weight:700;color:var(--gold);font-size:16px;letter-spacing:0;font-variation-settings:"opsz" 144;text-align:left}
+.toc li .meta{font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase;text-align:right}
+
+/* ============ NEIGHBORHOODS PAGE (Page 02) ============ */
+/* Today's stacked tiles diagnostic */
+.stacked{display:flex;flex-direction:column;gap:8px;max-width:820px;margin:0 auto}
+.stack-tile{height:140px;background:var(--white);border:1px solid var(--black);position:relative;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--smoke);text-transform:uppercase;font-weight:600;overflow:hidden}
+.stack-tile::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,var(--surface) 0,var(--surface) 8px,var(--white) 8px,var(--white) 16px);opacity:.7;z-index:0}
+.stack-tile-label{position:relative;z-index:1;text-align:center}
+.stack-tile-label .name{display:block;font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);letter-spacing:0;text-transform:none;font-variation-settings:"opsz" 144;margin-bottom:6px}
+.stack-tile-label .cta{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.22em;color:var(--gold);font-weight:700;text-transform:uppercase}
+
+/* Editorial intro band (used in mosaic + stories) */
+.intro-band{padding:32px 32px;background:var(--white);border-bottom:1px solid var(--gold)}
+.intro-eye{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.intro-h{font-family:var(--display);font-style:italic;font-weight:700;font-size:30px;line-height:1.05;color:var(--black);font-variation-settings:"opsz" 144;letter-spacing:-.01em;margin-bottom:14px;max-width:580px}
+.intro-body{font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--charcoal);max-width:560px}
+
+/* Tile common (mosaic + map) */
+.n-tile{position:relative;overflow:hidden;background:repeating-linear-gradient(45deg,var(--surface) 0,var(--surface) 10px,#EFEFEF 10px,#EFEFEF 20px);display:flex;align-items:flex-end;border:1px solid var(--gold);min-height:180px}
+.n-tile .tile-meta{position:relative;z-index:2;padding:20px 22px;width:100%;background:linear-gradient(to top,rgba(0,0,0,.45),rgba(0,0,0,0));color:var(--white)}
+.n-tile .tile-meta .nm{font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;line-height:1.05;color:var(--white);font-variation-settings:"opsz" 144;letter-spacing:-.005em;margin-bottom:4px}
+.n-tile .tile-meta .tg{font-family:var(--sans);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#E8D9A8;font-weight:600}
+.n-tile .tile-img-cap{position:absolute;top:10px;left:14px;font-family:var(--sans);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);font-weight:700;background:var(--white);padding:3px 7px;z-index:1;border:1px solid var(--gold)}
+.n-tile .tile-hover{position:absolute;right:10px;bottom:10px;background:var(--gold);color:var(--black);font-family:var(--sans);font-size:8px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:4px 8px;z-index:3}
+
+/* Mosaic (Option A) */
+.mosaic{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:240px 240px;gap:8px;padding:20px;background:var(--surface)}
+.mosaic .n-tile.hero{grid-row:1 / span 2;grid-column:1 / span 1;min-height:auto}
+.mosaic .n-tile.hero .tile-meta .nm{font-size:42px}
+.mosaic .n-tile.t2{grid-row:1;grid-column:2 / span 2}
+.mosaic .n-tile.t3{grid-row:2;grid-column:2}
+.mosaic .n-tile.t4{grid-row:2;grid-column:3}
+
+/* Map (Option B) */
+.map-wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:0;background:var(--surface);min-height:420px}
+.map-canvas{position:relative;padding:32px 28px;background:var(--white);border-right:1px solid var(--gold)}
+.map-canvas svg{display:block;width:100%;height:auto;max-height:520px}
+.map-canvas svg .land{fill:none;stroke:var(--charcoal);stroke-width:1.4}
+.map-canvas svg .water{fill:var(--surface)}
+.map-canvas svg text{font-family:'Karla',sans-serif;font-size:9px;letter-spacing:.18em;fill:var(--smoke);font-weight:700;text-transform:uppercase}
+.map-hot{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--gold);border:2px solid var(--white);box-shadow:0 0 0 1px var(--charcoal);transform:translate(-50%,-50%);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:8px;font-weight:700;color:var(--black);line-height:1;padding:0}
+.map-hot.active{width:24px;height:24px;background:var(--black);color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 0 6px rgba(197,165,90,.18)}
+.map-label{position:absolute;font-family:var(--sans);font-size:9px;letter-spacing:.18em;color:var(--charcoal);font-weight:700;text-transform:uppercase;background:var(--white);padding:3px 6px;border:1px solid var(--gold);transform:translate(-50%,calc(-100% - 14px));white-space:nowrap;z-index:4}
+.map-legend{padding:12px 20px;background:var(--surface);border-top:1px solid var(--gold);display:flex;gap:16px;flex-wrap:wrap;justify-content:center;font-family:var(--sans);font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--charcoal-muted)}
+.map-legend .chip{padding:4px 10px;border:1px solid var(--gold);background:var(--white)}
+.map-legend .chip.on{background:var(--black);color:var(--white)}
+.map-panel{padding:32px 28px;display:flex;flex-direction:column;gap:18px}
+.map-panel-tag{font-family:var(--sans);font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:10px}
+.panel-img{height:200px;background:repeating-linear-gradient(45deg,var(--surface) 0,var(--surface) 10px,#EAEAEA 10px,#EAEAEA 20px);border:1px solid var(--charcoal);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+.panel-name{font-family:var(--display);font-style:italic;font-weight:700;font-size:32px;color:var(--black);font-variation-settings:"opsz" 144;letter-spacing:-.01em;line-height:1;margin-top:4px}
+.panel-tagline{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:2px}
+.panel-prod{display:flex;gap:14px;align-items:center;padding:14px;background:var(--surface);border:1px solid var(--gold);margin-top:8px}
+.panel-prod .bottle{width:54px;height:78px;background:repeating-linear-gradient(45deg,var(--white) 0,var(--white) 6px,var(--surface) 6px,var(--surface) 12px);border:1px solid var(--charcoal);flex-shrink:0}
+.panel-prod .meta{flex:1;font-family:var(--sans);font-size:11px;line-height:1.4}
+.panel-prod .meta .pn{font-family:var(--display);font-style:italic;font-weight:700;font-size:15px;color:var(--black);font-variation-settings:"opsz" 144;display:block;margin-bottom:2px}
+.panel-prod .meta .pr{font-family:var(--sans);font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.04em}
+.panel-prod .meta .nf{font-family:var(--sans);font-size:10px;color:var(--smoke);margin-top:4px;font-style:italic}
+.panel-ctas{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:8px}
+.panel-ctas .btn{display:block;text-align:center;padding:12px 18px;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;border:1px solid var(--black)}
+.panel-ctas .btn.primary{background:var(--black);color:var(--white)}
+.panel-ctas .btn.ghost{background:var(--white);color:var(--black)}
+
+/* Stories (Option C) */
+.story{display:grid;grid-template-columns:1.2fr 1fr;border-bottom:1px solid var(--gold);min-height:380px}
+.story.flip{grid-template-columns:1fr 1.2fr}
+.story-img{position:relative;background:repeating-linear-gradient(45deg,var(--surface) 0,var(--surface) 10px,#EFEFEF 10px,#EFEFEF 20px);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+.story-img .parallax-tag{position:absolute;bottom:14px;left:14px;background:var(--gold);color:var(--black);font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:4px 8px}
+.story.flip .story-img{order:2}
+.story.flip .story-pane{order:1}
+.story-pane{padding:40px 36px;display:flex;flex-direction:column;gap:12px;justify-content:center;background:var(--white)}
+.story-pane .ey{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+.story-pane .nm{font-family:var(--display);font-style:italic;font-weight:700;font-size:34px;color:var(--black);font-variation-settings:"opsz" 144;letter-spacing:-.01em;line-height:1}
+.story-pane .tg{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal-muted);font-weight:600}
+.story-pane .body{font-family:var(--sans);font-size:13px;line-height:1.65;color:var(--charcoal);max-width:380px;margin:6px 0}
+.story-pane .prod{display:flex;gap:14px;align-items:center;padding:14px;background:var(--surface);border:1px solid var(--gold);margin-top:8px;max-width:340px}
+.story-pane .prod .bottle{width:46px;height:66px;background:repeating-linear-gradient(45deg,var(--white) 0,var(--white) 6px,var(--surface) 6px,var(--surface) 12px);border:1px solid var(--charcoal);flex-shrink:0}
+.story-pane .prod .meta .pn{font-family:var(--display);font-style:italic;font-weight:700;font-size:14px;color:var(--black);font-variation-settings:"opsz" 144;display:block}
+.story-pane .prod .meta .pr{font-family:var(--sans);font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.04em}
+.story-pane .cta{margin-top:6px;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--black);border-bottom:1px solid var(--gold);padding-bottom:4px;align-self:flex-start}
+.story-section-num{position:absolute;top:14px;left:14px;font-family:var(--display);font-style:italic;font-weight:700;font-size:14px;color:var(--gold);font-variation-settings:"opsz" 144;background:var(--white);padding:2px 8px;border:1px solid var(--gold);z-index:3}
+
+/* Mobile previews — neighborhoods */
+.n-mobile-rail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:24px}
+.n-mobile-card{display:flex;flex-direction:column;align-items:stretch}
+.n-mobile-tag{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;text-align:center}
+.n-mobile-cap{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);text-align:center;margin-bottom:6px;font-variation-settings:"opsz" 144}
+.n-mobile-pair{font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);text-align:center;margin-bottom:14px}
+.n-mob-frame{max-width:300px;width:100%;margin:0 auto;border:1px solid var(--black);background:var(--white)}
+.n-mob-note{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal);margin-top:14px;padding:12px 14px;background:var(--surface);border-left:2px solid var(--gold)}
+.m-mosaic{padding:14px;display:flex;flex-direction:column;gap:8px}
+.m-mosaic .m-intro{padding:14px 4px 6px}
+.m-mosaic .m-intro .ey{font-family:var(--sans);font-size:8px;letter-spacing:.24em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.m-mosaic .m-intro .h{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1.05}
+.m-tile{height:110px;background:repeating-linear-gradient(45deg,var(--surface) 0,var(--surface) 8px,#EFEFEF 8px,#EFEFEF 16px);border:1px solid var(--gold);position:relative;display:flex;align-items:flex-end}
+.m-tile .meta{padding:10px 12px;width:100%;background:linear-gradient(to top,rgba(0,0,0,.4),rgba(0,0,0,0));color:var(--white)}
+.m-tile .meta .nm{font-family:var(--display);font-style:italic;font-weight:700;font-size:14px;color:var(--white);font-variation-settings:"opsz" 144;line-height:1}
+.m-tile .meta .tg{font-family:var(--sans);font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:#E8D9A8;font-weight:600;margin-top:3px}
+.m-tile.hero{height:180px}
+.m-tile.hero .meta .nm{font-size:20px}
+.m-mapwrap{padding:14px}
+.m-mapwrap .chip-rail{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--gold)}
+.m-mapwrap .chip{flex-shrink:0;padding:5px 10px;border:1px solid var(--gold);font-family:var(--sans);font-size:7px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--charcoal);background:var(--white);white-space:nowrap}
+.m-mapwrap .chip.on{background:var(--black);color:var(--white)}
+.m-mapwrap .map-svg-mob{position:relative;height:200px;border:1px solid var(--gold);background:var(--surface);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);font-weight:700;margin-bottom:10px}
+.m-mapwrap .map-svg-mob .dot{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold);border:1.5px solid var(--white);box-shadow:0 0 0 1px var(--charcoal)}
+.m-mapwrap .sheet-cap{margin-top:10px;padding:14px 12px;background:var(--surface);border:1px solid var(--gold);font-family:var(--sans);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal);font-weight:700;text-align:center}
+.m-storywrap{display:flex;flex-direction:column}
+.m-storywrap .seg{border-bottom:1px solid var(--gold)}
+.m-storywrap .seg:last-child{border-bottom:none}
+.m-storywrap .seg .img{height:130px;background:repeating-linear-gradient(45deg,var(--surface) 0,var(--surface) 8px,#EFEFEF 8px,#EFEFEF 16px);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+.m-storywrap .seg .pane{padding:12px 14px;background:var(--white)}
+.m-storywrap .seg .pane .ey{font-family:var(--sans);font-size:7px;letter-spacing:.24em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.m-storywrap .seg .pane .nm{font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1;margin-bottom:4px}
+.m-storywrap .seg .pane .tg{font-family:var(--sans);font-size:8px;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.m-storywrap .seg .pane .body{font-family:var(--sans);font-size:10px;line-height:1.5;color:var(--charcoal);margin-bottom:8px}
+.m-storywrap .seg .pane .cta{font-family:var(--sans);font-size:8px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--black);border-bottom:1px solid var(--gold);padding-bottom:2px;display:inline-block}
+
+/* Schema callout */
+.n-schema{margin-top:16px;padding:16px 20px;background:var(--charcoal);color:var(--white);font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.6;letter-spacing:0;overflow-x:auto;border-left:3px solid var(--gold)}
+.n-schema .k{color:var(--gold)}
+.n-schema .c{color:#7F8C8D;font-style:italic}
+
+/* ============ RESPONSIVE ============ */
 @media (max-width:980px){
-  .ctx{grid-template-columns:1fr 1fr}
-  .ctx-cell:nth-child(2){border-right:none}
-  .ctx-cell:nth-child(1),.ctx-cell:nth-child(2){border-bottom:1px solid var(--gold)}
-  .flow,.flow.three-step,.flow.two-step,.flow.quiz{grid-template-columns:1fr 1fr}
-  .anti,.qa{grid-template-columns:1fr}
-  .anti-cell,.qa-cell{border-right:none}
+  .map-wrap{grid-template-columns:1fr}
+  .map-canvas{border-right:none;border-bottom:1px solid var(--gold)}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .mosaic .n-tile.hero{grid-row:1;grid-column:1 / span 2}
+  .mosaic .n-tile.t2{grid-row:2;grid-column:1}
+  .mosaic .n-tile.t3{grid-row:2;grid-column:2}
+  .mosaic .n-tile.t4{grid-row:3;grid-column:1 / span 2}
+  .story{grid-template-columns:1fr;min-height:auto}
+  .story.flip .story-img{order:1}
+  .story.flip .story-pane{order:2}
 }
+/* ============ POPUP (Part 04) ============ */
+.pp-ctx{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--black);background:var(--surface);margin-bottom:18px}
+.pp-ctx .cell{padding:18px 20px;border-right:1px solid var(--gold);background:var(--white);display:flex;flex-direction:column;gap:6px}
+.pp-ctx .cell:last-child{border-right:none}
+.pp-ctx .cell .label{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.pp-ctx .cell .v{font-family:var(--display);font-style:italic;font-weight:700;font-size:20px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1;letter-spacing:-.005em}
+.pp-ctx .cell .ev{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal-muted);margin-top:auto;padding-top:6px;border-top:1px dashed var(--surface)}
+
+.pp-trigger{padding:11px 16px;background:var(--charcoal);color:var(--white);display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--gold);flex-wrap:wrap;gap:12px}
+.pp-trigger .gold{color:var(--gold);font-weight:700}
+
+.pp-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.pp-flow.three{grid-template-columns:repeat(3,1fr)}
+.pp-step{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--gold)}
+.pp-step .step-tag{padding:8px 12px;background:var(--charcoal);color:var(--gold);font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--gold)}
+.pp-step .step-tag .nm{color:var(--white)}
+.pp-mock{background:repeating-linear-gradient(45deg,#EAEAEA 0,#EAEAEA 6px,var(--surface) 6px,var(--surface) 12px);padding:14px;flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:200px}
+.pp-mock::before{content:"page · dimmed";position:absolute;top:6px;left:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:7px;letter-spacing:.16em;color:var(--smoke);text-transform:uppercase;font-weight:700;background:var(--surface);padding:2px 5px;border:1px solid var(--gold)}
+.pp-card{background:var(--white);border:1px solid var(--black);padding:14px 14px 12px;width:100%;max-width:200px;position:relative}
+.pp-card .x{position:absolute;top:5px;right:7px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;color:var(--smoke);font-weight:700;line-height:1}
+.pp-card .ey{font-family:var(--sans);font-size:7px;letter-spacing:.22em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:5px;text-align:center}
+.pp-card .h{font-family:var(--display);font-style:italic;font-weight:700;font-size:15px;color:var(--black);font-variation-settings:"opsz" 144;line-height:1.15;text-align:center;margin-bottom:6px;letter-spacing:-.005em}
+.pp-card .h.tight{font-size:13px}
+.pp-card .sub{font-family:var(--sans);font-size:9px;line-height:1.45;color:var(--charcoal-muted);text-align:center;margin-bottom:8px}
+.pp-card .yn{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px}
+.pp-card .yn .btn{padding:7px;font-family:var(--sans);font-size:8px;letter-spacing:.14em;text-align:center;font-weight:700;text-transform:uppercase}
+.pp-card .yn .btn.yes{background:var(--black);color:var(--white)}
+.pp-card .yn .btn.no{background:var(--white);color:var(--charcoal-muted);border:1px solid var(--charcoal-muted)}
+.pp-card .field{height:24px;background:var(--surface);border:1px solid var(--charcoal);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:8px;color:var(--smoke);display:flex;align-items:center;padding:0 8px;margin:6px 0}
+.pp-card .btn-full{display:block;width:100%;padding:8px;font-family:var(--sans);font-size:8px;letter-spacing:.18em;text-align:center;font-weight:700;text-transform:uppercase;background:var(--gold);color:var(--black);border:1px solid var(--gold)}
+.pp-card .btn-full.dark{background:var(--black);color:var(--white);border-color:var(--black)}
+.pp-card .skip{display:block;text-align:center;font-family:var(--sans);font-size:7px;color:var(--smoke);font-style:italic;margin-top:6px;text-decoration:underline}
+.pp-card .footer-line{font-family:var(--sans);font-size:7px;color:var(--gold);font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-align:center;margin-top:6px;padding-top:6px;border-top:1px dashed var(--surface)}
+.pp-card .opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:6px}
+.pp-card .opts-grid .opt{padding:6px 4px;background:var(--surface);border:1px solid var(--gold);font-family:var(--sans);font-size:7px;letter-spacing:.12em;color:var(--charcoal);font-weight:600;text-transform:uppercase;text-align:center}
+.pp-card .opts-grid .opt.on{background:var(--charcoal);color:var(--white);border-color:var(--charcoal)}
+.pp-card .progress{display:flex;gap:3px;margin-top:6px}
+.pp-card .progress i{height:3px;flex:1;background:var(--surface);border:1px solid var(--gold)}
+.pp-card .progress i.on{background:var(--gold);border-color:var(--gold)}
+.pp-card.confirm{border:2px solid var(--gold);text-align:center}
+.pp-card.confirm .check{font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--gold);font-variation-settings:"opsz" 144;line-height:1;margin-bottom:5px}
+.pp-step .note{padding:10px 12px;background:var(--white);border-top:1px solid var(--gold);font-family:var(--sans);font-size:10px;line-height:1.45;color:var(--charcoal)}
+.pp-step .note strong{color:var(--black);font-weight:700;display:block;margin-bottom:2px}
+
+.pp-anti{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:18px;border:1px solid var(--warning)}
+.pp-anti .cell{padding:14px 18px;background:var(--white);border-right:1px solid var(--warning);border-bottom:1px solid var(--warning);display:flex;flex-direction:column;gap:5px}
+.pp-anti .cell:nth-child(3n){border-right:none}
+.pp-anti .cell:nth-last-child(-n+3){border-bottom:none}
+.pp-anti .cell .x{font-family:var(--display);font-style:italic;font-weight:700;font-size:20px;color:var(--warning);font-variation-settings:"opsz" 144;line-height:1}
+.pp-anti .cell .h{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--warning);text-transform:uppercase}
+.pp-anti .cell .body{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal)}
+.pp-anti .cell .body strong{color:var(--black);font-weight:700}
+
 @media (max-width:820px){
   .head{grid-template-columns:1fr}
   .head-meta{align-items:flex-start;text-align:left}
-  .head-meta-stack{text-align:left}
+  .head-meta .head-meta-stack{text-align:left}
+  .opt-head{grid-template-columns:1fr;gap:12px}
+  .opt-num{font-size:48px;text-align:left}
+  .nav-note{grid-template-columns:1fr;gap:16px}
+  .nav-note-tag{border-right:none;border-bottom:1px dashed var(--gold);padding:0 0 14px 0}
+  .variant-head{flex-direction:column}
   .pc{grid-template-columns:1fr}
   .pc-cell.pros{border-right:none;border-bottom:1px solid var(--gold)}
-  .option-head{flex-direction:column}
-  .mobile-rail{grid-template-columns:1fr;gap:36px}
-  .ctx{grid-template-columns:1fr}
-  .ctx-cell{border-right:none;border-bottom:1px solid var(--gold)}
-  .ctx-cell:last-child{border-bottom:none}
-  .flow,.flow.three-step,.flow.two-step,.flow.quiz{grid-template-columns:1fr}
+  .nav-diag .links,.nav-refined .links,.nav-flanked .links{display:none}
+  .nav-flanked .nav-icons{margin-left:auto;border-left:none;padding-left:0}
+  .nav-flanked .logo-center{margin:0;flex:1}
+  .img.xtall,.img.xtall-c{min-height:380px}
+  .wf-row{flex-direction:column}
+  .n-mobile-rail{grid-template-columns:1fr;gap:36px}
+  .toc li{grid-template-columns:48px 1fr;gap:12px}
+  .toc li a{text-align:left}
+  .toc li .meta{grid-column:2;text-align:left;margin-top:4px}
+  .pp-flow,.pp-flow.three{grid-template-columns:1fr 1fr}
+  .pp-ctx{grid-template-columns:1fr 1fr}
+  .pp-ctx .cell{border-right:none;border-bottom:1px solid var(--gold)}
+  .pp-ctx .cell:nth-child(2n){border-right:none}
+  .pp-anti{grid-template-columns:1fr}
+  .pp-anti .cell{border-right:none}
 }
-@media print{body{background:#fff;font-size:10pt}.wrap{padding:0;max-width:none}}
+/* ============ v2.1 READABILITY OVERRIDE — drop italic from major headlines ============ */
+/* Major headlines lose italic for legibility. Small editorial accents (eyebrows, refs, micro-numerals) keep italic for character. */
+h1, h2, h3, .lede, .sub-lede, .part-lede,
+.h-statement, .intro-h, .panel-name, .panel-prod .meta .pn,
+.story-pane .nm, .nav-note-tag em, .notes h4,
+.shot-cell .shot-name, .pdp-cell .pdp-name,
+.reframe-card h4, .delta-table td.metric,
+.toc li .sec {
+  font-style: normal !important;
+}
+/* Lede + body text gets a small size bump for legibility */
+.lede { font-size: 20px; line-height: 1.45; }
+.part-lede { font-size: 17px; line-height: 1.6; }
+.sub-lede { font-size: 15px; line-height: 1.6; }
+body { font-size: 15px; }
+
+/* v2.5 + v2.6 — small-size data labels read better in Karla (sans) than Fraunces display serif. */
+/* Applied across the whole deck: every data-table row label, wireframe product/tile label, and small */
+/* (<18px) display-italic data element switches to Karla. Fraunces stays only on h1/h2/h3/lede where  */
+/* size and weight carry the brand register without straining legibility.                              */
+.delta-table td.metric,
+.pair-table td:first-child,
+.stack-tile-label .name,
+.panel-prod .meta .pn,
+.story-pane .prod .meta .pn,
+.story-pane .nm,
+.m-tile .meta .nm,
+.m-mosaic .m-intro .h,
+.m-storywrap .seg .pane .nm,
+.n-mobile-cap,
+.story-section-num,
+.pp-card .h,
+.shot-cell .shot-name,
+.pdp-cell .pdp-name,
+.nd-block h5,
+.foot .l strong {
+  font-family: var(--sans) !important;
+  font-style: normal !important;
+  font-variation-settings: normal !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.4 !important;
+}
+.delta-table td.metric { font-size: 13px !important; color: var(--black) !important; }
+.pair-table td:first-child { font-size: 13px !important; }
+.shot-cell .shot-name,
+.pdp-cell .pdp-name,
+.nd-variant-meta .v-tag { font-size: 14px !important; }
+/* Reference card brand-names stay Fraunces but tightened for scan-ability */
+.ref-name { font-weight: 700; letter-spacing: -.005em; }
+
+@media print{
+  body{background:#fff;font-size:10pt}
+  .wrap{padding:0;max-width:none}
+  .wf,.notes,.variant{break-inside:avoid;page-break-inside:avoid}
+  /* v2 — keep major callouts and rows intact, but let parts and subs flow normally */
+  .reframe-card{break-inside:avoid;page-break-inside:avoid}
+  .shot-row,.pdp-row{break-inside:avoid;page-break-inside:avoid}
+  .delta-table tr{break-inside:avoid;page-break-inside:avoid}
+  .delta-table thead{display:table-header-group}
+  .cross-cuts{break-inside:avoid;page-break-inside:avoid}
+  .refs .ref{break-inside:avoid;page-break-inside:avoid}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+}
+</style>
+
+<style>
+@media print{
+  @page{size:A4 landscape;margin:14mm 14mm 18mm 14mm}
+  body{background:#fff;font-size:10pt}
+  .wrap{padding:0;max-width:none}
+
+  /* Let big multi-section containers flow naturally */
+  .opt,.variant,.wf,.wf-canvas,.opt-body,.nd-variant,.sub,.part{break-inside:auto;page-break-inside:auto}
+
+  /* Inner units that must NEVER split across a page */
+  .opt-head,.variant-head,.nav-note,.s,.wf-row,.intro-band,.n-tile,.mosaic,
+  .pc,.pc-cell,.refs .ref,.ref,.cross-cuts,.reframe-card,.shot-row,.pdp-row,
+  .pp-ctx,.pp-step,.pp-mock,.pp-ctx .cell,
+  .primer-vis-card,.primer-vis-pdp,
+  .door-copy,.hero-copy,.delta-table tr{break-inside:avoid;page-break-inside:avoid}
+  .delta-table thead{display:table-header-group}
+
+  /* Annotation list items shouldn't split, but the wrapping list can */
+  .notes{break-inside:auto;page-break-inside:auto}
+  .notes ol li{break-inside:avoid;page-break-inside:avoid;margin-bottom:8px}
+
+  /* Major parts start on a fresh page (except the first) */
+  .part{break-before:page;page-break-before:always}
+  .part:first-of-type{break-before:auto;page-break-before:auto}
+  .part-head{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid}
+
+  /* Headings stay with their content */
+  h2,h3,h4{break-after:avoid;page-break-after:avoid;break-inside:avoid;page-break-inside:avoid}
+
+  /* TOC + header don't split */
+  .toc{break-inside:avoid;page-break-inside:avoid;break-after:page;page-break-after:always}
+  .head{break-inside:avoid;page-break-inside:avoid}
+
+  /* Tight section padding for denser PDF */
+  .s{margin-bottom:18px}
+  .s-body{padding:14px}
+  .s-body.flat{padding:0}
+}
 </style>
 </head>
 <body>
 
+<!-- ============ SVG SYMBOL LIBRARY ============ -->
 <svg style="position:absolute;width:0;height:0" aria-hidden="true">
   <symbol id="bond-logo" viewBox="0 0 792 312.2">
     <g fill="#C5A55A">
@@ -241,279 +613,221 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <path d="M287.91,168.72c-.21-.12-3.12-2.85-16.53-2.85s-31.61,2.91-52.32,8.65c-2.8-6.74-7.57-15.43-15.83-21.93,17.41-4.63,34.93-10.24,48.91-23.23,31.74-29.49,4.34-79.31-53.99-49.05-56.08,29.09-95.92,116.38-100.32,130.58l-.18.59.32,1.21s20.02.43,22.64.36c14.62-40.7,36.61-80.29,59.35-105.98,52.96-59.82,94.02-20.07,56.81,16.2-9.03,8.81-22.21,19.72-38.85,26.18-3.45-1.41-6.92-2.61-13.39-3.82-18.54-3.46-21.03,10.07-3.32,9.99,4.71-.02,10.78-.65,13.24-.98,1.85,1.28,10.19,9.66,10.86,24.13-13.4,4.3-59.45,19.93-91.45,50.17-38.01,35.92-3.8,76.46,63.85,34.77,28.81-17.75,50.49-53.56,42.77-84.69,23.19-6.91,43.25-8.6,53.92-8.94,9.57-.3,13.52-1.38,13.52-1.38ZM205.38,183.66c.05,3.63-1.18,43.02-50.32,76.81-53.12,36.52-70.87-5.86-22.17-40,17.9-12.55,39.02-24.19,72.49-36.8ZM175.7,151.64c-2.29-.54-3.73-2.93,1.4-3.14,4.77-.19,9.85,1.12,13.04,3.14-5.32,1.54-11.99.57-14.44,0Z"/>
       <path d="M506.34,148c26.67.89,38.72,8.4,14.78,39.39-12.5,16.17-1.21,18.41,10.95,7.43,8.67-7.83,19.57-18.22,27.25-21.57-21.45,24.01-9.92,43.72,20.59,19.37l1.82-6.11c-3.34,3.13-8.77,6.74-14.19,9.71-7.37,4.04-10.7-.61-3.1-10.43,12.02-15.51,4.81-32.17-29.64-.52,22.81-35.17-2.8-41.8-26.39-41.89l-2.06,4.63Z"/>
       <path d="M644.93,141.52c-4.18,6.46-6.3,14.09-6.72,21.8-1.13,20.67,22.52,29.1,32.91,5.14.37-.84.69-2.41-.48-2.8s-2.19,1.1-2.53,1.87c-6,13.49-26.32,18.74-19.38-5.7,3.33-11.73,6.28-17.11,12.13-25.44,13.03-18.57,25.72-11.52,23.46,3.4-6.78,44.84-51.36,92.02-70.14,92.99-6.35.33-2.67,3.89,6.34,1.96,18.9-4.06,46.32-28.19,60.52-51.64,35.14-58.01-9.25-83.07-36.09-41.58Z"/>
-      <path d="M476.3,49.52c-58.04-16.98-100.42,48.88-56.06,83.19,14.52,11.24,38.49,18.03,73.27,15.65-10.07,17.61-33.48,41.83-51.49,55.86-14.6,11.38-21.79,3.3-3.09-18.47,9.41-10.96,23.17-15.81,26.91-13.61.65.39,1.19.63,1.67.3.2-.14.23-.21.3-.6.3-1.79-4.17-6.98-17.29-4.87-15.01,2.41-29.3,13.76-33.55,29.62-3.6,2.22-11.66,6.51-22.06,10.18-5.52,1.94-12.93,1.9-5.62-8.02,7.31-9.92,12.56-14.5,14.44-18.71,4.41-9.89-3.28-16.07-15.52-11.09-12.24,4.98-36.28,25.55-37.51,26.56,23.89-27.95,8.78-39.69-18.85-18.22-24.04,18.69-32.77,16.03-36.96,13.24-.21,1.39-1.02,3.64-1.96,4.75,10.58,5.21,26.16-3.01,41.27-14.15,21.32-15.72,16.75-7.53,14.27-4.69-6.96,7.98-14.76,18.12-17.52,22.04-10.87,15.45-2.19,19.8,10.15,10.47,6.01-4.54,31.33-25.09,47.48-35.5,2.51-1.62,2.71-.34,2.13.56-2.77,4.27-6.64,8.43-14.41,18.24-11.75,14.84-4.39,36.02,40.09,10.03,4.02,28.28,50.17,12.16,91.12-54.30l2.04-4.15c22.53-52.67-1.88-85.17-33.23-94.34ZM496.4,143.26c-25.72,1.11-50.16-5.79-66.8-16.66-50.69-33.1,2.65-93.32,51.76-70.37,23.73,11.09,38.52,41.12,15.04,87.03Z"/>
+      <path d="M476.3,49.52c-58.04-16.98-100.42,48.88-56.06,83.19,14.52,11.24,38.49,18.03,73.27,15.65-10.07,17.61-33.48,41.83-51.49,55.86-14.6,11.38-21.79,3.3-3.09-18.47,9.41-10.96,23.17-15.81,26.91-13.61.65.39,1.19.63,1.67.3.2-.14.23-.21.3-.6.3-1.79-4.17-6.98-17.29-4.87-15.01,2.41-29.3,13.76-33.55,29.62-3.6,2.22-11.66,6.51-22.06,10.18-5.52,1.94-12.93,1.9-5.62-8.02,7.31-9.92,12.56-14.5,14.44-18.71,4.41-9.89-3.28-16.07-15.52-11.09-12.24,4.98-36.28,25.55-37.51,26.56,23.89-27.95,8.78-39.69-18.85-18.22-24.04,18.69-32.77,16.03-36.96,13.24-.21,1.39-1.02,3.64-1.96,4.75,10.58,5.21,26.16-3.01,41.27-14.15,21.32-15.72,16.75-7.53,14.27-4.69-6.96,7.98-14.76,18.12-17.52,22.04-10.87,15.45-2.19,19.8,10.15,10.47,6.01-4.54,31.33-25.09,47.48-35.5,2.51-1.62,2.71-.34,2.13.56-2.77,4.27-6.64,8.43-14.41,18.24-11.75,14.84-4.39,36.02,40.09,10.03,4.02,28.28,50.17,12.16,91.12-54.3l2.04-4.15c22.53-52.67-1.88-85.17-33.23-94.34ZM496.4,143.26c-25.72,1.11-50.16-5.79-66.8-16.66-50.69-33.1,2.65-93.32,51.76-70.37,23.73,11.09,38.52,41.12,15.04,87.03Z"/>
     </g>
   </symbol>
 </svg>
 
 <div class="wrap">
 
+
+<!-- ============ HEADER ============ -->
 <header class="head">
   <div>
-    <div class="eyebrow">Paul Skidmore · Bond No. 9 · Popup Strategy · Three Variants</div>
-    <h1>The popup, on Bond's terms.</h1>
-    <p class="lede">The standard 3-step popup runs 10% / 15% off discount steps. Bond's price point ($265–$490) and editorial register ("we don't run sale theater") forbid it. Three Bond-specific variants follow — each rebuilt around exclusivity, discovery, or cashback instead of percent-off discount. Each paired to a homepage option from Page 01 so the popup voice agrees with the site voice. North Star: opt-in rate 15%+ email · 5%+ phone · with Revenue Per Session of opted-in &gt;&gt; non-opted-in.</p>
+    <div class="eyebrow">Paul Skidmore · Bond No. 9 · Popup options</div>
+    <h1>The first knock at the door.</h1>
+    <p class="lede">The standard 3-step popup runs on 10% / 15% off. Bond's price point ($265–$490) and editorial register ("we don't run sale theater") forbid it. Three Bond-specific variants follow — exclusivity-led (A), quiz-led (B, recommended), cashback-led (C) — each paired to a homepage option so popup voice agrees with site voice. North Star: 15%+ email opt-in, 5%+ phone, with Revenue Per Session of opted-in customers materially higher than non-opted-in.</p>
   </div>
   <div class="head-meta">
-    <svg class="bond-logo logo-sm"><use href="#bond-logo"/></svg>
+    <svg class="bond-logo head-mark"><use href="#bond-logo"/></svg>
     <span class="head-meta-stack">
-      Popup · v1<br>
-      Three variants<br>
-      Attentive-ready · 05.08.26
+      Popups · pickup<br>
+      Extracted 05.18.26<br>
+      Stakeholder share
     </span>
   </div>
 </header>
 
-<!-- ============ 00 BOND CONTEXT ============ -->
-<section>
-  <div class="s-num">00 / Bond's situation</div>
-  <h2>Why the default Perfect Popup <em>doesn't ship as written</em>.</h2>
-  <p class="s-lede">The canonical 3-step popup uses a 10% / 15% off double discount. That works for a $50 mass-prestige beauty brand. It cheapens a $265–$490 niche-luxury fragrance — and Bond's editorial register explicitly forbids it. Below is the four-factor situation that drives popup variant selection for Bond specifically.</p>
+<!-- ============ TOC ============ -->
+<nav class="toc" aria-label="Contents">
+  <div class="toc-head">Contents</div>
+  <ol>
+    <li><span class="sec">01</span><a href="#popup">Popup options · framing</a><span class="meta">Three brand-safe variants</span></li>
+    <li><span class="sec">01.1</span><a href="#pp-context">Bond's situation</a><span class="meta">Why default doesn't ship</span></li>
+    <li><span class="sec">01.A</span><a href="#pp-a">Option A · 3-Step Perfect (Bond)</a><span class="meta">Pairs Homepage A</span></li>
+    <li><span class="sec">01.B</span><a href="#pp-b">Option B · Question-Based Quiz</a><span class="meta">Pairs Homepage C · Pick</span></li>
+    <li><span class="sec">01.C</span><a href="#pp-c">Option C · 2-Step Cashback</a><span class="meta">Pairs Homepage B</span></li>
+    <li><span class="sec">01.X</span><a href="#pp-anti">Anti-patterns</a><span class="meta">Six things never to ship</span></li>
+  </ol>
+</nav>
 
-  <div class="ctx">
-    <div class="ctx-cell">
-      <div class="label">AOV</div>
-      <div class="v">$265–$490</div>
-      <div class="ev">High-priced, low-volume, high-intent strategy. Trigger logic: exit-intent OR 50% scroll. Never load-immediate.</div>
-    </div>
-    <div class="ctx-cell">
-      <div class="label">Bond's stance</div>
-      <div class="v" style="font-size:18px">No sale theater.</div>
-      <div class="ev">"We do not run urgency badges, sale theater, or DTC countdown timers." Disqualifies % off, spin-to-win, scarcity countdowns. The discount IS the sale theater.</div>
-    </div>
-    <div class="ctx-cell">
-      <div class="label">Standing offer</div>
-      <div class="v" style="font-size:18px">Free samples</div>
-      <div class="ev">"Complimentary samples with every order" already runs on the announcement bar. The Power of Free is in place — pull it into the popup as the deliverable, not a new % off code.</div>
-    </div>
-    <div class="ctx-cell">
-      <div class="label">Quiz · in build</div>
-      <div class="v" style="font-size:18px">Discovery</div>
-      <div class="ev">Bond is building a fragrance discovery quiz separately. The popup is the natural top-of-funnel hook — quiz becomes the value exchange instead of a discount.</div>
-    </div>
+<!-- ============ READER'S NOTE — GUIDANCE NOT GOSPEL ============ -->
+<aside style="border:1px solid var(--gold);background:var(--surface);padding:28px 32px;margin-bottom:64px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start">
+  <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:56px;line-height:.85;color:var(--gold);font-variation-settings:'opsz' 144;letter-spacing:-.02em;min-width:60px;text-align:center">§</div>
+  <div>
+    <div style="font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px">A note before you read</div>
+    <h3 style="font-family:var(--display);font-style:italic;font-weight:700;font-size:26px;line-height:1.1;letter-spacing:-.01em;color:var(--black);font-variation-settings:'opsz' 144;margin-bottom:14px;max-width:760px">This is guidance — not gospel.</h3>
+    <p style="font-family:var(--sans);font-size:14px;line-height:1.65;color:var(--charcoal);max-width:780px;margin-bottom:10px">Three options follow. Pick one, mix two, throw all of it out and write your own. <strong>The point isn't which popup ships.</strong> The point is to do two things:</p>
+    <ul style="font-family:var(--sans);font-size:14px;line-height:1.65;color:var(--charcoal);max-width:780px;list-style:none;padding:0;margin-bottom:10px">
+      <li style="padding:4px 0 4px 18px;position:relative"><span style="position:absolute;left:0;color:var(--gold);font-weight:700">·</span><strong>Collect the data.</strong> Email + SMS, opted in at a Bond-appropriate rate, with measurable lift in Revenue Per Session vs. non-opted-in traffic. That's the only number that matters.</li>
+      <li style="padding:4px 0 4px 18px;position:relative"><span style="position:absolute;left:0;color:var(--gold);font-weight:700">·</span><strong>Look different.</strong> Every other niche fragrance house runs the same "Sign up for 15% off → no wait, 15% off later → here's the spin wheel" flow. The popup is the first thing the visitor sees — make it the first place Bond reads like Bond and nobody else.</li>
+    </ul>
+    <p style="font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--charcoal-muted);font-style:italic;max-width:780px">Whichever variant gets you there is the right one. Take what's useful, leave the rest.</p>
   </div>
-</section>
+</aside>
 
-<!-- ============ 01 CURRENT STATE ============ -->
-<section>
-  <div class="s-num">01 / Current state</div>
-  <h2>What's running on bondno9.com today.</h2>
-  <p class="s-lede">Per the 05.08 audit: the immediate SMS popup that fired on the 05.01 audit has been removed. There is currently <em>no popup running</em>. Email opt-in lives in the footer only — a passive form that captures a fraction of what a triggered popup would. Phone numbers aren't being captured at all. This is leaving 15–20% opt-in on the table for an audience that will never see the footer because the page bounces at 35s LCP.</p>
+<section class="part" id="popup">
+  <div class="part-head">
+    <div class="part-num">04 / Popup options</div>
+    <h2>Three brand-safe popups, <em>each paired to a homepage option</em>.</h2>
+    <p class="part-lede">The standard 3-step popup uses 10% / 15% off. Bond's price point ($265–$490) and editorial register ("we don't run sale theater") forbid it. Three Bond-specific variants follow — exclusivity-led (Option A), quiz-led (Option B), and cashback-led (Option C). Each paired to a homepage option so popup voice agrees with site voice. North Star: opt-in 15%+ email · 5%+ phone · with Revenue Per Session of opted-in &gt;&gt; non-opted-in.</p>
+  </div>
 
-  <div class="current-frame">
-    <div class="current-bar">
-      <span>Live · bondno9.com · No popup · Footer-only newsletter form</span>
-      <span style="font-size:9px">Audited 05.08.26</span>
-    </div>
-    <div class="current-canvas">
-      <div style="background:var(--white);border:1px solid var(--gold);padding:24px 28px;text-align:center;max-width:560px;margin:0 auto">
-        <div style="font-family:var(--sans);font-size:9px;letter-spacing:.22em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px">Footer · "Sign up for our newsletter"</div>
-        <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);font-variation-settings:'opsz' 144;margin-bottom:12px">Be the first to hear about new launches</div>
-        <div style="height:32px;background:var(--surface);border:1px solid var(--charcoal);font-family:var(--mono);font-size:10px;color:var(--smoke);display:flex;align-items:center;padding:0 14px;margin-bottom:8px">your-email@domain.com</div>
-        <div style="background:var(--black);color:var(--white);padding:9px;font-family:var(--sans);font-size:10px;letter-spacing:.18em;font-weight:700;text-transform:uppercase">Subscribe</div>
-        <div style="font-family:var(--sans);font-size:10px;color:var(--smoke);margin-top:14px;line-height:1.5">Single-step · email-only · no value exchange · no SMS · invisible to anyone who bounces above the fold.</div>
+  <!-- 04.1 BOND'S SITUATION -->
+  <div class="sub" id="pp-context">
+    <div class="sub-num">04.1 / Bond's situation</div>
+    <h3>Why the default Perfect Popup <em>doesn't ship as written</em>.</h3>
+    <p class="sub-lede">Four-factor frame that drives variant selection: AOV, Bond's editorial register, the standing free-samples offer already in place, and the discovery quiz Bond is building separately.</p>
+
+    <div class="pp-ctx">
+      <div class="cell">
+        <div class="label">AOV</div>
+        <div class="v">$265–$490</div>
+        <div class="ev">High-priced, low-volume, high-intent strategy. Trigger: exit-intent OR 50% scroll. Never load-immediate.</div>
+      </div>
+      <div class="cell">
+        <div class="label">Bond's stance</div>
+        <div class="v">No sale theater.</div>
+        <div class="ev">Disqualifies % off, spin-to-win, scarcity countdowns. The discount IS the sale theater.</div>
+      </div>
+      <div class="cell">
+        <div class="label">Standing offer</div>
+        <div class="v">Free samples</div>
+        <div class="ev">Already on the announcement bar. Pull it into popup as the deliverable, not a new % off code.</div>
+      </div>
+      <div class="cell">
+        <div class="label">Quiz · in build</div>
+        <div class="v">Discovery</div>
+        <div class="ev">Quiz becomes the value exchange instead of a discount. Popup is the natural top-of-funnel hook.</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ============ 02 REFERENCE PATTERNS ============ -->
-<section>
-  <div class="s-num">02 / Reference patterns</div>
-  <h2>How niche-luxury houses run their <em>opt-in</em>.</h2>
-  <p class="s-lede">The default Perfect Popup is calibrated for mass-prestige and DTC. Below: how five reference brands at Bond's register handle email/phone capture differently. The pattern: discovery, exclusivity, or service — never percent-off discount.</p>
+  <!-- 04.A OPTION A · 3-STEP PERFECT POPUP -->
+  <div class="sub" id="pp-a">
+    <div class="sub-num">04.A / Option A · 3-Step Perfect (Bond Variant)</div>
 
-  <div class="refs">
-    <div class="ref">
-      <div class="ref-name">Le Labo</div>
-      <div class="ref-tag">No popup · footer only</div>
-      <div class="ref-pattern">Famously austere. No popup, no exit-intent, no discount. Footer signup with editorial copy. Opt-in is lower volume, but every email is high-intent. Brand-coherent but leaves growth on the table.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-name">Parfums de Marly</div>
-      <div class="ref-tag">Single-step · sample offer</div>
-      <div class="ref-pattern">Light delayed popup (10s) offering "Complimentary sample with your first order." No %, no urgency. Single-step email capture. Discovery / sample is the value exchange.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-name">Frederic Malle</div>
-      <div class="ref-tag">Service-led capture</div>
-      <div class="ref-pattern">"Speak with a perfumer" CTA in the buy box that triggers a contact form. Captures email + phone for high-intent customers as a service, not a discount.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-name">Byredo</div>
-      <div class="ref-tag">Quiz-led discovery</div>
-      <div class="ref-pattern">"Find your scent" quiz reachable from the homepage. Quiz output emails the user their match. Email capture is built into the quiz flow, never separately. Output also segments by note family.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-name">MFK</div>
-      <div class="ref-tag">VIP / private-list angle</div>
-      <div class="ref-pattern">Email opt-in framed as "Be the first to know" for limited editions. Exclusivity language replaces discount language. Higher-AOV customers are recognition-seekers, not coupon-seekers.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-name">Bond No. 9 today</div>
-      <div class="ref-tag" style="color:var(--warning)">Footer only</div>
-      <div class="ref-pattern">Single-step footer form. No trigger. No SMS. No value exchange beyond "be the first to hear." Closer to MFK in restraint, but without the editorial copy or VIP framing that earns the lower volume.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 03 OPTION A · 3-STEP PERFECT POPUP (BOND VARIANT) ============ -->
-<section>
-  <div class="s-num">03 / Option A</div>
-
-  <div class="option">
-    <div class="option-head">
-      <div class="left">
-        <div class="v-tag">3-step Perfect Popup · Bond variant · exclusivity-led</div>
-        <h3>The Perfect Popup, without the discount.</h3>
+    <div class="variant">
+      <div class="variant-head">
+        <div class="left">
+          <div class="v-tag">3-step Perfect Popup · Bond variant · exclusivity-led</div>
+          <h3>The Perfect Popup, without the discount.</h3>
+        </div>
+        <div class="pair">Pairs with Homepage A · Editorial Front</div>
       </div>
-      <div class="pair">Pairs with Homepage <em>A · Editorial Front</em></div>
-    </div>
-    <p class="option-desc">A canonical 3-step structure (Yes/No → Email → SMS), with every "% off" replaced by exclusivity, discovery, and service. Step 1 hooks with the discovery quiz instead of a discount. Step 2 captures email and delivers two complimentary samples (free-trial mechanic, already a standing offer). Step 3 captures phone with a VIP exclusivity frame — limited editions, private boutique invitations, three messages a month. Confirmation routes to the editorial homepage. Most brand-coherent of the three options. Pairs with Homepage A because both options bet on long-form brand-world reading time and editorial register over fast conversion.</p>
+      <p class="variant-desc">A canonical 3-step structure (Yes/No → Email → SMS), with every "% off" replaced by exclusivity, discovery, and service. Quiz hook · samples on email · VIP inner-circle on SMS · Continue browsing on confirmation. Most brand-coherent of the three. Pairs with Homepage A because both bet on long-form brand-world reading time and editorial register.</p>
 
-    <div class="trigger-row">
-      <span>Trigger · <span class="gold">Exit-intent</span> OR <span class="gold">50% scroll</span> · whichever fires first · NEVER load-immediate</span>
-      <span>Frequency · 1 per 7 days · session count = 1 only</span>
-    </div>
+      <div class="pp-trigger">
+        <span>Trigger · <span class="gold">Exit-intent</span> OR <span class="gold">50% scroll</span> · NEVER load-immediate</span>
+        <span>Frequency · 1 per 7 days · session count = 1 only</span>
+      </div>
 
-    <div class="flow three-step">
-
-      <!-- Step 1 -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Step 01</span><span>Yes / No</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card">
+      <div class="pp-flow">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Step 01</span><span>Yes / No</span></div>
+          <div class="pp-mock">
+            <div class="pp-card">
               <span class="x">×</span>
               <div class="ey">A 60-second quiz</div>
               <div class="h">Find your Bond Street?</div>
-              <div class="sub">Five neighborhoods. Twenty-eight scents. One match — sent to your inbox.</div>
+              <div class="sub">Five neighborhoods · 28 scents · one match.</div>
               <div class="yn"><span class="btn yes">Yes, find mine</span><span class="btn no">Not today</span></div>
             </div>
           </div>
-          <div class="step-note">
-            <strong>The hook</strong>
-            Discovery, not discount. The quiz framing immediately tells the visitor what value they get for sharing their email — the actual answer to "which Bond fragrance is mine." On register.
-          </div>
+          <div class="note"><strong>Discovery, not discount</strong>The quiz framing tells the visitor immediately what they get for opting in.</div>
         </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Step 02</span><span>Email · after Yes</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Step 02</span><span>Email</span></div>
+          <div class="pp-mock">
+            <div class="pp-card">
               <span class="x">×</span>
               <div class="ey">Step 02 of 03</div>
-              <div class="h">Where should we send your match?</div>
+              <div class="h tight">Where should we send your match?</div>
               <div class="field">your-email@domain.com</div>
               <div class="btn-full">Send my match →</div>
               <div class="footer-line">+ 2 complimentary samples · first order</div>
             </div>
           </div>
-          <div class="step-note">
-            <strong>The Power of Free</strong>
-            Two complimentary samples gets surfaced here as the upgrade for opting in — not as the promo bar text it currently lives in. Reframes the existing standing offer as an exclusive opt-in benefit.
-          </div>
+          <div class="note"><strong>Power of Free</strong>Samples surface as the upgrade, reframing the existing standing offer.</div>
         </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Step 03</span><span>SMS · VIP frame</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Step 03</span><span>SMS · VIP</span></div>
+          <div class="pp-mock">
+            <div class="pp-card">
               <span class="x">×</span>
-              <div class="ey">One more · Step 03 of 03</div>
+              <div class="ey">One more · 03 of 03</div>
               <div class="h tight">Want first access to limited editions?</div>
-              <div class="sub">The Bond inner circle — text only · never sold · three messages a month.</div>
+              <div class="sub">The Bond inner circle · text only · 3 messages a month.</div>
               <div class="field">+1 · phone</div>
               <div class="btn-full dark">Join the circle</div>
               <span class="skip">No thanks · just send my match</span>
             </div>
           </div>
-          <div class="step-note">
-            <strong>VIP, not discount</strong>
-            The visitor who bought a $400 fragrance is recognition-seeking, not coupon-seeking. The SMS step reframes phone capture as inner-circle access — limited editions, private boutique invitations, never a discount code.
-          </div>
+          <div class="note"><strong>VIP, not discount</strong>Recognition-seeking, not coupon-seeking. Inner circle access replaces second discount.</div>
         </div>
-      </div>
-
-      <!-- Confirmation -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Confirm</span><span>Continue browsing</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card confirm">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Confirm</span><span>Continue browsing</span></div>
+          <div class="pp-mock">
+            <div class="pp-card confirm">
               <span class="x">×</span>
               <div class="check">✓</div>
               <div class="h tight">Your match is on its way.</div>
-              <div class="sub">Check your inbox in 60 seconds. Two complimentary samples ship with your first order.</div>
+              <div class="sub">Check your inbox in 60 seconds.</div>
               <div class="btn-full">Continue browsing</div>
             </div>
           </div>
-          <div class="step-note">
-            <strong>Continue Browsing, not Save for Later</strong>
-            The confirmation CTA routes to <code style="font-family:var(--mono);font-size:10px;color:var(--gold)">/pages/new-york-neighborhoods</code>, not the cart. The user just shared their email — they want to keep exploring, not commit to a purchase yet.
-          </div>
+          <div class="note"><strong>Routes to /pages/new-york-neighborhoods</strong>Never the cart. Keep exploring.</div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-cell pros">
+          <h4>Why this works</h4>
+          <ul>
+            <li>On Bond's register — zero percent-off references, zero sale theater language</li>
+            <li>Reuses the existing free-samples standing offer as the email step's value exchange</li>
+            <li>Quiz hook connects to the discovery quiz Bond is building separately</li>
+            <li>VIP / inner circle framing reads as service — recognition-seeking customer behavior</li>
+            <li>3-step structure captures email and phone without overlapping asks</li>
+          </ul>
+        </div>
+        <div class="pc-cell cons">
+          <h4>Trade-offs</h4>
+          <ul>
+            <li>Couples this popup to the quiz build timeline — quiz must exist for email-deliverable to be real</li>
+            <li>Phone step opt-in rate may be lower than discount-driven SMS (3–5% non-discount vs 5–8% with)</li>
+            <li>Higher copy investment than discount popup — every line is brand-voice work</li>
+            <li>Two-samples fulfillment must reliably trigger from opt-in subscriber tag</li>
+          </ul>
         </div>
       </div>
     </div>
-
-    <div class="pc">
-      <div class="pc-cell pros">
-        <h4>Why this works</h4>
-        <ul>
-          <li>On Bond's register — zero percent-off references, zero sale theater language</li>
-          <li>Reuses the existing "Free samples with every order" standing offer as the email step's value exchange — no new offer to build</li>
-          <li>Quiz hook connects to the discovery quiz Bond is already building separately — popup feeds the quiz funnel</li>
-          <li>VIP / inner circle framing reads as service, not coupon — recognition-seeking customer behavior</li>
-          <li>3-step structure captures both email and phone without overlapping the asks</li>
-          <li>Confirmation CTA routes to neighborhoods page — keeps the exploration path open</li>
-        </ul>
-      </div>
-      <div class="pc-cell cons">
-        <h4>Trade-offs</h4>
-        <ul>
-          <li>Quiz must actually exist for the email-deliverable to be real — couples this popup to the quiz build timeline</li>
-          <li>"Two samples" must be reliably deliverable — fulfillment process needs to confirm the standing offer applies to opt-in subscribers without a separate SKU</li>
-          <li>Higher copy investment than a discount popup — every line is brand-voice work</li>
-          <li>Phone step opt-in rate may be lower than discount-driven SMS popups (industry benchmark for non-discount SMS opt-in: 3–5% vs 5–8% with discount)</li>
-        </ul>
-      </div>
-    </div>
   </div>
-</section>
 
-<!-- ============ 04 OPTION B · QUESTION-BASED QUIZ POPUP ============ -->
-<section>
-  <div class="s-num">04 / Option B</div>
+  <!-- 04.B OPTION B · QUESTION-BASED QUIZ POPUP -->
+  <div class="sub" id="pp-b">
+    <div class="sub-num">04.B / Option B · Question-Based Quiz</div>
 
-  <div class="option">
-    <div class="option-head">
-      <div class="left">
-        <div class="v-tag">Question-based · 3-question quiz · most differentiated</div>
-        <h3>The popup IS the quiz.</h3>
+    <div class="variant">
+      <div class="variant-head">
+        <div class="left">
+          <div class="v-tag">Question-based · 3-question quiz · most differentiated · pick</div>
+          <h3>The popup IS the quiz.</h3>
+        </div>
+        <div class="pair">Pairs with Homepage C · The Hybrid</div>
       </div>
-      <div class="pair">Pairs with Homepage <em>C · The Hybrid</em></div>
-    </div>
-    <p class="option-desc">Skip the Yes/No entirely. Open with the first quiz question — "Which Bond Street are you?" — with five visual options (Uptown · Downtown · Parks · City Scents · Beaches). Three questions total, then email capture to deliver the match. The popup BECOMES the quiz, not a precursor to it. Highest-friction first step but every interaction segments the customer for Attentive Journeys downstream — every answer populates a custom attribute on the subscriber profile. Most differentiated of the three. Pairs with Homepage C because both options run the discovery quiz mechanic at the page level (Homepage C's Two Doors at scroll 1 is the quiz door).</p>
+      <p class="variant-desc">Skip the Yes/No. Open with the first quiz question. Three questions, then email capture to deliver the match. Highest-friction first step but every interaction segments the customer for Attentive Journeys downstream. Most differentiated. Pairs with Homepage C because both options run the discovery quiz mechanic — same questions, two surfaces.</p>
 
-    <div class="trigger-row">
-      <span>Trigger · <span class="gold">10s delay</span> OR <span class="gold">exit-intent</span> · whichever fires first</span>
-      <span>Frequency · 1 per 14 days · resume on return if mid-quiz</span>
-    </div>
+      <div class="pp-trigger">
+        <span>Trigger · <span class="gold">10s delay</span> OR <span class="gold">exit-intent</span> · whichever fires first</span>
+        <span>Frequency · 1 per 14 days · resume on return if mid-quiz</span>
+      </div>
 
-    <div class="flow quiz">
-
-      <!-- Step 1 -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Step 01</span><span>Q1 · Neighborhood</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card">
+      <div class="pp-flow">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Q1</span><span>Neighborhood</span></div>
+          <div class="pp-mock">
+            <div class="pp-card">
               <span class="x">×</span>
               <div class="ey">Question 01 of 03</div>
               <div class="h tight">Which New York are you?</div>
@@ -523,31 +837,24 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
                 <span class="opt">Parks</span>
                 <span class="opt">City</span>
               </div>
-              <div class="opts-grid" style="margin-top:5px">
+              <div class="opts-grid" style="margin-top:4px">
                 <span class="opt">Beaches</span>
-                <span class="opt">Show me all</span>
+                <span class="opt">Show all</span>
               </div>
               <div class="progress"><i class="on"></i><i></i><i></i></div>
             </div>
           </div>
-          <div class="step-note">
-            <strong>The first question is the hook</strong>
-            No yes/no. The visitor is engaging with the brand thesis (geography-as-fragrance) on the first interaction. Each answer feeds Attentive as a custom attribute — opens segmented Journeys downstream.
-          </div>
+          <div class="note"><strong>First question is the hook</strong>Engaging with brand thesis on first interaction. Attentive custom attribute segments downstream.</div>
         </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Step 02</span><span>Q2 · Occasion</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Q2</span><span>Occasion</span></div>
+          <div class="pp-mock">
+            <div class="pp-card">
               <span class="x">×</span>
               <div class="ey">Question 02 of 03</div>
               <div class="h tight">When do you wear fragrance?</div>
               <div class="opts-grid">
-                <span class="opt">Daytime</span>
+                <span class="opt">Day</span>
                 <span class="opt on">Evening</span>
                 <span class="opt">Office</span>
                 <span class="opt">All</span>
@@ -555,525 +862,224 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
               <div class="progress"><i class="on"></i><i class="on"></i><i></i></div>
             </div>
           </div>
-          <div class="step-note">
-            <strong>Occasion = match weight</strong>
-            Drives the match algorithm. Also feeds Attentive segmentation: evening-wearers get different email + SMS Journeys than office-wearers downstream. Free intelligence for ad retargeting too.
-          </div>
+          <div class="note"><strong>Match weight + segmentation</strong>Drives the algorithm. Evening-wearers get different email flows than office-wearers.</div>
         </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Step 03</span><span>Email + match</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Email</span><span>03 of 03</span></div>
+          <div class="pp-mock">
+            <div class="pp-card">
               <span class="x">×</span>
               <div class="ey">Almost there · 03 of 03</div>
               <div class="h tight">Where should we send your match?</div>
-              <div class="sub">Plus your full scent profile and 2 complimentary samples.</div>
+              <div class="sub">Plus full scent profile + 2 samples.</div>
               <div class="field">your-email@domain.com</div>
               <div class="btn-full">Send my match →</div>
               <span class="skip">No thanks</span>
             </div>
           </div>
-          <div class="step-note">
-            <strong>Email after engagement</strong>
-            By the time the visitor sees the email field, they've already invested in two answers. Email capture rate is materially higher than a cold ask. Industry benchmark for question-based: 22–28% completion vs 7–10% for cold popup.
-          </div>
+          <div class="note"><strong>Email after engagement</strong>Two answers in. Industry: 22–28% completion vs 7–10% for cold popup.</div>
         </div>
-      </div>
-
-      <!-- Confirmation -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Confirm</span><span>Match → page</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card confirm">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Confirm</span><span>Match → PDP</span></div>
+          <div class="pp-mock">
+            <div class="pp-card confirm">
               <span class="x">×</span>
               <div class="check">✓</div>
               <div class="ey">Your Bond Street is</div>
               <div class="h tight">Uptown.</div>
-              <div class="sub">Park Avenue · 96% match · sent to your inbox now.</div>
+              <div class="sub">Park Avenue · 96% match · sent now.</div>
               <div class="btn-full">View Park Avenue →</div>
             </div>
           </div>
-          <div class="step-note">
-            <strong>Direct to the matched fragrance</strong>
-            The confirmation CTA routes to the matched fragrance's PDP — not the homepage, not the cart. Closes the loop in one click. The user came in cold and left with a specific named product.
-          </div>
+          <div class="note"><strong>Direct to matched PDP</strong>Closes the loop in one click. Highest conversion-attribution of any option.</div>
         </div>
       </div>
-    </div>
 
-    <div class="pc">
-      <div class="pc-cell pros">
-        <h4>Why this works</h4>
-        <ul>
-          <li>Most differentiated — no Bond competitor uses a popup-as-quiz on the homepage</li>
-          <li>Highest completion rate of the three (industry: 22–28% for question-based vs 15–18% for 3-step Perfect)</li>
-          <li>Every interaction segments the customer — Attentive downstream Journeys are pre-built by the popup itself</li>
-          <li>Confirmation routes to a specific named PDP, not the homepage — highest conversion-attribution</li>
-          <li>Connects directly to the discovery quiz being built — same questions, same scoring, popup is the entry point</li>
-          <li>Brand-coherent: the brand IS geography-as-fragrance, the popup makes that the first interaction</li>
-        </ul>
-      </div>
-      <div class="pc-cell cons">
-        <h4>Trade-offs</h4>
-        <ul>
-          <li>Quiz scoring engine must exist — couples popup launch to quiz build timeline</li>
-          <li>No SMS capture in the 3-step flow — phone capture would need a separate moment (PDP, post-purchase)</li>
-          <li>Visitors who want to skip get one click less than Option A — risk of perceived friction on first interaction</li>
-          <li>Highest build cost — 5 neighborhood matches × 3 occasion segments = 15 confirmation states minimum</li>
-          <li>Mobile completion rate sensitive to viewport — quiz cards must fit comfortably on 375px without scroll inside the popup</li>
-        </ul>
+      <div class="pc">
+        <div class="pc-cell pros">
+          <h4>Why this works</h4>
+          <ul>
+            <li>Most differentiated — no Bond competitor uses popup-as-quiz</li>
+            <li>Highest completion rate (industry: 22–28%)</li>
+            <li>Every interaction segments the customer — Attentive Journeys pre-built by the popup</li>
+            <li>Confirmation routes to specific PDP, not homepage — highest conversion-attribution</li>
+            <li>Connects directly to the discovery quiz being built separately</li>
+            <li>Brand-coherent: brand IS geography-as-fragrance, popup makes it the first interaction</li>
+          </ul>
+        </div>
+        <div class="pc-cell cons">
+          <h4>Trade-offs</h4>
+          <ul>
+            <li>Quiz scoring engine must exist — couples popup launch to quiz build timeline</li>
+            <li>No SMS capture — phone capture would need a separate moment</li>
+            <li>Highest build cost — 5 neighborhoods × 3 occasion segments = 15+ confirmation states</li>
+            <li>Mobile completion sensitive to viewport — quiz cards must fit on 375px</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ============ 05 OPTION C · 2-STEP CASHBACK POPUP ============ -->
-<section>
-  <div class="s-num">05 / Option C</div>
+  <!-- 04.C OPTION C · 2-STEP CASHBACK POPUP -->
+  <div class="sub" id="pp-c">
+    <div class="sub-num">04.C / Option C · 2-Step Cashback</div>
 
-  <div class="option">
-    <div class="option-head">
-      <div class="left">
-        <div class="v-tag">2-step cashback · Fondue-mechanic · most conservative · highest opt-in</div>
-        <h3>The cashback move — discount without the discount voice.</h3>
+    <div class="variant">
+      <div class="variant-head">
+        <div class="left">
+          <div class="v-tag">2-step cashback · Fondue mechanic · highest opt-in · most conservative</div>
+          <h3>The cashback move — discount without the discount voice.</h3>
+        </div>
+        <div class="pair">Pairs with Homepage B · Two Doors</div>
       </div>
-      <div class="pair">Pairs with Homepage <em>B · Two Doors</em></div>
-    </div>
-    <p class="option-desc">A 2-step popup using cashback (via Fondue or similar) instead of upfront percent-off. Step 1: "$25 cashback on your first Bond order — no code, no minimum." Step 2: email to claim. The cashback mechanic preserves luxury price perception (the price never gets reduced — the customer gets money back as a credit) while still creating a measurable opt-in incentive. On Bond's register because the price label and product page never show a discount. Highest opt-in of the three (industry: 25–32% for cashback-led). No SMS step — phone capture happens elsewhere. Pairs with Homepage B because both options optimize for fast comprehension and direct conversion paths.</p>
+      <p class="variant-desc">2-step popup using cashback (via Fondue) instead of upfront percent-off. $25 cashback — no code, no minimum, no price tag reduction — sent as a Visa gift card or store credit after the order ships. On Bond's register because price label and product page never show a discount. Highest opt-in (industry: 25–32%). No SMS. Pairs with Homepage B because both options optimize for fast comprehension and direct conversion paths.</p>
 
-    <div class="trigger-row">
-      <span>Trigger · <span class="gold">Exit-intent</span> OR <span class="gold">50% scroll</span> · whichever fires first</span>
-      <span>Frequency · 1 per 7 days · session count = 1 only · cashback delivered as Visa gift card or store credit</span>
-    </div>
+      <div class="pp-trigger">
+        <span>Trigger · <span class="gold">Exit-intent</span> OR <span class="gold">50% scroll</span></span>
+        <span>Frequency · 1 per 7 days · cashback delivered post-order via Fondue</span>
+      </div>
 
-    <div class="flow two-step">
-
-      <!-- Step 1 -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Step 01</span><span>Yes / No · cashback</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card">
+      <div class="pp-flow three">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Step 01</span><span>Yes / No</span></div>
+          <div class="pp-mock">
+            <div class="pp-card">
               <span class="x">×</span>
               <div class="ey">A small thank-you</div>
               <div class="h">$25 cashback on your first order.</div>
-              <div class="sub">No code · no minimum · sent to you after your order ships. Use it on Bond, or use it anywhere.</div>
+              <div class="sub">No code · no minimum · sent after your order ships.</div>
               <div class="yn"><span class="btn yes">Claim my $25</span><span class="btn no">No thanks</span></div>
             </div>
           </div>
-          <div class="step-note">
-            <strong>Cashback ≠ discount</strong>
-            The price tag never changes. The luxury frame stays intact. The customer gets a Visa gift card or store credit after their order ships. Reads as "thank you" not "sale." Fondue is the canonical tool.
-          </div>
+          <div class="note"><strong>Cashback ≠ discount</strong>Price tag never changes. Luxury frame intact. Visa gift card or store credit post-shipment.</div>
         </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Step 02</span><span>Email · after Yes</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Step 02</span><span>Email</span></div>
+          <div class="pp-mock">
+            <div class="pp-card">
               <span class="x">×</span>
               <div class="ey">One step</div>
-              <div class="h">Where should we send your $25?</div>
+              <div class="h tight">Where should we send your $25?</div>
               <div class="sub">Your cashback ships after your first order.</div>
               <div class="field">your-email@domain.com</div>
               <div class="btn-full">Claim my $25 →</div>
               <span class="skip">No thanks · I'll pass</span>
             </div>
           </div>
-          <div class="step-note">
-            <strong>Email is the only capture</strong>
-            No SMS step. Phone capture for Bond happens via the post-purchase flow, the quiz, or the inner-circle frame in Option A — keeping each capture moment focused on one ask.
-          </div>
+          <div class="note"><strong>Email is the only capture</strong>No SMS. Phone capture happens via post-purchase or quiz, not here.</div>
         </div>
-      </div>
-
-      <!-- Confirmation -->
-      <div class="step-card">
-        <div class="step-tag"><span class="nm">Confirm</span><span>Continue browsing</span></div>
-        <div class="body">
-          <div class="popup-mock">
-            <div class="popup-card confirm">
+        <div class="pp-step">
+          <div class="step-tag"><span class="nm">Confirm</span><span>Locked in</span></div>
+          <div class="pp-mock">
+            <div class="pp-card confirm">
               <span class="x">×</span>
               <div class="check">✓</div>
               <div class="h tight">Your $25 is locked in.</div>
-              <div class="sub">It'll ship to you as a Visa gift card after your first order. Check your inbox for confirmation.</div>
+              <div class="sub">Visa gift card after your first order. Inbox confirmation now.</div>
               <div class="btn-full">Continue browsing</div>
             </div>
           </div>
-          <div class="step-note">
-            <strong>Cashback confirmation is itself a brand asset</strong>
-            "Locked in" reads as luxury concierge service language — the brand "locks in" your benefit. Compare to "Code SAVE10 applied" which reads as transactional. Tone is the differentiator.
-          </div>
+          <div class="note"><strong>"Locked in" reads as concierge</strong>Compare to "Code SAVE25 applied" — transactional. Tone is the differentiator.</div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-cell pros">
+          <h4>Why this works</h4>
+          <ul>
+            <li>Highest opt-in rate (industry: 25–32% — beats 3-step and quiz formats)</li>
+            <li>On Bond's register — price tag never reduced, product page never shows a discount</li>
+            <li>Lowest build complexity — Fondue + Attentive, no quiz logic</li>
+            <li>$25 is a meaningful incentive without the "discount" perception</li>
+            <li>Single email capture — no phone step to complicate</li>
+            <li>Works at launch with no other dependencies — does not couple to quiz build timeline</li>
+          </ul>
+        </div>
+        <div class="pc-cell cons">
+          <h4>Trade-offs</h4>
+          <ul>
+            <li>Requires Fondue (or equivalent) integration — additional vendor + monthly cost</li>
+            <li>Cashback margin hit ~$25 per first-order acquisition — model LTV vs CAC carefully</li>
+            <li>No phone capture in this popup — must be captured elsewhere</li>
+            <li>Less brand-distinctive than A or B — known DTC pattern even if luxury-coherent</li>
+            <li>Doesn't connect to the quiz or to neighborhood thesis — transactional, not discovery</li>
+          </ul>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="pc">
-      <div class="pc-cell pros">
-        <h4>Why this works</h4>
-        <ul>
-          <li>Highest opt-in rate of the three (industry: 25–32% for cashback-led — beats both 3-step and quiz formats)</li>
-          <li>On Bond's register — price tag never reduced, product page never shows a discount</li>
-          <li>Lowest build complexity — Fondue handles the cashback logistics, Attentive handles the email</li>
-          <li>$25 is a meaningful incentive at Bond's price point (vs 10% off $360 = $36, but reads as "discount") — same dollar value, different brand perception</li>
-          <li>Single email capture — no phone step to complicate or reduce conversion</li>
-          <li>Works at launch with no other dependencies — does not couple to quiz or sample-fulfillment timeline</li>
-        </ul>
+  <!-- 04.X ANTI-PATTERNS -->
+  <div class="sub" id="pp-anti">
+    <div class="sub-num">04.X / Anti-patterns · never ship</div>
+    <h3>Six things <em>any of the three options must never do</em>.</h3>
+    <p class="sub-lede">Cross-cutting brand and CRO discipline that applies to all three popup options. These are the common popup failures that turn a 21% opt-in into a brand liability.</p>
+
+    <div class="pp-anti">
+      <div class="cell">
+        <span class="x">✕</span>
+        <span class="h">Page-load popup</span>
+        <span class="body"><strong>Doubles bounce rate.</strong> Bond removed this once already — do not bring it back. Trigger must be exit-intent / scroll / time-delay (≥7s).</span>
       </div>
-      <div class="pc-cell cons">
-        <h4>Trade-offs</h4>
-        <ul>
-          <li>Requires Fondue (or equivalent) integration — additional vendor + monthly cost</li>
-          <li>Cashback margin hit is ~$25 per first-order acquisition — model the LTV vs CAC carefully</li>
-          <li>No phone capture in this popup — phone has to be captured elsewhere in the funnel</li>
-          <li>Less brand-distinctive than Options A or B — "$25 cashback" is a known DTC pattern even if luxury-coherent</li>
-          <li>Doesn't connect to the quiz or to Bond's neighborhood thesis — it's a transactional moment, not a discovery moment</li>
-        </ul>
+      <div class="cell">
+        <span class="x">✕</span>
+        <span class="h">% off discount in copy</span>
+        <span class="body"><strong>Off register.</strong> "10% off" / "15% off" / "Save 20%" all forbidden. Substitute: cashback (C), exclusivity (A), discovery (B).</span>
+      </div>
+      <div class="cell">
+        <span class="x">✕</span>
+        <span class="h">Email + phone same step</span>
+        <span class="body"><strong>Kills opt-in.</strong> Option A separates email (Step 2) from phone (Step 3). C drops phone entirely.</span>
+      </div>
+      <div class="cell">
+        <span class="x">✕</span>
+        <span class="h">Hidden / unclosable X</span>
+        <span class="body"><strong>Always bad UX.</strong> X visible top-right of every step at minimum 14×14px hit target on desktop, 24×24px on mobile.</span>
+      </div>
+      <div class="cell">
+        <span class="x">✕</span>
+        <span class="h">Stacked popups in one session</span>
+        <span class="body"><strong>One popup per session, period.</strong> No newsletter + SMS + country + age-gate cascade.</span>
+      </div>
+      <div class="cell">
+        <span class="x">✕</span>
+        <span class="h">"Save for Later" final CTA</span>
+        <span class="body"><strong>Use "Continue browsing" instead.</strong> "Save for Later" reads as the user is leaving — wrong signal at opt-in moment.</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============ 06 MOBILE PREVIEWS ============ -->
-<section>
-  <div class="s-num">06 / Mobile · 375px</div>
-  <h2>How each popup <em>renders on small screen.</em></h2>
-  <p class="s-lede">Mobile is where popups go to die when not designed for it. Each option below has been adjusted for 375px viewport — popup centered, page dimmed at 35% opacity, ≤90% viewport height, X close target ≥44px hit area. Option A and C use compact 3-step / 2-step flow; Option B's quiz adapts to single-column option grid.</p>
-
-  <div class="mobile-rail">
-
-    <!-- Option A · Mobile (Step 1) -->
-    <div class="mobile-card">
-      <div class="mobile-tag">Option A · Mobile · Step 01</div>
-      <div class="mobile-cap">3-Step Perfect (Bond)</div>
-      <div class="mobile-pair">Pairs with Homepage A</div>
-      <div class="mob-frame">
-        <div class="mob-page">
-          <div class="mob-popup">
-            <span class="x">×</span>
-            <div class="ey">A 60-second quiz</div>
-            <div class="h">Find your Bond Street?</div>
-            <div class="sub">Five neighborhoods · 28 scents · one match.</div>
-            <div class="yn"><span class="btn yes">Yes, find mine</span><span class="btn no">Not today</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mob-note">Compact card · subhead trims one phrase · Yes/No buttons stack to 2-up at narrowest breakpoint. Each step rendered as separate viewport — never two-column on mobile.</div>
+    <div class="cross-cuts" style="margin-top:18px">
+      <div class="head-tag">Pairing summary · which popup with which homepage</div>
+      <ul>
+        <li><strong>— Option A · 3-Step Perfect (Bond) → Homepage A · Editorial Front.</strong> The luxury-magazine pairing. Both bet on long-form brand-world reading time and editorial register over fast conversion.</li>
+        <li><strong>— Option B · Question-Based Quiz → Homepage C · The Hybrid.</strong> The brand-defining pairing — recommended pick. Both options earn their weight through the discovery quiz mechanic. Same mechanic, two surfaces.</li>
+        <li><strong>— Option C · 2-Step Cashback → Homepage B · Two Doors.</strong> The pragmatic conversion-velocity pairing. Both optimize for fast comprehension and direct conversion paths. Lowest joint build cost.</li>
+      </ul>
     </div>
 
-    <!-- Option B · Mobile (Q1) -->
-    <div class="mobile-card">
-      <div class="mobile-tag">Option B · Mobile · Q1</div>
-      <div class="mobile-cap">Question-Based Quiz</div>
-      <div class="mobile-pair">Pairs with Homepage C · pick</div>
-      <div class="mob-frame">
-        <div class="mob-page">
-          <div class="mob-popup">
-            <span class="x">×</span>
-            <div class="ey">Q 01 of 03</div>
-            <div class="h">Which New York are you?</div>
-            <div class="opts-grid">
-              <span class="opt on">Uptown</span>
-              <span class="opt">Downtown</span>
-              <span class="opt">Parks</span>
-              <span class="opt">City</span>
-              <span class="opt">Beaches</span>
-              <span class="opt">All</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mob-note">Six options on mobile = 3 rows of 2 (vs 2 rows of 3 on desktop). Touch targets ≥44px hit area each. Progress bar drops to single thin line at base of card.</div>
-    </div>
-
-    <!-- Option C · Mobile (Step 1) -->
-    <div class="mobile-card">
-      <div class="mobile-tag">Option C · Mobile · Step 01</div>
-      <div class="mobile-cap">2-Step Cashback</div>
-      <div class="mobile-pair">Pairs with Homepage B</div>
-      <div class="mob-frame">
-        <div class="mob-page">
-          <div class="mob-popup">
-            <span class="x">×</span>
-            <div class="ey">A small thank-you</div>
-            <div class="h">$25 cashback on your first order.</div>
-            <div class="sub">No code · no minimum · ships after your order.</div>
-            <div class="yn"><span class="btn yes">Claim my $25</span><span class="btn no">No thanks</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mob-note">Smallest of the three cards — single value prop, two CTAs. Best mobile completion rate (industry: 30%+). $25 number stays the focal point at every viewport.</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 07 PAIRING SUMMARY ============ -->
-<section>
-  <div class="s-num">07 / Pairing summary</div>
-  <h2>Which popup <em>goes with which homepage.</em></h2>
-  <p class="s-lede">The popup voice has to agree with the page voice. A cashback popup with an editorial homepage reads inconsistent. A 3-step exclusivity popup with a fast-conversion homepage reads inconsistent. The pairings below match register across the entire above-the-fold experience.</p>
-
-  <table class="pair-table">
-    <tr>
-      <th style="width:80px">Popup</th>
-      <th>Pair</th>
-      <th>Why this pair</th>
-    </tr>
-    <tr>
-      <td>A</td>
-      <td><strong>3-Step Perfect (Bond) → Homepage A · Editorial Front</strong></td>
-      <td>Both options bet on long-form brand-world reading time and editorial register over fast conversion. Editorial Front opens the site as cinema; the 3-step popup uses the longest, most editorial flow — quiz hook, exclusivity SMS step, brand-voice copy throughout. The luxury-magazine pairing.</td>
-    </tr>
-    <tr>
-      <td>B</td>
-      <td><strong>Question-Based Quiz → Homepage C · The Hybrid</strong></td>
-      <td>Both options earn their weight through the discovery quiz mechanic. Hybrid runs Two Doors at scroll 1 (quiz being one of the doors); the question-based popup IS the quiz at the popup level. Same mechanic, two surfaces. The brand-defining, most-differentiated pairing — the recommended pick.</td>
-    </tr>
-    <tr>
-      <td>C</td>
-      <td><strong>2-Step Cashback → Homepage B · Two Doors</strong></td>
-      <td>Both options optimize for fast comprehension and direct conversion paths. Two Doors splits the homepage into clear funnels at the hero; the 2-step cashback popup runs the shortest possible flow with the highest opt-in rate. Lowest joint build cost, fastest to ship, most conversion-velocity.</td>
-    </tr>
-  </table>
-</section>
-
-<!-- ============ 08 CROSS-CUTS ============ -->
-<section>
-  <div class="s-num">08 / Cross-cuts · apply to all three options</div>
-  <h2>Trigger logic, frequency, and brand discipline — <em>identical across all three.</em></h2>
-  <p class="s-lede">Below is the framework that applies to whichever option ships. Trigger rules, frequency caps, dim-treatment, close behavior, and voice boundaries are all option-independent.</p>
-
-  <div class="crosscuts">
-    <h4>Trigger + frequency</h4>
-    <ul>
-      <li><strong>— Trigger: Exit-intent OR 50% scroll-depth.</strong> Whichever fires first. NEVER load-immediate (doubles bounce rate). Option B may use 10s delay as the third trigger because the quiz is the value, but Options A and C must use exit-intent / scroll only.</li>
-      <li><strong>— Frequency cap: 1 per 7 days per user.</strong> Cookie-based. Session count = 1 only (do not show on second session within 24h). If the user closes the popup, do not re-fire on the same session.</li>
-      <li><strong>— New visitors only by default.</strong> Attentive display rule: <code>session count = 1</code> AND <code>not yet subscribed</code>. Returning subscribers get a different Creative (or none).</li>
-      <li><strong>— No popup on cart, checkout, account, or PDPs above the fold.</strong> Popup fires on home, collection, neighborhood index, neighborhood detail, story / about pages only.</li>
-    </ul>
-  </div>
-
-  <div class="crosscuts" style="margin-top:18px">
-    <h4>Brand discipline</h4>
-    <ul>
-      <li><strong>— Bond voice, every line.</strong> Cabinet Grotesk display headlines, Karla body, gold accent on eyebrows. No exclamation marks. No "AMAZING" / "INCREDIBLE" / "Save Big". Editorial register, NYC-native voice.</li>
-      <li><strong>— No urgency, no countdown, no scarcity.</strong> Per Bond's editorial register. No "OFFER ENDS IN 4:32" timers. No "ONLY 3 LEFT IN STOCK" badges in the popup. No "LAST CHANCE" copy.</li>
-      <li><strong>— Bond Gold (#C5A55A) for accents only, never for button backgrounds.</strong> Per Bond's logo treatment rules. CTAs are black or white; gold is for eyebrows, hairlines, and "claim my $25" highlight underlines only. Option C is the exception (gold CTA on the cashback step) because the gold IS the offer.</li>
-      <li><strong>— Wordmark allowed in the popup but never larger than 90px width.</strong> The popup is not the masthead. The script wordmark may appear muted in the corner if needed, but the popup card carries its own typographic hierarchy.</li>
-    </ul>
-  </div>
-
-  <div class="crosscuts" style="margin-top:18px">
-    <h4>Confirmation state</h4>
-    <ul>
-      <li><strong>— "Continue browsing" CTA, never "Save for later" or "Got it."</strong> Routes vary by option: A → /pages/new-york-neighborhoods · B → matched fragrance PDP · C → /pages/new-york-neighborhoods.</li>
-      <li><strong>— No discount code displayed in confirmation.</strong> Options A and B never display a code. Option C displays "$25 locked in" in plain language, not a code.</li>
-      <li><strong>— Cookie set immediately on confirmation.</strong> Suppresses re-fire for 7 days. Subscribed customers never see the popup again until segmented otherwise.</li>
-    </ul>
-  </div>
-
-  <!-- Anti-patterns -->
-  <h3 style="margin-top:36px;font-family:var(--display);font-style:italic;font-weight:700;font-size:24px;color:var(--black);font-variation-settings:'opsz' 144;letter-spacing:-.005em">Anti-patterns · never ship</h3>
-  <div class="anti">
-    <div class="anti-cell">
-      <span class="x">✕</span>
-      <span class="h">Page-load popup</span>
-      <span class="body"><strong>Doubles bounce rate.</strong> Bond removed this from the previous SMS popup — do not bring it back. Trigger must be exit-intent / scroll / time-delay (≥7s) at minimum.</span>
-    </div>
-    <div class="anti-cell">
-      <span class="x">✕</span>
-      <span class="h">% off discount in copy</span>
-      <span class="body"><strong>Off register.</strong> "10% off" / "15% off" / "Save 20%" all forbidden. Substitute: cashback (Option C), exclusivity (Option A), discovery (Option B).</span>
-    </div>
-    <div class="anti-cell">
-      <span class="x">✕</span>
-      <span class="h">Email + phone on same step</span>
-      <span class="body"><strong>Kills opt-in.</strong> Option A separates email (Step 2) from phone (Step 3). Option C drops phone entirely. Never on the same form.</span>
-    </div>
-    <div class="anti-cell">
-      <span class="x">✕</span>
-      <span class="h">Hidden / unclosable X</span>
-      <span class="body"><strong>Illegal in some jurisdictions, always bad UX.</strong> X close button visible in top-right of every step at minimum 14×14px hit target on desktop, 24×24px on mobile.</span>
-    </div>
-    <div class="anti-cell">
-      <span class="x">✕</span>
-      <span class="h">Stacked popups in one session</span>
-      <span class="body"><strong>One popup per session, period.</strong> No newsletter + SMS + country selector + age-gate cascade. If multiple are needed (rare), sequence them across sessions, not stacked.</span>
-    </div>
-    <div class="anti-cell">
-      <span class="x">✕</span>
-      <span class="h">"Save for Later" final CTA</span>
-      <span class="body"><strong>Use "Continue browsing" instead.</strong> "Save for Later" reads as the user is leaving the site — exactly the wrong signal at the moment of opt-in.</span>
+    <div class="cross-cuts" style="margin-top:18px">
+      <div class="head-tag">Cross-cuts · all three options</div>
+      <ul>
+        <li><strong>— Trigger:</strong> Exit-intent OR 50% scroll · NEVER load-immediate. Option B may use 10s delay as a third trigger.</li>
+        <li><strong>— Frequency cap:</strong> 1 per 7 days (14 for Option B). New visitors only by default.</li>
+        <li><strong>— Suppression:</strong> No popup on /cart, /checkout, /account. Fires on home, collection, neighborhoods, story pages only.</li>
+        <li><strong>— Brand voice:</strong> editorial, NYC-native, no exclamations, no urgency, no sale-theater language. Bond Gold for accents only (Option C exception: gold CTA because gold IS the offer).</li>
+        <li><strong>— Confirmation:</strong> "Continue browsing" CTA, never "Save for Later." Cookie set immediately. Routes vary by option.</li>
+        <li><strong>— Attentive Multi-Step Creative, not Shopify-native.</strong> Native form lacks exit-intent and multi-step. Attentive handles SMS natively (two-tap TCPA opt-in) — no separate Postscript needed.</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ============ 09 ATTENTIVE IMPLEMENTATION ============ -->
-<section>
-  <div class="s-num">09 / Attentive implementation · per option</div>
-  <h2>How each option <em>ships as an Attentive Creative.</em></h2>
-  <p class="s-lede">Bond runs Attentive for unified email + SMS — already loaded on the site via the Attentive Tag (<code>cdn.attn.tv/bondno9/dtag.js</code>). All three options build as Multi-Step Creatives in Attentive's Creative Builder. Below is the configuration sketch per option — display rules, custom attributes, downstream Journey triggers. Email and SMS opt-ins land in the same subscriber profile; SMS uses Attentive's TCPA-compliant two-tap consent.</p>
+<!-- ============ PART 05 — SHOPIFY AGENCY DEEP-DIVE ============ -->
 
-  <div class="attentive">
-    <div class="h">Option A · 3-Step Perfect (Bond Variant)</div>
-    <span class="c">// Creative type</span><br>
-    Multi-Step Creative · 3 steps + confirmation · email + SMS unified<br><br>
-    <span class="c">// Display rules</span><br>
-    Show on: <span class="k">exit-intent</span> OR <span class="k">scroll-depth ≥50%</span><br>
-    Display frequency: <span class="k">once every 7 days</span><br>
-    Audience: <span class="k">session count = 1</span> AND <span class="k">not subscribed (email or SMS)</span><br>
-    Pages: <span class="k">home · /collections/* · /pages/new-york-neighborhoods · /pages/neighborhood/*</span><br>
-    Suppress: <span class="k">/cart · /checkout · /account*</span><br><br>
-    <span class="c">// Custom attributes captured</span><br>
-    <span class="k">popup_quiz_intent</span> = "yes" / "no"<br>
-    <span class="k">popup_email_captured</span> = timestamp<br>
-    <span class="k">popup_sms_captured</span> = timestamp (optional · null if Step 3 skipped) · written on TCPA two-tap confirm<br>
-    <span class="k">vip_circle_member</span> = tag (applied if Step 3 completed)<br><br>
-    <span class="c">// Downstream Journeys triggered</span><br>
-    On email captured → <span class="k">Welcome Series · Discovery Quiz Email</span> (delivers quiz link)<br>
-    On SMS captured (two-tap confirmed) → <span class="k">VIP Inner Circle Welcome SMS Journey</span><br>
-    On 7 days no purchase → <span class="k">Bond to Go Sample Set Email</span> (cross-sell)
-  </div>
 
-  <div class="attentive">
-    <div class="h">Option B · Question-Based Quiz</div>
-    <span class="c">// Creative type</span><br>
-    Multi-Step Creative · 3 questions + email + confirmation<br><br>
-    <span class="c">// Display rules</span><br>
-    Show on: <span class="k">10s delay</span> OR <span class="k">exit-intent</span><br>
-    Display frequency: <span class="k">once every 14 days</span><br>
-    Resume: <span class="k">on return if quiz mid-flow</span> (localStorage + Attentive subscriber attribute fallback)<br><br>
-    <span class="c">// Custom attributes captured</span><br>
-    <span class="k">quiz_neighborhood</span> = "uptown" | "downtown" | "parks" | "city" | "beaches" | "all"<br>
-    <span class="k">quiz_occasion</span> = "daytime" | "evening" | "office" | "all"<br>
-    <span class="k">quiz_intensity</span> = "soft" | "medium" | "bold"<br>
-    <span class="k">quiz_match_top</span> = matched fragrance product handle<br>
-    <span class="k">quiz_match_score</span> = 0-100<br><br>
-    <span class="c">// Downstream Journeys triggered</span><br>
-    On quiz complete → <span class="k">Personalized Match Email</span> (uses match_top to fill PDP link)<br>
-    On 5 days no purchase → <span class="k">Neighborhood Story Drip</span> (5-email series, one per neighborhood)<br>
-    Segment by quiz_occasion → <span class="k">Evening-Wearer Journey</span> vs <span class="k">Office-Wearer Journey</span> (separate creatives)
-  </div>
-
-  <div class="attentive">
-    <div class="h">Option C · 2-Step Cashback</div>
-    <span class="c">// Creative type</span><br>
-    Multi-Step Creative · 2 steps + confirmation<br>
-    Cashback delivery: <span class="k">Fondue integration</span> (Shopify order webhook → Attentive event)<br><br>
-    <span class="c">// Display rules</span><br>
-    Show on: <span class="k">exit-intent</span> OR <span class="k">scroll-depth ≥50%</span><br>
-    Display frequency: <span class="k">once every 7 days</span><br>
-    Audience: <span class="k">session count = 1</span> AND <span class="k">not subscribed</span><br><br>
-    <span class="c">// Custom attributes captured</span><br>
-    <span class="k">cashback_pledged</span> = boolean<br>
-    <span class="k">cashback_amount</span> = 25 (USD)<br>
-    <span class="k">cashback_status</span> = "pledged" / "earned" / "redeemed" / "expired"<br><br>
-    <span class="c">// Downstream Journeys triggered</span><br>
-    On email captured → <span class="k">Welcome Series · Cashback Confirmation</span><br>
-    On first order → <span class="k">Fondue webhook</span> (Visa gift card delivery, $25) + Attentive attribute update<br>
-    On 7 days no purchase → <span class="k">Cashback Reminder Email</span> ("$25 still waiting")
-  </div>
-</section>
-
-<!-- ============ 10 PRE-LAUNCH QA ============ -->
-<section>
-  <div class="s-num">10 / Pre-launch QA · ship checklist</div>
-  <h2>Run every box <em>before turning a popup on.</em></h2>
-  <p class="s-lede">All three options share the same QA gate. Skip nothing. The most common popup failures are the boring ones — discount code not auto-applying, X close hidden behind chat bubble on iOS Safari, popup re-firing on every page load because cookie wasn't set. Test on real devices, not BrowserStack alone.</p>
-
-  <div class="qa">
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>iOS Safari · iPhone Chrome · Android Chrome</strong>Test on real devices, not just emulators. Especially X close hit area and field tap target.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>X close button works on every step</strong>Including Step 3 / confirmation state. Closing should set the cookie and never re-queue.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>"No Thanks" / "Not Today" path closes cleanly</strong>Should close popup AND set the cookie. No re-fire on next page load.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>Discount code / cashback auto-applies at checkout</strong>Option C: Fondue webhook fires on order ship. No manual code-paste required.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>Phone field validates US + international</strong>Option A only. International formats accepted (E.164). Bond ships to UK, EU, UAE.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>Confirmation Continue Browsing CTA goes somewhere useful</strong>A → /pages/new-york-neighborhoods · B → matched PDP · C → /pages/new-york-neighborhoods. Never the cart.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>Cookie / frequency cap set on confirmation AND on close</strong>7-day cap (14-day for Option B). Confirm via DevTools → Application → Cookies.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>Suppression on /cart, /checkout, /account works</strong>No popup fires on those URLs even if all triggers met.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>Attentive custom attributes write correctly</strong>Verify <code style="font-family:var(--mono);font-size:11px;color:var(--gold);background:var(--surface);padding:1px 4px;border:1px solid var(--gold)">popup_email_captured</code>, <code style="font-family:var(--mono);font-size:11px;color:var(--gold);background:var(--surface);padding:1px 4px;border:1px solid var(--gold)">quiz_neighborhood</code>, etc. land on the subscriber profile in Attentive.</div>
-    </div>
-    <div class="qa-cell">
-      <span class="box"></span>
-      <div><strong>Downstream flow fires on opt-in</strong>Welcome email arrives within 60s. SMS arrives within 60s (Option A only). Cashback confirmation within 60s (Option C only).</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 11 MEASURING SUCCESS ============ -->
-<section>
-  <div class="s-num">11 / Measuring success</div>
-  <h2>The metrics that matter.</h2>
-  <p class="s-lede">Opt-in rate alone is a vanity metric. The real test is whether opted-in users carry materially higher Revenue Per Session than non-opted-in. If opt-in is 25% but Revenue Per Session of opt-ins is the same as non-opt-ins, the popup is collecting low-quality leads — tighten the trigger.</p>
-
-  <div class="ctx" style="margin-bottom:0">
-    <div class="ctx-cell">
-      <div class="label">Primary · email opt-in</div>
-      <div class="v">15%+</div>
-      <div class="ev">Across all three options. Question-based (B) targets 22–28%. Cashback (C) targets 25–32%.</div>
-    </div>
-    <div class="ctx-cell">
-      <div class="label">Primary · phone opt-in</div>
-      <div class="v">5%+</div>
-      <div class="ev">Option A only. 3–5% range without discount, 5–8% with discount — Bond's exclusivity frame is closer to 4–6%.</div>
-    </div>
-    <div class="ctx-cell">
-      <div class="label">Secondary · RPS lift</div>
-      <div class="v">2×+</div>
-      <div class="ev">Opted-in user RPS should be at minimum 2× non-opted-in. If flat, popup is collecting low-quality leads.</div>
-    </div>
-    <div class="ctx-cell">
-      <div class="label">Long-term · LTV / CAC</div>
-      <div class="v">3:1+</div>
-      <div class="ev">Email + SMS flows triggered post-opt-in must produce LTV at 3× the cost of acquiring the opt-in (popup tool cost + cashback margin if Option C).</div>
-    </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="l">
-    <strong>Paul Skidmore · Bond No. 9</strong>
-    Popup Strategy · Three variants · Paired to Homepage A/B/C · On Bond's register · Attentive-ready · Companion to wireframes Page 01 + Page 02 + Page 03 + CRO audit
-  </div>
-  <div class="r">
-    Pre-launch · v1 · 05.08.26
-  </div>
+<!-- ============ FOOTER ============ -->
+<footer style="margin-top:80px;padding:32px 0 16px;border-top:1px solid var(--gold);font-family:var(--sans);font-size:10px;letter-spacing:.18em;color:var(--smoke);text-transform:uppercase;display:flex;justify-content:space-between;align-items:baseline">
+  <div>Paul Skidmore · Bond No. 9 · Popup options pickup</div>
+  <div>Extracted from UX Master · 05.18.26</div>
 </footer>
 
-</div>
+</div><!-- /.wrap -->
 </body>
 </html>
