@@ -19,6 +19,11 @@ export default async function WireframesIndex() {
     <main className="bond-wrap">
       <header className="bond-index-head">
         <div>
+          <img
+            src="/bond-no-9/bond-logo.svg"
+            alt="Bond No. 9 New York"
+            className="bond-index-logo"
+          />
           <span className="bond-eyebrow">Private Review · Bond No. 9</span>
           <h1 className="bond-h1" style={{ marginTop: 18 }}>
             <em>Bond No. 9</em> private review
