@@ -210,6 +210,15 @@
   margin-bottom: 64px;
 }
 
+.bond-index-logo {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 28px;
+  color: var(--bond-black);
+}
+
 @media (max-width: 720px) {
   .bond-index-head {
     grid-template-columns: 1fr;
