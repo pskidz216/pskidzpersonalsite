@@ -163,7 +163,7 @@ export function OffTheClock() {
           {/* Rotating word */}
           <motion.div
             variants={fadeUp}
-            className="relative h-[3.75rem] sm:h-[3rem] md:h-[4.5rem] lg:h-[5.5rem] mt-4 md:mt-6 overflow-hidden text-[1.5rem] sm:text-[2.25rem] md:text-[3.5rem] lg:text-[5rem]"
+            className="relative h-[3.75rem] sm:h-[3rem] md:h-[4rem] lg:h-[5rem] mt-4 md:mt-6 overflow-hidden text-[1.5rem] sm:text-[2rem] md:text-[2.75rem] lg:text-[4rem]"
           >
             <AnimatePresence mode="wait">
               <motion.span
@@ -175,12 +175,12 @@ export function OffTheClock() {
                   duration: 0.5,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="absolute inset-0 font-heading font-bold text-text-primary leading-[1.25] sm:leading-none flex items-center gap-2 sm:gap-3"
+                className="absolute inset-0 font-heading font-bold text-text-primary leading-[1.25] sm:leading-none flex items-center gap-2 sm:gap-3 whitespace-nowrap"
               >
-                <span className="truncate">{ACTIVITIES[current].text}</span>
+                <span>{ACTIVITIES[current].text}</span>
                 {(() => {
                   const Icon = ACTIVITIES[current].icon;
-                  return <Icon className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-accent-coral shrink-0" />;
+                  return <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 text-accent-coral shrink-0" />;
                 })()}
               </motion.span>
             </AnimatePresence>

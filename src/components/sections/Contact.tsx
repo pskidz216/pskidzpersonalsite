@@ -38,7 +38,7 @@ export function Contact() {
     >
       <GridPattern />
       <div className="relative max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,22rem)_1fr] gap-10 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,26rem)_1fr] gap-10 md:gap-16">
           <StickySectionTitle tone="inverse">
             Let&apos;s Build{" "}
             <span className="text-accent-coral">Something</span>
