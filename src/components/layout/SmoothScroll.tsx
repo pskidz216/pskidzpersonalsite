@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
+import { bridgeLenisToGsap } from "@/lib/gsapLenis";
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
@@ -19,13 +20,12 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     });
     lenisRef.current = lenis;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    // Bridge Lenis -> gsap.ticker -> ScrollTrigger.update. Replaces the manual
+    // requestAnimationFrame loop so GSAP and Lenis share a single timestep.
+    const teardown = bridgeLenisToGsap(lenis);
 
     return () => {
+      teardown();
       lenis.destroy();
     };
   }, []);

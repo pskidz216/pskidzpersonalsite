@@ -10,7 +10,6 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
-import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 import { useParallax } from "@/lib/useParallax";
 
 const nameWords = ["Paul", "Skidmore"];
@@ -22,7 +21,7 @@ export function Hero() {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-  // 3-layer depth: background slowest (via ParallaxLayer), image medium, text fastest
+  // 2-layer depth: image medium, text fastest
   const textY = useParallax(scrollYProgress, -380);
   const imageY = useParallax(scrollYProgress, -200);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
@@ -51,9 +50,9 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
+      id="hero"
       className="relative min-h-svh flex items-center justify-center px-6 md:px-12 lg:px-20 overflow-hidden"
     >
-      <ParallaxLayer sectionRef={sectionRef} variant="coral" intensity="subtle" />
       <div className="relative max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-20 py-24">
         {/* Text */}
         <motion.div

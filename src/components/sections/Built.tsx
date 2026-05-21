@@ -9,7 +9,6 @@ import {
 } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
-import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 import { projects, type Project } from "@/lib/data";
 
 /* ─── Project Card ─── */
@@ -97,7 +96,6 @@ export function Built() {
       id="built"
       className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary overflow-hidden"
     >
-      <ParallaxLayer sectionRef={sectionRef} variant="coral" intensity="subtle" />
       <div className="relative max-w-7xl mx-auto">
         <SectionWithStickyTitle
           title={

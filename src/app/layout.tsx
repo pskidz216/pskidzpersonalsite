@@ -4,6 +4,7 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
+import { CanvasRootClient } from "@/webgl/CanvasRootClient";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paulskidmoreii.com"),
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full">
+        <CanvasRootClient />
         <ScrollProgressBar />
         <NoiseOverlay />
         <CustomCursor />

@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
-import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 
 const approaches = [
   {
@@ -37,7 +36,6 @@ export function AiApproach() {
       id="ai"
       className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary overflow-hidden"
     >
-      <ParallaxLayer sectionRef={sectionRef} variant="teal" intensity="subtle" />
       <div className="relative max-w-7xl mx-auto">
         <SectionWithStickyTitle
           title={

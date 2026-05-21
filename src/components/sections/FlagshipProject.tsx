@@ -3,8 +3,6 @@
 import { useRef } from "react";
 import {
   motion,
-  useScroll,
-  useTransform,
   useMotionValue,
   useSpring,
 } from "framer-motion";
@@ -78,16 +76,6 @@ function CommandPill({ command, delay }: { command: string; delay: number }) {
 
 export function FlagshipProject() {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const floatY1 = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const floatY2 = useTransform(scrollYProgress, [0, 1], [40, -80]);
-  const floatY3 = useTransform(scrollYProgress, [0, 1], [80, -40]);
-  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 45]);
-  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -30]);
 
   // Magnetic card effect for terminal
   const rotateX = useMotionValue(0);
@@ -114,29 +102,6 @@ export function FlagshipProject() {
       id="flagship"
       className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-primary overflow-hidden"
     >
-      {/* Floating geometric shapes — parallax */}
-      <div className="pointer-events-none absolute inset-0">
-        <motion.div
-          style={{ y: floatY1, rotate: rotate1 }}
-          className="absolute top-20 right-[10%] w-20 h-20 rounded-2xl border-2 border-accent-coral/15 bg-accent-coral/5"
-        />
-        <motion.div
-          style={{ y: floatY2, rotate: rotate2 }}
-          className="absolute top-1/3 left-[5%] w-14 h-14 rounded-full border-2 border-accent-teal/15 bg-accent-teal/5"
-        />
-        <motion.div
-          style={{ y: floatY3 }}
-          className="absolute bottom-32 right-[20%] w-10 h-10 rounded-lg border-2 border-accent-coral/10 bg-accent-coral/5 rotate-12"
-        />
-        <motion.div
-          style={{ y: floatY1 }}
-          className="absolute bottom-48 left-[15%] w-16 h-16 rounded-full border-2 border-accent-teal/10 bg-accent-teal/5"
-        />
-        {/* Large soft gradient blobs */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent-coral/[0.04] blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-teal/[0.04] blur-[100px]" />
-      </div>
-
       <div className="relative max-w-7xl mx-auto">
         <SectionWithStickyTitle
           eyebrow="Flagship Build"
