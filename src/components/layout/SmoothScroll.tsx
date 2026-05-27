@@ -1,13 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { bridgeLenisToGsap } from "@/lib/gsapLenis";
+import { pathHasGlobalChrome } from "@/lib/routeChrome";
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    if (!pathHasGlobalChrome(pathname)) return;
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -28,7 +33,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       teardown();
       lenis.destroy();
     };
-  }, []);
+  }, [pathname]);
 
   return <>{children}</>;
 }
