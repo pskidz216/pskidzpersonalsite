@@ -3,8 +3,7 @@
 import { useEffect, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-
-const PATH_PREFIXES_WITH_DEFAULT_CURSOR = ["/bond-no-9"];
+import { pathHasGlobalChrome } from "@/lib/routeChrome";
 
 function subscribeToFinePointer(callback: () => void) {
   const mql = window.matchMedia("(pointer: fine)");
@@ -22,9 +21,7 @@ function getFinePointerServerSnapshot() {
 
 export function CustomCursor() {
   const pathname = usePathname();
-  const useDefaultCursor = PATH_PREFIXES_WITH_DEFAULT_CURSOR.some((p) =>
-    pathname?.startsWith(p)
-  );
+  const useDefaultCursor = !pathHasGlobalChrome(pathname);
 
   const hasFinePointer = useSyncExternalStore(
     subscribeToFinePointer,

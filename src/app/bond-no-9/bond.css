@@ -88,6 +88,7 @@
 
 /* Login */
 .bond-login {
+  position: relative;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
@@ -97,6 +98,11 @@
 }
 
 .bond-login-card {
+  position: relative;
+  /* Sit above the global WebGL canvas (z-0) and noise overlay (z-55) so the
+     card reads as a solid, opaque sheet on top of the animated background.
+     Stays below the scroll progress bar (z-60) which never overlaps anyway. */
+  z-index: 56;
   width: 100%;
   max-width: 480px;
   border: 1px solid var(--bond-black);
@@ -105,6 +111,7 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.18);
 }
 
 .bond-login-mark {
