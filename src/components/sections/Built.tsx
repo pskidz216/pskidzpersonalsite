@@ -71,7 +71,7 @@ function ProjectCard({ project }: { project: Project }) {
           <h3 className="font-heading font-bold text-text-primary text-lg md:text-xl">
             {project.name}
           </h3>
-          <span className="font-body text-[11px] font-medium uppercase tracking-[0.08em] text-accent-coral bg-accent-coral/10 px-2 py-0.5 rounded-full">
+          <span className="inline-flex items-center font-body text-[11px] font-medium uppercase tracking-[0.08em] [text-indent:0.08em] leading-none text-accent-coral bg-accent-coral/10 px-2.5 py-1 rounded-full">
             {project.tag}
           </span>
         </div>

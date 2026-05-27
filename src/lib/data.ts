@@ -133,20 +133,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "BoldX Portal",
-    tag: "SDR App",
+    name: "FckYourWebsite",
+    tag: "Audit SaaS",
     description:
-      "AI-powered SDR platform with multi-agent architecture. Handles ICP scoring, prospect enrichment, LinkedIn coaching, and personalized outreach sequences from a single dashboard.",
-    tech: "Next.js, Prisma, Anthropic SDK, Tailwind",
-    image: "/projects/boldx-portal.png",
+      "A productized website audit. The buyer pays, a pipeline captures their site with Playwright, Claude Opus tears it apart against modern conversion principles, and a branded punch-list PDF lands in their inbox — no call, no upsell.",
+    tech: "Next.js, Stripe, Supabase, Playwright, Anthropic SDK",
+    image: "/projects/fckyourwebsite.png",
   },
   {
-    name: "Human OS",
-    tag: "Wellness Platform",
+    name: "AI Wireframe Prototype",
+    tag: "Wireframe Audit",
     description:
-      "Personalized wellness operating system featuring Ziggy, an AI chat agent that guides users through supplement protocols, quiz-driven recommendations, and daily routines. Conversational, context-aware, and built to feel like a coach in your pocket.",
-    tech: "Next.js, Supabase, Anthropic SDK, Tailwind",
-    image: "/projects/human-os.png",
+      "AI-built interactive wireframes exploring layout directions for a luxury fragrance brand.",
+    tech: "Next.js, Claude Code, HTML/CSS Prototyping",
+    image: "/projects/wireframe-prototype.png",
   },
   {
     name: "American Labor Ladders",
@@ -157,12 +157,12 @@ export const projects: Project[] = [
     image: "/projects/american-labor-ladders.png",
   },
   {
-    name: "Litcor",
-    tag: "Project Oversight",
+    name: "Signal Agent",
+    tag: "Lead Intelligence",
     description:
-      "Full website for Florida's premier luxury shell subcontractor. Multi-page build with project showcases, service breakdowns, careers, and animated section reveals.",
-    tech: "Next.js, Framer Motion, Tailwind, TypeScript",
-    image: "/projects/litcor.png",
+      "An autonomous signal agent that scrapes Reddit, forums, and search for buying-intent signals, then finds, enriches, and validates leads before they ever reach the pipeline. Multi-tenant — one engine, many brand profiles, scored and deduped on a schedule.",
+    tech: "Python, Playwright, Clay, SQLite",
+    image: "/projects/signal-agent.png",
   },
 ];
 
