@@ -1,10 +1,19 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import { pathShowsDecorativeChrome } from "@/lib/routeChrome";
+
 /**
  * Subtle film-grain texture over the entire viewport. SVG noise filter,
  * ultra-low opacity, pointer-events:none, fixed so it never moves.
+ *
+ * Skipped on bond-no-9 sub-routes so client-review content reads on
+ * clean paper.
  */
 export function NoiseOverlay() {
+  const pathname = usePathname();
+  if (!pathShowsDecorativeChrome(pathname)) return null;
+
   return (
     <div
       aria-hidden

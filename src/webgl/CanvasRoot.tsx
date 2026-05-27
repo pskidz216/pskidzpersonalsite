@@ -1,9 +1,11 @@
 "use client";
 
 import { Suspense, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 import { Canvas } from "@react-three/fiber";
 import { ConstellationField } from "./scenes/ConstellationField";
 import { useCursorTracking } from "@/lib/useCursorTracking";
+import { pathShowsDecorativeChrome } from "@/lib/routeChrome";
 
 const MIN_VIEWPORT_WIDTH = 768;
 
@@ -43,6 +45,7 @@ function subscribeToEnabled(callback: () => void): () => void {
  * blob renders as a floating reflective element, not on top of a dark scene.
  */
 export function CanvasRoot() {
+  const pathname = usePathname();
   const enabled = useSyncExternalStore(
     subscribeToEnabled,
     getEnabledSnapshot,
@@ -54,6 +57,7 @@ export function CanvasRoot() {
   useCursorTracking();
 
   if (!enabled) return null;
+  if (!pathShowsDecorativeChrome(pathname)) return null;
 
   return (
     <div
