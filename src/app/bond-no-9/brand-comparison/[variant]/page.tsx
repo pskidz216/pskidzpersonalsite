@@ -21,7 +21,7 @@ export default async function BrandComparisonViewer({ params }: PageProps) {
   return (
     <main>
       <nav className="bond-viewer-bar" aria-label="Brand comparison viewer">
-        <Link href="/bond-no-9/wireframes">← All options</Link>
+        <Link href="/bond-no-9/wireframes">← Back to wireframes</Link>
         <div className="bond-viewer-title">Brand Comparison · {doc.title}</div>
         <div />
       </nav>

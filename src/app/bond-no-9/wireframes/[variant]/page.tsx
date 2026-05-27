@@ -29,7 +29,7 @@ export default async function WireframeViewer({ params }: PageProps) {
   return (
     <main>
       <nav className="bond-viewer-bar" aria-label="Wireframe viewer">
-        <Link href="/bond-no-9/wireframes">← All options</Link>
+        <Link href="/bond-no-9/wireframes">← Back to wireframes</Link>
         <div className="bond-viewer-title">
           {group.groupTitle} · Option {wireframe.letter} · {wireframe.title}
         </div>
