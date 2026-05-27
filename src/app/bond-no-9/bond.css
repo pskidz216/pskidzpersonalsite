@@ -226,6 +226,75 @@
   color: var(--bond-black);
 }
 
+.bond-guidance-note {
+  margin-top: 28px;
+  padding: 22px 26px;
+  border: 1px solid var(--bond-black);
+  border-left: 3px solid var(--bond-gold);
+  background: var(--bond-white, #fbfaf6);
+  display: block;
+}
+
+.bond-guidance-eyebrow {
+  display: block;
+  font-family: var(--bond-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--bond-gold);
+  margin-bottom: 10px;
+}
+
+.bond-guidance-body {
+  margin: 0;
+  font-family: var(--bond-serif);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--bond-charcoal, #2a2a2a);
+}
+
+.bond-guidance-body em {
+  font-style: italic;
+  color: var(--bond-black);
+}
+
+.bond-card-reference {
+  margin: 10px 0 4px;
+  padding: 12px 14px;
+  border-top: 1px dashed var(--bond-gold);
+  border-bottom: 1px dashed var(--bond-gold);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 14px;
+  align-items: baseline;
+}
+
+.bond-card-reference-label {
+  font-family: var(--bond-sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bond-smoke, #7a7a7a);
+}
+
+.bond-card-reference-brand {
+  font-family: var(--bond-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--bond-black);
+}
+
+.bond-card-reference-why {
+  grid-column: 1 / -1;
+  font-family: var(--bond-sans);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--bond-smoke, #7a7a7a);
+  margin-top: 2px;
+}
+
 @media (max-width: 720px) {
   .bond-index-head {
     grid-template-columns: 1fr;

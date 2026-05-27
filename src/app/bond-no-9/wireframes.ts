@@ -5,6 +5,8 @@ export type WireframeVariant = {
   tagline: string;
   description: string;
   htmlPath: string;
+  referenceBrand?: string;
+  referenceWhy?: string;
 };
 
 export type WireframeGroup = {
@@ -28,6 +30,9 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         description:
           "Lead with a Bond magazine front cover. The reader meets the brand as a New York story, then descends into the shop. For visitors who came for the world, not the bottle.",
         htmlPath: "/bond-no-9/wireframes/editorial-front.html",
+        referenceBrand: "Prestige (Maestrooo)",
+        referenceWhy:
+          "Luxury Shopify theme with magazine-style hero, editorial sections, and story-first layout patterns. Built for perfumery / high-end beauty — closest theme for the magazine-led entry.",
       },
       {
         slug: "two-doors",
@@ -37,6 +42,9 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         description:
           "Two equal halves at the top of the page. Left door opens the Neighborhood Atlas; right door opens the Shop grid. For the visitor who knows what they want.",
         htmlPath: "/bond-no-9/wireframes/two-doors.html",
+        referenceBrand: "Symmetry (Clean Themes)",
+        referenceWhy:
+          "Shopify theme built around modular dual-column hero blocks and equal-weight image-with-text sections. Closest theme for the split-entry, pick-your-door composition.",
       },
       {
         slug: "hybrid",
@@ -46,6 +54,9 @@ export const WIREFRAME_GROUPS: readonly WireframeGroup[] = [
         description:
           "Editorial hero with a strong shop pivot directly below the fold. Story without burying the cart. Recommended default for most traffic mixes.",
         htmlPath: "/bond-no-9/wireframes/hybrid.html",
+        referenceBrand: "Impulse (Archetype Themes)",
+        referenceWhy:
+          "Editorial Shopify theme purpose-built for story-then-commerce — full-bleed hero, lookbook sections, featured collection grid below the fold. Closest theme for the hybrid flow.",
       },
     ],
   },

@@ -21,7 +21,7 @@ export default async function PopupViewer({ params }: PageProps) {
   return (
     <main>
       <nav className="bond-viewer-bar" aria-label="Pop-up viewer">
-        <Link href="/bond-no-9/wireframes">← All options</Link>
+        <Link href="/bond-no-9/wireframes">← Back to wireframes</Link>
         <div className="bond-viewer-title">Pop-ups · {popup.title}</div>
         <div />
       </nav>

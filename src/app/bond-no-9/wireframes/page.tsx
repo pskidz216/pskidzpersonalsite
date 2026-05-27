@@ -33,6 +33,17 @@ export default async function WireframesIndex() {
             three options. Pop-ups and brand comparison follow. Open anything,
             sit with it, then tell me which door feels like Bond.
           </p>
+          <aside className="bond-guidance-note">
+            <span className="bond-guidance-eyebrow">Guidance — not gospel</span>
+            <p className="bond-guidance-body">
+              These wireframes, pop-ups, and the quiz are <em>directional</em>.
+              They are meant to guide and unblock your creative team — not to
+              be copied pixel-for-pixel. Use them as a frame for the decision,
+              swap in the actual photography, copy, and product taxonomy as
+              you build. The goal is alignment on the <em>idea</em>; the
+              execution is yours.
+            </p>
+          </aside>
         </div>
         <form action={logoutAction}>
           <button type="submit" className="bond-btn bond-btn-ghost">
@@ -67,6 +78,21 @@ export default async function WireframesIndex() {
                 <h4 className="bond-card-title">{w.title}</h4>
                 <p className="bond-card-tagline">{w.tagline}</p>
                 <p className="bond-card-description">{w.description}</p>
+                {w.referenceBrand && (
+                  <p className="bond-card-reference">
+                    <span className="bond-card-reference-label">
+                      Shopify theme
+                    </span>
+                    <span className="bond-card-reference-brand">
+                      {w.referenceBrand}
+                    </span>
+                    {w.referenceWhy && (
+                      <span className="bond-card-reference-why">
+                        {w.referenceWhy}
+                      </span>
+                    )}
+                  </p>
+                )}
                 <span className="bond-card-cta">Open Option {w.letter} →</span>
               </Link>
             ))}
