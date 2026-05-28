@@ -242,6 +242,27 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .foot .l strong{display:block;font-family:var(--display);font-style:italic;font-weight:700;color:var(--black);font-size:15px;letter-spacing:0;margin-bottom:4px;font-variation-settings:"opsz" 144}
 .foot .r{text-align:right;color:var(--gold);font-weight:700;letter-spacing:.2em;text-transform:uppercase}
 
+/* Mid-fidelity: real photography + bottle PNGs (Uptown wired first) */
+.mosaic .tile.uptown{background:#1f2020 url("img/76th-madison.jpg") center 35%/cover no-repeat}
+.mosaic .tile.uptown::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 45%,rgba(0,0,0,.55) 100%);z-index:0;pointer-events:none}
+.mosaic .tile.uptown .tile-meta{background:transparent}
+.ed-hero.uptown{background:#1f2020 url("img/76th-madison.jpg") center 40%/cover no-repeat}
+.ed-hero.uptown::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.ed-hero.uptown .ed-hero-meta,.ed-hero.uptown .ed-hero-tag{position:relative;z-index:2}
+/* Bottle PNG swaps — kill hatched placeholder where real bottle assigned */
+.bottle.b-real{background:#fff !important;border:1px solid #EAEAEA !important;background-repeat:no-repeat !important;background-position:center !important;background-size:80% auto !important}
+.bottle.b-bond-one{background-image:url("img/bottle-bond-one.png") !important}
+.bottle.b-madison-sq{background-image:url("img/bottle-madison-sq.png") !important}
+.bottle.b-amber{background-image:url("img/hero-bottle.png") !important}
+.bottle.b-bleecker{background-image:url("img/bottle-bleecker.png") !important}
+.bottle.b-greenwich{background-image:url("img/bottle-greenwich.png") !important}
+.bottle.b-chelsea{background-image:url("img/bottle-chelsea.png") !important}
+.bottle.b-nyn{background-image:url("img/bottle-nyn.png") !important}
+.bottle.b-nolita{background-image:url("img/bottle-nolita.png") !important}
+.bottle.b-brooklyn{background-image:url("img/bottle-brooklyn.png") !important}
+/* Curated Three — make grid 3-col when we have a third card */
+.ed-curated.has-three .grid{grid-template-columns:repeat(3,1fr);gap:18px}
+
 @media (max-width:980px){
   .map-wrap{grid-template-columns:1fr}
   .map-canvas{border-right:none;border-bottom:1px solid var(--gold)}
@@ -684,8 +705,8 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 
         <!-- Mosaic grid -->
         <div class="mosaic">
-          <div class="tile hero">
-            <span class="tile-img-cap">UPTOWN-A.jpg · 1200×1800</span>
+          <div class="tile hero uptown">
+            <span class="tile-img-cap">UPTOWN · 76TH & MADISON</span>
             <span class="tile-hover">↑ Hover · 8 fragrances · Featured: Park Avenue</span>
             <div class="tile-meta">
               <div class="nm">Uptown</div>
@@ -875,8 +896,8 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <div class="wf-canvas">
 
         <!-- Hero -->
-        <div class="ed-hero">
-          <span class="ed-hero-tag">UPTOWN-A.jpg · 1200×1800 · cinematic</span>
+        <div class="ed-hero uptown">
+          <span class="ed-hero-tag">UPTOWN · 76TH & MADISON · CINEMATIC</span>
           <div class="ed-hero-meta">
             <div class="ey">New York Neighborhoods · 01 of 05</div>
             <div class="h">Uptown</div>
@@ -909,12 +930,12 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         </div>
 
         <!-- Curated three -->
-        <div class="ed-curated">
+        <div class="ed-curated has-three">
           <h4>The curated three.</h4>
           <div class="sub">Where to start with Uptown</div>
           <div class="grid">
             <div class="card">
-              <div class="bottle"></div>
+              <div class="bottle b-real b-bond-one"></div>
               <div class="info">
                 <div class="pn">Park Avenue</div>
                 <div class="pr">From $360 · EDP</div>
@@ -924,13 +945,23 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
               </div>
             </div>
             <div class="card">
-              <div class="bottle"></div>
+              <div class="bottle b-real b-madison-sq"></div>
               <div class="info">
-                <div class="pn">Madison Avenue</div>
+                <div class="pn">Madison Soirée</div>
                 <div class="pr">From $335 · EDP</div>
                 <div class="nf">Black currant · rose · patchouli</div>
                 <div class="stars">★★★★★ 5.0</div>
                 <div class="occ">For · Office · Power</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="bottle b-real b-amber"></div>
+              <div class="info">
+                <div class="pn">Andy Warhol Lex Ave</div>
+                <div class="pr">From $385 · EDP</div>
+                <div class="nf">Bergamot · tobacco · vanilla</div>
+                <div class="stars">★★★★★ 4.9</div>
+                <div class="occ">For · Statement · Night</div>
               </div>
             </div>
           </div>
@@ -941,14 +972,14 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
           <div class="h">All eight Uptown fragrances.</div>
           <div class="sub">For the browser</div>
           <div class="row">
-            <div class="ip"><div class="bottle"></div><div class="pn">Beekman Place</div><div class="pr">From $345</div><div class="stars">★★★★★ 5.0</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Riverside Drive</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Sutton Place</div><div class="pr">$460</div><div class="stars">★★★★☆ 4.8</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">New Haarlem</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">West Side</div><div class="pr">From $265</div><div class="stars">★★★★★ 4.8</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Off-Broadway</div><div class="pr">From $335</div><div class="stars">★★★★☆ 4.7</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Park Avenue</div><div class="pr">$360</div><div class="stars">★★★★★ 4.9</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Madison Ave</div><div class="pr">From $335</div><div class="stars">★★★★★ 5.0</div></div>
+            <div class="ip"><div class="bottle b-real b-bleecker"></div><div class="pn">Beekman Place</div><div class="pr">From $345</div><div class="stars">★★★★★ 5.0</div></div>
+            <div class="ip"><div class="bottle b-real b-greenwich"></div><div class="pn">Riverside Drive</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
+            <div class="ip"><div class="bottle b-real b-chelsea"></div><div class="pn">Sutton Place</div><div class="pr">$460</div><div class="stars">★★★★☆ 4.8</div></div>
+            <div class="ip"><div class="bottle b-real b-nyn"></div><div class="pn">New Haarlem</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
+            <div class="ip"><div class="bottle b-real b-nolita"></div><div class="pn">West Side</div><div class="pr">From $265</div><div class="stars">★★★★★ 4.8</div></div>
+            <div class="ip"><div class="bottle b-real b-brooklyn"></div><div class="pn">Off-Broadway</div><div class="pr">From $335</div><div class="stars">★★★★☆ 4.7</div></div>
+            <div class="ip"><div class="bottle b-real b-bond-one"></div><div class="pn">Park Avenue</div><div class="pr">$360</div><div class="stars">★★★★★ 4.9</div></div>
+            <div class="ip"><div class="bottle b-real b-madison-sq"></div><div class="pn">Madison Soirée</div><div class="pr">From $335</div><div class="stars">★★★★★ 5.0</div></div>
           </div>
         </div>
 
