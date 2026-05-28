@@ -190,13 +190,13 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 /* Door 01 — bottle-focused (wardrobe lineup as background, card centered) */
 .img.door-bottle-focus{background:linear-gradient(135deg,#F6F1E8 0%,#FBF7EE 35%,#FFFFFF 60%,#EFE8DA 100%) !important;background-image:none !important}
 .img.door-bottle-focus::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 55% 60% at center,rgba(255,255,255,.55) 0%,rgba(255,255,255,.10) 60%,rgba(255,255,255,0) 100%);display:block}
-.img.door-bottle-focus .bottle-stack{position:absolute;left:0;right:0;bottom:0;height:100%;display:flex;align-items:flex-end;justify-content:space-around;padding:0 3% 4%;z-index:1;pointer-events:none}
-.img.door-bottle-focus .bottle-stack img{width:auto;filter:drop-shadow(0 14px 22px rgba(31,32,32,.18))}
-.img.door-bottle-focus .bottle-stack img:nth-child(1){height:52%}
-.img.door-bottle-focus .bottle-stack img:nth-child(2){height:62%}
-.img.door-bottle-focus .bottle-stack img:nth-child(3){height:72%}
-.img.door-bottle-focus .bottle-stack img:nth-child(4){height:62%}
-.img.door-bottle-focus .bottle-stack img:nth-child(5){height:52%}
+.img.door-bottle-focus .bottle-stack{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:100%;display:flex;align-items:flex-end;justify-content:center;width:78%;max-width:680px;padding:0 0 5%;z-index:1;pointer-events:none}
+.img.door-bottle-focus .bottle-stack img{width:auto;margin:0 -14px;filter:drop-shadow(0 14px 22px rgba(31,32,32,.20))}
+.img.door-bottle-focus .bottle-stack img:nth-child(1){height:54%}
+.img.door-bottle-focus .bottle-stack img:nth-child(2){height:66%}
+.img.door-bottle-focus .bottle-stack img:nth-child(3){height:80%}
+.img.door-bottle-focus .bottle-stack img:nth-child(4){height:66%}
+.img.door-bottle-focus .bottle-stack img:nth-child(5){height:54%}
 
 /* Door 02 — place-focused (centered vignette so card lifts off photo) */
 .img.door-place-focus .single-bottle{display:none}
