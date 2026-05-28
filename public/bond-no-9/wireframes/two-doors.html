@@ -64,7 +64,7 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .img.med{min-height:200px}
 .img.short{min-height:90px}
 .img.square{aspect-ratio:1/1;min-height:auto}
-.anno-tl{position:absolute;top:12px;left:14px;font-family:var(--sans);font-size:8px;letter-spacing:.2em;font-weight:700;color:var(--gold);text-transform:uppercase}
+.anno-tl{position:absolute;top:12px;left:14px;background:rgba(0,0,0,.78);color:var(--gold);padding:4px 10px;border-radius:2px;line-height:1;font-family:var(--sans);font-size:8px;letter-spacing:.2em;font-weight:700;text-transform:uppercase;text-shadow:none;z-index:4}
 
 .bar{height:10px;background:var(--smoke);margin-bottom:8px}
 .bar.lg{height:24px;background:var(--black);width:70%}
@@ -204,7 +204,7 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 /* Door 02 — place-focused (centered vignette so card lifts off photo) */
 .img.door-place-focus .single-bottle{display:none}
 .img.door-place-focus::after{background:radial-gradient(ellipse 50% 55% at center,rgba(255,255,255,.55) 0%,rgba(255,255,255,.18) 50%,rgba(31,32,32,.10) 100%)}
-.img.door-still .anno-tl{position:absolute;z-index:3;color:var(--gold);text-shadow:none;background:rgba(255,255,255,.85);padding:4px 8px;border-radius:2px}
+.img.door-still .anno-tl{z-index:4}
 .img.door-still .door-copy{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;
   background:rgba(255,255,255,.96);border:1px solid var(--gold);
