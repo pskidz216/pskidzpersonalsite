@@ -648,19 +648,44 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .ed-hero.uptown::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.55) 100%);pointer-events:none}
 .ed-hero.uptown .ed-hero-meta,.ed-hero.uptown .ed-hero-tag{position:relative;z-index:2}
 
-/* REAL Bond bottle PNGs from Bond's New Website assets */
-.bottle.b-real{background-color:#fff;background-repeat:no-repeat;background-position:center;background-size:contain;border:1px solid #EAEAEA;padding:4px;box-sizing:border-box}
-.bottle.b-park-avenue{background-image:url("img/uptown-park-avenue.png")}
-.bottle.b-madison-soiree{background-image:url("img/uptown-madison-soiree.png")}
-.bottle.b-lexington-avenue{background-image:url("img/uptown-lexington-avenue.png")}
-.bottle.b-beekman-place{background-image:url("img/uptown-beekman-place.png")}
-.bottle.b-riverside-drive{background-image:url("img/uptown-riverside-drive.png")}
-.bottle.b-sutton-place{background-image:url("img/uptown-sutton-place.png")}
-.bottle.b-new-haarlem{background-image:url("img/uptown-new-haarlem.png")}
-.bottle.b-west-side{background-image:url("img/uptown-west-side.png")}
-.bottle.b-off-broadway{background-image:url("img/uptown-off-broadway.png")}
-.bottle.b-madison-avenue{background-image:url("img/uptown-madison-avenue.png")}
+/* REAL Bond bottle PNGs — specificity bumped to outrank originals at line ~390 */
+.ed-curated .card .bottle.b-real,
+.ed-grid .ip .bottle.b-real,
+.m-ed .pick .bottle.b-real{
+  background-color:#fff !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:contain !important;
+  border:1px solid #EAEAEA !important;
+  padding:4px;box-sizing:border-box
+}
+.ed-curated .card .bottle.b-park-avenue,.ed-grid .ip .bottle.b-park-avenue,.m-ed .pick .bottle.b-park-avenue{background-image:url("img/uptown-park-avenue.png") !important}
+.ed-curated .card .bottle.b-madison-soiree,.ed-grid .ip .bottle.b-madison-soiree,.m-ed .pick .bottle.b-madison-soiree{background-image:url("img/uptown-madison-soiree.png") !important}
+.ed-curated .card .bottle.b-lexington-avenue,.ed-grid .ip .bottle.b-lexington-avenue,.m-ed .pick .bottle.b-lexington-avenue{background-image:url("img/uptown-lexington-avenue.png") !important}
+.ed-curated .card .bottle.b-beekman-place,.ed-grid .ip .bottle.b-beekman-place{background-image:url("img/uptown-beekman-place.png") !important}
+.ed-curated .card .bottle.b-riverside-drive,.ed-grid .ip .bottle.b-riverside-drive{background-image:url("img/uptown-riverside-drive.png") !important}
+.ed-curated .card .bottle.b-sutton-place,.ed-grid .ip .bottle.b-sutton-place{background-image:url("img/uptown-sutton-place.png") !important}
+.ed-curated .card .bottle.b-new-haarlem,.ed-grid .ip .bottle.b-new-haarlem{background-image:url("img/uptown-new-haarlem.png") !important}
+.ed-curated .card .bottle.b-west-side,.ed-grid .ip .bottle.b-west-side{background-image:url("img/uptown-west-side.png") !important}
+.ed-curated .card .bottle.b-off-broadway,.ed-grid .ip .bottle.b-off-broadway{background-image:url("img/uptown-off-broadway.png") !important}
+.ed-curated .card .bottle.b-madison-avenue,.ed-grid .ip .bottle.b-madison-avenue,.m-ed .pick .bottle.b-madison-avenue{background-image:url("img/uptown-madison-avenue.png") !important}
 .ed-grid .ip .bottle.b-real{width:54px;height:80px}
+.m-ed .pick .bottle.b-real{width:34px;height:50px}
+
+/* MOBILE — mosaic tiles get the same real Bond NYC photography */
+.m-tile.tile-photo{background-repeat:no-repeat !important;background-size:cover !important}
+.m-tile.tile-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(0,0,0,.55) 100%);z-index:0;pointer-events:none}
+.m-tile.tile-photo .meta{position:relative;z-index:1;background:transparent}
+.m-tile.tile-photo.uptown{background-image:url("img/nbhd-uptown-a.jpg") !important;background-position:center 40%}
+.m-tile.tile-photo.downtown{background-image:url("img/nbhd-downtown-a.jpg") !important;background-position:center 50%}
+.m-tile.tile-photo.parks{background-image:url("img/nbhd-ny-parks-c.jpg") !important;background-position:center 50%}
+.m-tile.tile-photo.city-scents{background-image:url("img/nbhd-city-scent-a.jpg") !important;background-position:center 50%}
+.m-tile.tile-photo.beaches{background-image:url("img/nbhd-city-scent-a.jpg") !important;background-position:center 50%}
+
+/* MOBILE — Option A editorial spread hero image + bottle picks */
+.m-ed .img.tile-photo{background-repeat:no-repeat !important;background-size:cover !important;color:#fff !important;text-shadow:0 1px 6px rgba(0,0,0,.55);position:relative}
+.m-ed .img.tile-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.10) 40%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.m-ed .img.uptown{background-image:url("img/nbhd-uptown-a.jpg") !important;background-position:center 40%}
 
 </style>
 </head>
@@ -809,13 +834,13 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="ey">NY Neighborhoods</div>
             <div class="h">A scent for every corner.</div>
           </div>
-          <div class="m-tile hero">
+          <div class="m-tile hero tile-photo uptown">
             <div class="meta"><div class="nm">Uptown</div><div class="tg">8 fragrances · Park Ave</div></div>
           </div>
-          <div class="m-tile"><div class="meta"><div class="nm">Downtown</div><div class="tg">7 · Bleecker</div></div></div>
-          <div class="m-tile"><div class="meta"><div class="nm">NY Parks</div><div class="tg">5 · Central Park</div></div></div>
-          <div class="m-tile"><div class="meta"><div class="nm">City Scents</div><div class="tg">4 · NY Oud</div></div></div>
-          <div class="m-tile"><div class="meta"><div class="nm">Beaches</div><div class="tg">4 · Coney Island</div></div></div>
+          <div class="m-tile tile-photo downtown"><div class="meta"><div class="nm">Downtown</div><div class="tg">7 · Bleecker</div></div></div>
+          <div class="m-tile tile-photo parks"><div class="meta"><div class="nm">NY Parks</div><div class="tg">5 · Central Park</div></div></div>
+          <div class="m-tile tile-photo city-scents"><div class="meta"><div class="nm">City Scents</div><div class="tg">4 · NY Oud</div></div></div>
+          <div class="m-tile tile-photo beaches"><div class="meta"><div class="nm">Beaches</div><div class="tg">4 · Coney Island</div></div></div>
         </div>
       </div>
       <div class="mob-note">Hero tile stays 200px tall · supporting tiles compress to 120px · scent count + featured fragrance moves into the default state on mobile (no hover available). Single column, no horizontal scroll. ~6 viewport screens.</div>
@@ -1065,7 +1090,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <div class="mobile-pair">Pairs with Homepage A</div>
       <div class="mob-frame">
         <div class="m-ed">
-          <div class="img">Uptown</div>
+          <div class="img tile-photo uptown">Uptown</div>
           <div class="quote">Uptown is the New York that doesn't have to prove anything.</div>
           <div class="body">
             <div class="ey">The neighborhood</div>
@@ -1073,7 +1098,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             Eight fragrances live here — Park Avenue, Madison Soirée, Andy Warhol Lexington Avenue. Every one of them remembers.
           </div>
           <div class="pick">
-            <div class="bottle"></div>
+            <div class="bottle b-real b-park-avenue"></div>
             <div class="info">
               <div class="pn">Park Avenue</div>
               <div class="pr">From $360 · 4.9 ★</div>
@@ -1081,7 +1106,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             </div>
           </div>
           <div class="pick">
-            <div class="bottle"></div>
+            <div class="bottle b-real b-madison-avenue"></div>
             <div class="info">
               <div class="pn">Madison Ave</div>
               <div class="pr">From $335 · 5.0 ★</div>
