@@ -624,6 +624,73 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
   .ed-curated,.ed-grid,.gd-grid{padding:24px}
 }
 @media print{body{background:#fff;font-size:10pt}.wrap{padding:0;max-width:none}}
+
+/* ============================================================
+   MID-FIDELITY — Option C Guided Discovery / Scrolling Stories
+   Real Bond NYC neighborhood photography + real bottle PNGs.
+   ============================================================ */
+
+/* Story sections — neighborhood parallax photo */
+.story-img.tile-photo{background-repeat:no-repeat !important;background-size:cover !important;color:#fff !important;position:relative}
+.story-img.tile-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.20) 0%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.story-img.tile-photo > *{position:relative;z-index:2;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.story-img.uptown{background-image:url("img/nbhd-uptown-a.jpg") !important;background-position:center 40%}
+.story-img.downtown{background-image:url("img/nbhd-downtown-a.jpg") !important;background-position:center 50%}
+.story-img.parks{background-image:url("img/nbhd-ny-parks-c.jpg") !important;background-position:center 50%}
+.story-img.city-scents{background-image:url("img/nbhd-city-scent-a.jpg") !important;background-position:center 50%}
+.story-img.beaches{background-image:url("img/nbhd-ny-beaches-a.jpg") !important;background-position:center 50%}
+
+/* Story panel featured-fragrance bottle (.story-pane .prod .bottle) */
+.story-pane .prod .bottle.b-real,
+.gd-results .pick .bottle.b-real,
+.gd-grid .ip .bottle.b-real,
+.m-story .seg .pick .bottle.b-real{
+  background-color:#fff !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:78% auto !important;
+  border:1px solid #EAEAEA !important
+}
+.story-pane .prod .bottle.b-real{width:80px !important;height:118px !important}
+.gd-results .pick .bottle.b-real{width:80px !important;height:118px !important}
+.gd-grid .ip .bottle.b-real{width:96px !important;height:140px !important}
+
+/* Per-fragrance bottle PNG bindings — Option C uses every Uptown SKU + downtown + parks bottles */
+.story-pane .prod .bottle.b-park-avenue,.gd-results .pick .bottle.b-park-avenue,.gd-grid .ip .bottle.b-park-avenue{background-image:url("img/uptown-park-avenue.png") !important}
+.story-pane .prod .bottle.b-madison-soiree,.gd-results .pick .bottle.b-madison-soiree,.gd-grid .ip .bottle.b-madison-soiree{background-image:url("img/uptown-madison-soiree.png") !important}
+.story-pane .prod .bottle.b-madison-avenue,.gd-results .pick .bottle.b-madison-avenue,.gd-grid .ip .bottle.b-madison-avenue{background-image:url("img/uptown-madison-avenue.png") !important}
+.story-pane .prod .bottle.b-beekman-place,.gd-results .pick .bottle.b-beekman-place,.gd-grid .ip .bottle.b-beekman-place{background-image:url("img/uptown-beekman-place.png") !important}
+.story-pane .prod .bottle.b-riverside-drive,.gd-results .pick .bottle.b-riverside-drive,.gd-grid .ip .bottle.b-riverside-drive{background-image:url("img/uptown-riverside-drive.png") !important}
+.story-pane .prod .bottle.b-sutton-place,.gd-results .pick .bottle.b-sutton-place,.gd-grid .ip .bottle.b-sutton-place{background-image:url("img/uptown-sutton-place.png") !important}
+.story-pane .prod .bottle.b-new-haarlem,.gd-results .pick .bottle.b-new-haarlem,.gd-grid .ip .bottle.b-new-haarlem{background-image:url("img/uptown-new-haarlem.png") !important}
+.story-pane .prod .bottle.b-west-side,.gd-results .pick .bottle.b-west-side,.gd-grid .ip .bottle.b-west-side{background-image:url("img/uptown-west-side.png") !important}
+.story-pane .prod .bottle.b-off-broadway,.gd-results .pick .bottle.b-off-broadway,.gd-grid .ip .bottle.b-off-broadway{background-image:url("img/uptown-off-broadway.png") !important}
+.story-pane .prod .bottle.b-lexington-avenue,.gd-results .pick .bottle.b-lexington-avenue{background-image:url("img/uptown-lexington-avenue.png") !important}
+.story-pane .prod .bottle.b-bleecker-street{background-image:url("img/downtown-bleecker-street.png") !important}
+.story-pane .prod .bottle.b-central-park-west{background-image:url("img/parks-central-park-west.png") !important}
+
+/* MOBILE — Stories preview photos */
+.m-story .seg .img.tile-photo{background-repeat:no-repeat !important;background-size:cover !important;color:#fff !important;text-shadow:0 1px 6px rgba(0,0,0,.55);position:relative}
+.m-story .seg .img.tile-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.10) 40%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.m-story .seg .img.uptown{background-image:url("img/nbhd-uptown-a.jpg") !important;background-position:center 40%}
+.m-story .seg .img.downtown{background-image:url("img/nbhd-downtown-a.jpg") !important;background-position:center 50%}
+.m-story .seg .img.parks{background-image:url("img/nbhd-ny-parks-c.jpg") !important;background-position:center 50%}
+.m-story .seg .img.city-scents{background-image:url("img/nbhd-city-scent-a.jpg") !important;background-position:center 50%}
+.m-story .seg .img.beaches{background-image:url("img/nbhd-ny-beaches-a.jpg") !important;background-position:center 50%}
+
+/* MOBILE story-pick bottle */
+.m-story .seg .pick .bottle.b-real,
+.m-gd .res .pick .bottle.b-real{
+  width:50px !important;height:74px !important;
+  background-color:#fff !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:78% auto !important;
+  border:1px solid #EAEAEA !important
+}
+.m-story .seg .pick .bottle.b-park-avenue,
+.m-gd .res .pick .bottle.b-park-avenue{background-image:url("img/uptown-park-avenue.png") !important}
+
 </style>
 </head>
 <body>
@@ -689,9 +756,8 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 
         <!-- Story 1 — Image left, pane right -->
         <div class="story">
-          <div class="story-img">
+          <div class="story-img tile-photo uptown">
             <span class="story-section-num">01 / 05</span>
-            <span>UPTOWN-A.jpg · parallax bg</span>
             <span class="parallax-tag">↓ translateY 0.3× scroll</span>
           </div>
           <div class="story-pane">
@@ -700,7 +766,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="tg">Where grand heritage embraces elegance</div>
             <p class="body">Above 59th and east of the Park: the New York of Edith Wharton novels and gallery openings, of Madison Avenue at dusk. Eight fragrances live here — Park Avenue, Madison Soirée, Andy Warhol Lexington Avenue. Every one of them remembers.</p>
             <div class="prod">
-              <div class="bottle"></div>
+              <div class="bottle b-real b-park-avenue"></div>
               <div class="meta">
                 <span class="pn">Park Avenue</span>
                 <span class="pr">From $280 · EDP</span>
@@ -712,9 +778,8 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 
         <!-- Story 2 — Pane left, image right (flip) -->
         <div class="story flip">
-          <div class="story-img">
+          <div class="story-img tile-photo downtown">
             <span class="story-section-num">02 / 05</span>
-            <span>DOWNTOWN-A_1.jpg · parallax bg</span>
             <span class="parallax-tag">↓ translateY 0.3× scroll</span>
           </div>
           <div class="story-pane">
@@ -723,7 +788,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="tg">Edgy, cool, effortlessly bold</div>
             <p class="body">Below Houston: the city of Patti Smith and the Mudd Club, of bookstores that stay open too late. Seven fragrances catch the downtown signal — Bleecker Street, Chinatown, NoHo. Each one pulls a thread from a block you've walked.</p>
             <div class="prod">
-              <div class="bottle"></div>
+              <div class="bottle b-real b-bleecker-street"></div>
               <div class="meta">
                 <span class="pn">Bleecker Street</span>
                 <span class="pr">From $280 · EDP</span>
@@ -735,9 +800,8 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 
         <!-- Story 3 — back to original -->
         <div class="story">
-          <div class="story-img">
+          <div class="story-img tile-photo parks">
             <span class="story-section-num">03 / 05</span>
-            <span>NY-PARKS-C.jpg · parallax bg</span>
             <span class="parallax-tag">↓ translateY 0.3× scroll</span>
           </div>
           <div class="story-pane">
@@ -746,7 +810,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="tg">Lush landscapes meet city skyline</div>
             <p class="body">Central Park in autumn. Bryant Park before the holiday market. Riverside at sunset. Five fragrances live in the city's green pockets — bright neroli, wet leaves, the stone of an old fountain. The city, breathing.</p>
             <div class="prod">
-              <div class="bottle"></div>
+              <div class="bottle b-real b-central-park-west"></div>
               <div class="meta">
                 <span class="pn">Central Park West</span>
                 <span class="pr">From $280 · EDP</span>
@@ -807,7 +871,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <div class="mob-frame">
         <div class="m-story">
           <div class="seg">
-            <div class="img">UPTOWN-A.jpg</div>
+            <div class="img tile-photo uptown">Uptown</div>
             <div class="pane">
               <div class="ey">Neighborhood · 01</div>
               <div class="nm">Uptown</div>
@@ -817,7 +881,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             </div>
           </div>
           <div class="seg">
-            <div class="img">DOWNTOWN-A.jpg</div>
+            <div class="img tile-photo downtown">Downtown</div>
             <div class="pane">
               <div class="ey">Neighborhood · 02</div>
               <div class="nm">Downtown</div>
@@ -827,7 +891,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             </div>
           </div>
           <div class="seg">
-            <div class="img">NY-PARKS.jpg</div>
+            <div class="img tile-photo parks">NY Parks</div>
             <div class="pane">
               <div class="ey">Neighborhood · 03</div>
               <div class="nm">NY Parks</div>
@@ -965,7 +1029,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
               <span class="rank">Best match</span>
               <span class="match-pct">96%</span>
               <span class="match-l">Match score</span>
-              <div class="bottle"></div>
+              <div class="bottle b-real b-park-avenue"></div>
               <div class="pn">Park Avenue</div>
               <div class="nf">Magnolia · peony · sandalwood</div>
               <div class="pr">From $360 · EDP · 4.9 ★</div>
@@ -977,7 +1041,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="pick">
               <span class="match-pct">88%</span>
               <span class="match-l">Match score</span>
-              <div class="bottle"></div>
+              <div class="bottle b-real b-madison-avenue"></div>
               <div class="pn">Madison Avenue</div>
               <div class="nf">Currant · rose · patchouli</div>
               <div class="pr">From $335 · EDP · 5.0 ★</div>
@@ -989,7 +1053,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="pick">
               <span class="match-pct">81%</span>
               <span class="match-l">Match score</span>
-              <div class="bottle"></div>
+              <div class="bottle b-real b-beekman-place"></div>
               <div class="pn">Beekman Place</div>
               <div class="nf">Iris · violet · cedar</div>
               <div class="pr">From $345 · EDP · 5.0 ★</div>
@@ -1008,14 +1072,14 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
           <div class="h">All eight Uptown fragrances.</div>
           <div class="sub">For the browser</div>
           <div class="row">
-            <div class="ip"><div class="bottle"></div><div class="pn">Beekman Place</div><div class="pr">$345</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Riverside Drive</div><div class="pr">$440</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Sutton Place</div><div class="pr">$460</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">New Haarlem</div><div class="pr">$440</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">West Side</div><div class="pr">$265</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Off-Broadway</div><div class="pr">$335</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Park Avenue</div><div class="pr">$360</div></div>
-            <div class="ip"><div class="bottle"></div><div class="pn">Madison Ave</div><div class="pr">$335</div></div>
+            <div class="ip"><div class="bottle b-real b-beekman-place"></div><div class="pn">Beekman Place</div><div class="pr">$345</div></div>
+            <div class="ip"><div class="bottle b-real b-riverside-drive"></div><div class="pn">Riverside Drive</div><div class="pr">$440</div></div>
+            <div class="ip"><div class="bottle b-real b-sutton-place"></div><div class="pn">Sutton Place</div><div class="pr">$460</div></div>
+            <div class="ip"><div class="bottle b-real b-new-haarlem"></div><div class="pn">New Haarlem</div><div class="pr">$440</div></div>
+            <div class="ip"><div class="bottle b-real b-west-side"></div><div class="pn">West Side</div><div class="pr">$265</div></div>
+            <div class="ip"><div class="bottle b-real b-off-broadway"></div><div class="pn">Off-Broadway</div><div class="pr">$335</div></div>
+            <div class="ip"><div class="bottle b-real b-park-avenue"></div><div class="pn">Park Avenue</div><div class="pr">$360</div></div>
+            <div class="ip"><div class="bottle b-real b-madison-avenue"></div><div class="pn">Madison Ave</div><div class="pr">$335</div></div>
           </div>
         </div>
 
@@ -1090,7 +1154,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
           <div class="res">
             <div class="h">Your three matches.</div>
             <div class="pick">
-              <div class="bottle"></div>
+              <div class="bottle b-real b-park-avenue"></div>
               <div class="info">
                 <div class="pct">96%</div>
                 <div class="pn">Park Avenue</div>
