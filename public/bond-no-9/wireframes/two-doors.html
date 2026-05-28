@@ -187,24 +187,26 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .img.door-still.door-02-bg{background-image:url("img/door02-downtown.jpg")}
 .img.door-still .single-bottle{position:absolute;right:6%;bottom:6%;height:68%;width:auto;z-index:2;filter:drop-shadow(0 12px 18px rgba(0,0,0,.28));pointer-events:none}
 
-/* Door 01 — bottle-focused (wardrobe lineup, studio backdrop) */
+/* Door 01 — bottle-focused (wardrobe lineup as background, card centered) */
 .img.door-bottle-focus{background:linear-gradient(135deg,#F6F1E8 0%,#FBF7EE 35%,#FFFFFF 60%,#EFE8DA 100%) !important;background-image:none !important}
-.img.door-bottle-focus::after{display:none}
-.img.door-bottle-focus .bottle-stack{position:absolute;right:0;top:0;bottom:0;width:55%;display:flex;align-items:flex-end;justify-content:center;gap:0;z-index:2;padding-bottom:4%;padding-right:3%;pointer-events:none}
-.img.door-bottle-focus .bottle-stack img{width:auto;filter:drop-shadow(0 16px 26px rgba(31,32,32,.18))}
-.img.door-bottle-focus .bottle-stack img:nth-child(1){height:62%;margin-right:-26px;z-index:1}
-.img.door-bottle-focus .bottle-stack img:nth-child(2){height:86%;z-index:2}
-.img.door-bottle-focus .bottle-stack img:nth-child(3){height:62%;margin-left:-26px;z-index:1}
+.img.door-bottle-focus::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 55% 60% at center,rgba(255,255,255,.55) 0%,rgba(255,255,255,.10) 60%,rgba(255,255,255,0) 100%);display:block}
+.img.door-bottle-focus .bottle-stack{position:absolute;left:0;right:0;bottom:0;height:100%;display:flex;align-items:flex-end;justify-content:space-around;padding:0 3% 4%;z-index:1;pointer-events:none}
+.img.door-bottle-focus .bottle-stack img{width:auto;filter:drop-shadow(0 14px 22px rgba(31,32,32,.18))}
+.img.door-bottle-focus .bottle-stack img:nth-child(1){height:52%}
+.img.door-bottle-focus .bottle-stack img:nth-child(2){height:62%}
+.img.door-bottle-focus .bottle-stack img:nth-child(3){height:72%}
+.img.door-bottle-focus .bottle-stack img:nth-child(4){height:62%}
+.img.door-bottle-focus .bottle-stack img:nth-child(5){height:52%}
 
-/* Door 02 — place-focused (no bottle, full neighborhood) */
+/* Door 02 — place-focused (centered vignette so card lifts off photo) */
 .img.door-place-focus .single-bottle{display:none}
-.img.door-place-focus::after{background:linear-gradient(90deg,rgba(255,255,255,.82) 0%,rgba(255,255,255,.35) 45%,rgba(255,255,255,0) 65%,rgba(31,32,32,.10) 100%)}
+.img.door-place-focus::after{background:radial-gradient(ellipse 50% 55% at center,rgba(255,255,255,.55) 0%,rgba(255,255,255,.18) 50%,rgba(31,32,32,.10) 100%)}
 .img.door-still .anno-tl{position:absolute;z-index:3;color:var(--gold);text-shadow:none;background:rgba(255,255,255,.85);padding:4px 8px;border-radius:2px}
 .img.door-still .door-copy{
-  position:absolute;left:8%;top:50%;transform:translateY(-50%);z-index:3;
-  background:rgba(255,255,255,.95);border:1px solid var(--gold);
-  padding:28px 32px;max-width:340px;text-align:left;margin:0;
-  box-shadow:0 12px 24px rgba(31,32,32,.10);
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;
+  background:rgba(255,255,255,.96);border:1px solid var(--gold);
+  padding:32px 36px;max-width:380px;text-align:center;margin:0;
+  box-shadow:0 18px 36px rgba(31,32,32,.18);
 }
 .img.door-still .door-copy .h-eye{color:var(--gold);font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px}
 .img.door-still .door-copy .h-statement{font-family:var(--display);font-style:italic;font-weight:700;font-size:30px;line-height:1.05;color:var(--black);margin-bottom:12px;font-variation-settings:"opsz" 144;letter-spacing:-.01em}
@@ -293,8 +295,10 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <span class="anno-tl">DOOR 01 · EDITORIAL · "I KNOW WHAT I WANT" · BOTTLE-FORWARD</span>
             <div class="bottle-stack">
               <img src="img/bottle-nyn.png" alt="">
+              <img src="img/bottle-bleecker.png" alt="">
               <img src="img/hero-bottle.png" alt="">
               <img src="img/bottle-greenwich.png" alt="">
+              <img src="img/bottle-madison-sq.png" alt="">
             </div>
             <div class="door-copy">
               <div class="h-eye">I know what I want</div>
@@ -531,8 +535,10 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
               <span class="anno-tl">DOOR 01 · "I KNOW WHAT I WANT" · BOTTLES</span>
               <div class="bottle-stack">
                 <img src="img/bottle-nyn.png" alt="">
+                <img src="img/bottle-bleecker.png" alt="">
                 <img src="img/hero-bottle.png" alt="">
                 <img src="img/bottle-greenwich.png" alt="">
+                <img src="img/bottle-madison-sq.png" alt="">
               </div>
               <div class="door-copy">
                 <div class="h-eye">I know what I want</div>
