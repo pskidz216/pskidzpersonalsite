@@ -648,6 +648,18 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .fc-card .img .bottle.b-west-side{background-image:url("img/uptown-west-side.png") !important}
 .fc-card .img .bottle.b-off-broadway{background-image:url("img/uptown-off-broadway.png") !important}
 
+/* Map detail panel — real Downtown photo + real Bleecker Street bottle */
+.map-panel .panel-img.downtown-photo{background:#1f2020 url("img/nbhd-downtown-a.jpg") center 50%/cover no-repeat !important;color:transparent !important;border:1px solid var(--gold) !important;height:240px !important}
+.panel-prod .bottle.b-real{
+  background-color:#fff !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:78% auto !important;
+  border:1px solid #EAEAEA !important;
+  width:80px !important;height:118px !important
+}
+.panel-prod .bottle.b-bleecker-street{background-image:url("img/downtown-bleecker-street.png") !important}
+
 </style>
 </head>
 <body>
@@ -757,13 +769,13 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
           <!-- Side panel (showing Downtown selected) -->
           <div class="map-panel">
             <div class="map-panel-tag">Hotspot 3 · Detail panel</div>
-            <div class="panel-img">DOWNTOWN-A_1.jpg · 1200×1800</div>
+            <div class="panel-img downtown-photo">DOWNTOWN · BLEECKER ST</div>
             <div>
               <div class="panel-name">Downtown</div>
               <div class="panel-tagline">Edgy, cool, effortlessly bold</div>
             </div>
             <div class="panel-prod">
-              <div class="bottle"></div>
+              <div class="bottle b-real b-bleecker-street"></div>
               <div class="meta">
                 <span class="pn">Bleecker Street</span>
                 <span class="pr">$280 · Eau de Parfum</span>
