@@ -673,7 +673,12 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .ed-grid .ip .bottle.b-real{width:120px !important;height:170px !important}
 .m-ed .pick .bottle.b-real{width:54px;height:80px}
 
-/* 3-up horizontal scroll for All Eight grid */
+/* 3-up horizontal scroll for All Eight grid + nav arrows */
+.ed-grid .row-scroll-wrap{position:relative}
+.ed-grid .scroll-arrow{position:absolute;top:calc(50% - 8px);transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.86);color:var(--gold);border:1px solid var(--gold);font-size:30px;line-height:1;cursor:pointer;z-index:6;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;padding:0 0 4px 0;box-shadow:0 4px 10px rgba(0,0,0,.25);transition:background .15s ease,transform .15s ease}
+.ed-grid .scroll-arrow:hover{background:#000;transform:translateY(-50%) scale(1.05)}
+.ed-grid .scroll-arrow-l{left:10px}
+.ed-grid .scroll-arrow-r{right:10px}
 .ed-grid .row{display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;gap:14px !important;padding-bottom:14px;scroll-snap-type:x mandatory;scrollbar-width:thin}
 .ed-grid .row::-webkit-scrollbar{height:8px}
 .ed-grid .row::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
@@ -1023,6 +1028,9 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         <div class="ed-grid">
           <div class="h">All eight Uptown fragrances.</div>
           <div class="sub">For the browser</div>
+          <div class="row-scroll-wrap">
+          <button class="scroll-arrow scroll-arrow-l" type="button" aria-label="Scroll left" onclick="this.parentElement.querySelector('.row').scrollBy({left:-((this.parentElement.querySelector('.row').clientWidth/3)+14),behavior:'smooth'})">‹</button>
+          <button class="scroll-arrow scroll-arrow-r" type="button" aria-label="Scroll right" onclick="this.parentElement.querySelector('.row').scrollBy({left:((this.parentElement.querySelector('.row').clientWidth/3)+14),behavior:'smooth'})">›</button>
           <div class="row">
             <div class="ip"><div class="bottle b-real b-beekman-place"></div><div class="pn">Beekman Place</div><div class="pr">From $345</div><div class="stars">★★★★★ 5.0</div></div>
             <div class="ip"><div class="bottle b-real b-riverside-drive"></div><div class="pn">Riverside Drive</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
@@ -1032,6 +1040,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="ip"><div class="bottle b-real b-off-broadway"></div><div class="pn">Off-Broadway</div><div class="pr">From $335</div><div class="stars">★★★★☆ 4.7</div></div>
             <div class="ip"><div class="bottle b-real b-park-avenue"></div><div class="pn">Park Avenue</div><div class="pr">$360</div><div class="stars">★★★★★ 4.9</div></div>
             <div class="ip"><div class="bottle b-real b-madison-soiree"></div><div class="pn">Madison Soirée</div><div class="pr">From $335</div><div class="stars">★★★★★ 5.0</div></div>
+          </div>
           </div>
         </div>
 
