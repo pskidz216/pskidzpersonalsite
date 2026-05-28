@@ -624,6 +624,30 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
   .ed-curated,.ed-grid,.gd-grid{padding:24px}
 }
 @media print{body{background:#fff;font-size:10pt}.wrap{padding:0;max-width:none}}
+
+/* ============================================================
+   MID-FIDELITY — Filterable Catalog gets real Bond Uptown bottles.
+   Map + mobile sections untouched per Paul's directive.
+   ============================================================ */
+.fc-card .img{height:280px !important;background:#FAFAFA !important}
+.fc-card .img .bottle.b-real{
+  width:160px !important;height:230px !important;
+  background-color:transparent !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:contain !important;
+  border:none !important
+}
+.fc-card .img .bottle.b-park-avenue{background-image:url("img/uptown-park-avenue.png") !important}
+.fc-card .img .bottle.b-madison-avenue{background-image:url("img/uptown-madison-avenue.png") !important}
+.fc-card .img .bottle.b-madison-soiree{background-image:url("img/uptown-madison-soiree.png") !important}
+.fc-card .img .bottle.b-beekman-place{background-image:url("img/uptown-beekman-place.png") !important}
+.fc-card .img .bottle.b-riverside-drive{background-image:url("img/uptown-riverside-drive.png") !important}
+.fc-card .img .bottle.b-sutton-place{background-image:url("img/uptown-sutton-place.png") !important}
+.fc-card .img .bottle.b-new-haarlem{background-image:url("img/uptown-new-haarlem.png") !important}
+.fc-card .img .bottle.b-west-side{background-image:url("img/uptown-west-side.png") !important}
+.fc-card .img .bottle.b-off-broadway{background-image:url("img/uptown-off-broadway.png") !important}
+
 </style>
 </head>
 <body>
@@ -957,7 +981,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         <!-- Grid -->
         <div class="fc-grid">
           <div class="fc-card">
-            <div class="img"><span class="badge">Best Seller</span><div class="bottle"></div></div>
+            <div class="img"><span class="badge">Best Seller</span><div class="bottle b-real b-park-avenue"></div></div>
             <div class="body">
               <div class="pn">Park Avenue</div>
               <div class="nf">Magnolia · peony · sandalwood</div>
@@ -966,7 +990,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="actions"><span class="btn atc">Add to cart</span><span class="btn try">Try sample</span></div>
           </div>
           <div class="fc-card">
-            <div class="img"><span class="badge">Best Seller</span><div class="bottle"></div></div>
+            <div class="img"><span class="badge">Best Seller</span><div class="bottle b-real b-madison-avenue"></div></div>
             <div class="body">
               <div class="pn">Madison Avenue</div>
               <div class="nf">Black currant · rose · patchouli</div>
@@ -975,7 +999,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="actions"><span class="btn atc">Add to cart</span><span class="btn try">Try sample</span></div>
           </div>
           <div class="fc-card">
-            <div class="img"><div class="bottle"></div></div>
+            <div class="img"><div class="bottle b-real b-beekman-place"></div></div>
             <div class="body">
               <div class="pn">Beekman Place</div>
               <div class="nf">Iris · violet · cedar</div>
@@ -984,7 +1008,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="actions"><span class="btn atc">Add to cart</span><span class="btn try">Try sample</span></div>
           </div>
           <div class="fc-card">
-            <div class="img"><div class="bottle"></div></div>
+            <div class="img"><div class="bottle b-real b-riverside-drive"></div></div>
             <div class="body">
               <div class="pn">Riverside Drive</div>
               <div class="nf">Vetiver · sage · oakmoss</div>
@@ -993,7 +1017,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="actions"><span class="btn atc">Add to cart</span><span class="btn try">Try sample</span></div>
           </div>
           <div class="fc-card">
-            <div class="img"><div class="bottle"></div></div>
+            <div class="img"><div class="bottle b-real b-sutton-place"></div></div>
             <div class="body">
               <div class="pn">Sutton Place</div>
               <div class="nf">Champagne · honey · oud</div>
@@ -1002,7 +1026,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="actions"><span class="btn atc">Add to cart</span><span class="btn try">Try sample</span></div>
           </div>
           <div class="fc-card">
-            <div class="img"><div class="bottle"></div></div>
+            <div class="img"><div class="bottle b-real b-new-haarlem"></div></div>
             <div class="body">
               <div class="pn">New Haarlem</div>
               <div class="nf">Coffee · vanilla · bergamot</div>
@@ -1011,7 +1035,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="actions"><span class="btn atc">Add to cart</span><span class="btn try">Try sample</span></div>
           </div>
           <div class="fc-card">
-            <div class="img"><div class="bottle"></div></div>
+            <div class="img"><div class="bottle b-real b-west-side"></div></div>
             <div class="body">
               <div class="pn">West Side</div>
               <div class="nf">Rose · ylang · sandalwood</div>
@@ -1020,7 +1044,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div class="actions"><span class="btn atc">Add to cart</span><span class="btn try">Try sample</span></div>
           </div>
           <div class="fc-card">
-            <div class="img"><div class="bottle"></div></div>
+            <div class="img"><div class="bottle b-real b-off-broadway"></div></div>
             <div class="body">
               <div class="pn">Off-Broadway</div>
               <div class="nf">Tuberose · coconut · musk</div>
