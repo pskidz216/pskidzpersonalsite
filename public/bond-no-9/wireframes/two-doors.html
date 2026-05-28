@@ -58,7 +58,7 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .nav-note-body{font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--charcoal)}
 .nav-note-body strong{color:var(--black);font-weight:700}
 
-.img{background:var(--surface);border:1px solid var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);position:relative}
+.img{background:var(--surface);border:1px solid var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);position:relative;background-size:cover;background-position:center;background-repeat:no-repeat}
 .img.xtall{min-height:400px}
 .img.tall{min-height:340px}
 .img.med{min-height:200px}
@@ -131,6 +131,85 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
   .wrap{padding:0;max-width:none}
   .wf,.notes{break-inside:avoid;page-break-inside:avoid}
 }
+
+/* ===== Mid-fidelity upgrade — ported from Option A ===== */
+.img.hero-frame{background:#1f2020 url("img/hero-higgsfield.jpg") center 55%/cover no-repeat;color:var(--white);overflow:hidden}
+.hero-video-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;border:none}
+.hero-frame::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(31,32,32,.08) 0%,rgba(31,32,32,.16) 50%,rgba(31,32,32,.45) 100%)}
+.img.shot-76th{background-image:url("img/76th-madison.jpg");color:transparent;overflow:hidden}
+.bottle-overlay{position:absolute;display:block;pointer-events:none;filter:drop-shadow(0 18px 24px rgba(0,0,0,.35))}
+.hero-frame .bottle-overlay{right:6%;bottom:-2%;height:108%;width:auto;z-index:2}
+.shot-76th .bottle-overlay{right:4%;bottom:-3%;height:104%;width:auto;z-index:1}
+.hero-frame .anno-tl,.hero-frame .door-copy{position:relative;z-index:3}
+.shot-76th .anno-tl{z-index:2}
+.anno-tl{text-shadow:0 1px 2px rgba(0,0,0,.45)}
+
+.img.portrait-laurice{background-image:url("img/laurice.jpg");background-position:center 18%;color:transparent}
+
+.img.scent-card{background-color:var(--surface);background-size:contain;background-position:center 58%;background-repeat:no-repeat;color:transparent}
+.img.scent-card.bleecker{background-image:url("img/bottle-bleecker.png")}
+.img.scent-card.madison-sq{background-image:url("img/bottle-madison-sq.png")}
+.img.scent-card.brooklyn{background-image:url("img/bottle-brooklyn.png")}
+.img.scent-card.chelsea{background-image:url("img/bottle-chelsea.png")}
+.img.scent-card.greenpoint{background-image:url("img/bottle-greenpoint.png")}
+
+.img.boutique-shot{background-image:linear-gradient(90deg,rgba(255,255,255,.86) 0%,rgba(255,255,255,.55) 40%,rgba(31,32,32,.10) 100%),url("img/boutique.jpg");background-position:center;color:var(--charcoal);overflow:hidden}
+
+/* Door 02 quiz mosaic (typographic neighborhoods) */
+.quiz-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:3px;background:var(--black);padding:3px;border:1px solid var(--black);min-height:200px}
+.quiz-cell{display:flex;align-items:center;justify-content:center;padding:14px 6px;font-family:var(--display);font-style:italic;font-weight:700;font-size:11px;letter-spacing:-.005em;line-height:1.05;text-align:center;font-variation-settings:"opsz" 144;text-transform:none}
+.quiz-cell.bleecker{background:#2C5F3E;color:#fff}
+.quiz-cell.madison{background:#E91E63;color:#fff}
+.quiz-cell.brooklyn{background:#F4A460;color:#1F2020}
+.quiz-cell.greenpoint{background:#4DA88A;color:#fff}
+.quiz-cell.nyn{background:#1A1F4A;color:#C5A55A}
+.quiz-cell.tribeca{background:#6B4226;color:#fff}
+.quiz-cell.harlem{background:#C0392B;color:#fff}
+.quiz-cell.chelsea{background:#B59CD9;color:#1F2020}
+.quiz-cell.nolita{background:#E8D7B3;color:#1F2020}
+.quiz-cell.gold{background:#C5A55A;color:#1F2020}
+.quiz-cell.coney{background:#4A90C7;color:#fff}
+.quiz-cell.astor{background:#4A148C;color:#C5A55A}
+
+/* Discovery Set trio */
+.discovery-trio{display:flex;align-items:flex-end;justify-content:center;gap:10px;background:var(--white);padding:14px;border:1px solid var(--black);min-height:160px}
+.discovery-trio img{max-height:130px;width:auto;display:block;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
+.discovery-trio img.center{max-height:150px}
+
+/* Wardrobe grid — 4-up bottle mosaic */
+.wardrobe-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--surface);padding:14px;border:1px solid var(--black);min-height:160px;align-items:center;justify-items:center}
+.wardrobe-grid img{max-height:120px;width:auto;display:block;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
+
+/* Two Doors hero — single bottle + static neighborhood per door */
+.img.door-still{background-size:cover;background-position:center 55%;background-repeat:no-repeat;color:var(--white);overflow:hidden}
+.img.door-still::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(31,32,32,.12) 0%,rgba(31,32,32,.32) 70%,rgba(31,32,32,.58) 100%)}
+.img.door-still.door-01-bg{background-image:url("img/door01-city.jpg")}
+.img.door-still.door-02-bg{background-image:url("img/door02-downtown.jpg")}
+.img.door-still .single-bottle{position:absolute;right:5%;bottom:-3%;height:96%;width:auto;z-index:2;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45));pointer-events:none}
+.img.door-still .anno-tl,.img.door-still .door-copy{position:relative;z-index:3}
+
+/* Reviews thumbnails — image + star-rating chip */
+.review-tile{position:relative;display:flex;align-items:flex-end;justify-content:flex-start;background-size:cover;background-position:center;min-height:120px;border:1px solid var(--smoke);overflow:hidden;color:transparent;aspect-ratio:1/1}
+.review-tile .star-chip{position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.78);color:#C5A55A;padding:4px 9px;font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.06em;border-radius:2px;line-height:1}
+.review-tile.r1{background-image:url("img/ugc-1.jpg")}
+.review-tile.r2{background-image:url("img/ugc-2.jpg")}
+.review-tile.r3{background-image:url("img/ugc-3.jpg")}
+.review-tile.r4{background-image:url("img/ugc-4.jpg")}
+.review-tile.r5{background-image:url("img/ugc-5.jpg")}
+
+/* Press masthead lockups */
+.press-mark{display:flex;align-items:center;justify-content:center;min-height:50px;background:var(--white);border:1px solid #E5E5E5;padding:8px 6px;color:var(--charcoal);text-transform:none;letter-spacing:.01em;font-family:var(--display);line-height:1}
+.press-mark.vogue{font-family:'Bodoni 72','Didot','Playfair Display',serif;font-weight:900;letter-spacing:.04em;font-size:24px;text-transform:uppercase;color:#000}
+.press-mark.nyt{font-family:'Old English Text MT','UnifrakturCook','Cinzel',serif;font-size:14px;font-weight:700;color:#000;letter-spacing:0;text-align:center;line-height:1.1}
+.press-mark.airmail{font-family:'Fraunces','Playfair Display',serif;font-style:italic;font-weight:900;font-size:18px;letter-spacing:-.02em;color:#C00;text-transform:none}
+.press-mark.tmag{flex-direction:column;font-family:'Bodoni 72','Didot','Playfair Display',serif;color:#000;text-align:center;line-height:1}
+.press-mark.tmag .t-letter{font-size:34px;font-weight:900;line-height:1;letter-spacing:0;font-style:normal}
+.press-mark.tmag .t-sub{font-size:7px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-top:4px;font-style:normal;font-family:var(--sans)}
+.press-mark.harpers{flex-direction:column;font-family:'Didot','Playfair Display',serif;color:#000;text-align:center;line-height:1}
+.press-mark.harpers .h-script{font-style:italic;font-weight:900;font-size:18px;letter-spacing:-.01em}
+.press-mark.harpers .haute{font-style:normal;font-weight:700;font-size:9px;letter-spacing:.24em;margin-top:3px;font-family:var(--sans)}
+.press-mark.vfair{font-family:'Didot','Playfair Display',serif;font-weight:900;font-style:italic;font-size:17px;color:#000;letter-spacing:.005em;text-align:center;line-height:1}
+
 </style>
 </head>
 <body>
@@ -186,9 +265,10 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <span class="s-label">01 · Hero — two doors · choice at the threshold</span>
       <div class="s-body flat">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--black)">
-          <!-- Door 01 -->
-          <div class="img xtall" style="position:relative;border:none;border-right:1px solid var(--black)">
+          <!-- Door 01 — Wardrobe (SoHo + skyline, NEW YORK AMBER) -->
+          <div class="img xtall door-still door-01-bg" style="position:relative;border:none;border-right:1px solid var(--black)">
             <span class="anno-tl">DOOR 01 · EDITORIAL · "I KNOW WHAT I WANT"</span>
+            <img class="single-bottle" src="img/hero-bottle.png" alt="">
             <div class="door-copy">
               <div class="h-eye">I know what I want</div>
               <div class="h-statement">The wardrobe.</div>
@@ -196,9 +276,10 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
               <a href="#" class="btn outline">Shop the catalog →</a>
             </div>
           </div>
-          <!-- Door 02 -->
-          <div class="img xtall" style="position:relative;border:none;background:var(--surface)">
+          <!-- Door 02 — Discovery (Washington Sq Arch, Greenwich Village bottle) -->
+          <div class="img xtall door-still door-02-bg" style="position:relative;border:none">
             <span class="anno-tl">DOOR 02 · DISCOVERY · "I'M NEW HERE"</span>
+            <img class="single-bottle" src="img/bottle-greenwich.png" alt="">
             <div class="door-copy">
               <div class="h-eye">I'm new here</div>
               <div class="h-statement">Find your neighborhood.</div>
@@ -220,21 +301,40 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         </div>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
           <div style="padding:24px;border:1px solid var(--black);text-align:center;background:var(--white)">
-            <div class="img short" style="margin-bottom:14px;min-height:130px">QUIZ</div>
+            <div class="quiz-mosaic" style="grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;min-height:130px;margin-bottom:14px;position:relative">
+              <span class="anno-tl" style="color:#C5A55A">QUIZ</span>
+              <div class="quiz-cell bleecker" style="font-size:9px">Bleecker</div>
+              <div class="quiz-cell madison" style="font-size:9px">Madison Sq.</div>
+              <div class="quiz-cell brooklyn" style="font-size:9px">Brooklyn</div>
+              <div class="quiz-cell greenpoint" style="font-size:9px">Greenpoint</div>
+              <div class="quiz-cell gold" style="font-size:9px">Gold St.</div>
+              <div class="quiz-cell harlem" style="font-size:9px">Harlem</div>
+            </div>
             <div class="bar md" style="margin:0 auto 8px;width:60%"></div>
             <div class="bar sm" style="margin:0 auto 6px;width:90%"></div>
             <div class="bar sm" style="margin:0 auto 14px;width:75%"></div>
             <a href="#" class="btn outline sm">Find your neighborhood →</a>
           </div>
           <div style="padding:24px;border:1px solid var(--gold);border-width:2px;text-align:center;background:var(--surface)">
-            <div class="img short" style="margin-bottom:14px;min-height:130px;background:var(--white)">DISCOVERY SET</div>
+            <div class="discovery-trio" style="min-height:130px;margin-bottom:14px;position:relative">
+              <span class="anno-tl">DISCOVERY SET · 3 SAMPLES</span>
+              <img src="img/bottle-bleecker.png" alt="">
+              <img src="img/bottle-madison-sq.png" alt="" class="center">
+              <img src="img/bottle-brooklyn.png" alt="">
+            </div>
             <div class="bar md" style="margin:0 auto 8px;width:60%"></div>
             <div class="bar sm" style="margin:0 auto 6px;width:95%"></div>
             <div class="bar sm" style="margin:0 auto 14px;width:80%"></div>
             <a href="#" class="btn sm">Order · $45 · $40 credited →</a>
           </div>
           <div style="padding:24px;border:1px solid var(--black);text-align:center;background:var(--white)">
-            <div class="img short" style="margin-bottom:14px;min-height:130px">WARDROBE</div>
+            <div class="wardrobe-grid" style="min-height:130px;margin-bottom:14px;position:relative">
+              <span class="anno-tl">WARDROBE · 5+ SAVE 10%</span>
+              <img src="img/bottle-bleecker.png" alt="">
+              <img src="img/bottle-madison-sq.png" alt="">
+              <img src="img/bottle-brooklyn.png" alt="">
+              <img src="img/bottle-greenpoint.png" alt="">
+            </div>
             <div class="bar md" style="margin:0 auto 8px;width:60%"></div>
             <div class="bar sm" style="margin:0 auto 6px;width:90%"></div>
             <div class="bar sm" style="margin:0 auto 14px;width:70%"></div>
@@ -254,25 +354,25 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
           <div>
-            <div class="img" style="min-height:200px">BLEECKER</div>
+            <div class="img scent-card nyn" style="min-height:200px;position:relative;background-image:url('img/bottle-nyn.png')"><span class="anno-tl">NEW YORK NIGHTS</span></div>
             <div class="bar md" style="width:75%;margin-top:12px"></div>
             <div class="bar xs" style="width:85%"></div>
             <div style="font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:6px;text-transform:uppercase">+ Wear with →</div>
           </div>
           <div>
-            <div class="img" style="min-height:200px">MADISON SQ</div>
+            <div class="img scent-card bond-one" style="min-height:200px;position:relative;background-image:url('img/bottle-bond-one.png')"><span class="anno-tl">BOND NO. ONE</span></div>
             <div class="bar md" style="width:75%;margin-top:12px"></div>
             <div class="bar xs" style="width:85%"></div>
             <div style="font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:6px;text-transform:uppercase">+ Wear with →</div>
           </div>
           <div>
-            <div class="img" style="min-height:200px">BROOKLYN</div>
+            <div class="img scent-card greenwich" style="min-height:200px;position:relative;background-image:url('img/bottle-greenwich.png')"><span class="anno-tl">GREENWICH VILLAGE</span></div>
             <div class="bar md" style="width:75%;margin-top:12px"></div>
             <div class="bar xs" style="width:85%"></div>
             <div style="font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:6px;text-transform:uppercase">+ Wear with →</div>
           </div>
           <div>
-            <div class="img" style="min-height:200px">CHELSEA</div>
+            <div class="img scent-card nolita" style="min-height:200px;position:relative;background-image:url('img/bottle-nolita.png')"><span class="anno-tl">NOLITA</span></div>
             <div class="bar md" style="width:75%;margin-top:12px"></div>
             <div class="bar xs" style="width:85%"></div>
             <div style="font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:6px;text-transform:uppercase">+ Wear with →</div>
@@ -281,7 +381,7 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       </div>
     </div>
 
-    <!-- 04 SOCIAL PROOF · REVIEWS -->
+    <!-- 04 REVIEWS · verified buyer voice -->
     <div class="s">
       <span class="s-label">04 · Reviews · verified buyer voice</span>
       <div class="s-body" style="padding:32px">
@@ -294,11 +394,11 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
             <div style="font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.2em;color:var(--smoke);text-transform:uppercase;margin-top:14px">— A.R. · Park Avenue · Verified buyer</div>
           </div>
           <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">
-            <div class="img square">★ 5</div>
-            <div class="img square">★ 5</div>
-            <div class="img square">★ 5</div>
-            <div class="img square">★ 4</div>
-            <div class="img square">★ 5</div>
+            <div class="review-tile r1"><span class="star-chip">★ 5.0</span></div>
+            <div class="review-tile r2"><span class="star-chip">★ 5.0</span></div>
+            <div class="review-tile r3"><span class="star-chip">★ 5.0</span></div>
+            <div class="review-tile r4"><span class="star-chip">★ 4.0</span></div>
+            <div class="review-tile r5"><span class="star-chip">★ 5.0</span></div>
           </div>
         </div>
       </div>
@@ -308,9 +408,10 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
     <div class="s">
       <span class="s-label">05 · The neighborhood of the moment — brand world surfaces</span>
       <div class="s-body flat">
-        <div class="img tall" style="position:relative;min-height:380px">
+        <div class="img tall shot-76th" style="position:relative;min-height:380px">
           <span class="anno-tl">FULL-BLEED · MADISON AVENUE FILM</span>
-          <div class="door-copy" style="background:rgba(255,255,255,.95);border:1px solid var(--gold);max-width:480px">
+          <img class="bottle-overlay" src="img/76th-bottle.png" alt="">
+          <div class="door-copy" style="background:rgba(255,255,255,.95);border:1px solid var(--gold);max-width:480px;position:relative;z-index:3">
             <div class="h-eye">This month · Madison Avenue</div>
             <div class="h-statement" style="font-size:30px">76th & Madison.</div>
             <div class="bar sm" style="margin:0 auto 4px;width:90%"></div>
@@ -326,7 +427,7 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <span class="s-label">06 · Perfumer voice — Laurice Rahmé</span>
       <div class="s-body" style="padding:28px">
         <div style="display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center">
-          <div class="img square" style="border-radius:50%;min-height:160px">L. RAHMÉ</div>
+          <div class="img square portrait-laurice" style="border-radius:50%;min-height:160px"></div>
           <div>
             <div class="h-eye" style="margin-bottom:8px">Founder · Perfumer · Twenty-three years independent</div>
             <div class="bar lg" style="width:80%;height:18px"></div>
@@ -342,9 +443,9 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
     <div class="s">
       <span class="s-label">07 · The boutique · 9 Bond Street</span>
       <div class="s-body flat">
-        <div class="img tall" style="position:relative;min-height:280px">
+        <div class="img tall boutique-shot" style="position:relative;min-height:280px">
           <span class="anno-tl">9 BOND ST · NOHO · ESTABLISHED 2003</span>
-          <div class="door-copy" style="background:rgba(255,255,255,.95);border:1px solid var(--gold);max-width:440px">
+          <div class="door-copy" style="background:rgba(255,255,255,.95);border:1px solid var(--gold);max-width:440px;margin-left:7%">
             <div class="h-eye">The boutique</div>
             <div class="h-statement" style="font-size:26px">Meet us at 9 Bond.</div>
             <a href="#" class="btn outline">Book an appointment →</a>
@@ -359,12 +460,12 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         <span class="s-label">08 · Press</span>
         <div class="s-body" style="padding:24px">
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:center">
-            <div class="img short" style="min-height:50px">VOGUE</div>
-            <div class="img short" style="min-height:50px">NYT</div>
-            <div class="img short" style="min-height:50px">AIR MAIL</div>
-            <div class="img short" style="min-height:50px">T MAG</div>
-            <div class="img short" style="min-height:50px">HARPER'S</div>
-            <div class="img short" style="min-height:50px">VANITY</div>
+            <div class="press-mark vogue" style="font-size:18px">VOGUE</div>
+            <div class="press-mark nyt" style="font-size:11px">The New York Times</div>
+            <div class="press-mark airmail" style="font-size:14px">AIR&thinsp;MAIL</div>
+            <div class="press-mark tmag"><span class="t-letter" style="font-size:24px">T</span><span class="t-sub">Style Mag</span></div>
+            <div class="press-mark harpers"><span class="h-script" style="font-size:14px">Harper's</span><span class="haute" style="font-size:7px">BAZAAR</span></div>
+            <div class="press-mark vfair" style="font-size:14px">Vanity Fair</div>
           </div>
         </div>
       </div>
@@ -400,8 +501,9 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         <span class="s-label">01 · HERO · two doors stacked</span>
         <div class="s-body flat">
           <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--black)">
-            <div class="img" style="min-height:280px;position:relative;border:none;border-bottom:1px solid var(--black)">
+            <div class="img door-still door-01-bg" style="min-height:280px;position:relative;border:none;border-bottom:1px solid var(--black)">
               <span class="anno-tl">DOOR 01 · "I KNOW WHAT I WANT"</span>
+              <img class="single-bottle" src="img/hero-bottle.png" alt="">
               <div class="door-copy">
                 <div class="h-eye">I know what I want</div>
                 <div class="h-statement">The wardrobe.</div>
@@ -409,8 +511,9 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
                 <a href="#" class="btn outline">Shop the catalog →</a>
               </div>
             </div>
-            <div class="img" style="min-height:280px;position:relative;border:none;background:var(--surface)">
+            <div class="img door-still door-02-bg" style="min-height:280px;position:relative;border:none">
               <span class="anno-tl">DOOR 02 · "I'M NEW HERE"</span>
+              <img class="single-bottle" src="img/bottle-greenwich.png" alt="">
               <div class="door-copy">
                 <div class="h-eye">I'm new here</div>
                 <div class="h-statement">Find your neighborhood.</div>
@@ -431,15 +534,31 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
           </div>
           <div style="display:grid;grid-template-columns:1fr;gap:10px">
             <div style="padding:18px;border:1px solid var(--black);text-align:center;background:var(--white)">
-              <div class="img" style="min-height:90px;margin-bottom:10px">QUIZ</div>
+              <div class="quiz-mosaic" style="grid-template-columns:repeat(3,1fr);min-height:90px;margin-bottom:10px">
+                <div class="quiz-cell bleecker" style="font-size:8px">Bleecker</div>
+                <div class="quiz-cell madison" style="font-size:8px">Madison Sq.</div>
+                <div class="quiz-cell brooklyn" style="font-size:8px">Brooklyn</div>
+                <div class="quiz-cell greenpoint" style="font-size:8px">Greenpoint</div>
+                <div class="quiz-cell nyn" style="font-size:8px">NY Nights</div>
+                <div class="quiz-cell gold" style="font-size:8px">Gold St.</div>
+              </div>
               <a href="#" class="btn outline">Find your neighborhood →</a>
             </div>
             <div style="padding:18px;border:2px solid var(--gold);text-align:center;background:var(--surface)">
-              <div class="img" style="min-height:90px;margin-bottom:10px;background:var(--white)">DISCOVERY SET</div>
+              <div class="discovery-trio" style="min-height:90px;margin-bottom:10px;padding:8px;gap:4px">
+                <img src="img/bottle-bleecker.png" alt="" style="max-height:70px">
+                <img src="img/bottle-madison-sq.png" alt="" class="center" style="max-height:80px">
+                <img src="img/bottle-brooklyn.png" alt="" style="max-height:70px">
+              </div>
               <a href="#" class="btn">Order · $45 · $40 credited →</a>
             </div>
             <div style="padding:18px;border:1px solid var(--black);text-align:center;background:var(--white)">
-              <div class="img" style="min-height:90px;margin-bottom:10px">WARDROBE</div>
+              <div class="wardrobe-grid" style="min-height:90px;margin-bottom:10px;padding:6px">
+                <img src="img/bottle-bleecker.png" alt="" style="max-height:60px">
+                <img src="img/bottle-madison-sq.png" alt="" style="max-height:60px">
+                <img src="img/bottle-brooklyn.png" alt="" style="max-height:60px">
+                <img src="img/bottle-greenpoint.png" alt="" style="max-height:60px">
+              </div>
               <a href="#" class="btn outline">Build · save 10% →</a>
             </div>
           </div>
@@ -451,10 +570,10 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         <div class="s-body">
           <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:20px;color:var(--black);font-variation-settings:'opsz' 144;letter-spacing:-.01em;margin-bottom:14px">Currently wearing.</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-            <div><div class="img" style="min-height:140px">BLEECKER</div><div class="bar md" style="width:80%;margin-top:8px"></div><div style="font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:4px;text-transform:uppercase">+ Wear with</div></div>
-            <div><div class="img" style="min-height:140px">MADISON SQ</div><div class="bar md" style="width:80%;margin-top:8px"></div><div style="font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:4px;text-transform:uppercase">+ Wear with</div></div>
-            <div><div class="img" style="min-height:140px">BROOKLYN</div><div class="bar md" style="width:80%;margin-top:8px"></div><div style="font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:4px;text-transform:uppercase">+ Wear with</div></div>
-            <div><div class="img" style="min-height:140px">CHELSEA</div><div class="bar md" style="width:80%;margin-top:8px"></div><div style="font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:4px;text-transform:uppercase">+ Wear with</div></div>
+            <div><div class="img scent-card" style="min-height:140px;position:relative;background-image:url('img/bottle-nyn.png')"><span class="anno-tl">NEW YORK NIGHTS</span></div><div class="bar md" style="width:80%;margin-top:8px"></div><div style="font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:4px;text-transform:uppercase">+ Wear with</div></div>
+            <div><div class="img scent-card" style="min-height:140px;position:relative;background-image:url('img/bottle-bond-one.png')"><span class="anno-tl">BOND NO. ONE</span></div><div class="bar md" style="width:80%;margin-top:8px"></div><div style="font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:4px;text-transform:uppercase">+ Wear with</div></div>
+            <div><div class="img scent-card" style="min-height:140px;position:relative;background-image:url('img/bottle-greenwich.png')"><span class="anno-tl">GREENWICH VILLAGE</span></div><div class="bar md" style="width:80%;margin-top:8px"></div><div style="font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:4px;text-transform:uppercase">+ Wear with</div></div>
+            <div><div class="img scent-card" style="min-height:140px;position:relative;background-image:url('img/bottle-nolita.png')"><span class="anno-tl">NOLITA</span></div><div class="bar md" style="width:80%;margin-top:8px"></div><div style="font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.18em;color:var(--gold);margin-top:4px;text-transform:uppercase">+ Wear with</div></div>
           </div>
         </div>
       </div>
@@ -462,12 +581,16 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <div class="s">
         <span class="s-label">04 · REVIEWS · verified buyer voice</span>
         <div class="s-body">
-          <div class="h-eye">Reviews · 4.8/5 · 2,400+ verified</div>
-          <div style="color:var(--gold);font-family:var(--sans);font-size:14px;letter-spacing:.24em;margin-bottom:10px">★ ★ ★ ★ ★</div>
-          <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:20px;color:var(--black);line-height:1.15;margin-bottom:10px;font-variation-settings:'opsz' 144;letter-spacing:-.01em">"Stops people in their tracks. Most compliments I've ever gotten on a fragrance."</div>
-          <div style="font-family:var(--sans);font-size:8px;font-weight:600;letter-spacing:.2em;color:var(--smoke);text-transform:uppercase;margin-bottom:14px">— A.R. · Park Avenue · Verified buyer</div>
+          <div class="h-eye">Reviews · 4.8/5 · 2,400+</div>
+          <div style="color:var(--gold);font-family:var(--sans);font-size:14px;letter-spacing:.22em;margin:6px 0 10px">★ ★ ★ ★ ★</div>
+          <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);line-height:1.15;margin-bottom:10px;font-variation-settings:'opsz' 144;letter-spacing:-.01em">"Stops people in their tracks. Most compliments I've ever gotten on a fragrance."</div>
+          <div style="font-family:var(--sans);font-size:8px;font-weight:600;letter-spacing:.2em;color:var(--smoke);text-transform:uppercase;margin-bottom:14px">— A.R. · Park Avenue · Verified</div>
           <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px">
-            <div class="img square">★ 5</div><div class="img square">★ 5</div><div class="img square">★ 5</div><div class="img square">★ 4</div><div class="img square">★ 5</div>
+            <div class="review-tile r1"><span class="star-chip" style="font-size:8px;padding:2px 5px">★ 5</span></div>
+            <div class="review-tile r2"><span class="star-chip" style="font-size:8px;padding:2px 5px">★ 5</span></div>
+            <div class="review-tile r3"><span class="star-chip" style="font-size:8px;padding:2px 5px">★ 5</span></div>
+            <div class="review-tile r4"><span class="star-chip" style="font-size:8px;padding:2px 5px">★ 4</span></div>
+            <div class="review-tile r5"><span class="star-chip" style="font-size:8px;padding:2px 5px">★ 5</span></div>
           </div>
         </div>
       </div>
@@ -475,9 +598,10 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <div class="s">
         <span class="s-label">05 · NEIGHBORHOOD</span>
         <div class="s-body flat">
-          <div class="img" style="min-height:280px;position:relative">
+          <div class="img shot-76th" style="min-height:280px;position:relative">
             <span class="anno-tl">MADISON AVE FILM</span>
-            <div class="door-copy" style="background:rgba(255,255,255,.95);border:1px solid var(--gold);max-width:260px">
+            <img class="bottle-overlay" src="img/76th-bottle.png" alt="">
+            <div class="door-copy" style="background:rgba(255,255,255,.95);border:1px solid var(--gold);max-width:260px;position:relative;z-index:3">
               <div class="h-eye">This month · Madison</div>
               <div class="h-statement" style="font-size:20px">76th &amp; Madison.</div>
               <a href="#" class="btn">Read · shop →</a>
@@ -489,7 +613,7 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <div class="s">
         <span class="s-label">06 · PERFUMER</span>
         <div class="s-body" style="text-align:center">
-          <div class="img square" style="border-radius:50%;width:100px;height:100px;min-height:100px;margin:0 auto 12px">L. RAHMÉ</div>
+          <div class="img square portrait-laurice" style="border-radius:50%;width:100px;height:100px;min-height:100px;margin:0 auto 12px"></div>
           <div class="h-eye">Founder · 23 yrs independent</div>
           <div class="bar lg" style="width:80%;margin:0 auto 8px"></div>
           <div class="bar sm" style="width:90%;margin:0 auto"></div>
@@ -500,7 +624,7 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
       <div class="s">
         <span class="s-label">07 · BOUTIQUE</span>
         <div class="s-body flat">
-          <div class="img" style="min-height:200px;position:relative">
+          <div class="img boutique-shot" style="min-height:200px;position:relative">
             <span class="anno-tl">9 BOND ST · NOHO</span>
             <div class="door-copy" style="background:rgba(255,255,255,.95);border:1px solid var(--gold);max-width:240px">
               <div class="h-eye">The boutique</div>
@@ -515,12 +639,12 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
         <span class="s-label">08 · PRESS + NEWSLETTER</span>
         <div class="s-body">
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px">
-            <div class="img" style="min-height:40px;font-size:8px">VOGUE</div>
-            <div class="img" style="min-height:40px;font-size:8px">NYT</div>
-            <div class="img" style="min-height:40px;font-size:8px">AIR MAIL</div>
-            <div class="img" style="min-height:40px;font-size:8px">T MAG</div>
-            <div class="img" style="min-height:40px;font-size:8px">HARPER'S</div>
-            <div class="img" style="min-height:40px;font-size:8px">VANITY</div>
+            <div class="press-mark vogue" style="font-size:14px">VOGUE</div>
+            <div class="press-mark nyt" style="font-size:9px">The New York Times</div>
+            <div class="press-mark airmail" style="font-size:11px">AIR&thinsp;MAIL</div>
+            <div class="press-mark tmag"><span class="t-letter" style="font-size:18px">T</span><span class="t-sub" style="font-size:5px">Style Mag</span></div>
+            <div class="press-mark harpers"><span class="h-script" style="font-size:11px">Harper's</span><span class="haute" style="font-size:6px">BAZAAR</span></div>
+            <div class="press-mark vfair" style="font-size:11px">Vanity Fair</div>
           </div>
           <div style="text-align:center;padding-top:14px;border-top:1px dashed var(--gold)">
             <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--black);margin-bottom:6px;font-variation-settings:'opsz' 144;letter-spacing:-.01em">A letter from NoHo.</div>
