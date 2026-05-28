@@ -655,10 +655,11 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
   background-color:#fff !important;
   background-repeat:no-repeat !important;
   background-position:center !important;
-  background-size:65% auto !important;
+  background-size:78% auto !important;
   border:1px solid #EAEAEA !important;
   padding:0;box-sizing:border-box
 }
+.ed-curated .card .bottle.b-real{width:88px !important;height:130px !important}
 .ed-curated .card .bottle.b-park-avenue,.ed-grid .ip .bottle.b-park-avenue,.m-ed .pick .bottle.b-park-avenue{background-image:url("img/uptown-park-avenue.png") !important}
 .ed-curated .card .bottle.b-madison-soiree,.ed-grid .ip .bottle.b-madison-soiree,.m-ed .pick .bottle.b-madison-soiree{background-image:url("img/uptown-madison-soiree.png") !important}
 .ed-curated .card .bottle.b-lexington-avenue,.ed-grid .ip .bottle.b-lexington-avenue,.m-ed .pick .bottle.b-lexington-avenue{background-image:url("img/uptown-lexington-avenue.png") !important}
@@ -669,8 +670,17 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .ed-curated .card .bottle.b-west-side,.ed-grid .ip .bottle.b-west-side{background-image:url("img/uptown-west-side.png") !important}
 .ed-curated .card .bottle.b-off-broadway,.ed-grid .ip .bottle.b-off-broadway{background-image:url("img/uptown-off-broadway.png") !important}
 .ed-curated .card .bottle.b-madison-avenue,.ed-grid .ip .bottle.b-madison-avenue,.m-ed .pick .bottle.b-madison-avenue{background-image:url("img/uptown-madison-avenue.png") !important}
-.ed-grid .ip .bottle.b-real{width:54px;height:80px}
-.m-ed .pick .bottle.b-real{width:34px;height:50px}
+.ed-grid .ip .bottle.b-real{width:120px !important;height:170px !important}
+.m-ed .pick .bottle.b-real{width:54px;height:80px}
+
+/* 3-up horizontal scroll for All Eight grid */
+.ed-grid .row{display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;gap:14px !important;padding-bottom:14px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.ed-grid .row::-webkit-scrollbar{height:8px}
+.ed-grid .row::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
+.ed-grid .row::-webkit-scrollbar-track{background:var(--surface)}
+.ed-grid .ip{flex:0 0 calc((100% - 28px) / 3) !important;min-width:0;scroll-snap-align:start;padding:18px !important;gap:10px !important}
+.ed-grid .ip .pn{font-size:15px !important}
+.ed-grid .ip .pr{font-size:11px !important}
 
 /* MOBILE — mosaic tiles get the same real Bond NYC photography */
 .m-tile.tile-photo{background-repeat:no-repeat !important;background-size:cover !important}
@@ -680,7 +690,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .m-tile.tile-photo.downtown{background-image:url("img/nbhd-downtown-a.jpg") !important;background-position:center 50%}
 .m-tile.tile-photo.parks{background-image:url("img/nbhd-ny-parks-c.jpg") !important;background-position:center 50%}
 .m-tile.tile-photo.city-scents{background-image:url("img/nbhd-city-scent-a.jpg") !important;background-position:center 50%}
-.m-tile.tile-photo.beaches{background-image:url("img/nbhd-city-scent-a.jpg") !important;background-position:center 50%}
+.m-tile.tile-photo.beaches{background-image:url("img/nbhd-ny-beaches-a.jpg") !important;background-position:center 50%}
 
 /* MOBILE — Option A editorial spread hero image + bottle picks */
 .m-ed .img.tile-photo{background-repeat:no-repeat !important;background-size:cover !important;color:#fff !important;text-shadow:0 1px 6px rgba(0,0,0,.55);position:relative}
