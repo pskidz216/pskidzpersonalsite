@@ -633,35 +633,34 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
    Mosaic tiles get NYC photography. Bottle slots get real PNGs.
    ============================================================ */
 
-/* Mosaic — neighborhood photography on the 4 main tiles */
+/* Mosaic — REAL Bond NYC neighborhood photography on the 4 main tiles */
 .mosaic .tile.tile-photo{background-repeat:no-repeat;background-size:cover}
 .mosaic .tile.tile-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(0,0,0,.60) 100%);z-index:1;pointer-events:none}
 .mosaic .tile.tile-photo .tile-meta,.mosaic .tile.tile-photo .tile-img-cap,.mosaic .tile.tile-photo .tile-hover{position:absolute}
 .mosaic .tile.tile-photo .tile-meta{left:0;right:0;bottom:0;z-index:2;background:transparent;padding:20px 22px}
-.mosaic .tile.uptown{background-image:url("img/76th-madison.jpg");background-position:center 35%}
-.mosaic .tile.downtown{background-image:url("img/door02-downtown.jpg");background-position:center 50%}
-.mosaic .tile.parks{background-image:url("img/hero-higgsfield.jpg");background-position:center 60%}
-.mosaic .tile.city-scents{background-image:url("img/hero-bond-nyc.jpg");background-position:center 45%}
+.mosaic .tile.uptown{background-image:url("img/nbhd-uptown-a.jpg");background-position:center 40%}
+.mosaic .tile.downtown{background-image:url("img/nbhd-downtown-a.jpg");background-position:center 50%}
+.mosaic .tile.parks{background-image:url("img/nbhd-ny-parks-c.jpg");background-position:center 50%}
+.mosaic .tile.city-scents{background-image:url("img/nbhd-city-scent-a.jpg");background-position:center 50%}
 
-/* Editorial spread hero — cinematic Uptown shot */
-.ed-hero.uptown{background:#1f2020 url("img/76th-madison.jpg") center 40%/cover no-repeat}
+/* Editorial spread hero — REAL Bond Uptown photograph */
+.ed-hero.uptown{background:#1f2020 url("img/nbhd-uptown-a.jpg") center 40%/cover no-repeat}
 .ed-hero.uptown::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.55) 100%);pointer-events:none}
 .ed-hero.uptown .ed-hero-meta,.ed-hero.uptown .ed-hero-tag{position:relative;z-index:2}
 
-/* Bottle PNG swaps — Curated Three (60×90 slot) + All Eight grid (46×68 slot) */
-.bottle.b-real{background-color:#fff;background-repeat:no-repeat;background-position:center;background-size:78% auto;border:1px solid #EAEAEA}
-.bottle.b-bond-one{background-image:url("img/bottle-bond-one.png")}
-.bottle.b-madison-sq{background-image:url("img/bottle-madison-sq.png")}
-.bottle.b-amber{background-image:url("img/hero-bottle.png")}
-.bottle.b-bleecker{background-image:url("img/bottle-bleecker.png")}
-.bottle.b-greenwich{background-image:url("img/bottle-greenwich.png")}
-.bottle.b-chelsea{background-image:url("img/bottle-chelsea.png")}
-.bottle.b-nyn{background-image:url("img/bottle-nyn.png")}
-.bottle.b-nolita{background-image:url("img/bottle-nolita.png")}
-.bottle.b-brooklyn{background-image:url("img/bottle-brooklyn.png")}
-.bottle.b-nyn-nights{background-image:url("img/bottle-nyn.png")}
-.bottle.b-greenpoint{background-image:url("img/bottle-greenpoint.png")}
-.ed-grid .ip .bottle.b-real{width:50px;height:74px}
+/* REAL Bond bottle PNGs from Bond's New Website assets */
+.bottle.b-real{background-color:#fff;background-repeat:no-repeat;background-position:center;background-size:contain;border:1px solid #EAEAEA;padding:4px;box-sizing:border-box}
+.bottle.b-park-avenue{background-image:url("img/uptown-park-avenue.png")}
+.bottle.b-madison-soiree{background-image:url("img/uptown-madison-soiree.png")}
+.bottle.b-lexington-avenue{background-image:url("img/uptown-lexington-avenue.png")}
+.bottle.b-beekman-place{background-image:url("img/uptown-beekman-place.png")}
+.bottle.b-riverside-drive{background-image:url("img/uptown-riverside-drive.png")}
+.bottle.b-sutton-place{background-image:url("img/uptown-sutton-place.png")}
+.bottle.b-new-haarlem{background-image:url("img/uptown-new-haarlem.png")}
+.bottle.b-west-side{background-image:url("img/uptown-west-side.png")}
+.bottle.b-off-broadway{background-image:url("img/uptown-off-broadway.png")}
+.bottle.b-madison-avenue{background-image:url("img/uptown-madison-avenue.png")}
+.ed-grid .ip .bottle.b-real{width:54px;height:80px}
 
 </style>
 </head>
@@ -953,7 +952,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
           <div class="sub">Where to start with Uptown</div>
           <div class="grid">
             <div class="card">
-              <div class="bottle b-real b-bond-one"></div>
+              <div class="bottle b-real b-park-avenue"></div>
               <div class="info">
                 <div class="pn">Park Avenue</div>
                 <div class="pr">From $360 · EDP</div>
@@ -963,7 +962,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
               </div>
             </div>
             <div class="card">
-              <div class="bottle b-real b-madison-sq"></div>
+              <div class="bottle b-real b-madison-soiree"></div>
               <div class="info">
                 <div class="pn">Madison Soirée</div>
                 <div class="pr">From $335 · EDP</div>
@@ -973,7 +972,7 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
               </div>
             </div>
             <div class="card">
-              <div class="bottle b-real b-amber"></div>
+              <div class="bottle b-real b-lexington-avenue"></div>
               <div class="info">
                 <div class="pn">Andy Warhol Lex Ave</div>
                 <div class="pr">From $385 · EDP</div>
@@ -990,14 +989,14 @@ h2{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
           <div class="h">All eight Uptown fragrances.</div>
           <div class="sub">For the browser</div>
           <div class="row">
-            <div class="ip"><div class="bottle b-real b-bleecker"></div><div class="pn">Beekman Place</div><div class="pr">From $345</div><div class="stars">★★★★★ 5.0</div></div>
-            <div class="ip"><div class="bottle b-real b-greenwich"></div><div class="pn">Riverside Drive</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
-            <div class="ip"><div class="bottle b-real b-chelsea"></div><div class="pn">Sutton Place</div><div class="pr">$460</div><div class="stars">★★★★☆ 4.8</div></div>
-            <div class="ip"><div class="bottle b-real b-nyn"></div><div class="pn">New Haarlem</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
-            <div class="ip"><div class="bottle b-real b-nolita"></div><div class="pn">West Side</div><div class="pr">From $265</div><div class="stars">★★★★★ 4.8</div></div>
-            <div class="ip"><div class="bottle b-real b-brooklyn"></div><div class="pn">Off-Broadway</div><div class="pr">From $335</div><div class="stars">★★★★☆ 4.7</div></div>
-            <div class="ip"><div class="bottle b-real b-bond-one"></div><div class="pn">Park Avenue</div><div class="pr">$360</div><div class="stars">★★★★★ 4.9</div></div>
-            <div class="ip"><div class="bottle b-real b-madison-sq"></div><div class="pn">Madison Soirée</div><div class="pr">From $335</div><div class="stars">★★★★★ 5.0</div></div>
+            <div class="ip"><div class="bottle b-real b-beekman-place"></div><div class="pn">Beekman Place</div><div class="pr">From $345</div><div class="stars">★★★★★ 5.0</div></div>
+            <div class="ip"><div class="bottle b-real b-riverside-drive"></div><div class="pn">Riverside Drive</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
+            <div class="ip"><div class="bottle b-real b-sutton-place"></div><div class="pn">Sutton Place</div><div class="pr">$460</div><div class="stars">★★★★☆ 4.8</div></div>
+            <div class="ip"><div class="bottle b-real b-new-haarlem"></div><div class="pn">New Haarlem</div><div class="pr">$440</div><div class="stars">★★★★★ 4.9</div></div>
+            <div class="ip"><div class="bottle b-real b-west-side"></div><div class="pn">West Side</div><div class="pr">From $265</div><div class="stars">★★★★★ 4.8</div></div>
+            <div class="ip"><div class="bottle b-real b-off-broadway"></div><div class="pn">Off-Broadway</div><div class="pr">From $335</div><div class="stars">★★★★☆ 4.7</div></div>
+            <div class="ip"><div class="bottle b-real b-park-avenue"></div><div class="pn">Park Avenue</div><div class="pr">$360</div><div class="stars">★★★★★ 4.9</div></div>
+            <div class="ip"><div class="bottle b-real b-madison-soiree"></div><div class="pn">Madison Soirée</div><div class="pr">From $335</div><div class="stars">★★★★★ 5.0</div></div>
           </div>
         </div>
 
