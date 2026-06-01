@@ -160,8 +160,9 @@ h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(
 .hero-frame .hero-copy .h-statement{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.55)}
 .hero-frame .hero-copy .h-sub{color:#F4E9CC;text-shadow:0 1px 8px rgba(0,0,0,.55)}
 .hero-frame .hero-copy .btn{color:#fff;border-color:#fff;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-.wf.mobile .hero-frame .hero-copy{left:50%;top:50%;transform:translate(-50%,-50%);max-width:88%;text-align:center}
-.wf.mobile .hero-frame .bottle-overlay{left:50%;right:auto;bottom:4%;transform:translateX(-50%);height:92%}
+.wf.mobile .hero-frame{min-height:520px}
+.wf.mobile .hero-frame .hero-copy{position:absolute;left:0;right:0;top:6%;transform:none;max-width:88%;margin:0 auto;text-align:center;z-index:4}
+.wf.mobile .hero-frame .bottle-overlay{left:50%;right:auto;bottom:3%;transform:translateX(-50%);height:62%}
 .wf.mobile .shot-76th .bottle-overlay{left:50%;right:auto;bottom:-3%;transform:translateX(-50%);height:104%}
 .wf.mobile .shot-76th ~ .bar{margin-left:auto;margin-right:auto}
 .wf.mobile .shot-76th ~ a.btn{display:table;margin:10px auto 0}
