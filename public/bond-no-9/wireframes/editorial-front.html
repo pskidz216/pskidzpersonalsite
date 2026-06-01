@@ -171,7 +171,7 @@ h1{
 }
 .hero-frame .hero-copy{
   position:absolute;left:5%;top:50%;transform:translateY(-50%);
-  margin:0;z-index:3;max-width:460px;
+  margin:0;z-index:3;max-width:360px;
 }
 .wf.mobile .hero-frame .hero-copy{
   left:50%;top:50%;transform:translate(-50%,-50%);max-width:88%;
@@ -301,16 +301,18 @@ h1{
 
 /* Hero overlay copy */
 .hero-copy{
-  background:rgba(255,255,255,.95);padding:32px 44px;max-width:540px;text-align:center;
-  border:1px solid var(--gold);
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  padding:24px 30px;max-width:380px;text-align:center;
+  border:1px solid rgba(197,165,90,.7);
 }
-.h-eye{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.h-eye{font-family:var(--sans);font-size:8px;font-weight:700;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
 .h-statement{
   font-family:var(--display);font-style:italic;font-weight:700;
-  font-size:34px;line-height:1.05;color:var(--black);margin-bottom:14px;
+  font-size:26px;line-height:1.05;color:var(--black);margin-bottom:10px;
   font-variation-settings:"opsz" 144;letter-spacing:-.01em;
 }
-.h-sub{font-family:var(--sans);font-size:11px;line-height:1.5;color:var(--charcoal);margin-bottom:24px;letter-spacing:.02em}
+.h-sub{font-family:var(--sans);font-size:10px;line-height:1.5;color:var(--charcoal);margin-bottom:18px;letter-spacing:.02em}
 
 /* Annotations */
 .notes{
