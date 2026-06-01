@@ -171,13 +171,16 @@ h1{
 }
 .hero-frame .hero-copy{
   position:absolute;left:5%;top:50%;transform:translateY(-50%);
-  margin:0;z-index:3;max-width:360px;
+  margin:0;z-index:3;max-width:380px;
+  background:none !important;border:none !important;padding:0 !important;
+  backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
+  text-align:left;
 }
+.hero-frame .hero-copy .h-statement{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.hero-frame .hero-copy .h-sub{color:#F4E9CC;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.hero-frame .hero-copy .btn{color:#fff;border-color:#fff;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .wf.mobile .hero-frame .hero-copy{
-  left:50%;top:50%;transform:translate(-50%,-50%);max-width:88%;
-  background:rgba(255,255,255,.70);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
+  left:50%;top:50%;transform:translate(-50%,-50%);max-width:88%;text-align:center;
 }
 .wf.mobile .hero-frame .bottle-overlay{
   left:50%;right:auto;bottom:4%;transform:translateX(-50%);height:92%;
