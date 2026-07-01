@@ -59,7 +59,6 @@ export const pricingContent = {
       "Ad-hoc or out-of-scope work: $250–$300/hr, billed only when it falls outside a project or retainer.",
       "Tools, software, and API costs are billed separately, at cost — not included in the prices above.",
       "Monthly retainers are a 3-month minimum commitment.",
-      "Sequencing: audit first, then a project, then a retainer to keep it running.",
     ],
   },
   domain: "paulskidmoreii.com / pricing",

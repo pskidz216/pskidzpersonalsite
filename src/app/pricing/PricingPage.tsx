@@ -10,6 +10,24 @@ import { staggerContainer, viewportOnce } from "@/lib/animations";
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const CONTACT_EMAIL = "pskidmore216@gmail.com";
 
+const SCOPE_BOLD: Record<number, string> = {
+  1: "billed separately",
+  2: "3-month minimum",
+};
+
+function withBold(text: string, bold?: string) {
+  if (!bold) return text;
+  const idx = text.indexOf(bold);
+  if (idx === -1) return text;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <strong className="font-semibold text-text-primary">{bold}</strong>
+      {text.slice(idx + bold.length)}
+    </>
+  );
+}
+
 export function PricingPage() {
   const c = pricingContent;
 
@@ -147,7 +165,7 @@ export function PricingPage() {
         <section className="relative px-6 md:px-12 lg:px-20 py-12 md:py-16">
           <div className="max-w-3xl mx-auto">
             <SectionLabel>{c.scope.label}</SectionLabel>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {c.scope.lines.map((line, i) => (
                 <motion.p
                   key={i}
@@ -155,9 +173,12 @@ export function PricingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={viewportOnce}
                   transition={{ duration: 0.6, delay: i * 0.08, ease }}
-                  className="font-body text-text-secondary text-base leading-relaxed"
+                  className="flex gap-3 font-body text-text-secondary text-base leading-relaxed"
                 >
-                  {line}
+                  <span aria-hidden className="shrink-0 font-mono text-accent-coral text-sm leading-relaxed">
+                    ▸
+                  </span>
+                  <span>{withBold(line, SCOPE_BOLD[i])}</span>
                 </motion.p>
               ))}
             </div>
@@ -174,15 +195,24 @@ export function PricingPage() {
               transition={{ duration: 0.7, ease }}
             >
               <p className="font-body text-text-primary text-lg md:text-xl leading-relaxed mb-6">
-                Ready to start? Tell me what you&apos;re building.
+                <strong className="mr-1.5 font-semibold">Ready to start?</strong>
+                Tell me what you&apos;re building.
               </p>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="group relative inline-block font-body text-text-primary text-xl md:text-2xl font-medium"
-              >
-                {CONTACT_EMAIL}
-                <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-accent-coral origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-              </a>
+              <div className="flex flex-wrap items-center gap-6">
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="group relative inline-block font-body text-text-primary text-xl md:text-2xl font-medium"
+                >
+                  {CONTACT_EMAIL}
+                  <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-accent-coral origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+                </a>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}?subject=Let's talk`}
+                  className="inline-flex items-center justify-center rounded-full bg-accent-coral px-6 py-3 font-body text-white text-sm font-medium transition-colors duration-300 hover:bg-accent-coral/90"
+                >
+                  Tell me more
+                </a>
+              </div>
             </motion.div>
 
             <motion.div
