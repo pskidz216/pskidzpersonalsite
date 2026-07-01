@@ -1,6 +1,6 @@
 export const pricingContent = {
   hero: {
-    h1: "Two ways to work together.",
+    h1: "Ways we can work together.",
     subhead:
       "Fixed-price builds for AI-native brand, web, and automation work — or a retainer to keep it running and keep building.",
   },
