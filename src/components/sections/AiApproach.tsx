@@ -26,6 +26,11 @@ const approaches = [
     description:
       "Custom AI-powered dashboards, employee handbooks with built-in chatbots, and SDR platforms that replace entire workflow stacks. Built fast, shipped faster.",
   },
+  {
+    title: "UX & Design Creative",
+    description:
+      "AI-driven UX audits, wireframes, and full brand systems — color, type, voice, identity. I score real interfaces against modern conversion principles, then ship the redesign myself.",
+  },
 ];
 
 export function AiApproach() {

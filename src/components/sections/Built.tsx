@@ -51,18 +51,31 @@ function ProjectCard({ project }: { project: Project }) {
       }}
       className="group cursor-default rounded-xl overflow-hidden bg-bg-primary shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
     >
-      {/* Screenshot preview */}
-      {!imgError && (
+      {/* Screenshot / video preview */}
+      {project.video ? (
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-bg-dark">
-          <Image
-            src={project.image}
-            alt={`${project.name} screenshot`}
-            fill
-            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            onError={() => setImgError(true)}
+          <video
+            src={project.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
+      ) : (
+        !imgError && (
+          <div className="relative w-full aspect-[16/10] overflow-hidden bg-bg-dark">
+            <Image
+              src={project.image}
+              alt={`${project.name} screenshot`}
+              fill
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              onError={() => setImgError(true)}
+            />
+          </div>
+        )
       )}
 
       {/* Card body */}

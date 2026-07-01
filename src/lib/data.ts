@@ -129,6 +129,7 @@ export interface Project {
   description: string;
   tech: string;
   image: string;
+  video?: string;
 }
 
 export const projects: Project[] = [
@@ -163,6 +164,23 @@ export const projects: Project[] = [
       "An autonomous signal agent that scrapes Reddit, forums, and search for buying-intent signals, then finds, enriches, and validates leads before they ever reach the pipeline. Multi-tenant — one engine, many brand profiles, scored and deduped on a schedule.",
     tech: "Python, Playwright, Clay, SQLite",
     image: "/projects/signal-agent.png",
+  },
+  {
+    name: "Human OS",
+    tag: "Quiz Engine",
+    description:
+      "A 7-step quiz that turns a person's answers into personalized supplement recommendations across nine brand partners, ending on a results page built to be shared.",
+    tech: "Next.js, Supabase, Tailwind",
+    image: "/projects/human-os.png",
+  },
+  {
+    name: "Spiritual Site",
+    tag: "Parallax Experience",
+    description:
+      "A spiritual wellness platform built around scroll-driven parallax motion — custom GSAP and Framer Motion choreography with Lenis smooth-scroll on every section.",
+    tech: "Next.js, GSAP, Framer Motion, Lenis",
+    image: "/projects/spiritual-site.png",
+    video: "/projects/spiritual-site.mp4",
   },
 ];
 
