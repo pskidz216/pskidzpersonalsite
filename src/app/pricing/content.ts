@@ -51,13 +51,14 @@ export const pricingContent = {
     label: "Go deeper",
     name: "Fractional Operator",
     price: "$10,000/mo",
-    copy: "A third to half of my time, dedicated to your business. AI, sales, marketing, business development, ops, systems — wherever the leverage is.",
+    copy: "A dedicated person in your organization. AI, sales, marketing, business development, ops, systems — wherever the leverage is.",
   },
   scope: {
     label: "Scope",
     lines: [
       "Ad-hoc or out-of-scope work: $250–$300/hr, billed only when it falls outside a project or retainer.",
       "Tools, software, and API costs are billed separately, at cost — not included in the prices above.",
+      "Monthly retainers are a 3-month minimum commitment.",
       "Sequencing: audit first, then a project, then a retainer to keep it running.",
     ],
   },
