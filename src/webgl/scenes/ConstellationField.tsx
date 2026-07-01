@@ -20,14 +20,14 @@ import { useR3fStore } from "@/lib/r3fStore";
 import { Whisper } from "@/webgl/effects/Whisper";
 
 // Scene config — tuned for "whisper" intensity.
-const PARTICLE_COUNT = 140;
+const PARTICLE_COUNT = 90;
 const ACCENT_RATIO = 0.18; // ~18% of particles take the coral accent color.
 const FIELD_X = 11;
 const FIELD_Y = 6;
 const FIELD_Z = 4;
-const CONNECT_DIST = 1.45;
+const CONNECT_DIST = 1.15;
 const CONNECT_DIST_SQ = CONNECT_DIST * CONNECT_DIST;
-const MAX_LINES = 360;
+const MAX_LINES = 180;
 const RECONNECT_EVERY_FRAMES = 3; // O(n^2) pair-scan throttle.
 const DRIFT_SPEED = 0.18;
 const DRIFT_AMPLITUDE_Y = 0.16;
@@ -36,8 +36,8 @@ const CAMERA_PARALLAX_RANGE_X = 0.4;
 const CAMERA_PARALLAX_RANGE_Y = 0.25;
 const CAMERA_LERP = 0.04;
 const PARTICLE_SIZE = 0.05;
-const LINE_OPACITY = 0.45;
-const PARTICLE_OPACITY = 0.9;
+const LINE_OPACITY = 0.25;
+const PARTICLE_OPACITY = 0.75;
 const COLOR_BASE = new Color("#f4f1ed"); // warm off-white, matches site bg tone
 const COLOR_ACCENT = new Color("#e8735a"); // brand coral
 const COLOR_LINE = new Color("#e8735a"); // brand coral — readable orange lines

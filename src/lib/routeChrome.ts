@@ -12,12 +12,15 @@
  *    Skipped on bond-no-9 SUB-routes (/bond-no-9/wireframes,
  *    /bond-no-9/popups, /bond-no-9/brand-comparison, etc.) so review
  *    content reads on clean paper. The /bond-no-9 login page itself
- *    KEEPS the constellation as a brand entry moment.
+ *    KEEPS the constellation as a brand entry moment. Also skipped on
+ *    /pricing — a text-dense back page where the constellation read as
+ *    visual noise behind the tier cards.
  *
  * The scroll progress bar always mounts — it's a 3px strip at top:0
  * that never overlaps content.
  */
 export const ROUTE_PREFIXES_WITHOUT_CURSOR_OR_LENIS = ["/bond-no-9"] as const;
+export const ROUTE_PREFIXES_WITHOUT_DECORATIVE_CHROME = ["/pricing"] as const;
 
 export function pathHasGlobalChrome(pathname: string | null | undefined): boolean {
   if (!pathname) return true;
@@ -31,11 +34,16 @@ export function pathHasGlobalChrome(pathname: string | null | undefined): boolea
  *
  * The bond-no-9 LOGIN (exact path) keeps them as a brand intro.
  * Any sub-route under /bond-no-9/ is review content and renders on white.
+ * /pricing renders on white too — same reasoning, different route.
  */
 export function pathShowsDecorativeChrome(
   pathname: string | null | undefined
 ): boolean {
   if (!pathname) return true;
   // Match /bond-no-9/<something> — i.e. a sub-route, not the login root.
-  return !/^\/bond-no-9\/[^/]/.test(pathname);
+  if (/^\/bond-no-9\/[^/]/.test(pathname)) return false;
+  if (ROUTE_PREFIXES_WITHOUT_DECORATIVE_CHROME.some((prefix) => pathname.startsWith(prefix))) {
+    return false;
+  }
+  return true;
 }
