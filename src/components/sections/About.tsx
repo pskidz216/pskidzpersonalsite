@@ -153,7 +153,7 @@ export function About() {
             </span>
             <span className="inline-flex items-center gap-1 bg-[#58CC02]/10 text-[#58CC02] text-xs font-medium px-2 py-0.5 rounded-full">
               <DuolingoIcon className="w-3.5 h-3.5" />
-              Score 44
+              Score 45
             </span>
           </span>
         </motion.div>
