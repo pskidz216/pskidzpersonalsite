@@ -31,7 +31,7 @@ const paragraphs = [
     node: (
       <>
         These days, AI is my{" "}
-        <span className="text-accent-coral font-medium">unfair advantage</span>,
+        <span className="text-accent-teal font-medium">unfair advantage</span>,
         but people are my superpower. I build custom AI agents that automate the
         grind so I can spend my time where it matters most: face-to-face,
         building relationships, and earning trust. Technology scales the work.
@@ -75,7 +75,7 @@ export function About() {
             className="font-heading font-black text-text-primary leading-[0.95] tracking-tight inline-block"
             style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
           >
-            About <span className="text-accent-coral">Me</span>
+            About <span className="text-accent-teal">Me</span>
           </motion.h2>
         </div>
 

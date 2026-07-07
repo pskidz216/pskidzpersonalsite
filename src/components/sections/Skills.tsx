@@ -1,62 +1,31 @@
 "use client";
 
-import { useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
-import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
+import { motion } from "framer-motion";
+import { staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { skillBlocks, type SkillBlock } from "@/lib/data";
 
-function TiltCard({ skill }: { skill: SkillBlock }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const rotateX = useMotionValue(0);
-  const rotateY = useMotionValue(0);
-  const springRotateX = useSpring(rotateX, { stiffness: 300, damping: 20 });
-  const springRotateY = useSpring(rotateY, { stiffness: 300, damping: 20 });
-
-  function handleMouseMove(e: React.MouseEvent) {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    rotateX.set(y * -8);
-    rotateY.set(x * 8);
-  }
-
-  function handleMouseLeave() {
-    rotateX.set(0);
-    rotateY.set(0);
-  }
-
+function SkillCard({ skill }: { skill: SkillBlock }) {
   return (
-    <motion.div
-      ref={ref}
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX: springRotateX,
-        rotateY: springRotateY,
-        transformPerspective: 800,
-      }}
-      className="group py-6 transition-shadow duration-300 cursor-default"
+    <TiltCard
+      inViewSelf
+      maxTilt={7}
+      liftScale={1.01}
+      glare={false}
+      shadow={false}
+      className="group relative py-6 cursor-default"
     >
-      <h3 className="font-heading font-bold text-text-primary text-lg md:text-xl">
+      <h3 className="font-heading font-bold text-text-primary text-lg md:text-xl [transform:translateZ(26px)]">
         {skill.title}
       </h3>
-      <p className="font-body text-text-secondary text-[15px] leading-relaxed mt-3">
+      <p className="font-body text-text-secondary text-[15px] leading-relaxed mt-3 [transform:translateZ(14px)]">
         {skill.description}
       </p>
       <p className="font-body text-text-muted text-sm mt-3 italic">
         {skill.tools}
       </p>
-    </motion.div>
+    </TiltCard>
   );
 }
 
@@ -79,7 +48,7 @@ export function Skills() {
             className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10"
           >
             {skillBlocks.map((skill) => (
-              <TiltCard key={skill.title} skill={skill} />
+              <SkillCard key={skill.title} skill={skill} />
             ))}
           </motion.div>
         </SectionWithStickyTitle>

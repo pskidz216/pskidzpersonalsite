@@ -62,7 +62,7 @@ export function TimelineMetric({
 
   return (
     <div ref={ref} className="mt-4">
-      <span className="font-mono text-accent-coral font-bold" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}>
+      <span className="font-mono text-accent-teal font-bold" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}>
         {display}
       </span>
       <p className="font-body text-[13px] text-text-muted mt-0.5">{label}</p>

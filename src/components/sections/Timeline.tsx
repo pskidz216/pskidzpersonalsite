@@ -29,7 +29,7 @@ export function Timeline() {
           className="font-heading font-black text-text-primary leading-[0.95] tracking-tight mb-14 md:mb-20"
           style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
         >
-          The <span className="text-accent-coral">Journey</span>
+          The <span className="text-accent-teal">Journey</span>
         </motion.h2>
 
         <div className="relative">

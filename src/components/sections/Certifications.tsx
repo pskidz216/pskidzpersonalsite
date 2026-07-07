@@ -30,7 +30,7 @@ function GoogleIcon({ className }: { className?: string }) {
 function GAIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none">
-      <rect x="3" y="3" width="18" height="18" rx="3" fill="#E8735A" />
+      <rect x="3" y="3" width="18" height="18" rx="3" fill="#2D9B9B" />
       <text x="12" y="16" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="sans-serif">GA</text>
     </svg>
   );
@@ -48,7 +48,7 @@ function ShieldIcon({ className }: { className?: string }) {
 function WellnessIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none">
-      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#E8735A" />
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#2D9B9B" />
     </svg>
   );
 }
@@ -102,12 +102,12 @@ function getIssuerColor(issuer: string) {
     case "Google":
       return "text-[#4285F4]";
     case "General Assembly":
-      return "text-accent-coral";
+      return "text-accent-teal";
     case "NSCA":
       return "text-[#1A3A5C]";
     case "Poliquin Group":
     case "CHEK Institute":
-      return "text-accent-coral";
+      return "text-accent-teal";
     default:
       return "text-text-muted";
   }

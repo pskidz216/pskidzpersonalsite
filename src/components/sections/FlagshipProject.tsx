@@ -1,13 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeUp, scaleIn, staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const stats = [
   { value: "23", label: "Skills", color: "bg-accent-coral" },
@@ -76,25 +73,6 @@ function CommandPill({ command, delay }: { command: string; delay: number }) {
 
 export function FlagshipProject() {
   const sectionRef = useRef<HTMLElement>(null);
-
-  // Magnetic card effect for terminal
-  const rotateX = useMotionValue(0);
-  const rotateY = useMotionValue(0);
-  const springRotateX = useSpring(rotateX, { stiffness: 200, damping: 20 });
-  const springRotateY = useSpring(rotateY, { stiffness: 200, damping: 20 });
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    rotateX.set(y * -6);
-    rotateY.set(x * 6);
-  }
-
-  function handleMouseLeave() {
-    rotateX.set(0);
-    rotateY.set(0);
-  }
 
   return (
     <section
@@ -176,19 +154,13 @@ export function FlagshipProject() {
           </motion.div>
 
           {/* Right — Terminal card (2 cols) */}
-          <motion.div
+          <TiltCard
             variants={scaleIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              rotateX: springRotateX,
-              rotateY: springRotateY,
-              transformPerspective: 800,
-            }}
-            className="lg:col-span-2 relative rounded-2xl bg-bg-dark p-5 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-bg-dark/5 overflow-hidden"
+            inViewSelf
+            maxTilt={7}
+            glareStrength={0.14}
+            shadow={false}
+            className="lg:col-span-2 relative rounded-2xl bg-bg-dark p-5 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-bg-dark/5"
           >
             {/* BorderBeam */}
             <div
@@ -248,7 +220,7 @@ export function FlagshipProject() {
                 />
               </div>
             </div>
-          </motion.div>
+          </TiltCard>
         </div>
 
         {/* Capabilities grid */}
@@ -260,20 +232,21 @@ export function FlagshipProject() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8"
         >
           {capabilities.map((cap) => (
-            <motion.div
+            <TiltCard
               key={cap.title}
-              variants={fadeUp}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              maxTilt={6}
+              glare={false}
+              shadow={false}
               className={`group relative rounded-2xl border-2 ${cap.color} bg-bg-primary p-6 md:p-8 transition-colors duration-300 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]`}
             >
               <div className={`w-2.5 h-2.5 rounded-full ${cap.dot} mb-4`} />
-              <h4 className="font-heading font-bold text-text-primary text-lg md:text-xl mb-2">
+              <h4 className="font-heading font-bold text-text-primary text-lg md:text-xl mb-2 [transform:translateZ(24px)]">
                 {cap.title}
               </h4>
-              <p className="font-body text-text-secondary text-[15px] leading-relaxed">
+              <p className="font-body text-text-secondary text-[15px] leading-relaxed [transform:translateZ(12px)]">
                 {cap.description}
               </p>
-            </motion.div>
+            </TiltCard>
           ))}
         </motion.div>
         </SectionWithStickyTitle>

@@ -32,7 +32,7 @@ export function TimelineNode({
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={viewportOnce}
           transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
-          className="w-3 h-3 rounded-full border-2 border-accent-coral bg-bg-secondary z-10 mt-2 shadow-[0_0_0_4px_rgba(232,115,90,0.15)]"
+          className="w-3 h-3 rounded-full border-2 border-accent-teal bg-bg-secondary z-10 mt-2 shadow-[0_0_0_4px_rgba(45,155,155,0.15)]"
         />
         {/* Connector arm - mobile */}
         <motion.div
@@ -40,7 +40,7 @@ export function TimelineNode({
           whileInView={{ scaleX: 1 }}
           viewport={viewportOnce}
           transition={{ duration: 0.3, ease }}
-          className="md:hidden absolute top-[11px] left-[24px] w-4 h-[1.5px] bg-accent-coral origin-left"
+          className="md:hidden absolute top-[11px] left-[24px] w-4 h-[1.5px] bg-accent-teal origin-left"
         />
         {/* Connector arm - desktop left */}
         {isLeft && (
@@ -49,7 +49,7 @@ export function TimelineNode({
             whileInView={{ scaleX: 1 }}
             viewport={viewportOnce}
             transition={{ duration: 0.3, ease }}
-            className="hidden md:block absolute top-[11px] right-[24px] w-6 h-[1.5px] bg-accent-coral origin-right"
+            className="hidden md:block absolute top-[11px] right-[24px] w-6 h-[1.5px] bg-accent-teal origin-right"
           />
         )}
         {/* Connector arm - desktop right */}
@@ -59,7 +59,7 @@ export function TimelineNode({
             whileInView={{ scaleX: 1 }}
             viewport={viewportOnce}
             transition={{ duration: 0.3, ease }}
-            className="hidden md:block absolute top-[11px] left-[24px] w-6 h-[1.5px] bg-accent-coral origin-left"
+            className="hidden md:block absolute top-[11px] left-[24px] w-6 h-[1.5px] bg-accent-teal origin-left"
           />
         )}
       </div>
@@ -129,7 +129,7 @@ function CardContent({
       <motion.span
         animate={{ rotate: expanded ? 180 : 0 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`inline-block text-accent-coral text-sm mt-3 select-none ${side === "left" ? "mr-0" : "ml-0"}`}
+        className={`inline-block text-accent-teal text-sm mt-3 select-none ${side === "left" ? "mr-0" : "ml-0"}`}
       >
         {expanded ? "▲" : "▼"}
       </motion.span>

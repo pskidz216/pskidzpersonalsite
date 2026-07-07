@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { navLinks } from "@/lib/data";
+import { PSSeal } from "@/components/ui/PSSeal";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,11 +54,7 @@ export function Navbar() {
             }}
             className="flex items-center gap-2 group"
           >
-            <span className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-text-primary bg-transparent group-hover:bg-accent-coral group-hover:border-accent-coral transition-all duration-300">
-              <span className="font-heading font-bold text-[15px] md:text-[18px] tracking-[-0.03em] leading-none text-text-primary group-hover:text-white transition-colors duration-300">
-                PS
-              </span>
-            </span>
+            <PSSeal className="w-10 h-10 md:w-12 md:h-12 text-text-primary group-hover:text-accent-coral group-hover:rotate-[8deg] group-hover:scale-105 transition-all duration-300" />
           </a>
 
           {/* Desktop links */}
@@ -96,7 +93,7 @@ export function Navbar() {
         </div>
         <motion.div
           style={{ scaleX: smoothProgress, transformOrigin: "left" }}
-          className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-coral"
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent-coral to-accent-teal"
         />
       </motion.nav>
 

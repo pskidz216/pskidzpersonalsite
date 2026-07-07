@@ -141,7 +141,7 @@ export function OffTheClock() {
         <SectionWithStickyTitle
           title={
             <>
-              Off the <span className="text-accent-coral">Clock</span>
+              Off the <span className="text-accent-teal">Clock</span>
             </>
           }
         >
@@ -180,7 +180,7 @@ export function OffTheClock() {
                 <span>{ACTIVITIES[current].text}</span>
                 {(() => {
                   const Icon = ACTIVITIES[current].icon;
-                  return <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 text-accent-coral shrink-0" />;
+                  return <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 text-accent-teal shrink-0" />;
                 })()}
               </motion.span>
             </AnimatePresence>
@@ -201,7 +201,7 @@ export function OffTheClock() {
                 <span
                   className={`block w-2 h-2 rounded-full transition-all duration-300 ${
                     i === current
-                      ? "bg-accent-coral scale-125"
+                      ? "bg-accent-teal scale-125"
                       : "bg-timeline-line group-hover:bg-text-muted"
                   }`}
                 />
@@ -222,7 +222,7 @@ export function OffTheClock() {
                     onClick={() => setCurrent(i)}
                     className={`font-body text-sm transition-colors duration-300 cursor-pointer flex items-center gap-2 ${
                       i === current
-                        ? "text-accent-coral font-medium"
+                        ? "text-accent-teal font-medium"
                         : "text-text-muted hover:text-text-secondary"
                     }`}
                   >

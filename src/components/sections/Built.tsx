@@ -1,59 +1,31 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/animations";
 import { SectionWithStickyTitle } from "@/components/ui/SectionWithStickyTitle";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { projects, type Project } from "@/lib/data";
 
 /* ─── Project Card ─── */
 
-function ProjectCard({ project }: { project: Project }) {
-  const ref = useRef<HTMLDivElement>(null);
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [imgError, setImgError] = useState(false);
-  const rotateX = useMotionValue(0);
-  const rotateY = useMotionValue(0);
-  const springRotateX = useSpring(rotateX, { stiffness: 300, damping: 20 });
-  const springRotateY = useSpring(rotateY, { stiffness: 300, damping: 20 });
-
-  function handleMouseMove(e: React.MouseEvent) {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    rotateX.set(y * -8);
-    rotateY.set(x * 8);
-  }
-
-  function handleMouseLeave() {
-    rotateX.set(0);
-    rotateY.set(0);
-  }
+  const pillColor =
+    index % 2 === 0
+      ? "text-accent-coral bg-accent-coral/10"
+      : "text-accent-teal bg-accent-teal/10";
 
   return (
-    <motion.div
-      ref={ref}
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX: springRotateX,
-        rotateY: springRotateY,
-        transformPerspective: 800,
-      }}
-      className="group cursor-default rounded-xl overflow-hidden bg-bg-primary shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+    <TiltCard
+      inViewSelf
+      maxTilt={10}
+      className="group relative cursor-default rounded-xl bg-bg-primary shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
     >
       {/* Screenshot / video preview */}
       {project.video ? (
-        <div className="relative w-full aspect-[16/10] overflow-hidden bg-bg-dark">
+        <div className="relative w-full aspect-[16/10] overflow-hidden rounded-t-xl bg-bg-dark">
           <video
             src={project.video}
             autoPlay
@@ -65,7 +37,7 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
       ) : (
         !imgError && (
-          <div className="relative w-full aspect-[16/10] overflow-hidden bg-bg-dark">
+          <div className="relative w-full aspect-[16/10] overflow-hidden rounded-t-xl bg-bg-dark">
             <Image
               src={project.image}
               alt={`${project.name} screenshot`}
@@ -78,13 +50,13 @@ function ProjectCard({ project }: { project: Project }) {
         )
       )}
 
-      {/* Card body */}
-      <div className="p-5">
+      {/* Card body — floats above the card surface while tilting */}
+      <div className="p-5 [transform:translateZ(30px)]">
         <div className="flex items-center gap-3 mb-3">
           <h3 className="font-heading font-bold text-text-primary text-lg md:text-xl">
             {project.name}
           </h3>
-          <span className="inline-flex items-center font-body text-[11px] font-medium uppercase tracking-[0.08em] [text-indent:0.08em] leading-none text-accent-coral bg-accent-coral/10 px-2.5 py-1 rounded-full">
+          <span className={`inline-flex items-center font-body text-[11px] font-medium uppercase tracking-[0.08em] [text-indent:0.08em] leading-none ${pillColor} px-2.5 py-1 rounded-full`}>
             {project.tag}
           </span>
         </div>
@@ -95,17 +67,15 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tech}
         </p>
       </div>
-    </motion.div>
+    </TiltCard>
   );
 }
 
 /* ─── Main Section ─── */
 
 export function Built() {
-  const sectionRef = useRef<HTMLElement>(null);
   return (
     <section
-      ref={sectionRef}
       id="built"
       className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-bg-secondary overflow-hidden"
     >
@@ -135,8 +105,8 @@ export function Built() {
             viewport={viewportOnce}
             className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10"
           >
-            {projects.map((project) => (
-              <ProjectCard key={project.name} project={project} />
+            {projects.map((project, index) => (
+              <ProjectCard key={project.name} project={project} index={index} />
             ))}
           </motion.div>
         </SectionWithStickyTitle>
