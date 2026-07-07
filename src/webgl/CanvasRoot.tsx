@@ -66,6 +66,10 @@ export function CanvasRoot() {
       data-testid="canvas-root"
     >
       <Canvas
+        // R3F's wrapper div sets pointer-events:auto by default, which defeats
+        // the pointer-events-none above and blocks clicks on everything the
+        // fixed canvas overlaps (e.g. the Certs accordions).
+        style={{ pointerEvents: "none" }}
         dpr={[1, 1.5]}
         gl={{
           antialias: true,
