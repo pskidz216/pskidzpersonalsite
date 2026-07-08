@@ -5,6 +5,7 @@ import { motion, MotionConfig } from "framer-motion";
 import { pricingContent } from "./content";
 import { SectionLabel } from "@/components/audit/SectionLabel";
 import { TierCard } from "@/components/pricing/TierCard";
+import { PSSeal } from "@/components/ui/PSSeal";
 import { staggerContainer, viewportOnce } from "@/lib/animations";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -39,11 +40,7 @@ export function PricingPage() {
         className="fixed top-5 left-5 md:top-7 md:left-8 z-40 flex items-center gap-2 group rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-coral focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary"
         aria-label="Back to home"
       >
-        <span className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-text-primary bg-transparent group-hover:bg-accent-coral group-hover:border-accent-coral transition-all duration-300">
-          <span className="font-heading font-bold text-[15px] md:text-[18px] tracking-[-0.03em] leading-none text-text-primary group-hover:text-white transition-colors duration-300">
-            PS
-          </span>
-        </span>
+        <PSSeal className="w-10 h-10 md:w-12 md:h-12 text-text-primary group-hover:text-accent-coral group-hover:rotate-[8deg] group-hover:scale-105 transition-all duration-300" />
       </Link>
 
       <main className="relative">
@@ -122,7 +119,7 @@ export function PricingPage() {
         {/* RETAINER TIERS */}
         <section className="relative px-6 md:px-12 lg:px-20 py-16 md:py-20">
           <div className="max-w-5xl mx-auto">
-            <SectionLabel>{c.retainers.label}</SectionLabel>
+            <SectionLabel accent="teal">{c.retainers.label}</SectionLabel>
             <motion.div
               variants={staggerContainer}
               initial="hidden"
@@ -131,7 +128,7 @@ export function PricingPage() {
               className="grid md:grid-cols-2 gap-6 md:gap-8"
             >
               {c.retainers.items.map((tier) => (
-                <TierCard key={tier.name} {...tier} />
+                <TierCard key={tier.name} {...tier} accent="teal" />
               ))}
             </motion.div>
           </div>
@@ -140,18 +137,18 @@ export function PricingPage() {
         {/* FRACTIONAL */}
         <section className="relative px-6 md:px-12 lg:px-20 py-16 md:py-20 bg-bg-secondary/40">
           <div className="max-w-3xl mx-auto">
-            <SectionLabel>{c.fractional.label}</SectionLabel>
+            <SectionLabel accent="teal">{c.fractional.label}</SectionLabel>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}
               transition={{ duration: 0.8, ease }}
-              className="relative rounded-2xl border border-accent-coral bg-accent-coral/[0.04] p-8 md:p-10"
+              className="relative rounded-2xl border border-accent-teal bg-accent-teal/[0.04] p-8 md:p-10"
             >
               <h2 className="font-heading font-bold text-text-primary text-2xl md:text-3xl tracking-tight mb-2">
                 {c.fractional.name}
               </h2>
-              <p className="font-mono text-accent-coral text-sm tracking-[0.05em] mb-5">
+              <p className="font-mono text-accent-teal text-sm tracking-[0.05em] mb-5">
                 {c.fractional.price}
               </p>
               <p className="font-body text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl">
@@ -175,7 +172,7 @@ export function PricingPage() {
                   transition={{ duration: 0.6, delay: i * 0.08, ease }}
                   className="flex gap-3 font-body text-text-secondary text-base leading-relaxed"
                 >
-                  <span aria-hidden className="shrink-0 font-mono text-accent-coral text-sm leading-relaxed">
+                  <span aria-hidden className="shrink-0 font-mono text-accent-teal text-sm leading-relaxed">
                     ▸
                   </span>
                   <span>{withBold(line, SCOPE_BOLD[i])}</span>
@@ -221,7 +218,7 @@ export function PricingPage() {
               viewport={viewportOnce}
               transition={{ duration: 1.2, delay: 0.4, ease }}
               style={{ transformOrigin: "left" }}
-              className="h-[1px] bg-accent-coral/40 mt-14 md:mt-16"
+              className="h-[1px] bg-gradient-to-r from-accent-coral/40 to-accent-teal/40 mt-14 md:mt-16"
             />
           </div>
         </section>

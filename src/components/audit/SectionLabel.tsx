@@ -2,7 +2,13 @@
 
 import { motion } from "framer-motion";
 
-export function SectionLabel({ children }: { children: string }) {
+export function SectionLabel({
+  children,
+  accent = "coral",
+}: {
+  children: string;
+  accent?: "coral" | "teal";
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -11,7 +17,12 @@ export function SectionLabel({ children }: { children: string }) {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className="flex items-center gap-3 mb-10 md:mb-14"
     >
-      <span className="block w-1.5 h-1.5 bg-accent-coral rounded-full" aria-hidden />
+      <span
+        className={`block w-1.5 h-1.5 rounded-full ${
+          accent === "teal" ? "bg-accent-teal" : "bg-accent-coral"
+        }`}
+        aria-hidden
+      />
       <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-secondary">
         {children}
       </span>
