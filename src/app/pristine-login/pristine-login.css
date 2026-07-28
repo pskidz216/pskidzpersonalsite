@@ -1,0 +1,97 @@
+/* Gate for the Pristine Coastal Co. concept deck.
+   Intracoastal palette so the door matches the room behind it. */
+
+.pl-wrap {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem;
+  background: #183f3b;
+  color: #f6f0e6;
+}
+
+.pl-card {
+  width: 100%;
+  max-width: 26rem;
+  background: #f6f0e6;
+  color: #183f3b;
+  padding: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+.pl-kicker {
+  margin: 0 0 1.1rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: #4b7370;
+}
+
+.pl-title {
+  margin: 0 0 0.4rem;
+  font-family: "Cormorant Garamond", Cormorant, Garamond, serif;
+  font-weight: 300;
+  font-size: clamp(1.9rem, 6vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+}
+
+.pl-sub {
+  margin: 0 0 2rem;
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+.pl-form { display: grid; gap: 0.55rem; }
+
+.pl-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  opacity: 0.62;
+}
+
+.pl-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0;
+  font: inherit;
+  color: #183f3b;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(24, 63, 59, 0.28);
+  transition: border-color 0.25s ease;
+}
+.pl-input:focus {
+  outline: none;
+  border-bottom: 2px solid #4b7370;
+}
+
+.pl-error {
+  margin: 0.35rem 0 0;
+  font-size: 0.8125rem;
+  color: #8c3a25; /* readable on the shell ground; coral itself is only 2.63:1 */
+}
+
+.pl-btn {
+  margin-top: 1.4rem;
+  min-height: 48px;
+  padding: 0.95rem 1.6rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #f6f0e6;
+  background: #183f3b;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.pl-btn:hover { background: #4b7370; }
+.pl-btn:disabled { opacity: 0.6; cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pl-input, .pl-btn { transition: none; }
+}
