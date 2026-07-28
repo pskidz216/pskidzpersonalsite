@@ -8,12 +8,17 @@ const COOKIE_NAME = "pristine_access";
 const COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 14;
 
 /**
- * No hardcoded fallback. This repository is public, so a fallback password
- * committed here would be the same as having no password at all.
+ * Fallback so the deck works with no Vercel config, matching bond-no-9.
+ * This repo is public, so the fallback is readable by anyone who finds it.
+ * Set PRISTINE_ACCESS_PASSWORD in Vercel to make the gate genuinely private.
  */
-function configuredPassword(): string | null {
+const PASSWORD_FALLBACK = "Pristine1@";
+
+function configuredPassword(): string {
   const fromEnv = process.env.PRISTINE_ACCESS_PASSWORD;
-  return typeof fromEnv === "string" && fromEnv.length > 0 ? fromEnv : null;
+  return typeof fromEnv === "string" && fromEnv.length > 0
+    ? fromEnv
+    : PASSWORD_FALLBACK;
 }
 
 function tokenFor(password: string): string {
@@ -34,10 +39,6 @@ export async function login(
   formData: FormData,
 ): Promise<LoginState> {
   const expected = configuredPassword();
-  if (!expected) {
-    return { error: "This preview is not configured yet." };
-  }
-
   const supplied = String(formData.get("password") ?? "");
   if (!safeEqual(supplied, expected)) {
     return { error: "That password is not right." };

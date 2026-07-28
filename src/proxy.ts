@@ -11,13 +11,16 @@ import { NextRequest, NextResponse } from "next/server";
  * an App Router route and cannot gate itself. Middleware runs ahead of static
  * file serving, which is the only place this check can live.
  *
- * There is deliberately NO hardcoded password fallback here. This repository
- * is public, so a fallback would be the password. If PRISTINE_ACCESS_PASSWORD
- * is unset the deck stays locked, which is the correct way to fail.
+ * PASSWORD_FALLBACK exists so the deck works without any Vercel config, the
+ * same way bond-no-9 does. Be clear-eyed about what that buys: this repo is
+ * public, so the fallback is readable by anyone who finds it. The gate stops
+ * a casual visitor, not a determined one. Set PRISTINE_ACCESS_PASSWORD in
+ * Vercel to override it with something that is actually private.
  */
 
 const COOKIE_NAME = "pristine_access";
 const LOGIN_PATH = "/pristine-login";
+const PASSWORD_FALLBACK = "Pristine1@";
 
 async function sha256Hex(value: string): Promise<string> {
   const data = new TextEncoder().encode(value);
@@ -38,13 +41,9 @@ function safeEqual(a: string, b: string): boolean {
 export async function proxy(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
 
-  const password = process.env.PRISTINE_ACCESS_PASSWORD;
-  if (!password) {
-    return new NextResponse(
-      "This preview is not configured. Set PRISTINE_ACCESS_PASSWORD.",
-      { status: 503, headers: { "content-type": "text/plain" } },
-    );
-  }
+  const fromEnv = process.env.PRISTINE_ACCESS_PASSWORD;
+  const password =
+    typeof fromEnv === "string" && fromEnv.length > 0 ? fromEnv : PASSWORD_FALLBACK;
 
   const cookie = req.cookies.get(COOKIE_NAME)?.value ?? "";
   const expected = await sha256Hex(password);
