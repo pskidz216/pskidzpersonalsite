@@ -106,6 +106,9 @@
   var beats = [].slice.call(document.querySelectorAll('.beat'));
   var heroSection = document.querySelector('.hero');
   var isPush = heroSection && heroSection.classList.contains('hero--push');
+  /* Concept C's hero cycles on a CSS timer; the scroll rig must not touch
+     its frames or the inline styles would fight the animation. */
+  var isCycle = heroSection && heroSection.classList.contains('hero--cycle');
   var copy = document.querySelector('[data-parallax]');
 
   function sequenceOn() { return !reduced && window.innerWidth > 900 && scroll; }
@@ -120,7 +123,7 @@
   }
 
   function paintHero() {
-    if (!scroll) return;
+    if (!scroll || isCycle) return;
     if (!sequenceOn()) {
       frames.forEach(function (f, i) {
         f.style.opacity = i === 0 ? 1 : 0;
