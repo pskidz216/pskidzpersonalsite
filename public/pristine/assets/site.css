@@ -543,6 +543,8 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
      reveal-stagger       duration_med  380ms x 1.00 = 380ms
      reveal-stagger step  stagger_step   80ms x 0.75 =  60ms
      scroll-pin-sequence  duration_med  380ms x 1.25 = 475ms
+     hero entrance        the downbeat: full 700ms beat, steps at 2 x 60ms;
+                          the still settles over two beats (1400ms)
 
    scroll-weight is NOT wired. The recipe gates it and this client fails
    two of the three questions: mobile dominant, thin CWV headroom.
@@ -586,6 +588,26 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
 .js-anim .choreo [data-stagger].is-in > :nth-child(4) { transition-delay: calc(3*var(--t-stagger-step)); }
 .js-anim .choreo [data-stagger].is-in > :nth-child(5) { transition-delay: calc(4*var(--t-stagger-step)); }
 .js-anim .choreo [data-stagger].is-in > :nth-child(6) { transition-delay: calc(5*var(--t-stagger-step)); }
+
+/* The entrance. The hero copy is a stagger container sitting in the first
+   viewport, so the observer fires it at load: headline, rule, sub, actions
+   arrive on the full 700ms beat at double the list step, and the still
+   settles from 1.045 over two beats. The first second of the page is the
+   tempo itself; without this the demo opens on a static poster. */
+.js-anim .choreo .hero__copy[data-stagger] > * { opacity: 0; transform: translateY(22px);
+  transition: opacity var(--t-reveal) var(--t-ease),
+              transform var(--t-reveal) var(--t-ease); }
+.js-anim .choreo .hero__copy[data-stagger].is-in > * { opacity: 1; transform: none; }
+.js-anim .choreo .hero__copy[data-stagger].is-in > :nth-child(2) { transition-delay: calc(2*var(--t-stagger-step)); }
+.js-anim .choreo .hero__copy[data-stagger].is-in > :nth-child(3) { transition-delay: calc(4*var(--t-stagger-step)); }
+.js-anim .choreo .hero__copy[data-stagger].is-in > :nth-child(4) { transition-delay: calc(6*var(--t-stagger-step)); }
+@keyframes hero-settle { from { transform: scale(1.045); } to { transform: scale(1); } }
+.hero--still .hero__frames { overflow: hidden; }
+.js-anim .choreo .hero--still .hero__frame {
+  animation-name: hero-settle;
+  animation-duration: calc(2*var(--t-reveal));
+  animation-timing-function: var(--t-ease);
+  animation-fill-mode: both; }
 
 /* atom 4/4 scroll-pin-sequence. Exactly one per route. */
 .pin { position: relative; background: var(--anchor); color: var(--ground); }
