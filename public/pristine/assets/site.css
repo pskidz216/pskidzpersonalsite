@@ -543,8 +543,13 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
      reveal-stagger       duration_med  380ms x 1.00 = 380ms
      reveal-stagger step  stagger_step   80ms x 0.75 =  60ms
      scroll-pin-sequence  duration_med  380ms x 1.25 = 475ms
-     hero entrance        the downbeat: full 700ms beat, steps at 2 x 60ms;
-                          the still settles over two beats (1400ms)
+     hero entrance        the downbeat: full 700ms beat, steps at 2 x 60ms
+     hero cycle           3 stills, 6 beats a frame (4200ms), 1 beat fade;
+                          full cycle 18 beats (12600ms)
+
+   Intensity (travel distance) is not part of the tempo contract and is
+   tuned for legibility: rise 36px, stagger children 28px, hero 40px,
+   pin items 28px. The pin stills settle 1.06 to 1 over three pin beats.
 
    scroll-weight is NOT wired. The recipe gates it and this client fails
    two of the three questions: mobile dominant, thin CWV headroom.
@@ -563,13 +568,13 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
 .hero--still .hero__stage { position: static; height: auto; min-height: 0;
   display: block; }
 .hero--still .hero__frames { position: relative; inset: auto; height: 76dvh; }
-.hero--still .hero__frame { position: absolute; inset: 0; opacity: 1; }
+.hero--still .hero__frame { position: absolute; inset: 0; }
 .hero--still .hero__copy { position: absolute; inset: auto 0 0 0; }
 .hero--still .hero__scrim { position: absolute; inset: 0 0 auto 0; height: 76dvh; }
 
 /* atom 2/4 scroll-reveal. The reference beat every other value proportions
    against. js-anim lives on <html>, choreo on <body>: descendant, not compound. */
-.js-anim .choreo .rise { opacity: 0; transform: translateY(22px); }
+.js-anim .choreo .rise { opacity: 0; transform: translateY(36px); }
 .js-anim .choreo .rise.is-in { opacity: 1; transform: none;
   transition: opacity var(--t-reveal) var(--t-ease),
               transform var(--t-reveal) var(--t-ease); }
@@ -579,7 +584,7 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
    the last. Four items resolve in 380 + 3x60 = 560ms, inside the 700ms beat,
    so the list finishes before the next section arrives. */
 .js-anim .choreo .rise[data-stagger] { opacity: 1; transform: none; }
-.js-anim .choreo [data-stagger] > * { opacity: 0; transform: translateY(16px);
+.js-anim .choreo [data-stagger] > * { opacity: 0; transform: translateY(28px);
   transition: opacity var(--t-stagger-child) var(--t-ease),
               transform var(--t-stagger-child) var(--t-ease); }
 .js-anim .choreo [data-stagger].is-in > * { opacity: 1; transform: none; }
@@ -594,20 +599,31 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
    arrive on the full 700ms beat at double the list step, and the still
    settles from 1.045 over two beats. The first second of the page is the
    tempo itself; without this the demo opens on a static poster. */
-.js-anim .choreo .hero__copy[data-stagger] > * { opacity: 0; transform: translateY(22px);
+.js-anim .choreo .hero__copy[data-stagger] > * { opacity: 0; transform: translateY(40px);
   transition: opacity var(--t-reveal) var(--t-ease),
               transform var(--t-reveal) var(--t-ease); }
 .js-anim .choreo .hero__copy[data-stagger].is-in > * { opacity: 1; transform: none; }
 .js-anim .choreo .hero__copy[data-stagger].is-in > :nth-child(2) { transition-delay: calc(2*var(--t-stagger-step)); }
 .js-anim .choreo .hero__copy[data-stagger].is-in > :nth-child(3) { transition-delay: calc(4*var(--t-stagger-step)); }
 .js-anim .choreo .hero__copy[data-stagger].is-in > :nth-child(4) { transition-delay: calc(6*var(--t-stagger-step)); }
-@keyframes hero-settle { from { transform: scale(1.045); } to { transform: scale(1); } }
+/* The choreographed hero. Three stills on a 12600ms cycle: each frame holds
+   six beats (4200ms) with a one-beat (700ms) crossfade into the next, and
+   settles from 1.05 while it holds. Timed, never scroll-linked, so it is
+   still zero parallax; the route's one pinned passage stays with the
+   process. With js-anim absent (reduced motion, no JS) the animation never
+   applies and the base state shows frame one, static and complete. */
 .hero--still .hero__frames { overflow: hidden; }
-.js-anim .choreo .hero--still .hero__frame {
-  animation-name: hero-settle;
-  animation-duration: calc(2*var(--t-reveal));
-  animation-timing-function: var(--t-ease);
-  animation-fill-mode: both; }
+@keyframes hero-cycle {
+  0%     { opacity: 0; transform: scale(1.05); }
+  5.56%  { opacity: 1; }
+  33.33% { opacity: 1; }
+  38.89% { opacity: 0; transform: scale(1); }
+  100%   { opacity: 0; transform: scale(1); }
+}
+.js-anim .choreo .hero--cycle .hero__frame {
+  animation: hero-cycle 12600ms var(--t-ease) infinite; }
+.js-anim .choreo .hero--cycle .hero__frame:nth-child(2) { animation-delay: 4200ms; }
+.js-anim .choreo .hero--cycle .hero__frame:nth-child(3) { animation-delay: 8400ms; }
 
 /* atom 4/4 scroll-pin-sequence. Exactly one per route. */
 .pin { position: relative; background: var(--anchor); color: var(--ground); }
@@ -631,13 +647,24 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
 .pin__tick.is-on { opacity: 1; color: var(--ground); }
 .pin__tick.is-on span { transform: scaleX(1); }
 
-.pin__list { list-style: none; margin: 0; padding: 0; position: relative;
-  min-height: 15rem; }
+.pin__list { --shot-h: clamp(240px, 36vh, 400px);
+  list-style: none; margin: 0; padding: 0; position: relative;
+  min-height: calc(var(--shot-h) + 14rem); }
 .pin__item { position: absolute; inset: 0; display: grid;
-  grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start;
-  opacity: 0; transform: translateY(14px); pointer-events: none;
+  grid-template-rows: auto 1fr; gap: 1.6rem; align-content: start;
+  opacity: 0; transform: translateY(28px); pointer-events: none;
   transition: opacity var(--t-pin) var(--t-ease), transform var(--t-pin) var(--t-ease); }
 .pin__item.is-on { opacity: 1; transform: none; pointer-events: auto; }
+/* The image swap is the pin atom's canonical form: each step arrives with
+   its own still, and the still settles from 1.06 over three pin beats, so
+   the photograph is alive for the whole hold without a scrap of parallax. */
+.pin__shot { margin: 0; height: var(--shot-h); overflow: hidden; }
+.pin__shot img { width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.06);
+  transition: transform calc(3*var(--t-pin)) var(--t-ease); }
+.pin__item.is-on .pin__shot img { transform: scale(1); }
+.pin__txt { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem;
+  align-items: start; }
 .pin__n { font-family: var(--serif); font-size: 2.1rem; font-weight: 300;
   line-height: 1; color: var(--on-anchor-dim); }
 .pin__item h3 { margin-bottom: .7rem; font-size: clamp(1.4rem,2.2vw,2rem); }
@@ -652,14 +679,16 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
   .pin__in { grid-template-columns: 1fr; }
   .pin__ticks { display: none; }
   /* Static end state must be complete: with no pin, every step is present. */
-  .pin__list { min-height: 0; display: grid; gap: 2rem; }
+  .pin__list { --shot-h: 200px; min-height: 0; display: grid; gap: 2.5rem; }
   .pin__item { position: static; opacity: 1; transform: none; pointer-events: auto; }
+  .pin__shot img { transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .pin__scroll { height: auto; }
   .pin__stage { position: static; height: auto; padding-block: var(--sect); }
   .pin__ticks { display: none; }
-  .pin__list { min-height: 0; display: grid; gap: 2rem; }
+  .pin__list { min-height: 0; display: grid; gap: 2.5rem; }
   .pin__item { position: static; opacity: 1; transform: none; }
+  .pin__shot img { transform: none; transition: none; }
 }
