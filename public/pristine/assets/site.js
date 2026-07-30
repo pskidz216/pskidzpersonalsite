@@ -221,6 +221,49 @@
     run();
   }
 
+  /* ── Concept C: scroll-pin-sequence (atom 4/4) ───────────────────
+     One pinned passage per route. Scroll advances the step in place; the
+     viewport is stationary, which is why the recipe gives this atom a 25%
+     longer hold than an unpinned transition (475ms vs 380ms). Everything
+     below degrades to a plain stacked list: with motion off, all four steps
+     are present and readable, which the recipe requires. */
+  var pin = document.querySelector('[data-pin]');
+  if (pin && !reduced) {
+    var pinScroll = pin.querySelector('.pin__scroll');
+    var items = [].slice.call(pin.querySelectorAll('.pin__item'));
+    var ticks = [].slice.call(pin.querySelectorAll('.pin__tick'));
+    var lastStep = -1;
+
+    var setStep = function (i) {
+      if (i === lastStep) return;
+      lastStep = i;
+      items.forEach(function (el, n) { el.classList.toggle('is-on', n === i); });
+      ticks.forEach(function (el, n) { el.classList.toggle('is-on', n === i); });
+    };
+
+    var paintPin = function () {
+      if (window.innerWidth <= 900) { setStep(0); return; }
+      var box = pinScroll.getBoundingClientRect();
+      var span = pinScroll.offsetHeight - window.innerHeight;
+      var p = span > 0 ? Math.min(Math.max(-box.top / span, 0), 1) : 0;
+      setStep(Math.min(Math.floor(p * items.length), items.length - 1));
+    };
+
+    /* The ticks are real buttons, so the sequence is reachable by keyboard
+       and not only by scrolling. */
+    ticks.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        var span = pinScroll.offsetHeight - window.innerHeight;
+        var top = pinScroll.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ top: top + (span * (i + 0.5) / items.length), behavior: 'smooth' });
+      });
+    });
+
+    window.addEventListener('scroll', paintPin, { passive: true });
+    window.addEventListener('resize', paintPin, { passive: true });
+    paintPin();
+  }
+
   /* ── Reveal on enter ─────────────────────────────────────────── */
   if (!reduced && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -230,15 +273,15 @@
         io.unobserve(en.target);
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
-    document.querySelectorAll('.rise').forEach(function (el) { io.observe(el); });
+    document.querySelectorAll('.rise, [data-stagger]').forEach(function (el) { io.observe(el); });
     /* Failsafe: anything already on screen shows even if the observer
        never fires. Nothing below the fold is touched. */
     setTimeout(function () {
-      document.querySelectorAll('.rise:not(.is-in)').forEach(function (el) {
+      document.querySelectorAll('.rise:not(.is-in), [data-stagger]:not(.is-in)').forEach(function (el) {
         if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('is-in');
       });
     }, 1000);
   } else {
-    document.querySelectorAll('.rise').forEach(function (el) { el.classList.add('is-in'); });
+    document.querySelectorAll('.rise, [data-stagger]').forEach(function (el) { el.classList.add('is-in'); });
   }
 })();

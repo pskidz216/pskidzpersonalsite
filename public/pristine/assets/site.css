@@ -533,3 +533,111 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: ri
   .js-anim .rise { opacity: 1; transform: none; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONCEPT C: scroll-choreography recipe (motion-patterns skill)
+   Tempo derived by motion.py from the ppr brand pack. Do not hand tune;
+   change the multiplier in recipes/scroll-choreography.md and regenerate.
+
+     scroll-reveal        duration_slow 700ms x 1.00 = 700ms  reference beat
+     reveal-stagger       duration_med  380ms x 1.00 = 380ms
+     reveal-stagger step  stagger_step   80ms x 0.75 =  60ms
+     scroll-pin-sequence  duration_med  380ms x 1.25 = 475ms
+
+   scroll-weight is NOT wired. The recipe gates it and this client fails
+   two of the three questions: mobile dominant, thin CWV headroom.
+   Zero scroll-parallax anywhere: that is the recipe's defining rule.
+   ═══════════════════════════════════════════════════════════════════ */
+.choreo {
+  --t-reveal: 700ms;
+  --t-stagger-child: 380ms;
+  --t-stagger-step: 60ms;
+  --t-pin: 475ms;
+  --t-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* C's hero is one still. No sequence, no parallax. */
+.hero--still .hero__scroll { height: auto; }
+.hero--still .hero__stage { position: static; height: auto; min-height: 0;
+  display: block; }
+.hero--still .hero__frames { position: relative; inset: auto; height: 76dvh; }
+.hero--still .hero__frame { position: absolute; inset: 0; opacity: 1; }
+.hero--still .hero__copy { position: absolute; inset: auto 0 0 0; }
+.hero--still .hero__scrim { position: absolute; inset: 0 0 auto 0; height: 76dvh; }
+
+/* atom 2/4 scroll-reveal. The reference beat every other value proportions
+   against. js-anim lives on <html>, choreo on <body>: descendant, not compound. */
+.js-anim .choreo .rise { opacity: 0; transform: translateY(22px); }
+.js-anim .choreo .rise.is-in { opacity: 1; transform: none;
+  transition: opacity var(--t-reveal) var(--t-ease),
+              transform var(--t-reveal) var(--t-ease); }
+
+/* atom 3/4 reveal-stagger. The container itself does not rise (that would
+   stack two motions on one element); its children carry it, each 60ms behind
+   the last. Four items resolve in 380 + 3x60 = 560ms, inside the 700ms beat,
+   so the list finishes before the next section arrives. */
+.js-anim .choreo .rise[data-stagger] { opacity: 1; transform: none; }
+.js-anim .choreo [data-stagger] > * { opacity: 0; transform: translateY(16px);
+  transition: opacity var(--t-stagger-child) var(--t-ease),
+              transform var(--t-stagger-child) var(--t-ease); }
+.js-anim .choreo [data-stagger].is-in > * { opacity: 1; transform: none; }
+.js-anim .choreo [data-stagger].is-in > :nth-child(2) { transition-delay: var(--t-stagger-step); }
+.js-anim .choreo [data-stagger].is-in > :nth-child(3) { transition-delay: calc(2*var(--t-stagger-step)); }
+.js-anim .choreo [data-stagger].is-in > :nth-child(4) { transition-delay: calc(3*var(--t-stagger-step)); }
+.js-anim .choreo [data-stagger].is-in > :nth-child(5) { transition-delay: calc(4*var(--t-stagger-step)); }
+.js-anim .choreo [data-stagger].is-in > :nth-child(6) { transition-delay: calc(5*var(--t-stagger-step)); }
+
+/* atom 4/4 scroll-pin-sequence. Exactly one per route. */
+.pin { position: relative; background: var(--anchor); color: var(--ground); }
+.pin__scroll { height: 420dvh; }
+.pin__stage { position: sticky; top: var(--deck-h);
+  height: calc(100dvh - var(--deck-h)); min-height: 560px;
+  display: grid; align-items: center; overflow: hidden; }
+.pin__in { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1fr);
+  gap: clamp(2rem,6vw,5rem); align-items: center; width: 100%; }
+.pin__head h2 { margin: 1rem 0 2rem; }
+.pin__ticks { display: grid; gap: .1rem; }
+.pin__tick { display: flex; align-items: center; gap: .9rem; min-height: 44px;
+  background: none; border: 0; padding: .4rem 0; cursor: pointer;
+  font-family: var(--sans); font-size: .6875rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--on-anchor-dim); text-align: left; opacity: .45;
+  transition: opacity var(--t-pin) var(--t-ease), color var(--t-pin) var(--t-ease); }
+.pin__tick span { display: block; width: 26px; height: 1px; background: currentColor;
+  transform: scaleX(.35); transform-origin: left;
+  transition: transform var(--t-pin) var(--t-ease); }
+.pin__tick.is-on { opacity: 1; color: var(--ground); }
+.pin__tick.is-on span { transform: scaleX(1); }
+
+.pin__list { list-style: none; margin: 0; padding: 0; position: relative;
+  min-height: 15rem; }
+.pin__item { position: absolute; inset: 0; display: grid;
+  grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start;
+  opacity: 0; transform: translateY(14px); pointer-events: none;
+  transition: opacity var(--t-pin) var(--t-ease), transform var(--t-pin) var(--t-ease); }
+.pin__item.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.pin__n { font-family: var(--serif); font-size: 2.1rem; font-weight: 300;
+  line-height: 1; color: var(--on-anchor-dim); }
+.pin__item h3 { margin-bottom: .7rem; font-size: clamp(1.4rem,2.2vw,2rem); }
+.pin__item p { color: var(--on-anchor-dim); max-width: 46ch; margin: 0; }
+
+@media (max-width: 900px) {
+  .hero--still .hero__frames { display: none; }
+  .hero--still .hero__copy { position: relative; inset: auto; }
+  .pin__scroll { height: auto; }
+  .pin__stage { position: static; height: auto; min-height: 0;
+    padding-block: var(--sect); }
+  .pin__in { grid-template-columns: 1fr; }
+  .pin__ticks { display: none; }
+  /* Static end state must be complete: with no pin, every step is present. */
+  .pin__list { min-height: 0; display: grid; gap: 2rem; }
+  .pin__item { position: static; opacity: 1; transform: none; pointer-events: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pin__scroll { height: auto; }
+  .pin__stage { position: static; height: auto; padding-block: var(--sect); }
+  .pin__ticks { display: none; }
+  .pin__list { min-height: 0; display: grid; gap: 2rem; }
+  .pin__item { position: static; opacity: 1; transform: none; }
+}
