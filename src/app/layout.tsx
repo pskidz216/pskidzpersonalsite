@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     description:
       "AI Innovator · Human Connector · Growth Strategist",
     type: "website",
+    url: "https://paulskidmoreii.com",
+    siteName: "Paul Skidmore",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paul Skidmore",
+    description: "AI Innovator · Human Connector · Growth Strategist",
   },
 };
 
