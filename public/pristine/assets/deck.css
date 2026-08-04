@@ -80,6 +80,9 @@ a { color: inherit; }
 .pick--map { margin-bottom: clamp(1.25rem,2.5vw,2rem); }
 .pick--map .pick__b { max-width: 62ch; }
 .pick__sw { display: flex; height: 92px; }
+/* The one palette strip: shown once in the index header, never per card. */
+.dpal { display: flex; height: 64px; max-width: 560px;
+  margin-top: clamp(1.4rem,3vw,2rem); }
 .sw { flex: 1; position: relative; }
 .sw span { position: absolute; left: .55rem; bottom: .45rem; font-size: .5rem;
   letter-spacing: .13em; text-transform: uppercase; font-weight: 500; }
