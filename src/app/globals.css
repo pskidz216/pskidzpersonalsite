@@ -94,6 +94,11 @@ html.lenis, html.lenis body {
   }
 }
 
+@keyframes pong-bounce {
+  0%, 100% { top: 0; }
+  50% { top: calc(100% - 6px); }
+}
+
 @property --border-beam-angle {
   syntax: "<angle>";
   inherits: false;

@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
+import { MiamiClock, MiamiTimeReadout } from "@/components/ui/MiamiClock";
 import { useParallax } from "@/lib/useParallax";
 
 const nameWords = ["Paul", "Skidmore"];
@@ -53,6 +54,7 @@ export function Hero() {
       id="hero"
       className="relative min-h-svh flex items-center justify-center px-6 md:px-12 lg:px-20 overflow-hidden"
     >
+      <MiamiClock />
       <div className="relative max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 lg:gap-20 py-24">
         {/* Text */}
         <motion.div
@@ -113,7 +115,7 @@ export function Hero() {
             transition={{ delay: 0.55, duration: 0.5, ease }}
             className="text-text-muted font-body text-sm mt-4"
           >
-            Miami, FL
+            <MiamiTimeReadout />
           </motion.p>
         </motion.div>
 
