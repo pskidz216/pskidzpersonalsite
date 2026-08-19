@@ -197,7 +197,8 @@ describe("stepPong — scoring & clock", () => {
   it("scores for the AI when the ball exits left, then re-serves", () => {
     const s0 = {
       ...createPongState(CFG),
-      ball: { x: 1, y: CFG.height / 2, vx: -600, vy: 0 },
+      // Already past the paddle, one frame short of clearing the goal line.
+      ball: { x: -CFG.ballRadius + 5, y: CFG.height / 2, vx: -600, vy: 0 },
     };
     const s1 = stepPong(s0, CFG, 0.05, { targetY: CFG.height / 2 }, fixedRand(0.5));
     expect(s1.aiScore).toBe(1);
@@ -207,7 +208,7 @@ describe("stepPong — scoring & clock", () => {
   it("scores for the player when the ball exits right", () => {
     const s0 = {
       ...createPongState(CFG),
-      ball: { x: CFG.width - 1, y: CFG.height / 2, vx: 600, vy: 0 },
+      ball: { x: CFG.width + CFG.ballRadius - 5, y: CFG.height / 2, vx: 600, vy: 0 },
     };
     const s1 = stepPong(s0, CFG, 0.05, { targetY: CFG.height / 2 }, fixedRand(0.5));
     expect(s1.playerScore).toBe(1);
