@@ -8,7 +8,12 @@ export default defineConfig({
     include: ["src/__tests__/**/*.test.ts"],
     coverage: {
       provider: "v8",
-      include: ["src/lib/linkedin/**/*.ts", "src/types/**/*.ts"],
+      include: [
+        "src/lib/linkedin/**/*.ts",
+        "src/lib/pong/**/*.ts",
+        "src/lib/miamiTime.ts",
+        "src/types/**/*.ts",
+      ],
       exclude: ["src/__tests__/**"],
       thresholds: {
         statements: 80,

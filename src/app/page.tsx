@@ -11,6 +11,7 @@ import { FlagshipProject } from "@/components/sections/FlagshipProject";
 import { Built } from "@/components/sections/Built";
 import { OffTheClock } from "@/components/sections/OffTheClock";
 import { Contact } from "@/components/sections/Contact";
+import { PongLauncher } from "@/components/game/PongLauncher";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <PongLauncher />
     </>
   );
 }
