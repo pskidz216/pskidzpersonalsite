@@ -12,20 +12,30 @@ const PongOverlay = dynamic(
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 /**
- * Floating pill in the corner: a tiny bouncing ball + "pong".
- * Opens the fullscreen game. The overlay is dynamically imported so the
- * game code never loads unless someone actually plays.
+ * The game greets every visitor before the site does, with an equally
+ * weighted way past it. Once it has been answered — played or skipped — the
+ * corner pill is how you get back in.
  */
 export function PongLauncher() {
-  const [open, setOpen] = useState(false);
+  // Safe to start open: the overlay is a client-only dynamic import, so both
+  // the server pass and the first client render produce nothing either way.
+  const [open, setOpen] = useState(true);
+  const [intro, setIntro] = useState(true);
+
+  function close() {
+    setOpen(false);
+    setIntro(false);
+  }
 
   return (
     <>
       <motion.button
         initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.6, duration: 0.6, ease }}
+        animate={{ opacity: intro ? 0 : 1, y: intro ? 16 : 0 }}
+        transition={{ delay: intro ? 0 : 0.4, duration: 0.6, ease }}
         onClick={() => setOpen(true)}
+        aria-hidden={intro}
+        tabIndex={intro ? -1 : 0}
         aria-label="Play Pong — a 30 second break"
         className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-[80] group flex items-center gap-2.5 pl-3.5 pr-4 h-11 rounded-full bg-bg-dark text-text-inverse font-mono text-xs tracking-[0.14em] uppercase shadow-[0_2px_8px_rgba(26,26,26,0.18),0_8px_24px_rgba(26,26,26,0.12)] transition-[scale,box-shadow] duration-300 ease-out hover:shadow-[0_4px_12px_rgba(26,26,26,0.22),0_12px_32px_rgba(26,26,26,0.16)] hover:scale-[1.02] active:scale-[0.96]"
       >
@@ -39,7 +49,7 @@ export function PongLauncher() {
       </motion.button>
 
       <AnimatePresence>
-        {open && <PongOverlay onClose={() => setOpen(false)} />}
+        {open && <PongOverlay intro={intro} onClose={close} />}
       </AnimatePresence>
     </>
   );

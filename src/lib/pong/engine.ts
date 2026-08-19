@@ -44,7 +44,9 @@ export const DEFAULT_PONG_CONFIG: PongConfig = {
   height: 600,
   paddleWidth: 14,
   paddleHeight: 90,
-  ballRadius: 9,
+  // Big enough to carry a face and still read at a glance. Raising this makes
+  // the game easier for both paddles, so re-check the balance test if you move it.
+  ballRadius: 34,
   playerX: 36,
   aiX: 1000 - 36 - 14,
   // Tuned by simulation (see pongRound.test.ts): a sharp player takes ~6 goals
