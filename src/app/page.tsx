@@ -1,37 +1,30 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Connector } from "@/components/sections/Connector";
-import { Timeline } from "@/components/sections/Timeline";
-import { Skills } from "@/components/sections/Skills";
-import { Certifications } from "@/components/sections/Certifications";
-import { AiApproach } from "@/components/sections/AiApproach";
-import { FlagshipProject } from "@/components/sections/FlagshipProject";
-import { Built } from "@/components/sections/Built";
-import { OffTheClock } from "@/components/sections/OffTheClock";
-import { Contact } from "@/components/sections/Contact";
-import { PongLauncher } from "@/components/game/PongLauncher";
+import "./redesign.css";
+import { RedesignNav } from "@/components/redesign/RedesignNav";
+import { RedesignHero } from "@/components/redesign/RedesignHero";
+import { IntroSection } from "@/components/redesign/IntroSection";
+import { RecordGallery } from "@/components/redesign/RecordGallery";
+import { SeedBanner } from "@/components/redesign/SeedBanner";
+import { SystemsGrid } from "@/components/redesign/SystemsGrid";
+import { BuildsList } from "@/components/redesign/BuildsList";
+import { CredentialsList } from "@/components/redesign/CredentialsList";
+import { ContactFooter } from "@/components/redesign/ContactFooter";
+import { HowIWorkFlyout } from "@/components/redesign/HowIWorkFlyout";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <RedesignNav />
       <main>
-        <Hero />
-        <About />
-        <Connector />
-        <Timeline />
-        <Skills />
-        <Certifications />
-        <AiApproach />
-        <FlagshipProject />
-        <Built />
-        <OffTheClock />
-        <Contact />
+        <RedesignHero />
+        <IntroSection />
+        <RecordGallery />
+        <SeedBanner />
+        <SystemsGrid />
+        <BuildsList />
+        <CredentialsList />
+        <ContactFooter />
       </main>
-      <Footer />
-      <PongLauncher />
+      <HowIWorkFlyout />
     </>
   );
 }

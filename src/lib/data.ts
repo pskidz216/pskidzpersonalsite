@@ -32,7 +32,7 @@ export const careerEntries: CareerEntry[] = [
     company: "Digital Medical Tech",
     role: "Business Development Manager",
     dateRange: "2016 — 2020",
-    type: "corporate",
+    type: "startup",
     description:
       "Grew enterprise revenue for a Techstars-backed healthtech startup selling Bluetooth asset tracking into hospital systems. Built the outbound pipeline from scratch, closed six-figure enterprise contracts, and drove 40% revenue growth in two years.",
     metric: { value: "40%", label: "revenue growth in 2 years" },
