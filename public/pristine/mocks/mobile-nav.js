@@ -32,7 +32,7 @@
     '<nav><a class="mitem" href="#">Neighborhoods</a><a class="mitem" href="#">Services</a>' +
     '<a class="mitem" href="#">The work</a><a class="mitem" href="#">Process</a>' +
     '<a class="mitem" href="#">Pricing</a><a class="mitem" href="#">About</a></nav>' +
-    '<div class="mnav__foot"><a class="btn" href="#">Get an Estimate</a>' +
+    '<div class="mnav__foot"><a class="btn" href="#">Get a Free Estimate</a>' +
     '<a class="tel" href="tel:9042350423">904.235.0423</a></div>';
   document.body.appendChild(panel);
 
