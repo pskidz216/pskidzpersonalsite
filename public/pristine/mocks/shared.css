@@ -49,6 +49,10 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:600;color:var(--harbor-deep
 .tlink{font-size:13.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--harbor-deep);border-bottom:1px solid var(--coral);padding-bottom:3px}
 @media(max-width:1024px){.nav__links{display:none}.nav__in{gap:16px;padding:0 20px}}
 
+.brand--lockup{display:flex;align-items:center}
+.brand--lockup img{height:58px;width:auto;display:block}
+@media(max-width:640px){.brand--lockup img{height:44px}}
+
 /* hero */
 .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:var(--shell)}
 .hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}

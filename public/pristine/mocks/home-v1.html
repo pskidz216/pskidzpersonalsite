@@ -136,6 +136,7 @@
   .dsub__all{color:var(--coral) !important;font-weight:400 !important}
   .drawer__foot{display:flex;align-items:center;gap:22px;padding-top:28px;flex-wrap:wrap}
 
+  @media(max-width:900px){.menu-btn{margin-right:auto}}
   @media(max-width:768px){.statement p{mask-image:none;-webkit-mask-image:none}}
   @media(max-width:640px){
     .brand>span{display:none}
@@ -162,15 +163,12 @@
 
 <nav class="nav">
   <div class="nav__in">
-    <a class="brand" href="#">
-      <img src="assets/icon-brush-harbor.svg" alt="" width="34" height="34">
-      <span><span class="brand__n">Pristine Coastal Co<b>.</b></span><span class="brand__d">Interior &amp; Exterior Painting</span></span>
-    </a>
     <button class="menu-btn" id="menu-open" aria-haspopup="dialog" aria-expanded="false">
       <span class="menu-btn__ico"><i></i><i></i></span>Menu
     </button>
     <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
     <a class="btn" href="#estimate">Get a Free Estimate</a>
+    <a class="brand--lockup" href="#" aria-label="Pristine Coastal Co."><img src="assets/logo-lockup.svg" alt="Pristine Coastal Co."></a>
   </div>
 </nav>
 
