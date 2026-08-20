@@ -132,6 +132,12 @@ a { color: inherit; }
 .t-page { background: #183F3B; }
 .t-new { background: #A34A2C; }
 .ar__d { width: 100%; font-size: .75rem; color: var(--dim); }
+.ar__group { font-size: .5625rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--dim); border-bottom: 0 !important;
+  padding-bottom: .1rem !important; margin-top: .5rem; }
+.ar__col ul > li.ar__group:first-child { margin-top: 0; }
+.ar__col li.is-lead { border-bottom-color: #183F3B; }
+.ar__col li.is-lead .ar__n { font-weight: 600; }
 
 /* ── Notes ── */
 .dnotes { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(1.5rem,3vw,2.5rem); }
