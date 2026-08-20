@@ -12,7 +12,7 @@
     '.mnav__brand{font-size:12px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:var(--shell)}',
     '.mnav__brand b{color:var(--coral);font-weight:500}',
     '.mnav__close{background:none;border:0;color:var(--haint);font-size:30px;font-weight:300;cursor:pointer;line-height:1}',
-    '.mnav a.mitem{font-family:var(--serif);font-weight:500;font-size:27px;color:var(--shell);padding:13px 0;border-bottom:1px solid rgba(195,216,212,.16);display:block}',
+    '.mnav a.mitem{font-family:var(--serif);font-weight:500;font-size:28px;color:var(--shell);padding:13px 0;border-bottom:1px solid rgba(195,216,212,.16);display:block}',
     '.mnav__foot{margin-top:auto;padding-top:30px;display:flex;flex-direction:column;gap:16px}',
     '.mnav__foot .tel{color:var(--haint);font-size:15px}'
   ].join('');
