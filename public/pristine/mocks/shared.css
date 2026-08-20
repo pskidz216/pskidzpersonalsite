@@ -117,6 +117,8 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:500;color:var(--harbor-deep
 .faq__row h3 span:last-child{color:var(--coral);font-weight:300}
 .faq__row p{margin-top:12px;max-width:66ch}
 
+.faq__row.is-closed p{display:none}
+
 /* stars */
 .stars{color:var(--coral);letter-spacing:3px;font-size:15px}
 
