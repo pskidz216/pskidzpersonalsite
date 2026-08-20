@@ -16,9 +16,9 @@
   .seg span{flex:1;text-align:center;padding:12px 0;font-size:14px;cursor:pointer}
   .seg .on{background:var(--shell);color:var(--harbor-deep);font-weight:500}
   .calc label{display:block;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--haint);margin-bottom:10px}
-  .slider{position:relative;height:2px;background:rgba(195,216,212,.35);margin:26px 6px 10px}
-  .slider i{position:absolute;left:34%;top:-7px;width:16px;height:16px;border-radius:50%;background:var(--coral)}
-  .slider b{position:absolute;left:0;top:0;height:2px;width:34%;background:var(--coral)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:rgba(195,216,212,.35);outline:none;margin:18px 0 10px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--coral);cursor:pointer;border:0}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--coral);cursor:pointer;border:0}
   .slider__ends{display:flex;justify-content:space-between;font-size:12px;color:var(--haint);opacity:.75;margin-bottom:30px}
   .slider__val{font-family:var(--serif);font-size:24px;color:var(--shell);text-align:center;margin-top:-64px;margin-bottom:34px}
   .calc__out{padding:56px 60px;background:var(--night);display:flex;flex-direction:column;justify-content:center}
@@ -69,7 +69,6 @@
 <header class="wrap phead">
   <h1 class="d1">Painting prices in Jacksonville, and what moves them.</h1>
   <p class="lead" style="margin-top:24px">Interior painting in Jacksonville typically runs $4,800 to $19,500 and exteriors $7,200 to $28,000, driven by size, substrate and finish tier. Every range below is published, not gated. The calculator gives you a figure in about ten seconds, and the free walkthrough is what turns it into a quote.</p>
-  <p class="small" style="margin-top:20px">Written by Arron, owner &middot; Updated August 2026</p>
 </header>
 
 <div class="wrap" style="margin-bottom:104px">
@@ -77,18 +76,18 @@
     <div class="calc__form">
       <h2 class="serif">What will my project run?</h2>
       <label>Project</label>
-      <div class="seg"><span class="on">Interior</span><span>Exterior</span></div>
+      <div class="seg" id="seg-project"><span class="on" data-v="interior">Interior</span><span data-v="exterior">Exterior</span></div>
       <label>Home size</label>
-      <div class="slider__val" style="margin:0 0 6px">3,250 sq ft</div>
-      <div class="slider"><b></b><i></i></div>
+      <div class="slider__val" style="margin:0 0 6px" id="sqft-out">3,250 sq ft</div>
+      <input type="range" id="sqft" min="1200" max="7000" step="50" value="3250" aria-label="Home size in square feet">
       <div class="slider__ends"><span>1,200</span><span>7,000 sq ft</span></div>
       <label>Finish tier</label>
-      <div class="seg"><span>Standard</span><span class="on">Premium</span><span>Fine finish</span></div>
+      <div class="seg" id="seg-tier"><span data-v="standard">Standard</span><span class="on" data-v="premium">Premium</span><span data-v="fine">Fine finish</span></div>
     </div>
     <div class="calc__out">
       <span class="small">Homes like this typically run</span>
-      <div class="fig">$9,400 to $13,300</div>
-      <p>Walls, trim and ceilings, two coats over a prepped surface.</p>
+      <div class="fig" id="calc-fig">$9,400 to $13,300</div>
+      <p id="calc-desc">Walls, trim and ceilings, two coats over a prepped surface.</p>
       <div class="hero__cta"><a class="btn" href="#">Book the free walkthrough</a><a class="btn btn--ghost" href="#published">See the published tables</a></div>
     </div>
   </div>
@@ -150,9 +149,12 @@
         <h3>How much does it cost to paint a 3,000 sq ft house interior in Jacksonville?<span>&minus;</span></h3>
         <p>A 3,000 sq ft interior typically runs $9,000 to $13,000 at a premium tier: walls, trim and ceilings, two coats over a prepped surface. Fine-finish millwork and Level 5 walls sit above that. The walkthrough pins the number to your rooms and surfaces.</p>
       </div>
-      <div class="faq__row"><h3>What is included in the estimate?<span>+</span></h3></div>
-      <div class="faq__row"><h3>Is the walkthrough really free?<span>+</span></h3></div>
-      <div class="faq__row"><h3>Do you offer military discounts?<span>+</span></h3></div>
+      <div class="faq__row"><h3>What is included in the estimate?<span>+</span></h3>
+        <p>The written estimate lists prep, surface repairs, materials, the number of coats and cleanup, with the assumptions spelled out. Anything excluded is excluded in writing, not discovered later.</p></div>
+      <div class="faq__row"><h3>Is the walkthrough really free?<span>+</span></h3>
+        <p>Yes. It takes about an hour, it is recorded so nothing gets remembered wrong, and it carries no obligation. If we are not the right crew for the job, we will say so.</p></div>
+      <div class="faq__row"><h3>Do you offer military discounts?<span>+</span></h3>
+        <p>Yes. Pristine Coastal is veteran owned and military discounts are available on residential work. Mention your service when you book the walkthrough.</p></div>
     </div>
   </div>
 </section>
@@ -179,6 +181,47 @@
 
 <!-- Production page emits: Service + FAQPage JSON-LD; ranges render in real <table> markup for extraction. -->
 <script src="reveal.js"></script>
+<script src="faq.js"></script>
+<script>
+(function () {
+  var RATES = {
+    interior: { standard: [2.45, 3.5], premium: [2.9, 4.1], fine: [3.9, 5.5] },
+    exterior: { standard: [3.05, 4.35], premium: [3.6, 5.1], fine: [4.85, 6.9] }
+  };
+  var DESC = {
+    interior: 'Walls, trim and ceilings, two coats over a prepped surface.',
+    exterior: 'Wash, prime and two coats on stucco or fiber cement.'
+  };
+  var state = { project: 'interior', tier: 'premium', sqft: 3250 };
+  var fig = document.getElementById('calc-fig');
+  var desc = document.getElementById('calc-desc');
+  var sqftOut = document.getElementById('sqft-out');
+  var money = function (n) { return '$' + (Math.round(n / 100) * 100).toLocaleString('en-US'); };
+  var render = function () {
+    var r = RATES[state.project][state.tier];
+    fig.textContent = money(state.sqft * r[0]) + ' to ' + money(state.sqft * r[1]);
+    desc.textContent = DESC[state.project];
+    sqftOut.textContent = state.sqft.toLocaleString('en-US') + ' sq ft';
+  };
+  var wireSeg = function (id, key) {
+    var seg = document.getElementById(id);
+    seg.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-v]');
+      if (!t) return;
+      seg.querySelectorAll('span').forEach(function (x) { x.classList.remove('on'); });
+      t.classList.add('on');
+      state[key] = t.getAttribute('data-v');
+      render();
+    });
+  };
+  wireSeg('seg-project', 'project');
+  wireSeg('seg-tier', 'tier');
+  document.getElementById('sqft').addEventListener('input', function (e) {
+    state.sqft = parseInt(e.target.value, 10); render();
+  });
+  render();
+})();
+</script>
 <script src="mobile-nav.js"></script>
 </body>
 </html>
