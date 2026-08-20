@@ -2,9 +2,9 @@
 (function () {
   var css = document.createElement('style');
   css.textContent = [
-    '.mnav-btn{display:none;background:none;border:0;cursor:pointer;padding:8px;margin-right:auto}',
+    '.mnav-btn{display:none;background:none;border:0;cursor:pointer;padding:8px}',
     '.mnav-btn i{display:block;width:22px;height:1.5px;background:var(--harbor-deep);margin:5px 0}',
-    '@media(max-width:1024px){.mnav-btn{display:block}}',
+    '@media(max-width:1024px){.mnav-btn{display:block}.brand--lockup{margin-right:auto}}',
     '.mnav{position:fixed;inset:0;z-index:100;background:var(--night);color:var(--shell);padding:22px 24px 40px;',
     'display:flex;flex-direction:column;transform:translateY(-102%);transition:transform .55s cubic-bezier(.76,0,.24,1);overflow-y:auto}',
     '.mnav.is-open{transform:none}',
