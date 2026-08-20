@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
+import { isIntroPending, markIntroSeen } from "@/lib/pong/introSeen";
 
 const PongOverlay = dynamic(
   () => import("./PongOverlay").then((m) => m.PongOverlay),
@@ -11,20 +12,40 @@ const PongOverlay = dynamic(
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
+/** The greeting is decided once per page load and never changes under us. */
+const subscribeNever = () => () => {};
+
 /**
- * The game greets every visitor before the site does, with an equally
- * weighted way past it. Once it has been answered — played or skipped — the
- * corner pill is how you get back in.
+ * The game greets each visitor once per visit, before the site does, with an
+ * equally weighted way past it. After that — played, skipped, or simply seen
+ * earlier this session — the corner pill is how you get back in.
  */
 export function PongLauncher() {
-  // Safe to start open: the overlay is a client-only dynamic import, so both
-  // the server pass and the first client render produce nothing either way.
-  const [open, setOpen] = useState(true);
-  const [intro, setIntro] = useState(true);
+  // The server cannot know whether this visitor has been greeted, and guessing
+  // strands the pill: it renders the intro's hidden-and-unfocusable variant,
+  // that markup survives hydration, and a returning visitor gets no way back
+  // into the game. So the server renders the settled state — no intro, pill
+  // reachable — and the client corrects it after hydration.
+  const pending = useSyncExternalStore(
+    subscribeNever,
+    isIntroPending,
+    () => false,
+  );
+  const [dismissed, setDismissed] = useState(false);
+  const [replay, setReplay] = useState(false);
+
+  const intro = pending && !dismissed;
+  const open = intro || replay;
+
+  // Record the visit when the greeting appears, not when it is dismissed: a
+  // refresh part-way through is the same visit and should not greet twice.
+  useEffect(() => {
+    if (pending) markIntroSeen();
+  }, [pending]);
 
   function close() {
-    setOpen(false);
-    setIntro(false);
+    setDismissed(true);
+    setReplay(false);
   }
 
   return (
@@ -33,7 +54,7 @@ export function PongLauncher() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: intro ? 0 : 1, y: intro ? 16 : 0 }}
         transition={{ delay: intro ? 0 : 0.4, duration: 0.6, ease }}
-        onClick={() => setOpen(true)}
+        onClick={() => setReplay(true)}
         aria-hidden={intro}
         tabIndex={intro ? -1 : 0}
         aria-label="Play Pong — a 30 second break"
