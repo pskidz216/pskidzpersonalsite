@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painting Prices in Jacksonville | Pristine Coastal Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .phead{max-width:880px;padding:72px 0 56px}
+  .calc{display:grid;grid-template-columns:6fr 6fr;background:var(--harbor-deep);color:var(--haint)}
+  .calc__form{padding:56px 60px}
+  .calc__form h2{color:var(--shell);font-size:28px;margin-bottom:34px}
+  .seg{display:flex;border:1px solid rgba(195,216,212,.35);margin-bottom:28px}
+  .seg span{flex:1;text-align:center;padding:12px 0;font-size:14px;cursor:pointer}
+  .seg .on{background:var(--shell);color:var(--harbor-deep);font-weight:500}
+  .calc label{display:block;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--haint);margin-bottom:10px}
+  .slider{position:relative;height:2px;background:rgba(195,216,212,.35);margin:26px 6px 10px}
+  .slider i{position:absolute;left:34%;top:-7px;width:16px;height:16px;border-radius:50%;background:var(--coral)}
+  .slider b{position:absolute;left:0;top:0;height:2px;width:34%;background:var(--coral)}
+  .slider__ends{display:flex;justify-content:space-between;font-size:12px;color:var(--haint);opacity:.75;margin-bottom:30px}
+  .slider__val{font-family:var(--serif);font-size:24px;color:var(--shell);text-align:center;margin-top:-64px;margin-bottom:34px}
+  .calc__out{padding:56px 60px;background:var(--night);display:flex;flex-direction:column;justify-content:center}
+  .calc__out .small{color:var(--haint);opacity:.8}
+  .calc__out .fig{font-family:var(--serif);font-size:clamp(34px,3.4vw,46px);color:var(--shell);margin:14px 0 8px}
+  .calc__out p{font-weight:300;color:var(--haint);max-width:40ch}
+  .calc__out .hero__cta{margin-top:30px}
+  @media(max-width:900px){.calc{grid-template-columns:1fr}.calc__form,.calc__out{padding:36px 24px}}
+  table{width:100%;border-collapse:collapse;font-size:16px}
+  th{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);text-align:left;padding:0 0 16px}
+  td{padding:17px 0;border-top:1px solid var(--hairline);vertical-align:top}
+  td:first-child{font-family:var(--serif);font-size:21px;color:var(--harbor-deep);width:30%}
+  td:nth-child(2){color:var(--body);font-size:14.5px;padding-right:40px}
+  td:last-child,th:last-child{text-align:right;white-space:nowrap;font-weight:500;color:var(--harbor-deep)}
+  .note{display:inline-block;background:rgba(232,115,90,.12);color:var(--coral-deep);font-size:12.5px;padding:6px 12px;margin-top:22px}
+  .movers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+  .movers>div{background:#fff;border:1px solid var(--hairline);padding:34px 34px 30px}
+  .movers h3{font-size:23px;margin-bottom:12px}
+  .movers p{font-size:14.5px}
+  .movers>div:nth-child(2){background:var(--haint);border-color:var(--haint)}
+  @media(max-width:900px){.movers{grid-template-columns:1fr}}
+  @media(max-width:640px){
+    td:nth-child(2),th:nth-child(2){display:none}
+    td:first-child{width:auto}
+    .calc__form h2{font-size:24px}
+  }
+  .why{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center}
+  .why img{aspect-ratio:4/3.4;object-fit:cover;width:100%}
+  @media(max-width:900px){.why{grid-template-columns:1fr;gap:36px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__in">
+    <a class="brand" href="#">
+      <img src="assets/icon-brush-harbor.svg" alt="" width="34" height="34">
+      <span><span class="brand__n">Pristine Coastal Co<b>.</b></span><span class="brand__d">Interior &amp; Exterior Painting</span></span>
+    </a>
+    <div class="nav__links">
+      <a href="#">Neighborhoods</a><a href="#">Services</a><a href="#">The work</a><a href="#">Process</a><a href="#">Pricing</a><a href="#">About</a>
+    </div>
+    <a class="nav__tel" href="tel:9042350423">904.235.0423</a>
+    <a class="btn" href="#">Get an Estimate</a>
+  </div>
+</nav>
+
+<header class="wrap phead">
+  <h1 class="d1">Painting prices in Jacksonville, and what moves them.</h1>
+  <p class="lead" style="margin-top:24px">Interior painting in Jacksonville typically runs $4,800 to $19,500 and exteriors $7,200 to $28,000, driven by size, substrate and finish tier. Every range below is published, not gated. The calculator gives you a figure in about ten seconds, and the free walkthrough is what turns it into a quote.</p>
+  <p class="small" style="margin-top:20px">Written by Arron, owner &middot; Updated August 2026</p>
+</header>
+
+<div class="wrap" style="margin-bottom:104px">
+  <div class="calc">
+    <div class="calc__form">
+      <h2 class="serif">What will my project run?</h2>
+      <label>Project</label>
+      <div class="seg"><span class="on">Interior</span><span>Exterior</span></div>
+      <label>Home size</label>
+      <div class="slider__val" style="margin:0 0 6px">3,250 sq ft</div>
+      <div class="slider"><b></b><i></i></div>
+      <div class="slider__ends"><span>1,200</span><span>7,000 sq ft</span></div>
+      <label>Finish tier</label>
+      <div class="seg"><span>Standard</span><span class="on">Premium</span><span>Fine finish</span></div>
+    </div>
+    <div class="calc__out">
+      <span class="small">Homes like this typically run</span>
+      <div class="fig">$9,400 to $13,300</div>
+      <p>Walls, trim and ceilings, two coats over a prepped surface.</p>
+      <div class="hero__cta"><a class="btn" href="#">Book the free walkthrough</a><a class="btn btn--ghost" href="#published">See the published tables</a></div>
+    </div>
+  </div>
+</div>
+
+<section class="sec hairline-top" id="published" style="padding-top:88px">
+  <div class="wrap" style="max-width:1000px">
+    <h2 class="d2" data-reveal>The published ranges.</h2>
+    <p class="lead" style="margin:18px 0 44px">Plain text on the page, because a calculator is invisible to a search engine and this is the part that gets quoted.</p>
+    <table>
+      <thead><tr><th>Work</th><th>Scope</th><th>Typical range</th></tr></thead>
+      <tbody>
+        <tr><td>Interior</td><td>Walls, trim and ceilings, two coats over a prepped surface</td><td>$4,800 to $19,500</td></tr>
+        <tr><td>Exterior</td><td>Stucco or fiber cement, wash, prime and two coats</td><td>$7,200 to $28,000</td></tr>
+        <tr><td>Cabinetry</td><td>Per kitchen, doors sprayed off site</td><td>$4,400 to $11,800</td></tr>
+        <tr><td>Historic plaster</td><td>Per room, bonding skim and flat finish</td><td>$3,900 to $14,500</td></tr>
+      </tbody>
+    </table>
+    <span class="note">Sample figures. The live page publishes Arron's real ranges before launch.</span>
+  </div>
+</section>
+
+<section class="sec sec--sand">
+  <div class="wrap">
+    <h2 class="d2" data-reveal>Three things move the number.</h2>
+    <div class="movers" style="margin-top:48px">
+      <div>
+        <h3>Surface condition</h3>
+        <p>Prep is most of the job. Chalking stucco, failing caulk or water-stained drywall get corrected before paint, and that labor is where ranges widen.</p>
+      </div>
+      <div>
+        <h3>Exposure</h3>
+        <p>Oceanfront and Intracoastal homes need marine-grade systems. The material costs more once, and lasts roughly twice as long as builder grade on the windward side.</p>
+      </div>
+      <div>
+        <h3>Finish tier</h3>
+        <p>Standard, premium or fine finish. Fine finish means sprayed doors and millwork, hand-rubbed, with a Level 5 wall where light rakes across it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap why">
+    <img src="assets/c-p1-consult.jpg" alt="Arron walking a homeowner through the estimate on site">
+    <div>
+      <h2 class="d2" data-reveal>Why the number is not behind a form.</h2>
+      <p class="lead" style="margin:20px 0 0">Gating a range loses most of the people who came to find it. So the range is free. The written breakdown is what the walkthrough produces: the assumptions, what is and is not included, the prep standard, and the questions worth asking any contractor before you sign.</p>
+      <div class="hero__cta" style="margin-top:30px"><a class="btn" href="#">Book the free walkthrough</a><a class="nav__tel" href="tel:9042350423">904.235.0423</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--sand hairline-top">
+  <div class="wrap" style="max-width:920px">
+    <h2 class="d2" data-reveal>Cost questions, answered.</h2>
+    <div class="faq" style="margin-top:44px">
+      <div class="faq__row">
+        <h3>How much does it cost to paint a 3,000 sq ft house interior in Jacksonville?<span>&minus;</span></h3>
+        <p>A 3,000 sq ft interior typically runs $9,000 to $13,000 at a premium tier: walls, trim and ceilings, two coats over a prepped surface. Fine-finish millwork and Level 5 walls sit above that. The walkthrough pins the number to your rooms and surfaces.</p>
+      </div>
+      <div class="faq__row"><h3>What is included in the estimate?<span>+</span></h3></div>
+      <div class="faq__row"><h3>Is the walkthrough really free?<span>+</span></h3></div>
+      <div class="faq__row"><h3>Do you offer military discounts?<span>+</span></h3></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">Pristine Coastal Co<b>.</b></div>
+        <p style="margin-top:16px;max-width:36ch">Veteran owned painting, drywall and restoration for Jacksonville, the Beaches and Duval County, Florida.</p>
+        <p style="margin-top:14px;color:var(--shell)">904.235.0423</p>
+        <p class="small" style="margin-top:6px">Military discounts available.</p>
+      </div>
+      <div><h4>Neighborhoods</h4><ul><li><a href="#">Ponte Vedra Beach</a></li><li><a href="#">Atlantic Beach</a></li><li><a href="#">Ortega</a></li><li><a href="#">Avondale</a></li><li><a href="#">View all fourteen</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#">Residential Painting</a></li><li><a href="#">Luxury Exteriors</a></li><li><a href="#">Drywall</a></li><li><a href="#">Home Restoration</a></li><li><a href="#">View all ten</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Pricing</a></li><li><a href="#">Reviews</a></li><li><a href="#">FAQ</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; 2026 Pristine Coastal Co. &middot; Jacksonville, Florida</span>
+      <span>Licensed &amp; insured &middot; FL</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Production page emits: Service + FAQPage JSON-LD; ranges render in real <table> markup for extraction. -->
+<script src="reveal.js"></script>
+<script src="mobile-nav.js"></script>
+</body>
+</html>

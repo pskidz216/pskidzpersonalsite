@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pristine Coastal Co. | Fine-Finish Painting and Restoration, Jacksonville FL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .nav{transition:transform .5s var(--ease-wd)}
+  .nav.is-hidden{transform:translateY(-100%)}
+
+  /* ---- hero with parallax + haze seam ---- */
+  .hero{min-height:100svh;overflow:hidden}
+  .hero__media{position:absolute;inset:-12% 0;will-change:transform}
+  .hero__media img{width:100%;height:100%;object-fit:cover}
+  .haze{position:absolute;left:0;right:0;bottom:-1px;height:52svh;pointer-events:none;opacity:.25;will-change:opacity;
+    background:linear-gradient(to top,var(--white) 8%,rgba(255,255,255,.72) 38%,rgba(255,255,255,0) 100%)}
+
+  /* ---- giant title fade (WD pattern 6, in brand serif) ---- */
+  .giant{padding:20svh 0 6svh;overflow:hidden;background:var(--white)}
+  .giant p{font-family:var(--serif);font-weight:600;font-size:120px;line-height:.92;letter-spacing:.02em;
+    text-transform:uppercase;white-space:nowrap;text-align:center;color:var(--harbor-deep);will-change:opacity,transform}
+  .giant span{color:var(--coral)}
+
+  /* ---- statement with reading-line mask (WD pattern 7) ---- */
+  .statement p{--mask-position:-40;
+    mask-image:linear-gradient(#000,rgba(0,0,0,.85),rgba(0,0,0,.55),rgba(0,0,0,.25),rgba(0,0,0,.12),rgba(0,0,0,.12));
+    mask-size:100% 300%;mask-position:0 calc(var(--mask-position)*1%);
+    -webkit-mask-image:linear-gradient(#000,rgba(0,0,0,.85),rgba(0,0,0,.55),rgba(0,0,0,.25),rgba(0,0,0,.12),rgba(0,0,0,.12));
+    -webkit-mask-size:100% 300%;-webkit-mask-position:0 calc(var(--mask-position)*1%)}
+  .answer{display:grid;grid-template-columns:1fr 320px;gap:64px;align-items:start}
+  .answer aside{border-left:1px solid var(--hairline);padding-left:36px;font-size:14.5px}
+  .answer aside div{margin-bottom:22px}
+  .answer aside b{display:block;font-weight:500;color:var(--harbor-deep)}
+  @media(max-width:900px){.answer{grid-template-columns:1fr}.answer aside{border-left:0;padding-left:0;border-top:1px solid var(--hairline);padding-top:28px;display:flex;gap:36px;flex-wrap:wrap}}
+
+  /* ---- pinned horizontal neighborhood gallery (WD pattern 2) ---- */
+  .hscroll{position:relative;background:var(--night);color:var(--shell)}
+  .hscroll__sticky{position:sticky;top:0;height:100svh;overflow:hidden}
+  .hscroll__track{display:flex;height:100svh;width:fit-content;will-change:transform}
+  .hpanel{flex-shrink:0;height:100svh;position:relative;display:flex;align-items:center}
+  .hpanel--intro{width:88vw;padding:0 8vw}
+  .hpanel--intro h2{color:var(--shell)}
+  .hpanel--intro p{margin-top:22px;max-width:44ch;font-weight:300;color:var(--haint)}
+  .hpanel--card{width:44vw;padding:6svh 3.2vw 6svh 0}
+  .hcard{position:relative;width:100%;height:100%;overflow:hidden}
+  .hcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hcard::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(16,22,28,.82) 0%,rgba(16,22,28,.05) 55%)}
+  .hcard__txt{position:absolute;left:34px;right:34px;bottom:30px;z-index:1}
+  .hcard__coord{font-size:10.5px;letter-spacing:.18em;color:rgba(246,240,230,.8);margin-bottom:10px}
+  .hcard__txt h3{color:var(--shell);font-size:clamp(26px,2.2vw,34px)}
+  .hcard__txt p{margin-top:8px;font-size:14px;font-weight:300;color:var(--haint);max-width:46ch}
+  .hpanel--last{width:38vw;display:flex;align-items:center;justify-content:center}
+  @media(max-width:900px){
+    .hscroll__sticky{position:static;height:auto;overflow:visible}
+    .hscroll__track{display:block;height:auto;width:100%}
+    .hpanel{width:100%!important;height:auto;padding:48px 20px}
+    .hpanel--card{padding:0 20px 40px}
+    .hcard{height:96vw}.hscroll{height:auto!important}
+  }
+
+  /* ---- work list: clip-path image-preview rows (WD pattern 8) ---- */
+  .rows{border-top:1px solid var(--hairline)}
+  .row{position:relative;display:flex;align-items:center;gap:28px;border-bottom:1px solid var(--hairline);
+    padding:34px 12px;cursor:pointer;transition:border-color .35s var(--ease-wd)}
+  .row{overflow:hidden}
+  .row__img{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:128%;object-fit:cover;width:100%;z-index:0;
+    clip-path:inset(50% 0%);opacity:0;pointer-events:none;transition:clip-path .5s var(--ease-wd),opacity .5s var(--ease-wd)}
+  .row::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(16,22,28,0);transition:background .5s var(--ease-wd);pointer-events:none}
+  .row:hover .row__img{clip-path:inset(0% 0%);opacity:1}
+  .row:hover::before{background:rgba(16,22,28,.52)}
+  .row:hover{border-color:transparent}
+  .row>*:not(.row__img){position:relative;z-index:2;transition:color .35s}
+  .row h3{font-size:clamp(24px,2.4vw,34px);flex:1}
+  .row .where{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+  .row .go{color:var(--coral);font-size:20px}
+  .row:hover h3{color:var(--shell)}
+  .row:hover .where{color:var(--haint)}
+
+  /* ---- founder quote (WD pattern 14) ---- */
+  .fq{max-width:920px;margin:0 auto;text-align:center}
+  .fq .qmark{font-family:var(--serif);font-size:110px;line-height:.4;color:var(--coral);display:block;margin-bottom:34px}
+  .fq blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3vw,40px);line-height:1.35;color:var(--shell);padding-bottom:6px}
+  .fq .who{margin-top:34px;font-size:12.5px;letter-spacing:.175em;text-transform:uppercase;color:var(--haint)}
+  .fq .creds{display:flex;justify-content:center;gap:52px;margin-top:44px;flex-wrap:wrap}
+  .fq .creds div b{display:block;font-family:var(--serif);font-size:28px;color:var(--shell);font-weight:500}
+  .fq .creds div span{font-size:12.5px;color:var(--haint)}
+
+  /* ---- tall parallax banner (WD pattern 11, bottom-anchored chapter) ---- */
+  .tall{position:relative;overflow:hidden}
+  .tall__inner{height:108svh;position:relative;overflow:hidden}
+  .tall__media{position:absolute;inset:-16% 0;will-change:transform}
+  .tall__media img{width:100%;height:100%;object-fit:cover}
+  .tall__inner::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(16,22,28,.55) 0%,rgba(16,22,28,.18) 40%,rgba(16,22,28,.04) 70%)}
+  .tall__txt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end;padding-bottom:9svh}
+  .tall__card{background:rgba(16,22,28,.52);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    padding:44px 52px 40px;max-width:620px;border:1px solid rgba(246,240,230,.12)}
+  .tall__card .rule{width:64px;height:2px;background:var(--coral);margin-bottom:24px}
+  .tall__card p{font-family:var(--serif);font-size:clamp(30px,3.4vw,46px);line-height:1.18;max-width:17ch;color:var(--shell)}
+  .tall__cap{margin-top:20px;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(195,216,212,.9)}
+  @media(max-width:640px){.tall__txt{padding-bottom:6svh}.tall__card{padding:30px 26px 26px}}
+
+
+  /* ---- menu button + Sub-Zero style left drawer ---- */
+  .menu-btn{display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;
+    font-family:var(--sans);font-size:13.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--harbor-deep);padding:8px 0}
+  .menu-btn__ico{display:inline-flex;flex-direction:column;gap:5px;width:22px}
+  .menu-btn__ico i{height:1.5px;background:var(--harbor-deep);display:block;transition:width .3s var(--ease-wd)}
+  .menu-btn__ico i:last-child{width:70%}
+  .menu-btn:hover .menu-btn__ico i{width:100%}
+  .drawer{position:fixed;inset:0;z-index:100;pointer-events:none;visibility:hidden}
+  .drawer.is-open{pointer-events:auto;visibility:visible}
+  .drawer__overlay{position:absolute;inset:0;background:rgba(16,22,28,.45);backdrop-filter:blur(6px);opacity:0;transition:opacity .5s var(--ease-wd);cursor:pointer}
+  .drawer.is-open .drawer__overlay{opacity:1}
+  .drawer__panel{position:absolute;top:0;left:0;bottom:0;width:min(460px,92vw);background:var(--night);color:var(--shell);
+    display:flex;flex-direction:column;padding:26px 40px 36px;transform:translateX(-100%);transition:transform .6s var(--ease-wd);overflow-y:auto}
+  .drawer.is-open .drawer__panel{transform:translateX(0)}
+  .drawer__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:44px}
+  .drawer__close{background:none;border:0;color:var(--haint);font-size:30px;font-weight:300;cursor:pointer;line-height:1;padding:4px}
+  .drawer__close:hover{color:var(--shell)}
+  .drawer__nav{flex:1}
+  .ditem{display:flex;justify-content:space-between;align-items:baseline;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+    font-family:var(--serif);font-weight:500;font-size:30px;color:var(--shell);padding:15px 0;border-bottom:1px solid rgba(195,216,212,.16);
+    transition:padding-left .35s var(--ease-wd),color .25s}
+  .ditem span{font-family:var(--sans);font-weight:300;font-size:20px;color:var(--haint);transition:transform .35s var(--ease-wd)}
+  .ditem:hover{padding-left:12px;color:var(--haint)}
+  .dgroup.is-open .ditem{color:var(--coral)}
+  .dgroup.is-open .ditem span{transform:rotate(45deg)}
+  .dsub{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;max-height:0;overflow:hidden;transition:max-height .55s var(--ease-wd),padding .55s var(--ease-wd);padding:0}
+  .dgroup.is-open .dsub{max-height:340px;padding:18px 0 22px}
+  .dsub__col b{display:block;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+  .dsub__col a{display:block;font-size:15px;font-weight:300;color:var(--haint);padding:5px 0;transition:color .2s,padding-left .25s var(--ease-wd)}
+  .dsub__col a:hover{color:var(--shell);padding-left:6px}
+  .dsub__all{color:var(--coral) !important;font-weight:400 !important}
+  .drawer__foot{display:flex;align-items:center;gap:22px;padding-top:28px;flex-wrap:wrap}
+
+  @media(max-width:768px){.statement p{mask-image:none;-webkit-mask-image:none}}
+  @media(max-width:640px){
+    .brand>span{display:none}
+    .hero h1 br{display:none}
+    .row{flex-wrap:wrap;gap:6px 16px;padding:24px 4px}
+    .row h3{flex:1 1 100%}
+    .fq .creds{gap:28px}
+    .giant{padding:12svh 0 4svh}
+  }
+  @media(max-width:768px){
+    .tall__inner{height:88svh}
+    .drawer__panel{padding:22px 24px 30px}
+    .dsub{grid-template-columns:1fr}
+    .dgroup.is-open .dsub{max-height:560px}
+  }
+  .reviews{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .reviews blockquote{font-family:var(--serif);font-size:21px;line-height:1.45;color:var(--harbor);max-width:44ch}
+  .reviews .who{margin-top:14px;font-size:13.5px;color:var(--grey)}
+  @media(max-width:768px){.reviews{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+
+<nav class="nav">
+  <div class="nav__in">
+    <a class="brand" href="#">
+      <img src="assets/icon-brush-harbor.svg" alt="" width="34" height="34">
+      <span><span class="brand__n">Pristine Coastal Co<b>.</b></span><span class="brand__d">Interior &amp; Exterior Painting</span></span>
+    </a>
+    <button class="menu-btn" id="menu-open" aria-haspopup="dialog" aria-expanded="false">
+      <span class="menu-btn__ico"><i></i><i></i></span>Menu
+    </button>
+    <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
+    <a class="btn" href="#estimate">Get an Estimate</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__media" data-scroll-speed="-14%"><img src="assets/hero-jaxbeach.jpg" alt="Jacksonville Beach at dusk: dune walkover through sea oats toward the pier"></div>
+  <div class="hero__scrim"></div>
+  <div class="hero__in" data-reveal>
+    <h1 class="d1">Finishes that outlive the<br> fashion that ordered them.</h1>
+    <div class="rule"></div>
+    <p>Veteran owned fine-finish painting, drywall and restoration for the First Coast. Twenty-two years, boutique by choice.</p>
+    <div class="hero__cta">
+      <a class="btn" href="#estimate">Get an Estimate</a>
+      <a class="btn btn--ghost" href="#neighborhoods">Find your neighborhood</a>
+    </div>
+  </div>
+  <div class="haze" id="haze"></div>
+</header>
+
+<div class="giant" aria-hidden="true"><p id="giant">The First Coast<span>.</span></p></div>
+
+<section class="sec sec--tight">
+  <div class="wrap answer">
+    <div class="statement">
+      <p id="mask-copy">Pristine Coastal Co. is a veteran owned painting, drywall and restoration company serving Jacksonville, the Beaches and Duval County. Fine-finish interiors, luxury exteriors and historic restoration. <em>Not a production painter,</em> and the workload is limited on purpose. Estimates are free and include a recorded walkthrough.</p>
+    </div>
+    <aside data-reveal>
+      <div><b>22 years</b>Experience on the First Coast</div>
+      <div><b>Duval, St. Johns, Nassau</b>Counties served</div>
+      <div><b>Marine Corps veteran</b>Owner led, on every job</div>
+    </aside>
+  </div>
+</section>
+
+<section class="hscroll" id="neighborhoods">
+  <div class="hscroll__sticky">
+    <div class="hscroll__track" id="htrack">
+      <div class="hpanel hpanel--intro">
+        <div>
+          <h2 class="d2">Start with where you live.</h2>
+          <p>Every street here asks a different question. Ponte Vedra has salt, Ortega has a review board, Riverside has shade. Pick the place and the answer is already written.</p>
+        </div>
+      </div>
+      <div class="hpanel hpanel--card"><div class="hcard">
+        <img loading="lazy" decoding="async" src="assets/hood-pontevedra.jpg" alt="Sandy beach path through dunes in Ponte Vedra Beach">
+        <div class="hcard__txt"><div class="hcard__coord">[ 30&deg;14'22&quot;N &middot; 81&deg;23'07&quot;W ]</div><h3>Ponte Vedra Beach</h3><p>Oceanfront exposure. Salt and UV halve the life of a standard system, so this is marine-grade work or a repaint in four years.</p></div>
+      </div></div>
+      <div class="hpanel hpanel--card"><div class="hcard">
+        <img loading="lazy" decoding="async" src="assets/hood-atlanticbeach.jpg" alt="White picket fence and sea grapes in Atlantic Beach">
+        <div class="hcard__txt"><div class="hcard__coord">[ 30&deg;20'05&quot;N &middot; 81&deg;24'22&quot;W ]</div><h3>Atlantic Beach</h3><p>Painted cottages three blocks off the water. Cedar and fiber cement sit on the same street and need different prep.</p></div>
+      </div></div>
+      <div class="hpanel hpanel--card"><div class="hcard">
+        <img loading="lazy" decoding="async" src="assets/hood-ortega.jpg" alt="Brick walkway to a Mediterranean Revival home in Ortega">
+        <div class="hcard__txt"><div class="hcard__coord">[ 30&deg;16'34&quot;N &middot; 81&deg;42'50&quot;W ]</div><h3>Ortega</h3><p>Tudor and Mediterranean Revival, 1920s stucco over hollow tile. Anything street-facing goes to the review board.</p></div>
+      </div></div>
+      <div class="hpanel hpanel--card"><div class="hcard">
+        <img loading="lazy" decoding="async" src="assets/hood-avondale.jpg" alt="Craftsman bungalow porch in Avondale">
+        <div class="hcard__txt"><div class="hcard__coord">[ 30&deg;17'42&quot;N &middot; 81&deg;43'12&quot;W ]</div><h3>Avondale</h3><p>Craftsman bungalows on original lath and plaster. The front elevation follows historic-district rules, the back does not.</p></div>
+      </div></div>
+      <div class="hpanel hpanel--card"><div class="hcard">
+        <img loading="lazy" decoding="async" src="assets/hood-sanmarco.jpg" alt="Tree-lined street in San Marco">
+        <div class="hcard__txt"><div class="hcard__coord">[ 30&deg;18'58&quot;N &middot; 81&deg;39'22&quot;W ]</div><h3>San Marco</h3><p>1920s stucco and brick under old canopy. Shade holds moisture, and prep decides whether the finish lasts.</p></div>
+      </div></div>
+      <div class="hpanel hpanel--last">
+        <a class="btn btn--ghost" href="#" style="border-color:rgba(246,240,230,.4)">All fourteen neighborhoods</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="d2" data-reveal>Two problems we get called for.</h2>
+    <p class="lead" style="margin:18px 0 52px" data-reveal>Not a gallery sorted by service. These are the questions homeowners actually type, answered in the place they happened.</p>
+    <div class="rows" data-reveal>
+      <a class="row" href="#">
+        <img loading="lazy" decoding="async" class="row__img" src="assets/real-historic-blue.jpg" alt="">
+        <h3>&ldquo;The plaster keeps cracking.&rdquo;</h3>
+        <span class="where">Avondale &middot; Restoration</span>
+        <span class="go">&rarr;</span>
+      </a>
+      <a class="row" href="#">
+        <img loading="lazy" decoding="async" class="row__img" src="assets/real-oceanfront.jpg" alt="">
+        <h3>&ldquo;It is already chalking.&rdquo;</h3>
+        <span class="where">Ponte Vedra Beach &middot; Exterior</span>
+        <span class="go">&rarr;</span>
+      </a>
+      <a class="row" href="#">
+        <img loading="lazy" decoding="async" class="row__img" src="assets/real-cabinets.jpg" alt="">
+        <h3>&ldquo;Refinish, not replace.&rdquo;</h3>
+        <span class="where">Nocatee &middot; Cabinetry</span>
+        <span class="go">&rarr;</span>
+      </a>
+      <a class="row" href="#">
+        <img loading="lazy" decoding="async" class="row__img" src="assets/case-ceiling.jpg" alt="">
+        <h3>&ldquo;The storm stain came back.&rdquo;</h3>
+        <span class="where">Mandarin &middot; Drywall</span>
+        <span class="go">&rarr;</span>
+      </a>
+    </div>
+    <p style="margin-top:44px" data-reveal><a class="tlink" href="#">All eight projects</a></p>
+  </div>
+</section>
+
+<section class="sec sec--ink">
+  <div class="wrap fq" data-reveal>
+    <span class="qmark">&ldquo;</span>
+    <blockquote>I ran crews in the Marine Corps. The standard does not change because the job is a living room.</blockquote>
+    <div class="who">Arron &middot; Owner &middot; USMC Veteran</div>
+    <div class="creds">
+      <div><b>22</b><span>Years in the trade</span></div>
+      <div><b>85+</b><span>Five-star Google reviews</span></div>
+      <div><b>Licensed &amp; insured</b><span>State of Florida</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="stars" style="margin-bottom:26px" data-reveal>&#9733;&#9733;&#9733;&#9733;&#9733;&ensp;<span class="small" style="letter-spacing:0;color:var(--grey)">5.0 on Google</span></div>
+    <div class="reviews" data-reveal>
+      <div>
+        <blockquote>&ldquo;They masked the whole kitchen, sprayed the cabinets off site, and you cannot find a brush mark anywhere.&rdquo;</blockquote>
+        <div class="who">Danielle R. &middot; Nocatee</div>
+      </div>
+      <div>
+        <blockquote>&ldquo;Third painter we hired for the plaster. First one who explained why it kept cracking, then fixed it.&rdquo;</blockquote>
+        <div class="who">Tom &amp; Elise W. &middot; Avondale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tall">
+  <div class="tall__inner">
+    <div class="tall__media" data-scroll-speed="-16%"><img decoding="async" src="assets/real-estate-shingle.jpg" alt="A completed Pristine Coastal exterior, shingle estate in Jacksonville"></div>
+    <div class="tall__txt"><div class="wrap">
+      <div class="tall__card">
+        <div class="rule"></div>
+        <p>The house should look inevitable, not repainted.</p>
+        <div class="tall__cap">Shingle estate &middot; Jacksonville &middot; full exterior system</div>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<section class="sec" id="estimate">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
+    <h2 class="d2" style="max-width:22ch" data-reveal>A free estimate, with a recorded walkthrough.</h2>
+    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap" data-reveal>
+      <a class="btn" href="#">Get an Estimate</a>
+      <a class="nav__tel" href="tel:9042350423">or call 904.235.0423</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot foot--black">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">Pristine Coastal Co<b>.</b></div>
+        <p style="margin-top:16px;max-width:36ch">Veteran owned painting, drywall and restoration for Jacksonville, the Beaches and Duval County, Florida.</p>
+        <p style="margin-top:14px;color:var(--shell)">904.235.0423</p>
+        <p class="small" style="margin-top:6px">Military discounts available.</p>
+      </div>
+      <div><h4>Neighborhoods</h4><ul><li><a href="#">Ponte Vedra Beach</a></li><li><a href="#">Atlantic Beach</a></li><li><a href="#">Ortega</a></li><li><a href="#">Avondale</a></li><li><a href="#">View all fourteen</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#">Residential Painting</a></li><li><a href="#">Luxury Exteriors</a></li><li><a href="#">Drywall</a></li><li><a href="#">Home Restoration</a></li><li><a href="#">View all ten</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Pricing</a></li><li><a href="#">Reviews</a></li><li><a href="#">FAQ</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; 2026 Pristine Coastal Co. &middot; Jacksonville, Florida</span>
+      <span>Licensed &amp; insured &middot; FL</span>
+    </div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__overlay" id="drawer-overlay"></div>
+  <aside class="drawer__panel" role="dialog" aria-label="Site menu">
+    <div class="drawer__head">
+      <span class="brand__n" style="color:var(--shell);font-size:13px">Pristine Coastal Co<b style="color:var(--coral)">.</b></span>
+      <button class="drawer__close" id="menu-close" aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="drawer__nav">
+      <div class="dgroup">
+        <button class="ditem has-sub" aria-expanded="false">Neighborhoods<span>+</span></button>
+        <div class="dsub">
+          <div class="dsub__col"><b>The Beaches</b>
+            <a href="#">Ponte Vedra Beach</a><a href="#">Jacksonville Beach</a><a href="#">Neptune Beach</a><a href="#">Atlantic Beach</a>
+          </div>
+          <div class="dsub__col"><b>Jacksonville &amp; St. Johns</b>
+            <a href="#">Ortega</a><a href="#">Avondale</a><a href="#">San Marco</a><a href="#">Nocatee</a><a href="#" class="dsub__all">All fourteen &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="dgroup">
+        <button class="ditem has-sub" aria-expanded="false">Services<span>+</span></button>
+        <div class="dsub">
+          <div class="dsub__col"><b>Residential</b>
+            <a href="#">Residential Painting</a><a href="#">Luxury Residential</a><a href="#">Luxury Exteriors</a>
+          </div>
+          <div class="dsub__col"><b>Restoration &amp; Commercial</b>
+            <a href="#">Drywall</a><a href="#">Home Restoration</a><a href="#">Commercial &amp; HOA</a><a href="#" class="dsub__all">All ten &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <a class="ditem" href="#">The work</a>
+      <a class="ditem" href="#">Process</a>
+      <a class="ditem" href="#">Pricing</a>
+      <a class="ditem" href="#">About</a>
+    </nav>
+    <div class="drawer__foot">
+      <a class="btn" href="#estimate">Get an Estimate</a>
+      <a class="nav__tel" style="color:var(--haint)" href="tel:9042350423">904.235.0423</a>
+    </div>
+  </aside>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var narrow = window.matchMedia('(max-width: 900px)').matches;
+
+  /* entrance reveals (WD data-reveal system) */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  },{ threshold:.18 });
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    if(reduce){ el.classList.add('is-in'); } else { io.observe(el); }
+  });
+
+  /* giant title: scale to fit the viewport exactly, then fade on scroll */
+  var giant = document.getElementById('giant');
+  var fitGiant = function(){
+    giant.style.fontSize = '100px';
+    var scale = (window.innerWidth * 0.92) / giant.scrollWidth;
+    giant.style.fontSize = Math.max(40, Math.floor(100 * scale)) + 'px';
+  };
+  fitGiant();
+  window.addEventListener('resize', fitGiant);
+
+  if(reduce || !window.gsap){ document.body.classList.add('no-motion'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Lenis smooth scroll, driven through gsap ticker */
+  var lenis = new Lenis({ lerp:.12 }); window.lenisInstance = lenis;
+  lenis.on('scroll', ScrollTrigger.update);
+
+  /* nav hides on scroll down, returns on scroll up (frees the full viewport for pinned sections) */
+  var nav = document.querySelector('.nav'), lastY = 0;
+  lenis.on('scroll', function(e){
+    var y = e.scroll || 0;
+    if (y > 500 && y > lastY + 2) nav.classList.add('is-hidden');
+    else if (y < lastY - 2) nav.classList.remove('is-hidden');
+    lastY = y;
+  });
+  gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+  gsap.ticker.lagSmoothing(0);
+  /* drawer open/close */
+  var drawer = document.getElementById('drawer');
+  var openBtn = document.getElementById('menu-open');
+  var setDrawer = function(open){
+    drawer.classList.toggle('is-open', open);
+    drawer.setAttribute('aria-hidden', String(!open));
+    openBtn.setAttribute('aria-expanded', String(open));
+    if (window.lenisInstance) open ? lenisInstance.stop() : lenisInstance.start();
+  };
+  openBtn.addEventListener('click', function(){ setDrawer(true); });
+  document.getElementById('menu-close').addEventListener('click', function(){ setDrawer(false); });
+  document.getElementById('drawer-overlay').addEventListener('click', function(){ setDrawer(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setDrawer(false); });
+  document.querySelectorAll('.ditem.has-sub').forEach(function(b){
+    b.addEventListener('click', function(){
+      var g = b.parentElement, open = !g.classList.contains('is-open');
+      document.querySelectorAll('.dgroup').forEach(function(x){ x.classList.remove('is-open'); x.querySelector('.ditem').setAttribute('aria-expanded','false'); });
+      g.classList.toggle('is-open', open);
+      b.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); setDrawer(false); lenis.scrollTo(id, { offset: -20 }); }
+    });
+  });
+
+  /* declarative parallax: data-scroll-speed="-14%" (WD attribute API); skipped on small screens */
+  if (!window.matchMedia('(max-width: 768px)').matches) document.querySelectorAll('[data-scroll-speed]').forEach(function(el){
+    var v = parseFloat(el.getAttribute('data-scroll-speed')) / 100;
+    gsap.fromTo(el, { yPercent: -v*100/2 }, { yPercent: v*100/2, ease:'none', force3D:true,
+      scrollTrigger:{ trigger: el.parentElement, start:'top bottom', end:'bottom top', scrub:true } });
+  });
+
+  var smallScreen = window.matchMedia('(max-width: 768px)').matches;
+  if (!smallScreen) {
+  /* haze seam: hero condenses into the white page */
+  gsap.to('#haze', { opacity:1, ease:'none',
+    scrollTrigger:{ trigger:'.hero', start:'40% top', end:'bottom top', scrub:true } });
+
+  /* giant title fade */
+  gsap.fromTo('#giant', { opacity:.07, y:110 }, { opacity:1, y:0, ease:'none', force3D:true,
+    scrollTrigger:{ trigger:'.giant', start:'top 92%', end:'top 30%', scrub:true } });
+
+  /* reading-line mask on the answer statement */
+  gsap.fromTo('#mask-copy', { '--mask-position':-40 }, { '--mask-position':-190, ease:'none',
+    scrollTrigger:{ trigger:'#mask-copy', start:'top 85%', end:'bottom 45%', scrub:true } });
+  }
+
+  /* pinned horizontal neighborhood gallery */
+  if(!narrow){
+    var track = document.getElementById('htrack');
+    var section = document.getElementById('neighborhoods');
+    var setup = function(){
+      var dist = track.scrollWidth - window.innerWidth;
+      section.style.height = 'calc(100svh + ' + dist + 'px)';
+      return dist;
+    };
+    var d = setup();
+    gsap.to(track, { x: function(){ return -(track.scrollWidth - window.innerWidth); }, ease:'none',
+      scrollTrigger:{ trigger:section, start:'top top', end:function(){ return '+=' + (track.scrollWidth - window.innerWidth); },
+        scrub:true, invalidateOnRefresh:true } });
+    ScrollTrigger.addEventListener('refreshInit', setup);
+  }
+})();
+</script>
+</body>
+</html>
