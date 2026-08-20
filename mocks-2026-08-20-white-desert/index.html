@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paul Skidmore — AI · Growth · Strategy</title>
+<link rel="icon" href="assets/ps-seal-light.svg">
+<style>
+/* ============ FONTS ============ */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("assets/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900; font-display: swap; font-style: normal;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("assets/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700; font-display: swap; font-style: normal;
+}
+
+/* ============ TOKENS — PS brand mapped onto WD roles ============ */
+:root {
+  /* dark anchor + warm paper neutrals (never pure grey) */
+  --ps-dark: #141414;
+  --ps-dark-2: #1a1a1a;
+  --ps-paper: #fafaf8;
+  --ps-warm: #f2f0ec;
+  --ps-beige: #e7e3da;
+  --ps-ink: #1a1a1a;
+  --ps-ink-2: #4a4a4a;
+  --ps-muted: #6e6e69;
+
+  /* ONE hot accent — conversion path only */
+  --ps-coral: #e8735a;
+  /* one cool data/instrument accent */
+  --ps-teal: #2d9b9b;
+  --ps-teal-bright: #3fc4c4;
+
+  /* glass */
+  --ps-dark-faded: rgba(20, 20, 20, .5);
+  --ps-glass: rgba(250, 250, 248, .06);
+  --glass-highlight: rgba(255, 255, 255, .18);
+
+  /* motion — WD tempo, PS hands */
+  --ease-sig: cubic-bezier(.76, 0, .24, 1);
+  --ease-hover: cubic-bezier(.5, 1, .89, 1);
+  --ease-enter: cubic-bezier(.16, 1, .3, 1);
+  --t-hover: all .3s var(--ease-hover);
+  --t-sig: all .45s var(--ease-sig);
+
+  --font-display: "Cabinet Grotesk", system-ui, sans-serif;
+  --font-body: "General Sans", system-ui, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", ui-monospace, monospace;
+
+  --radius-hover: .275em;
+  --pulse-duration: 2s;
+  --pulse-stagger: .2s;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: auto; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+body {
+  background: var(--ps-paper);
+  color: var(--ps-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+::selection { background: var(--ps-coral); color: #fff; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; color: inherit; cursor: pointer; }
+
+/* ============ PAGE-ENTER WIPE (WD View-Transition, pattern 9) ============ */
+#page { min-height: 100svh; }
+body.entering #page {
+  animation: page-enter 1s var(--ease-sig) both;
+}
+@keyframes page-enter {
+  0%  { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); }
+  to  { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+}
+
+/* ============ TYPE SYSTEM ============ */
+.label {
+  font-family: var(--font-body);
+  font-size: .6875rem; font-weight: 600;
+  letter-spacing: .3em; text-transform: uppercase;
+}
+.label-wide { letter-spacing: .5em; }
+.data {
+  font-family: var(--font-mono);
+  font-size: .6875rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.data.teal { color: var(--ps-teal); }
+
+/* ============ REVEAL SYSTEM (pattern 10, toned travel) ============ */
+[data-reveal] { opacity: 0; }
+[data-reveal].is-in {
+  animation: 1.2s both reveal-o, 1.2s var(--ease-enter) both reveal-t;
+}
+[data-reveal="opacity"].is-in { animation: 1.2s both reveal-o; }
+@keyframes reveal-o { 0% { opacity: 0; } to { opacity: 1; } }
+@keyframes reveal-t { 0% { transform: translateY(6rem); } to { transform: translateY(0); } }
+
+/* ============ NAV — liquid glass islands (pattern 4) ============ */
+.nav {
+  position: fixed; top: 1.25rem; left: 0; right: 0; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 1.5rem;
+  pointer-events: none;
+}
+.nav_island {
+  pointer-events: auto;
+  display: flex; align-items: center; gap: .25rem;
+  padding: .375rem;
+  border-radius: 2.5em;
+  background: rgba(20, 20, 20, .35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, .12);
+  transition: background .5s var(--ease-hover), border-color .5s var(--ease-hover);
+}
+.nav_link {
+  font-size: .8125rem; font-weight: 500;
+  color: rgba(255, 255, 255, .85);
+  padding: .5rem .875rem;
+  border-radius: 2em;
+  transition: var(--t-hover);
+  position: relative; overflow: clip;
+}
+.nav_link:hover { background: var(--glass-highlight); border-radius: var(--radius-hover); color: #fff; }
+.nav_seal { width: 40px; height: 40px; display: block; transition: transform .45s var(--ease-sig); }
+.nav_seal:hover { transform: rotate(90deg); }
+.nav_island--seal { padding: .3rem; }
+.nav_cta {
+  font-size: .8125rem; font-weight: 600; color: #fff;
+  background: var(--ps-coral);
+  padding: .5rem 1.05rem; border-radius: 2em;
+  transition: var(--t-hover);
+  display: inline-block;
+}
+.nav_cta:hover { border-radius: var(--radius-hover); transform: translateY(-1px); }
+/* nav theme flip (pattern 14) */
+.nav.theme-light .nav_island { background: rgba(250, 250, 248, .55); border-color: rgba(20, 20, 20, .1); }
+.nav.theme-light .nav_link { color: rgba(20, 20, 20, .8); }
+.nav.theme-light .nav_link:hover { background: rgba(20, 20, 20, .07); color: var(--ps-ink); }
+.nav_seal-light, .nav.theme-light .nav_seal-dark { display: none; }
+.nav.theme-light .nav_seal-light { display: block; }
+@media (max-width: 900px) { .nav_island--links { display: none; } }
+
+/* ============ HERO ============ */
+.hero {
+  height: 100svh; position: relative; overflow: hidden;
+  background: var(--ps-paper);
+  display: flex; align-items: flex-end;
+}
+.hero_media {
+  position: absolute; inset: -12% 0; z-index: 0;
+  will-change: transform;
+}
+.hero_media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 72% 18%;
+  filter: saturate(.82) contrast(1.02) brightness(1.04);
+}
+.hero_scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(100deg, rgba(250,250,248,.97) 0%, rgba(250,250,248,.82) 42%, rgba(250,250,248,.12) 72%),
+    linear-gradient(180deg, rgba(250,250,248,.4) 0%, rgba(250,250,248,.05) 38%, rgba(250,250,248,.95) 100%);
+}
+.hero_content {
+  position: relative; z-index: 3;
+  width: 100%;
+  padding: 0 4vw 11svh;
+  color: var(--ps-ink);
+}
+.hero_eyebrow { color: var(--ps-ink); margin-bottom: 1.5rem; display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: baseline; }
+.hero_eyebrow .data { color: #1f7a7a; }
+.hero_title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6.2vw, 5.6rem);
+  font-weight: 500; line-height: 1.02;
+  letter-spacing: -.015em;
+  max-width: 16ch;
+}
+.hero_title em { font-style: normal; color: var(--ps-coral); }
+.hero_meta {
+  margin-top: 2.25rem;
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap;
+  color: var(--ps-ink-2);
+}
+.hero_scrollcue { display: flex; align-items: center; gap: .75rem; }
+.hero_scrollcue i {
+  display: block; width: 1px; height: 3rem; background: rgba(20,20,20,.35);
+  animation: cue 2.4s var(--ease-sig) infinite;
+  transform-origin: top;
+}
+@keyframes cue { 0% { transform: scaleY(0); } 45% { transform: scaleY(1); transform-origin: top; } 46% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+/* ============ MIST SEAM (pattern 1 — signature) ============ */
+.mist {
+  pointer-events: none;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 5;
+}
+.mist_hold {
+  transform-origin: bottom;
+  will-change: transform, opacity;
+  opacity: 0;
+  width: 100%; height: 100svh;
+  position: sticky; top: 0;
+  transform: translateZ(0);
+}
+.mist_img {
+  width: 100%; height: 100%;
+  background:
+    linear-gradient(360deg, var(--ps-paper) 0%, rgba(250,250,248,.65) 22%, transparent 55%),
+    radial-gradient(120% 70% at 30% 90%, rgba(250,250,248,.9), transparent 60%),
+    radial-gradient(130% 80% at 75% 100%, rgba(242,240,236,.85), transparent 65%);
+}
+.mist_noise { position: absolute; inset: 0; opacity: .5; mix-blend-mode: screen; }
+.seam-wrap { position: relative; }
+
+/* ============ SECTIONS ============ */
+.section { position: relative; }
+.section--paper { background: var(--ps-paper); color: var(--ps-ink); }
+.section--warm { background: var(--ps-warm); color: var(--ps-ink); }
+.section--dark { background: var(--ps-dark); color: var(--ps-paper); }
+.pad { padding: clamp(5rem, 12vw, 11rem) 4vw; }
+
+/* intro / about */
+.intro_label { display: flex; gap: 1rem; align-items: baseline; margin-bottom: 3rem; }
+.intro_copy {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.1vw, 2.75rem);
+  font-weight: 500; line-height: 1.25; letter-spacing: -.01em;
+  max-width: 34ch;
+}
+/* text scroll-fade mask (pattern 7) */
+.text-scroll-fade {
+  --mask-position: -40;
+  mask-image: linear-gradient(#000, #000, rgba(0,0,0,.9), rgba(0,0,0,.7), rgba(0,0,0,.5), rgba(0,0,0,.35), rgba(0,0,0,.3), rgba(0,0,0,.3));
+  -webkit-mask-image: linear-gradient(#000, #000, rgba(0,0,0,.9), rgba(0,0,0,.7), rgba(0,0,0,.5), rgba(0,0,0,.35), rgba(0,0,0,.3), rgba(0,0,0,.3));
+  mask-size: 100% 300%;
+  -webkit-mask-size: 100% 300%;
+  mask-position: 0 calc(var(--mask-position) * 1%);
+  -webkit-mask-position: 0 calc(var(--mask-position) * 1%);
+}
+.stats {
+  margin-top: 5rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+}
+.stat { padding-top: 2rem; }
+.stat_value { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 600; letter-spacing: -.02em; line-height: 1; }
+.stat_value span { color: var(--ps-teal); }
+.stat_label { margin-top: .6rem; color: var(--ps-muted); }
+@media (max-width: 800px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* ============ GIANT TITLE (pattern 6) ============ */
+.giant {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.5rem, 13vw, 14rem);
+  line-height: .95; letter-spacing: -.02em;
+  text-transform: uppercase; white-space: nowrap;
+  text-align: center;
+  will-change: opacity, transform;
+}
+.giant--outline { color: var(--ps-ink); }
+
+/* ============ HORIZONTAL SCROLL — THE RECORD (pattern 2) ============ */
+.hscroll { z-index: 3; width: 100%; position: relative; overflow: visible; background: var(--ps-warm); color: var(--ps-ink); }
+.hscroll_wrapper { width: 100%; height: 100svh; position: sticky; top: 0; overflow: hidden; }
+.hscroll_container {
+  will-change: transform;
+  width: fit-content; height: 100svh;
+  display: flex;
+  transform: translateZ(0);
+}
+.hpanel { flex-shrink: 0; display: flex; justify-content: center; align-items: center; height: 100svh; position: relative; }
+.hpanel:first-child { width: 100vw; }
+.hpanel:not(:first-child) { width: min(44rem, 88vw); }
+.hpanel_intro { text-align: center; padding: 0 6vw; }
+.hpanel_intro .giant { margin-bottom: 2rem; }
+.hpanel_intro p { color: var(--ps-ink-2); max-width: 40ch; margin: 0 auto; font-size: 1.2rem; line-height: 1.6; }
+.hpanel_intro .data { display: block; margin-bottom: 2.5rem; }
+.hcard {
+  width: 100%; height: 100%;
+  padding: clamp(5.5rem, 9svh, 8rem) clamp(1.5rem, 3.5vw, 4rem) clamp(2.5rem, 6svh, 5rem);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.hcard_top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.hcard_num { font-family: var(--font-mono); font-size: .8rem; color: var(--ps-muted); }
+.hcard_company { font-family: var(--font-display); font-size: clamp(2.2rem, 4.4vw, 4rem); font-weight: 700; letter-spacing: -.02em; line-height: 1; margin: 1.25rem 0 .5rem; }
+.hcard_role { color: var(--ps-teal); font-weight: 500; font-size: 1.05rem; }
+.hcard_desc { color: var(--ps-ink-2); line-height: 1.65; font-size: .95rem; max-width: 52ch; margin-top: 1.75rem; }
+.hcard_metric { display: flex; align-items: baseline; gap: 1rem; margin-top: 2rem; }
+.hcard_metric b { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+.hcard_metric span { color: var(--ps-muted); font-size: .8rem; max-width: 12ch; line-height: 1.35; }
+.hcard_tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+.hcard_tag {
+  font-size: .6875rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ps-ink-2);
+  background: rgba(20,20,20,.05);
+  padding: .35rem .7rem; border-radius: 2em;
+}
+.hscroll_progress { position: absolute; bottom: 2rem; left: 4vw; right: 4vw; height: 1px; background: rgba(20,20,20,.1); }
+.hscroll_progress i { display: block; height: 100%; width: 100%; background: var(--ps-coral); transform: scaleX(0); transform-origin: left; }
+
+/* ============ TALL PARALLAX BANNER (pattern 11) ============ */
+.banner { background: var(--ps-warm); width: 100%; position: relative; }
+.banner_inner { width: 100%; height: 150svh; position: relative; overflow: hidden; }
+.banner_media { position: absolute; inset: -20% 0; will-change: transform; }
+.banner_media video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+.banner_caption {
+  position: absolute; bottom: 3rem; left: 4vw; z-index: 2; color: #fff;
+  display: flex; flex-direction: column; gap: .6rem;
+  padding: 1rem 1.25rem;
+  background: rgba(20,20,20,.35); backdrop-filter: blur(8px);
+  border-radius: var(--radius-hover);
+}
+.banner_scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(250,250,248,.35), transparent 18%, transparent 82%, rgba(250,250,248,.4)); }
+
+/* ============ SYSTEMS — glass cards + pulse nodes (pattern 3) ============ */
+.systems_head { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 4.5rem; max-width: 60ch; }
+.systems_head h2 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.05; }
+.systems_head p { color: var(--ps-ink-2); line-height: 1.65; }
+.systems_grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 1000px) { .systems_grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .systems_grid { grid-template-columns: 1fr; } }
+.syscard {
+  background: var(--ps-paper);
+  border-radius: .5em;
+  padding: 2.25rem 1.85rem 2.5rem;
+  position: relative;
+  transition: var(--t-hover);
+  box-shadow: 0 1px 2px rgba(20,20,20,.04);
+}
+.syscard:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(20,20,20,.07); }
+.syscard h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; margin: 1.6rem 0 .8rem; }
+.syscard p { color: var(--ps-ink-2); font-size: .9rem; line-height: 1.6; }
+.syscard_tools { margin-top: 1.5rem; color: var(--ps-teal); }
+.node { position: relative; width: .5rem; height: .5rem; }
+.node_dot { width: 100%; height: 100%; background: var(--ps-teal); border-radius: 50%; }
+.node i {
+  border: 1px solid var(--ps-teal);
+  opacity: 0; width: 100%; height: 100%;
+  animation: pulsed var(--pulse-duration) ease-out infinite;
+  animation-delay: calc(var(--index) * var(--pulse-stagger));
+  border-radius: 50%;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  will-change: width, height, opacity;
+}
+@keyframes pulsed {
+  0%      { opacity: 1; width: 100%; height: 100%; }
+  59.9%   { opacity: 0; width: 500%; height: 500%; }
+  60%, to { opacity: 0; width: 100%; height: 100%; }
+}
+
+/* ============ BUILDS — clip-path image rows (pattern 8) ============ */
+.builds_head { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+.builds_head h2 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 700; letter-spacing: -.02em; }
+.build-row {
+  width: 100%;
+  min-height: 6.5rem;
+  padding: 2rem 1.25rem;
+  cursor: pointer;
+  border-top: .5px solid rgba(20,20,20,.12);
+  transition: var(--t-hover);
+  color: var(--ps-ink); background: none;
+  display: grid; grid-template-columns: 1.4fr .7fr 1fr; align-items: center; gap: 1.5rem;
+  position: relative; text-align: left;
+}
+.build-row:last-of-type { border-bottom: .5px solid rgba(20,20,20,.12); }
+.build-row_name { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2.4rem); font-weight: 600; letter-spacing: -.015em; z-index: 1; }
+.build-row_tag { z-index: 1; color: var(--ps-teal); }
+.build-row_tech { color: var(--ps-muted); font-size: .8rem; z-index: 1; }
+.build-row .preview {
+  aspect-ratio: 16 / 10;
+  width: min(26rem, 34vw);
+  clip-path: inset(50% 0%);
+  opacity: 0;
+  border-radius: var(--radius-hover);
+  box-shadow: 0 18px 50px rgba(20,20,20,.22);
+  transition: clip-path .45s var(--ease-sig), opacity .45s var(--ease-hover);
+  position: absolute; top: 50%; right: 8%; transform: translateY(-50%);
+  pointer-events: none; overflow: clip; z-index: 2;
+}
+.build-row .preview img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.build-row:hover .preview { clip-path: inset(0% 0%); opacity: 1; }
+.build-row:hover { border-top-color: transparent; }
+.build-row:hover + .build-row { border-top-color: transparent; }
+@media (max-width: 800px) {
+  .build-row { grid-template-columns: 1fr; }
+  .build-row_tech { display: none; }
+  .build-row .preview { display: none; }
+}
+
+/* ============ CERTIFICATIONS ============ */
+.certs_head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem; }
+.certs_head h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 700; letter-spacing: -.02em; }
+.cert-row {
+  display: grid; grid-template-columns: 1.6fr .6fr auto; gap: 1.5rem; align-items: baseline;
+  padding: 1.05rem .25rem;
+  border-top: .5px solid rgba(20,20,20,.15);
+  transition: var(--t-hover);
+}
+.cert-row:last-child { border-bottom: .5px solid rgba(20,20,20,.15); }
+.cert-row:hover { padding-left: .85rem; background: rgba(20,20,20,.025); }
+.cert-row_name { font-weight: 500; font-size: .95rem; }
+.cert-row_issuer { color: var(--ps-muted); }
+.cert-row_issuer.is-anthropic { color: var(--ps-teal); }
+.cert-row_date { color: var(--ps-muted); }
+@media (max-width: 700px) { .cert-row { grid-template-columns: 1fr auto; } .cert-row_issuer { display: none; } }
+
+/* ============ CONTACT / FOOTER ============ */
+.contact { overflow: hidden; }
+.contact_inner { padding: clamp(6rem, 14vw, 12rem) 4vw 3rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.contact_sub { color: var(--ps-ink-2); max-width: 42ch; margin: 2.5rem 0 3rem; line-height: 1.65; }
+.btn-coral {
+  display: inline-flex; align-items: center; gap: .75rem;
+  background: var(--ps-coral); color: #fff;
+  font-weight: 600; font-size: 1rem;
+  padding: 1.1rem 2.2rem;
+  border-radius: 2.5em;
+  transition: var(--t-hover);
+  position: relative; overflow: clip;
+}
+.btn-coral:hover { border-radius: var(--radius-hover); transform: translateY(-2px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .5rem;
+  color: var(--ps-ink-2);
+  font-weight: 500; font-size: .9rem;
+  padding: 1.05rem 1.75rem;
+  border: .5px solid rgba(20,20,20,.25);
+  border-radius: 2.5em;
+  transition: var(--t-hover);
+}
+.btn-ghost:hover { border-radius: var(--radius-hover); border-color: rgba(20,20,20,.6); }
+.contact_actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.footer_meta {
+  width: 100%;
+  margin-top: clamp(5rem, 10vw, 9rem);
+  padding-top: 1.75rem;
+  border-top: .5px solid rgba(20,20,20,.12);
+  display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  color: var(--ps-muted);
+}
+.footer_meta img { width: 34px; height: 34px; opacity: .85; }
+.footer_left { display: flex; align-items: center; gap: 1rem; }
+
+/* ============ FLYOUT — How I work (pattern 13) ============ */
+.flyout-tab {
+  position: fixed; right: 0; top: 50%; z-index: 9000;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  background: var(--ps-coral); color: #fff;
+  font-size: .75rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  padding: 1.4rem .7rem;
+  border-radius: 0 var(--radius-hover) var(--radius-hover) 0;
+  transition: var(--t-hover);
+}
+.flyout-tab:hover { padding-right: 1.05rem; }
+.flyout {
+  z-index: 10000; pointer-events: none; visibility: hidden;
+  width: 100vw; height: 100svh; position: fixed; inset: 0;
+}
+.flyout.is-ready { visibility: visible; }
+.flyout.is-active { pointer-events: auto; }
+.flyout_overlay {
+  background: rgba(242, 240, 236, .45);
+  opacity: 0; cursor: pointer;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: absolute; inset: 0;
+  transition: opacity .45s var(--ease-sig);
+}
+.flyout.is-active .flyout_overlay { opacity: 1; }
+.flyout_panel {
+  position: absolute; top: 0; right: 0; height: 100%;
+  width: min(34rem, 92vw);
+  background: var(--ps-paper); color: var(--ps-ink);
+  padding: clamp(2.5rem, 6vh, 4.5rem) clamp(1.75rem, 3vw, 3rem);
+  transform: translateX(102%);
+  transition: transform .45s var(--ease-sig);
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+}
+.flyout.is-active .flyout_panel { transform: translateX(0); }
+.flyout_close { align-self: flex-end; font-size: .8rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--ps-muted); transition: var(--t-hover); }
+.flyout_close:hover { color: var(--ps-coral); }
+.flyout_panel h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 3.4vw, 2.6rem); font-weight: 700; letter-spacing: -.02em; margin: 1.5rem 0 .75rem; }
+.flyout_panel > p { color: var(--ps-ink-2); line-height: 1.6; margin-bottom: 2.5rem; }
+.step { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; padding: 1.5rem 0; border-top: .5px solid rgba(20,20,20,.15); }
+.step_num { font-family: var(--font-mono); color: var(--ps-teal); font-size: .8rem; padding-top: .25rem; }
+.step h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: .4rem; }
+.step p { color: var(--ps-ink-2); font-size: .9rem; line-height: 1.6; }
+.flyout_cta { margin-top: auto; padding-top: 2.5rem; }
+.flyout_cta .btn-coral { width: 100%; justify-content: center; }
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
+  [data-reveal] { opacity: 1; }
+  .text-scroll-fade { mask-image: none; -webkit-mask-image: none; }
+  .hscroll_wrapper { position: relative; height: auto; }
+  .hscroll_container { flex-direction: column; width: 100%; height: auto; }
+  .hpanel, .hpanel:first-child, .hpanel:not(:first-child) { width: 100%; height: auto; min-height: 60svh; }
+  .banner_inner { height: 80svh; }
+}
+</style>
+</head>
+<body class="entering">
+
+<!-- nav -->
+<nav class="nav theme-light" id="nav">
+  <div class="nav_island nav_island--seal">
+    <a href="#top" aria-label="Paul Skidmore">
+      <img class="nav_seal nav_seal-dark" src="assets/ps-seal-dark.svg" alt="PS seal">
+      <img class="nav_seal nav_seal-light" src="assets/ps-seal-light.svg" alt="PS seal">
+    </a>
+  </div>
+  <div class="nav_island nav_island--links">
+    <a class="nav_link" href="#record">The Record</a>
+    <a class="nav_link" href="#systems">Systems</a>
+    <a class="nav_link" href="#builds">Builds</a>
+    <a class="nav_link" href="#certs">Credentials</a>
+  </div>
+  <div class="nav_island">
+    <a class="nav_cta" href="mailto:pskidmore216@gmail.com">Start a conversation</a>
+  </div>
+</nav>
+
+<!-- flyout tab + panel -->
+<button class="flyout-tab" id="flyoutTab">How I work</button>
+<div class="flyout is-ready" id="flyout">
+  <div class="flyout_overlay" id="flyoutOverlay"></div>
+  <aside class="flyout_panel" data-lenis-prevent="true">
+    <button class="flyout_close" id="flyoutClose">Close ✕</button>
+    <h2>Diagnostic first.<br>Then the sprint.</h2>
+    <p>No retainers for the sake of retainers. Every engagement starts by finding where revenue actually leaks, then fixing it in order of return.</p>
+    <div class="step">
+      <span class="step_num">01</span>
+      <div><h3>Diagnose</h3><p>A structured teardown of your funnel, site, and pipeline. Real data, not opinions. You get the findings whether we work together or not.</p></div>
+    </div>
+    <div class="step">
+      <span class="step_num">02</span>
+      <div><h3>Prioritize</h3><p>Every fix ranked by expected impact against effort. The roadmap reads top to bottom; so does the return.</p></div>
+    </div>
+    <div class="step">
+      <span class="step_num">03</span>
+      <div><h3>Sprint</h3><p>Ninety days of building. Systems ship weekly: automation, creative, pipeline, whatever the diagnostic ordered.</p></div>
+    </div>
+    <div class="step">
+      <span class="step_num">04</span>
+      <div><h3>Compound</h3><p>The systems keep running after I step back. That is the point of building them as systems.</p></div>
+    </div>
+    <div class="flyout_cta">
+      <a class="btn-coral" href="mailto:pskidmore216@gmail.com">Book the diagnostic</a>
+    </div>
+  </aside>
+</div>
+
+<div id="page">
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top" data-nav-theme="light">
+  <div class="hero_media" data-scroll-speed="-14%">
+    <img src="assets/headshot.jpg" alt="Paul Skidmore">
+  </div>
+  <div class="hero_scrim"></div>
+  <div class="hero_content">
+    <div class="hero_eyebrow" data-reveal>
+      <span class="label label-wide">Paul Skidmore</span>
+      <span class="data teal">[ 25°46'27" N, 80°11'37" W — Miami, FL ]</span>
+    </div>
+    <h1 class="hero_title" data-reveal>I build revenue engines, and the <em>AI systems</em> that run them.</h1>
+    <div class="hero_meta" data-reveal>
+      <span class="data">VP, Sales &amp; Marketing — BoldX Industries · Aerospace &amp; Defense</span>
+      <div class="hero_scrollcue"><span class="data">Scroll</span><i></i></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MIST SEAM + INTRO ============ -->
+<div class="seam-wrap">
+  <div class="mist" id="mist">
+    <div class="mist_hold" id="mistHold">
+      <div class="mist_img">
+        <svg class="mist_noise" width="100%" height="100%" preserveAspectRatio="none" aria-hidden="true">
+          <filter id="fog"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.009" numOctaves="4" seed="7"/><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 0.98  0 0 0 0.55 0"/></filter>
+          <rect width="100%" height="100%" filter="url(#fog)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--paper pad" data-nav-theme="light">
+    <div class="intro_label" data-reveal="opacity">
+      <span class="data teal">[ 001 — The short version ]</span>
+    </div>
+    <p class="intro_copy text-scroll-fade" id="introCopy">
+      Twelve years selling in operating rooms, boardrooms, and founder basements taught me one thing: revenue is a system, not a talent. Now I design those systems by hand, pipeline intelligence to automated research to full-funnel creative, and let AI run the parts that never needed a human anyway.
+    </p>
+    <div class="stats">
+      <div class="stat" data-reveal><div class="stat_value">12<span>+</span></div><div class="stat_label data">Years in revenue</div></div>
+      <div class="stat" data-reveal><div class="stat_value">$24<span>M</span></div><div class="stat_label data">2026 revenue target</div></div>
+      <div class="stat" data-reveal><div class="stat_value">16</div><div class="stat_label data">Certifications</div></div>
+      <div class="stat" data-reveal><div class="stat_value">06</div><div class="stat_label data">Chapters</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ THE RECORD — pinned horizontal scroll ============ -->
+<section class="hscroll" id="record" data-nav-theme="light">
+  <div class="hscroll_wrapper">
+    <div class="hscroll_container" id="hTrack">
+      <div class="hpanel">
+        <div class="hpanel_intro">
+          <span class="data teal">[ 2014 — Present ]</span>
+          <h2 class="giant giant--outline" id="recordTitle">The Record</h2>
+          <p>Six chapters. Spine surgery to seed rounds to aerospace. Each one added a tool the next one needed.</p>
+        </div>
+      </div>
+
+      <div class="hpanel"><article class="hcard">
+        <div><div class="hcard_top"><span class="data teal">[ 2014 — 2016 · Corporate ]</span><span class="hcard_num">01 / 06</span></div>
+        <h3 class="hcard_company">Stryker</h3><div class="hcard_role">Sales Representative</div>
+        <p class="hcard_desc">Started my career in the operating room selling spinal implant systems to orthopedic and neurosurgeons. Managed a multi-million dollar territory across top-tier hospitals by building deep trust with surgical teams.</p></div>
+        <div><div class="hcard_metric"><b>122%</b><span>to quota</span></div>
+        <div class="hcard_tags"><span class="hcard_tag">Medical Device Sales</span><span class="hcard_tag">Spine Surgery</span><span class="hcard_tag">Johns Hopkins</span></div></div>
+      </article></div>
+
+      <div class="hpanel"><article class="hcard">
+        <div><div class="hcard_top"><span class="data teal">[ 2016 — 2020 · Startup ]</span><span class="hcard_num">02 / 06</span></div>
+        <h3 class="hcard_company">Digital Medical Tech</h3><div class="hcard_role">Business Development Manager</div>
+        <p class="hcard_desc">Grew enterprise revenue for a Techstars-backed healthtech startup selling Bluetooth asset tracking into hospital systems. Built the outbound pipeline from scratch and closed six-figure enterprise contracts.</p></div>
+        <div><div class="hcard_metric"><b>40%</b><span>revenue growth in 2 years</span></div>
+        <div class="hcard_tags"><span class="hcard_tag">HealthTech</span><span class="hcard_tag">Enterprise Sales</span><span class="hcard_tag">Techstars Portfolio</span></div></div>
+      </article></div>
+
+      <div class="hpanel"><article class="hcard">
+        <div><div class="hcard_top"><span class="data teal">[ 2020 — 2022 · Startup ]</span><span class="hcard_num">03 / 06</span></div>
+        <h3 class="hcard_company">Wellie</h3><div class="hcard_role">Co-Founder</div>
+        <p class="hcard_desc">Co-founded a Web3 wellness platform from zero. Raised seed funding, built and shipped the MVP, recruited the founding team, and learned what it takes to create a company from a blank page.</p></div>
+        <div><div class="hcard_metric"><b>$250K</b><span>seed funding raised</span></div>
+        <div class="hcard_tags"><span class="hcard_tag">Web3</span><span class="hcard_tag">Wellness</span><span class="hcard_tag">Founding Team</span></div></div>
+      </article></div>
+
+      <div class="hpanel"><article class="hcard">
+        <div><div class="hcard_top"><span class="data teal">[ 2022 — 2024 · Independent ]</span><span class="hcard_num">04 / 06</span></div>
+        <h3 class="hcard_company">Comprehensive MD</h3><div class="hcard_role">Digital Marketing Strategist</div>
+        <p class="hcard_desc">Overhauled digital marketing for a neurosurgical and pain management group in South Florida. Automated email sequences, CRM integrations, and social strategies that transformed patient engagement.</p></div>
+        <div><div class="hcard_metric"><b>97%</b><span>engagement increase</span></div>
+        <div class="hcard_tags"><span class="hcard_tag">Healthcare Marketing</span><span class="hcard_tag">HubSpot</span><span class="hcard_tag">CRM Integration</span></div></div>
+      </article></div>
+
+      <div class="hpanel"><article class="hcard">
+        <div><div class="hcard_top"><span class="data teal">[ 2024 — 2025 · Startup ]</span><span class="hcard_num">05 / 06</span></div>
+        <h3 class="hcard_company">Revscale AI</h3><div class="hcard_role">Growth Lead</div>
+        <p class="hcard_desc">Led growth at an AI-powered revenue platform automating inbound, outbound, and customer support. Built channel partner programs and wrote the go-to-market playbook for AI-driven sales automation.</p></div>
+        <div><div class="hcard_metric"><b>50%</b><span>MoM revenue growth</span></div>
+        <div class="hcard_tags"><span class="hcard_tag">AI Sales Automation</span><span class="hcard_tag">Channel Partners</span><span class="hcard_tag">GTM Strategy</span></div></div>
+      </article></div>
+
+      <div class="hpanel"><article class="hcard">
+        <div><div class="hcard_top"><span class="data teal">[ 2025 — Present · Corporate ]</span><span class="hcard_num">06 / 06</span></div>
+        <h3 class="hcard_company">BoldX Industries</h3><div class="hcard_role">VP, Sales &amp; Marketing</div>
+        <p class="hcard_desc">Leading sales and marketing for an aerospace, defense, and product assembly company specializing in hermetic connectors and precision CNC machining. Built AI-powered sales intelligence to automate prospecting and deal research, and drove the HubSpot-ERP integration behind it.</p></div>
+        <div><div class="hcard_metric"><b>$24M+</b><span>projected 2026 revenue</span></div>
+        <div class="hcard_tags"><span class="hcard_tag">Aerospace &amp; Defense</span><span class="hcard_tag">Hermetic Connectors</span><span class="hcard_tag">AI-Powered Sales</span></div></div>
+      </article></div>
+    </div>
+    <div class="hscroll_progress"><i id="hProgress"></i></div>
+  </div>
+</section>
+
+<!-- ============ PARALLAX BANNER ============ -->
+<div class="banner" data-nav-theme="dark">
+  <div class="banner_inner">
+    <div class="banner_media" data-scroll-speed="-18%">
+      <video src="assets/spiritual-site.mp4" poster="assets/seed-poster.png" autoplay muted loop playsinline></video>
+    </div>
+    <div class="banner_scrim"></div>
+    <div class="banner_caption">
+      <span class="data teal">[ Selected build — scroll-driven parallax experience ]</span>
+      <span class="label">Designed and shipped with Claude Code</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SYSTEMS ============ -->
+<section class="section section--warm pad" id="systems" data-nav-theme="light">
+  <div class="systems_head">
+    <span class="data teal" data-reveal="opacity">[ 002 — What I run ]</span>
+    <h2 data-reveal>Six systems. One operator.</h2>
+    <p data-reveal>Each one automated where it should be, personal where it matters. Small teams, outsized output.</p>
+  </div>
+  <div class="systems_grid">
+    <div class="syscard" data-reveal>
+      <div class="node" style="--index:0"><div class="node_dot"></div><i></i><i></i></div>
+      <h3>Growth &amp; Revenue</h3>
+      <p>Building repeatable revenue engines from zero. AI-driven pipeline scoring, intelligent lead routing, and prospect research that runs while I sleep.</p>
+      <div class="syscard_tools data">HubSpot · Salesforce · CRM Systems</div>
+    </div>
+    <div class="syscard" data-reveal>
+      <div class="node" style="--index:1"><div class="node_dot"></div><i></i><i></i></div>
+      <h3>Automation &amp; Tools</h3>
+      <p>Custom AI agents that replace entire workflows. Sales intelligence bots, automated deal research, outreach engines.</p>
+      <div class="syscard_tools data">Claude · LLMs · Custom Platforms</div>
+    </div>
+    <div class="syscard" data-reveal>
+      <div class="node" style="--index:2"><div class="node_dot"></div><i></i><i></i></div>
+      <h3>Digital Marketing</h3>
+      <p>Full-funnel strategy from social to email to paid. AI-generated content, personalized outreach at scale, and campaigns that optimize themselves.</p>
+      <div class="syscard_tools data">Ortto · MailChimp · Social Platforms</div>
+    </div>
+    <div class="syscard" data-reveal>
+      <div class="node" style="--index:3"><div class="node_dot"></div><i></i><i></i></div>
+      <h3>Business Development</h3>
+      <p>Research briefs on every prospect before the first call. Then real human connection closes the deal.</p>
+      <div class="syscard_tools data">Sales Navigator · Outbound Tools</div>
+    </div>
+    <div class="syscard" data-reveal>
+      <div class="node" style="--index:4"><div class="node_dot"></div><i></i><i></i></div>
+      <h3>Product Strategy</h3>
+      <p>From concept to MVP, fast. Using AI to accelerate prototyping, build internal tools, and ship products that would have taken teams of ten.</p>
+      <div class="syscard_tools data">Next.js · Rapid Prototyping · Claude Code</div>
+    </div>
+    <div class="syscard" data-reveal>
+      <div class="node" style="--index:5"><div class="node_dot"></div><i></i><i></i></div>
+      <h3>Brand &amp; Creative</h3>
+      <p>Naming, color systems, visual identity, from enterprise rebrand down to a single product launch. Creative instinct drives brands that actually stand out.</p>
+      <div class="syscard_tools data">Brand Strategy · Visual Identity · Naming</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUILDS ============ -->
+<section class="section section--paper pad" id="builds" data-nav-theme="light">
+  <div class="builds_head">
+    <h2 data-reveal>Built by hand</h2>
+    <span class="data teal" data-reveal="opacity">[ 003 — Shipped work · hover to preview ]</span>
+  </div>
+
+  <button class="build-row">
+    <span class="build-row_name">FckYourWebsite</span>
+    <span class="build-row_tag data">Audit SaaS</span>
+    <span class="build-row_tech">Next.js · Stripe · Supabase · Playwright · Anthropic SDK</span>    <span class="preview"><img src="assets/fckyourwebsite.png" alt=""></span>
+  </button>
+  <button class="build-row">
+    <span class="build-row_name">Signal Agent</span>
+    <span class="build-row_tag data">Lead Intelligence</span>
+    <span class="build-row_tech">Python · Playwright · Clay · SQLite</span>    <span class="preview"><img src="assets/signal-agent.png" alt=""></span>
+  </button>
+  <button class="build-row">
+    <span class="build-row_name">American Labor Ladders</span>
+    <span class="build-row_tag data">Product Site</span>
+    <span class="build-row_tech">React · Framer Motion · Vite</span>    <span class="preview"><img src="assets/american-labor-ladders.png" alt=""></span>
+  </button>
+  <button class="build-row">
+    <span class="build-row_name">Human OS</span>
+    <span class="build-row_tag data">Quiz Engine</span>
+    <span class="build-row_tech">Next.js · Supabase · Tailwind</span>    <span class="preview"><img src="assets/human-os.png" alt=""></span>
+  </button>
+  <button class="build-row">
+    <span class="build-row_name">AI Wireframe Prototype</span>
+    <span class="build-row_tag data">Wireframe Audit</span>
+    <span class="build-row_tech">Next.js · Claude Code · HTML/CSS Prototyping</span>    <span class="preview"><img src="assets/wireframe-prototype.png" alt=""></span>
+  </button>
+  <button class="build-row">
+    <span class="build-row_name">Spiritual Site</span>
+    <span class="build-row_tag data">Parallax Experience</span>
+    <span class="build-row_tech">Next.js · GSAP · Framer Motion · Lenis</span>    <span class="preview"><img src="assets/spiritual-site.png" alt=""></span>
+  </button>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section class="section section--paper pad" id="certs" data-nav-theme="light">
+  <div class="certs_head">
+    <h2 data-reveal>The paper trail</h2>
+    <span class="data teal" data-reveal="opacity">[ 004 — 16 certifications ]</span>
+  </div>
+  <div id="certList"></div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<footer class="section section--warm contact" id="contact" data-nav-theme="light">
+  <div class="contact_inner">
+    <h2 class="giant" id="talkTitle">Let's talk</h2>
+    <p class="contact_sub" data-reveal>One conversation is usually enough to know whether there is a system worth building. Miami based, working everywhere.</p>
+    <div class="contact_actions" data-reveal>
+      <a class="btn-coral" href="mailto:pskidmore216@gmail.com">Start a conversation</a>
+      <a class="btn-ghost" href="https://www.linkedin.com/in/paul-skidmore/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="footer_meta">
+      <div class="footer_left">
+        <img src="assets/ps-seal-light.svg" alt="PS seal">
+        <span class="data">© 2026 Paul Skidmore</span>
+      </div>
+      <span class="data teal">[ Miami, FL — <span id="clock">--:--</span> local ]</span>
+      <span class="data">AI · Growth · Strategy</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- certifications ---------- */
+const certs = [
+  ["AI Capabilities and Limitations","Anthropic","May 2026"],
+  ["Claude Code 101","Anthropic","Apr 2026"],
+  ["AI Fluency: Framework & Foundations","Anthropic","Apr 2026"],
+  ["Claude Cowork Intro","Anthropic","Apr 2026"],
+  ["Claude 101","Anthropic","Apr 2026"],
+  ["Claude Code in Action","Anthropic","Mar 2026"],
+  ["Make the Sale: Build, Launch, and Manage E-commerce Stores","Google","Apr 2024"],
+  ["Assess for Success: Marketing Analytics and Measurement","Google","Mar 2024"],
+  ["Think Outside the Inbox: Email Marketing","Google","Mar 2024"],
+  ["From Likes to Leads: Interact with Customers Online","Google","Mar 2024"],
+  ["Attract and Engage Customers with Digital Marketing","Google","Mar 2024"],
+  ["Foundations of Digital Marketing and E-commerce","Google","Mar 2024"],
+  ["Product Manager","General Assembly","May 2020"],
+  ["Certified Strength and Conditioning Specialist (CSCS)","NSCA","Apr 2010"],
+  ["Poliquin Practitioner","Poliquin Group","Sep 2010"],
+  ["CHEK Practitioner","CHEK Institute","Jun 2010"],
+];
+document.getElementById('certList').innerHTML = certs.map(([n, i, d]) =>
+  `<div class="cert-row" data-reveal="opacity">
+     <span class="cert-row_name">${n}</span>
+     <span class="cert-row_issuer data ${i === 'Anthropic' ? 'is-anthropic' : ''}">${i}</span>
+     <span class="cert-row_date data">${d}</span>
+   </div>`).join('');
+
+/* ---------- Miami clock ---------- */
+const clockEl = document.getElementById('clock');
+const tickClock = () => {
+  clockEl.textContent = new Intl.DateTimeFormat('en-US', {
+    hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/New_York',
+  }).format(new Date());
+};
+tickClock(); setInterval(tickClock, 30000);
+
+/* ---------- reveal system ---------- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+  });
+}, { rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+
+/* ---------- page enter cleanup ---------- */
+window.addEventListener('load', () => setTimeout(() => document.body.classList.remove('entering'), 1100));
+
+/* ---------- flyout ---------- */
+const flyout = document.getElementById('flyout');
+document.getElementById('flyoutTab').addEventListener('click', () => flyout.classList.add('is-active'));
+document.getElementById('flyoutClose').addEventListener('click', () => flyout.classList.remove('is-active'));
+document.getElementById('flyoutOverlay').addEventListener('click', () => flyout.classList.remove('is-active'));
+
+/* ---------- scroll systems ---------- */
+if (!reduced && window.gsap) {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+  window.__lenis = lenis;
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: 0 }); }
+    });
+  });
+
+  /* declarative parallax factory (pattern 11 API) */
+  document.querySelectorAll('[data-scroll-speed]').forEach((el) => {
+    const raw = el.dataset.scrollSpeed;
+    const y = raw.endsWith('%') ? parseFloat(raw) / 100 * el.offsetHeight : parseFloat(raw) / 100 * innerHeight;
+    gsap.fromTo(el, { y: -y * 0.5 }, {
+      y: y * 0.5, ease: 'none',
+      scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true },
+    });
+  });
+
+  /* mist seam scrub */
+  const mistHold = document.getElementById('mistHold');
+  ScrollTrigger.create({
+    trigger: '.seam-wrap', start: 'top 90%', end: 'top top', scrub: true,
+    onUpdate: (self) => {
+      mistHold.style.opacity = Math.min(1, self.progress * 1.6) * (1 - Math.max(0, self.progress - 0.75) * 4);
+      mistHold.style.transform = `translateZ(0) scale(${1 + self.progress * 0.25})`;
+    },
+  });
+
+  /* horizontal scroll — The Record (pattern 2) */
+  const track = document.getElementById('hTrack');
+  const hsection = document.querySelector('.hscroll');
+  const progress = document.getElementById('hProgress');
+  const setupH = () => {
+    const dist = track.scrollWidth - innerWidth;
+    hsection.style.height = `${innerHeight + dist}px`;
+    return dist;
+  };
+  let hDist = setupH();
+  gsap.to(track, {
+    x: () => -hDist, ease: 'none',
+    scrollTrigger: {
+      trigger: hsection, start: 'top top', end: () => `+=${hDist}`, scrub: true,
+      invalidateOnRefresh: true,
+      onUpdate: (self) => { progress.style.transform = `scaleX(${self.progress})`; },
+    },
+  });
+  addEventListener('resize', () => { hDist = setupH(); ScrollTrigger.refresh(); });
+
+  /* giant titles scrub fades (pattern 6) */
+  gsap.fromTo('#recordTitle', { opacity: 0.15, y: 40 }, {
+    opacity: 1, y: 0, ease: 'none',
+    scrollTrigger: { trigger: hsection, start: 'top 80%', end: 'top 15%', scrub: true },
+  });
+  gsap.fromTo('#talkTitle', { opacity: 0.1, y: 80 }, {
+    opacity: 1, y: 0, ease: 'none',
+    scrollTrigger: { trigger: '#contact', start: 'top 90%', end: 'top 35%', scrub: true },
+  });
+
+  /* text scroll-fade mask (pattern 7) */
+  gsap.fromTo('#introCopy', { '--mask-position': -40 }, {
+    '--mask-position': -200, ease: 'none',
+    scrollTrigger: { trigger: '#introCopy', start: 'top 85%', end: 'bottom 45%', scrub: true },
+  });
+
+  /* nav theme switching (pattern 14) */
+  const nav = document.getElementById('nav');
+  document.querySelectorAll('[data-nav-theme]').forEach((sec) => {
+    ScrollTrigger.create({
+      trigger: sec, start: 'top 60px', end: 'bottom 60px',
+      onToggle: (self) => {
+        if (self.isActive) nav.classList.toggle('theme-light', sec.dataset.navTheme === 'light');
+      },
+    });
+  });
+} else {
+  /* reduced motion or no GSAP: show everything */
+  document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in'));
+}
+</script>
+</body>
+</html>
