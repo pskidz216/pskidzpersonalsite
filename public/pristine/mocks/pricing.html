@@ -48,21 +48,19 @@
   .why{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center}
   .why img{aspect-ratio:4/3.4;object-fit:cover;width:100%}
   @media(max-width:900px){.why{grid-template-columns:1fr;gap:36px}}
+  .nav__links{margin-left:0}
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav__in">
-    <a class="brand" href="#">
-      <img src="assets/icon-brush-harbor.svg" alt="" width="34" height="34">
-      <span><span class="brand__n">Pristine Coastal Co<b>.</b></span><span class="brand__d">Interior &amp; Exterior Painting</span></span>
-    </a>
     <div class="nav__links">
       <a href="#">Neighborhoods</a><a href="#">Services</a><a href="#">The work</a><a href="#">Process</a><a href="#">Pricing</a><a href="#">About</a>
     </div>
-    <a class="nav__tel" href="tel:9042350423">904.235.0423</a>
+    <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
     <a class="btn" href="#">Get an Estimate</a>
+    <a class="brand--lockup" href="#" aria-label="Pristine Coastal Co."><img src="assets/logo-lockup.svg" alt="Pristine Coastal Co."></a>
   </div>
 </nav>
 
