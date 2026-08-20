@@ -25,12 +25,10 @@
     text-transform:uppercase;white-space:nowrap;text-align:center;color:var(--harbor-deep);will-change:opacity,transform}
   .giant span{color:var(--coral)}
 
-  /* ---- statement with reading-line mask (WD pattern 7) ---- */
-  .statement p{--mask-position:-40;
-    mask-image:linear-gradient(#000,rgba(0,0,0,.85),rgba(0,0,0,.55),rgba(0,0,0,.25),rgba(0,0,0,.12),rgba(0,0,0,.12));
-    mask-size:100% 300%;mask-position:0 calc(var(--mask-position)*1%);
-    -webkit-mask-image:linear-gradient(#000,rgba(0,0,0,.85),rgba(0,0,0,.55),rgba(0,0,0,.25),rgba(0,0,0,.12),rgba(0,0,0,.12));
-    -webkit-mask-size:100% 300%;-webkit-mask-position:0 calc(var(--mask-position)*1%)}
+  /* ---- statement with reading-line mask (WD pattern 7): solid ink rolls down the copy ---- */
+  .statement p{--p:-30;
+    mask-image:linear-gradient(to bottom,#000 calc(var(--p)*1%),rgba(0,0,0,.16) calc((var(--p) + 34)*1%));
+    -webkit-mask-image:linear-gradient(to bottom,#000 calc(var(--p)*1%),rgba(0,0,0,.16) calc((var(--p) + 34)*1%))}
   .answer{display:grid;grid-template-columns:1fr 320px;gap:64px;align-items:start}
   .answer aside{border-left:1px solid var(--hairline);padding-left:36px;font-size:14.5px}
   .answer aside div{margin-bottom:22px}
@@ -483,9 +481,9 @@
   gsap.fromTo('#giant', { opacity:.07, y:110 }, { opacity:1, y:0, ease:'none', force3D:true,
     scrollTrigger:{ trigger:'.giant', start:'top 92%', end:'top 30%', scrub:true } });
 
-  /* reading-line mask on the answer statement */
-  gsap.fromTo('#mask-copy', { '--mask-position':-40 }, { '--mask-position':-190, ease:'none',
-    scrollTrigger:{ trigger:'#mask-copy', start:'top 85%', end:'bottom 45%', scrub:true } });
+  /* reading-line mask on the answer statement: rolls to fully solid by mid-viewport */
+  gsap.fromTo('#mask-copy', { '--p':-30 }, { '--p':140, ease:'none',
+    scrollTrigger:{ trigger:'#mask-copy', start:'top 88%', end:'center 45%', scrub:true } });
   }
 
   /* pinned horizontal neighborhood gallery */
