@@ -66,12 +66,12 @@ export function ContactFooter() {
           Let&#39;s talk
         </h2>
         <p className="rd-contact_sub" data-rd-reveal="">
-          One conversation is usually enough to know whether there is a system
-          worth building. Miami based, working everywhere.
+          Open to conversations about revenue leadership, AI-driven sales
+          systems, and hard growth problems. Miami based, working everywhere.
         </p>
         <div className="rd-contact_actions" data-rd-reveal="">
           <a className="rd-btn-coral" href={emailHref}>
-            Start a conversation
+            Get in touch
           </a>
           <a
             className="rd-btn-ghost"

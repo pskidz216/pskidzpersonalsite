@@ -26,8 +26,11 @@ export function SystemsGrid() {
         </span>
         <h2 data-rd-reveal="">Six systems. One operator.</h2>
         <p data-rd-reveal="">
-          Each one automated where it should be, personal where it matters.
-          Small teams, outsized output.
+          Complex problems get the same treatment every time: strip them to
+          first principles, instrument what actually matters, automate the
+          repeatable, and keep human judgment where it counts. These six
+          systems are what that method built. Automated where they should be,
+          personal where it matters.
         </p>
       </div>
       <div className="rd-systems_grid">

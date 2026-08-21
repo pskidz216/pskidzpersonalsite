@@ -56,7 +56,7 @@ export function RedesignNav() {
             <span />
           </button>
           <a className="rd-nav_cta" href="mailto:pskidmore216@gmail.com">
-            Start a conversation
+            Get in touch
           </a>
         </div>
       </nav>

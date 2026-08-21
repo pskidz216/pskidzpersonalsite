@@ -111,11 +111,11 @@ export function IntroSection() {
           </span>
         </div>
         <p className="rd-intro_copy rd-text-scroll-fade" ref={copyRef}>
-          Twelve years selling in operating rooms, boardrooms, and founder
-          basements taught me one thing: revenue is a system, not a talent. Now
-          I design those systems by hand, pipeline intelligence to automated
-          research to full-funnel creative, and let AI run the parts that never
-          needed a human anyway.
+          Sales and marketing leader with twelve years at the intersection of
+          healthcare, technology, and growth: from selling spinal implants in
+          the operating room to leading sales and marketing for a precision
+          manufacturing company. I build revenue pipelines, deploy AI and CRM
+          systems that compound, and bring teams together to hit the number.
         </p>
         <div className="rd-stats">
           {stats.map((stat) => (

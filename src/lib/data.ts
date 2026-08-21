@@ -150,6 +150,14 @@ export const projects: Project[] = [
     image: "/projects/wireframe-prototype.png",
   },
   {
+    name: "Pristine Coastal Co.",
+    tag: "Brand Design",
+    description:
+      "A ground-up brand identity for a veteran-owned coastal painting company: naming, logo system, palette and typography, carried through a complete website design system and launch collateral.",
+    tech: "Brand Strategy, Logo Design, Design Systems",
+    image: "/projects/pristine-coastal.png",
+  },
+  {
     name: "American Labor Ladders",
     tag: "Product Site",
     description:

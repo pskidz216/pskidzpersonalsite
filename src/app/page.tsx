@@ -8,7 +8,6 @@ import { SystemsGrid } from "@/components/redesign/SystemsGrid";
 import { BuildsList } from "@/components/redesign/BuildsList";
 import { CredentialsList } from "@/components/redesign/CredentialsList";
 import { ContactFooter } from "@/components/redesign/ContactFooter";
-import { HowIWorkFlyout } from "@/components/redesign/HowIWorkFlyout";
 
 export default function Home() {
   return (
@@ -24,7 +23,6 @@ export default function Home() {
         <CredentialsList />
         <ContactFooter />
       </main>
-      <HowIWorkFlyout />
     </>
   );
 }
