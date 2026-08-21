@@ -185,7 +185,7 @@
 
 <header class="hero">
   <div class="hero__media" data-scroll-speed="-14%">
-    <video class="hero__video" autoplay muted loop playsinline poster="assets/hero-jaxbeach-house.jpg" aria-label="Drone view of a freshly painted coastal home behind the dunes at Jacksonville Beach at sunrise">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/hero-jaxbeach-house.jpg" aria-label="Drone view of a freshly painted coastal home behind the dunes at Jacksonville Beach at sunrise">
       <source src="assets/hero-jaxbeach-drone.mp4" type="video/mp4">
     </video>
     <img class="hero__still" src="assets/hero-jaxbeach-house.jpg" alt="A freshly painted coastal home behind the dunes at Jacksonville Beach">
@@ -425,6 +425,14 @@
       }
     });
     var kick = function(){ if (hv.paused) hv.play().catch(function(){}); };
+    setInterval(function(){
+      if (!hv.duration) return;
+      var atEnd = hv.currentTime > hv.duration - 0.12;
+      if (atEnd || (hv.paused && hv.currentTime > 0.5)) {
+        hv.currentTime = 0.01;
+        hv.play().catch(function(){});
+      }
+    }, 400);
     document.addEventListener('pointerdown', kick, { once: true });
     document.addEventListener('scroll', kick, { once: true, passive: true });
     document.addEventListener('visibilitychange', function(){ if (!document.hidden) kick(); });
