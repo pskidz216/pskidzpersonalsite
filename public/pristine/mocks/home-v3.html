@@ -185,7 +185,7 @@
 
 <header class="hero">
   <div class="hero__media" data-scroll-speed="-14%">
-    <video class="hero__video" autoplay muted playsinline poster="assets/hero-jaxbeach-house.jpg" aria-label="Drone view of a freshly painted coastal home behind the dunes at Jacksonville Beach at sunrise">
+    <video class="hero__video" autoplay muted loop playsinline poster="assets/hero-jaxbeach-house.jpg" aria-label="Drone view of a freshly painted coastal home behind the dunes at Jacksonville Beach at sunrise">
       <source src="assets/hero-jaxbeach-drone.mp4" type="video/mp4">
     </video>
     <img class="hero__still" src="assets/hero-jaxbeach-house.jpg" alt="A freshly painted coastal home behind the dunes at Jacksonville Beach">
@@ -414,6 +414,23 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var narrow = window.matchMedia('(max-width: 900px)').matches;
 
+  /* hero film: crossfade the loop seam, and recover if autoplay was blocked */
+  var hv = document.querySelector('.hero__video');
+  if (hv) {
+    hv.addEventListener('timeupdate', function(){
+      if (!hv.duration) return;
+      if (hv.currentTime > hv.duration - 0.5) hv.classList.add('is-looping');
+      else if (hv.currentTime < 1 && hv.classList.contains('is-looping')) {
+        setTimeout(function(){ hv.classList.remove('is-looping'); }, 100);
+      }
+    });
+    var kick = function(){ if (hv.paused) hv.play().catch(function(){}); };
+    document.addEventListener('pointerdown', kick, { once: true });
+    document.addEventListener('scroll', kick, { once: true, passive: true });
+    document.addEventListener('visibilitychange', function(){ if (!document.hidden) kick(); });
+    setTimeout(kick, 1200);
+  }
+
   /* entrance reveals (WD data-reveal system) */
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
@@ -449,19 +466,6 @@
   });
   gsap.ticker.add(function(t){ lenis.raf(t*1000); });
   gsap.ticker.lagSmoothing(0);
-  /* seamless video loop: fade through the first frame instead of jump-cutting */
-  var hv = document.querySelector('.hero__video');
-  if (hv) {
-    hv.addEventListener('timeupdate', function(){
-      if (hv.duration && hv.currentTime > hv.duration - 0.5) hv.classList.add('is-looping');
-    });
-    hv.addEventListener('ended', function(){
-      hv.currentTime = 0;
-      hv.play();
-      setTimeout(function(){ hv.classList.remove('is-looping'); }, 120);
-    });
-  }
-
   /* drawer open/close */
   var drawer = document.getElementById('drawer');
   var openBtn = document.getElementById('menu-open');
