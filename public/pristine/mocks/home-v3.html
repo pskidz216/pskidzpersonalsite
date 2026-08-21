@@ -22,8 +22,10 @@
   .hero{min-height:100svh;overflow:hidden}
   .hero__media{position:absolute;inset:-12% 0;will-change:transform}
   .hero__media img,.hero__media video{width:100%;height:100%;object-fit:cover}
-  .hero__still{display:none}
-  @media(max-width:768px){.hero__video{display:none}.hero__still{display:block}}
+  .hero__still{position:absolute;inset:0;z-index:0}
+  .hero__video{position:relative;z-index:1;transition:opacity .45s ease}
+  .hero__video.is-looping{opacity:0}
+  @media(max-width:768px){.hero__video{display:none}}
   @media(prefers-reduced-motion:reduce){.hero__video{display:none}.hero__still{display:block}}
   .hero p.hero__facts{max-width:none;margin-top:26px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,240,230,.78)}
   .haze{position:absolute;left:0;right:0;bottom:-1px;height:52svh;pointer-events:none;opacity:.25;will-change:opacity;
@@ -183,7 +185,7 @@
 
 <header class="hero">
   <div class="hero__media" data-scroll-speed="-14%">
-    <video class="hero__video" autoplay muted loop playsinline poster="assets/hero-jaxbeach-house.jpg" aria-label="Drone view of a freshly painted coastal home behind the dunes at Jacksonville Beach at sunrise">
+    <video class="hero__video" autoplay muted playsinline poster="assets/hero-jaxbeach-house.jpg" aria-label="Drone view of a freshly painted coastal home behind the dunes at Jacksonville Beach at sunrise">
       <source src="assets/hero-jaxbeach-drone.mp4" type="video/mp4">
     </video>
     <img class="hero__still" src="assets/hero-jaxbeach-house.jpg" alt="A freshly painted coastal home behind the dunes at Jacksonville Beach">
@@ -447,6 +449,19 @@
   });
   gsap.ticker.add(function(t){ lenis.raf(t*1000); });
   gsap.ticker.lagSmoothing(0);
+  /* seamless video loop: fade through the first frame instead of jump-cutting */
+  var hv = document.querySelector('.hero__video');
+  if (hv) {
+    hv.addEventListener('timeupdate', function(){
+      if (hv.duration && hv.currentTime > hv.duration - 0.5) hv.classList.add('is-looping');
+    });
+    hv.addEventListener('ended', function(){
+      hv.currentTime = 0;
+      hv.play();
+      setTimeout(function(){ hv.classList.remove('is-looping'); }, 120);
+    });
+  }
+
   /* drawer open/close */
   var drawer = document.getElementById('drawer');
   var openBtn = document.getElementById('menu-open');
