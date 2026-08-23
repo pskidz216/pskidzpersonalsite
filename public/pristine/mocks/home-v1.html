@@ -131,7 +131,7 @@
   .ditem{display:flex;justify-content:space-between;align-items:baseline;width:100%;text-align:left;background:none;border:0;cursor:pointer;
     font-family:var(--serif);font-weight:500;font-size:30px;color:var(--shell);padding:15px 0;border-bottom:1px solid rgba(195,216,212,.16);
     transition:padding-left .35s var(--ease-wd),color .25s}
-  .ditem span{font-family:var(--sans);font-weight:300;font-size:20px;color:var(--haint);transition:transform .35s var(--ease-wd)}
+  .ditem span{font-family:var(--sans);font-weight:300;font-size:20px;color:var(--haint);transition:transform .35s var(--ease-wd);padding:6px 2px 6px 26px}
   .ditem:hover{padding-left:12px;color:var(--haint)}
   .dgroup.is-open .ditem{color:var(--coral)}
   .dgroup.is-open .ditem span{transform:rotate(45deg)}
@@ -364,7 +364,7 @@
     </div>
     <nav class="drawer__nav">
       <div class="dgroup">
-        <button class="ditem has-sub" aria-expanded="false">Neighborhoods<span>+</span></button>
+        <a class="ditem has-sub" href="neighborhoods.html" aria-expanded="false">Neighborhoods<span role="button" aria-label="Show neighborhood list">+</span></a>
         <div class="dsub">
           <div class="dsub__col"><b>The Beaches</b>
             <a href="neighborhood-jacksonville-beach.html">Jacksonville Beach</a><a href="neighborhood-neptune-beach.html">Neptune Beach</a><a href="neighborhood-atlantic-beach.html">Atlantic Beach</a><a href="neighborhood-ponte-vedra-beach.html">Ponte Vedra Beach</a>
@@ -453,7 +453,10 @@
   document.getElementById('drawer-overlay').addEventListener('click', function(){ setDrawer(false); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setDrawer(false); });
   document.querySelectorAll('.ditem.has-sub').forEach(function(b){
-    b.addEventListener('click', function(){
+    b.addEventListener('click', function(e){
+      var isLink = b.tagName === 'A' && b.getAttribute('href') && b.getAttribute('href') !== '#';
+      if (isLink && e.target.tagName !== 'SPAN') return; /* label click: follow the link */
+      if (isLink) e.preventDefault();
       var g = b.parentElement, open = !g.classList.contains('is-open');
       document.querySelectorAll('.dgroup').forEach(function(x){ x.classList.remove('is-open'); x.querySelector('.ditem').setAttribute('aria-expanded','false'); });
       g.classList.toggle('is-open', open);
