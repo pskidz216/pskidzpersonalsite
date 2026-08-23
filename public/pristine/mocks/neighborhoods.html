@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neighborhoods We Serve | Pristine Coastal Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  html,body{overflow-x:clip}
+  /* ---- neighborhoods index (2026-08-23) ---- */
+  .ihead{padding-top:88px;padding-bottom:64px}
+  .ihead h1{font-size:clamp(48px,6.5vw,92px);letter-spacing:-.015em;line-height:1.04;max-width:12ch}
+  .ihead .lead{margin-top:26px}
+  .ifacts{display:flex;gap:0;margin-top:44px;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+  .ifacts div{flex:1;padding:20px 28px;border-left:1px solid var(--hairline)}
+  .ifacts div:first-child{border-left:0;padding-left:0}
+  .ifacts b{display:block;font-family:var(--sans);font-weight:300;font-size:32px;letter-spacing:-.01em;color:var(--harbor-deep);line-height:1.1;font-variant-numeric:lining-nums tabular-nums}
+  .ifacts span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+  @media(max-width:768px){.ihead{padding-top:52px;padding-bottom:40px}.ifacts{flex-wrap:wrap}.ifacts div{flex:1 1 40%;padding:14px 18px}.ifacts div:first-child{padding-left:0}}
+
+  /* featured lead: text on the grid, photo bleeding right — same language as the hood headers */
+  .feat{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,13fr);gap:clamp(48px,6vw,110px);align-items:center;padding:72px 0}
+  .feat__txt{padding-left:max(48px,calc((100vw - 1280px)/2 + 48px))}
+  .feat figure{position:relative;margin:0}
+  .feat figure img{aspect-ratio:16/11;object-fit:cover;width:100%;height:100%}
+  .feat .coord{position:absolute;bottom:12px;right:14px;font-size:11px;letter-spacing:.16em;color:rgba(246,240,230,.95);text-shadow:0 1px 6px rgba(24,40,53,.65)}
+  .feat h2{font-size:clamp(36px,3.6vw,54px)}
+  @media(max-width:900px){.feat{grid-template-columns:1fr;gap:32px;padding:44px 0}.feat__txt{padding:0 20px}}
+
+  /* group headers */
+  .ghead{display:flex;align-items:baseline;gap:22px;border-top:1px solid var(--hairline);padding-top:26px;margin-bottom:40px}
+  .ghead .num{font-size:12px;letter-spacing:.18em;color:var(--coral-deep);font-variant-numeric:tabular-nums}
+  .ghead h2{font-size:clamp(28px,2.6vw,36px);flex:1}
+  .ghead .count{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);white-space:nowrap}
+
+  /* index card = shared .hood + an arrow row */
+  .hood__go{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-top:14px;border-top:1px solid var(--hairline);padding-top:12px;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--harbor-deep)}
+  .hood__go span:last-child{color:var(--coral);transition:transform .25s var(--ease-wd)}
+  .hood:hover .hood__go span:last-child{transform:translateX(5px)}
+  .hood h3{margin-top:20px}
+
+  /* on the way */
+  .soon{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .soon span{border:1px dashed var(--sand);color:var(--grey);padding:11px 20px;font-size:14px}
+  .soon em{font-style:normal;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-right:8px}
+
+  /* cta band */
+  .band{background:var(--harbor-deep);color:var(--haint)}
+  .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-top:64px;padding-bottom:64px}
+  .band h2{color:var(--shell);font-size:clamp(28px,3vw,40px);max-width:20ch}
+  .band p{font-weight:300;margin-top:10px;max-width:46ch}
+
+  .nav__links{margin-left:0}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__in">
+    <a class="brand--lockup" href="#" aria-label="Pristine Coastal Co."><img src="assets/logo-lockup.svg" alt="Pristine Coastal Co."></a>
+    <div class="nav__links">
+      <a href="neighborhoods.html">Neighborhoods</a><a href="#">Services</a><a href="#">The work</a><a href="#">Process</a><a href="pricing.html">Pricing</a><a href="#">About</a>
+    </div>
+    <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
+    <a class="btn" href="neighborhood-jacksonville-beach.html#contact">Free Estimate</a>
+  </div>
+</nav>
+
+<header class="wrap ihead">
+  <p class="lbl">Neighborhoods</p>
+  <h1 style="margin-top:16px">Where we work.</h1>
+  <p class="lead">Fourteen neighborhoods from Amelia Island to St. Augustine, and every one of them a different job. Salt air is not inland humidity, 1920s plaster is not drywall, and a review board is not a suggestion. Pick your neighborhood and read how we paint it.</p>
+  <div class="ifacts" data-reveal>
+    <div><b>14</b><span>Neighborhoods</span></div>
+    <div><b>3</b><span>Counties</span></div>
+    <div><b>22</b><span>Years on the First Coast</span></div>
+    <div><b>1</b><span>Standard of finish</span></div>
+  </div>
+</header>
+
+<section class="feat hairline-top" aria-label="Jacksonville Beach, our home base">
+  <div class="feat__txt">
+    <p class="lbl">Home base</p>
+    <h2 class="serif" style="margin-top:14px">Jacksonville<br>Beach.</h2>
+    <p class="lead" style="margin-top:20px;font-size:17px">This is the home field: oceanfront cottages, Intracoastal canals, rentals and new builds, all inside the salt line. If you want to see how we think about a neighborhood, start here.</p>
+    <div class="hero__cta" style="margin-top:28px"><a class="btn" href="neighborhood-jacksonville-beach.html">Open Jacksonville Beach</a></div>
+  </div>
+  <figure>
+    <a href="neighborhood-jacksonville-beach.html"><img src="assets/hood-jaxbeach.jpg" alt="Oceanfront homes along the dunes in Jacksonville Beach"></a>
+    <span class="coord">30&deg;17'41&quot;N&ensp;81&deg;23'35&quot;W</span>
+  </figure>
+</section>
+
+<section class="sec sec--tight">
+  <div class="wrap">
+    <div class="ghead"><span class="num">01</span><h2 class="serif">The Beaches</h2><span class="count">Three more, beside home base</span></div>
+    <div class="grid3">
+      <a class="hood" href="neighborhood-neptune-beach.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-neptune.jpg" alt="Quiet cottage street in Neptune Beach"><span class="hood__coord">30&deg;18'43&quot;N&ensp;81&deg;23'47&quot;W</span></div>
+        <h3>Neptune Beach</h3>
+        <p>Older cottages, occupied homes, and salt that carries two blocks past the oceanfront row.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+      <a class="hood" href="neighborhood-atlantic-beach.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-atlanticbeach.jpg" alt="Oak-shaded street in Atlantic Beach"><span class="hood__coord">30&deg;20'06&quot;N&ensp;81&deg;23'55&quot;W</span></div>
+        <h3>Atlantic Beach</h3>
+        <p>Old Atlantic Beach wood under the oak canopy, Selva Marina modern on the dune line.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+      <a class="hood" href="neighborhood-ponte-vedra-beach.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-pontevedra.jpg" alt="Boardwalk over the dunes in Ponte Vedra Beach"><span class="hood__coord">30&deg;14'22&quot;N&ensp;81&deg;23'07&quot;W</span></div>
+        <h3>Ponte Vedra Beach</h3>
+        <p>Oceanfront estates on marine-grade systems, with Sawgrass and Marsh Landing approvals handled.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight">
+  <div class="wrap">
+    <div class="ghead"><span class="num">02</span><h2 class="serif">Jacksonville &amp; St. Johns</h2><span class="count">The historic neighborhoods</span></div>
+    <div class="grid4">
+      <a class="hood" href="neighborhood-san-marco.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-sanmarco.jpg" alt="Historic 1920s homes in San Marco"><span class="hood__coord">30&deg;18'11&quot;N&ensp;81&deg;38'42&quot;W</span></div>
+        <h3>San Marco</h3>
+        <p>1920s stucco and true plaster, painted to fit the streetscape.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+      <a class="hood" href="neighborhood-avondale.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-avondale.jpg" alt="Historic bungalow street in Avondale"><span class="hood__coord">30&deg;16'46&quot;N&ensp;81&deg;43'16&quot;W</span></div>
+        <h3>Avondale</h3>
+        <p>A century of paint layers on bungalow wood, stripped and done right.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+      <a class="hood" href="neighborhood-ortega.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-ortega.jpg" alt="Riverfront estate under oaks in Ortega"><span class="hood__coord">30&deg;16'22&quot;N&ensp;81&deg;42'36&quot;W</span></div>
+        <h3>Ortega</h3>
+        <p>Riverfront estates, long elevations, weather off the St. Johns.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+      <a class="hood" href="neighborhood-riverside.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-riverside.jpg" alt="Craftsman bungalows in Riverside"><span class="hood__coord">30&deg;19'01&quot;N&ensp;81&deg;40'52&quot;W</span></div>
+        <h3>Riverside</h3>
+        <p>Craftsman bungalows, rentals and storefronts in the historic district.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight">
+  <div class="wrap">
+    <div class="ghead"><span class="num">03</span><h2 class="serif">Down the coast</h2><span class="count">A1A, north and south</span></div>
+    <div class="grid3">
+      <a class="hood" href="neighborhood-fernandina-beach.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-fernandina.jpg" alt="Victorian homes in the Fernandina Beach historic district"><span class="hood__coord">30&deg;40'11&quot;N&ensp;81&deg;27'45&quot;W</span></div>
+        <h3>Fernandina Beach</h3>
+        <p>Victorian wood in the historic district, salt-side homes near the beach.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+      <a class="hood" href="neighborhood-amelia-island.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-amelia.jpg" alt="Coastal homes behind the dunes on Amelia Island"><span class="hood__coord">30&deg;36'23&quot;N&ensp;81&deg;27'10&quot;W</span></div>
+        <h3>Amelia Island</h3>
+        <p>Dune-line exposure, review-board communities, and second homes documented remotely.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+      <a class="hood" href="neighborhood-st-augustine.html" data-reveal>
+        <div class="hood__img"><img loading="lazy" src="assets/hood-staugustine.jpg" alt="Historic stucco street in St. Augustine"><span class="hood__coord">29&deg;54'04&quot;N&ensp;81&deg;18'45&quot;W</span></div>
+        <h3>St. Augustine</h3>
+        <p>Breathable systems on the old city&rsquo;s masonry, marine-grade out on Anastasia Island.</p>
+        <div class="hood__go"><span>Open the page</span><span>&rarr;</span></div>
+      </a>
+    </div>
+    <div class="soon" style="margin-top:56px" data-reveal>
+      <em>Pages on the way</em>
+      <span>Nocatee</span><span>Mandarin</span><span>Southside</span>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Not sure which neighborhood you are?</h2>
+      <p>Call us. If you are on the First Coast, you are close enough, and the estimate is free either way.</p>
+    </div>
+    <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <a class="nav__tel" style="color:var(--shell);font-family:var(--serif);font-size:26px" href="tel:9042350423">904.235.0423</a>
+      <a class="btn" href="neighborhood-jacksonville-beach.html#contact">Book the Free Walkthrough</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">Pristine Coastal Co<b>.</b></div>
+        <p style="margin-top:16px;max-width:36ch">Veteran owned painting, drywall and restoration for Jacksonville, the Beaches and the First Coast of Florida.</p>
+        <p style="margin-top:14px;color:var(--shell)">904.235.0423</p>
+        <p class="small" style="margin-top:6px">Military discounts available.</p>
+      </div>
+      <div><h4>Neighborhoods</h4><ul><li><a href="neighborhood-jacksonville-beach.html">Jacksonville Beach</a></li><li><a href="neighborhood-neptune-beach.html">Neptune Beach</a></li><li><a href="neighborhood-atlantic-beach.html">Atlantic Beach</a></li><li><a href="neighborhood-ponte-vedra-beach.html">Ponte Vedra Beach</a></li><li><a href="neighborhoods.html">View all fourteen</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#">Residential Painting</a></li><li><a href="#">Luxury Exteriors</a></li><li><a href="#">Drywall</a></li><li><a href="#">Home Restoration</a></li><li><a href="#">View all ten</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="#">Reviews</a></li><li><a href="#">FAQ</a></li><li><a href="neighborhood-jacksonville-beach.html#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; 2026 Pristine Coastal Co. &middot; Jacksonville, Florida</span>
+      <span>Licensed &amp; insured &middot; FL</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Production page emits: CollectionPage + ItemList JSON-LD naming all fourteen Service areas. -->
+<script src="reveal.js"></script>
+<script src="mobile-nav.js"></script>
+</body>
+</html>
