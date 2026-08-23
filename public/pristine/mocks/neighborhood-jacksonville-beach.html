@@ -12,14 +12,18 @@
   .crumb{font-size:13px;color:var(--grey);padding:26px 0 0}
   .crumb a:hover{color:var(--harbor-deep)}
 
-  .phead{display:grid;grid-template-columns:7fr 5fr;gap:64px;align-items:end;padding:44px 0 56px}
+  /* header: text on the grid, photo bleeding to the right viewport edge */
+  .phead{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,13fr);gap:clamp(48px,6vw,110px);align-items:center;padding:56px 0 96px}
+  .phead__txt{padding-left:max(48px,calc((100vw - 1280px)/2 + 48px))}
   .phead figure{position:relative}
-  .phead figure img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .phead figure img{aspect-ratio:16/11;object-fit:cover;width:100%;height:100%}
   .phead .coord{position:absolute;bottom:12px;right:14px;font-size:11px;letter-spacing:.16em;color:rgba(246,240,230,.95);text-shadow:0 1px 6px rgba(24,40,53,.65)}
-  @media(max-width:900px){.phead{grid-template-columns:1fr;gap:36px;padding-bottom:44px}}
+  @media(max-width:900px){.phead{grid-template-columns:1fr;gap:36px;padding:32px 0 48px}.phead__txt{padding:0 20px}}
+  .sec--tight{padding:88px 0}
+  @media(max-width:768px){.sec--tight{padding:60px 0}}
 
   /* content + sticky contact rail */
-  .layout{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:72px;align-items:start}
+  .layout{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:88px;align-items:start}
   .rail{position:sticky;top:96px}
   @media(max-width:900px){.layout{grid-template-columns:1fr;gap:48px}.rail{position:static}}
 
@@ -36,10 +40,15 @@
 
   /* local knowledge rows */
   .kn{border-top:1px solid var(--hairline)}
-  .kn>div{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px;padding:30px 0;border-bottom:1px solid var(--hairline)}
+  .kn>div{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px;padding:38px 0;border-bottom:1px solid var(--hairline)}
   .kn h3{font-size:28px}
   .kn p{font-size:15.5px;max-width:56ch}
   @media(max-width:640px){.kn>div{grid-template-columns:1fr;gap:10px;padding:24px 0}}
+
+  /* services band: heading left, chips spread right */
+  .svc2{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}
+  .svc2 .svcrow{margin-top:6px}
+  @media(max-width:900px){.svc2{grid-template-columns:1fr;gap:20px}}
 
   /* services chips */
   .svcrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
@@ -49,10 +58,13 @@
   /* work case */
   .case{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border:1px solid var(--hairline)}
   .case img{width:100%;height:100%;object-fit:cover}
-  .case>div{padding:40px 42px}
+  .case>div{padding:56px 60px;align-self:center}
   .case h3{font-style:italic;font-size:28px;line-height:1.3;padding-bottom:4px}
   .case p{margin:14px 0 22px;max-width:48ch;font-size:15px}
   @media(max-width:640px){.case{grid-template-columns:1fr}.case>div{padding:28px 24px}}
+  .wphoto{margin:0}
+  .wphoto img{aspect-ratio:16/10;object-fit:cover;width:100%}
+  .wphoto figcaption{font-size:13px;color:var(--grey);margin-top:10px;letter-spacing:.02em}
 
   /* contact section */
   .contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:start}
@@ -89,11 +101,11 @@
 
 <div class="wrap crumb"><a href="#">Neighborhoods</a> &rsaquo; The Beaches &rsaquo; Jacksonville Beach</div>
 
-<header class="wrap phead">
-  <div>
+<header class="phead">
+  <div class="phead__txt">
     <h1 class="d1">Painting in<br>Jacksonville Beach.</h1>
     <p class="lead" style="margin-top:24px">Jacksonville Beach is home base. Pristine Coastal Co. paints and restores homes from the pier to the Intracoastal: oceanfront exteriors on marine-grade systems, fine-finish interiors, drywall and full restoration. Veteran owned, 22 years on the First Coast. The estimate is free, with a recorded walkthrough.</p>
-    <div class="hero__cta" style="margin-top:30px"><a class="btn" href="#contact">Book the Free Walkthrough</a><a class="nav__tel" href="tel:9042350423">904.235.0423</a></div>
+    <div class="hero__cta" style="margin-top:30px"><a class="btn" href="#contact">Book the Free Walkthrough</a></div>
   </div>
   <figure>
     <img src="assets/hood-jaxbeach.jpg" alt="Oceanfront homes along the dunes in Jacksonville Beach">
@@ -126,30 +138,6 @@
         </div>
       </div>
 
-      <h2 class="d3" style="margin:56px 0 4px" data-reveal>Every service, right here.</h2>
-      <div class="svcrow">
-        <a href="#">Residential Painting</a>
-        <a href="#">Exterior Painting</a>
-        <a href="#">Interior Painting</a>
-        <a href="#">Luxury Exterior Services</a>
-        <a href="#">Cabinet Respray</a>
-        <a href="#">Drywall</a>
-        <a href="#">Home Restoration</a>
-        <a href="#">Commercial Painting</a>
-        <a href="#">HOA &amp; Property Management</a>
-        <a href="#">Preventative Maintenance</a>
-      </div>
-
-      <h2 class="d3" style="margin:56px 0 28px" data-reveal>Recent work at the beach.</h2>
-      <div class="case">
-        <img src="assets/real-estate-shingle.jpg" alt="Repainted shingle-style coastal home in Jacksonville Beach">
-        <div>
-          <div class="small" style="letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Oceanfront &middot; Exterior</div>
-          <h3>&ldquo;The east side fades every couple of years.&rdquo;</h3>
-          <p>Marine-grade system, full wash and prime, and the windward elevation gets an extra coat. Finished with a recorded walkthrough of every surface.</p>
-          <a class="tlink" href="#">See the project</a>
-        </div>
-      </div>
     </div>
 
     <aside class="rail">
@@ -161,7 +149,7 @@
         <div class="scard__body">
           <a class="scard__tel" href="tel:9042350423">904.235.0423</a>
           <p class="small" style="margin-top:4px">Call or text, seven days a week.</p>
-          <a class="btn" href="#contact">Book the Free Walkthrough</a>
+          <a class="tlink" href="#contact" style="display:inline-block;margin-top:18px">Book the free walkthrough</a>
           <ul>
             <li>Veteran owned &middot; licensed &amp; insured</li>
             <li>Serving the Beaches &amp; Duval County</li>
@@ -172,6 +160,49 @@
       </div>
     </aside>
 
+  </div>
+</section>
+
+<section class="sec sec--tight hairline-top">
+  <div class="wrap">
+    <h2 class="d3" style="margin-bottom:32px" data-reveal>Recent work at the beach.</h2>
+    <div class="case">
+      <img src="assets/real-estate-shingle.jpg" alt="Repainted shingle-style coastal home in Jacksonville Beach">
+      <div>
+        <div class="small" style="letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Oceanfront &middot; Exterior</div>
+        <h3>&ldquo;The east side fades every couple of years.&rdquo;</h3>
+        <p>Marine-grade system, full wash and prime, and the windward elevation gets an extra coat. Finished with a recorded walkthrough of every surface.</p>
+        <a class="tlink" href="#">See the project</a>
+      </div>
+    </div>
+    <div class="grid2" style="margin-top:24px">
+      <figure class="wphoto" data-reveal>
+        <img src="assets/real-porch-haint.jpg" alt="Coastal porch with a haint blue ceiling">
+        <figcaption>Porch &amp; haint blue ceiling &middot; Exterior trim</figcaption>
+      </figure>
+      <figure class="wphoto" data-reveal>
+        <img src="assets/real-luxury-pool.jpg" alt="Repainted lanai and pool deck at a Jacksonville Beach home">
+        <figcaption>Lanai &amp; pool deck &middot; Luxury exterior</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight">
+  <div class="wrap svc2">
+    <h2 class="d3" data-reveal>Every service, right here.</h2>
+    <div class="svcrow">
+      <a href="#">Residential Painting</a>
+      <a href="#">Exterior Painting</a>
+      <a href="#">Interior Painting</a>
+      <a href="#">Luxury Exterior Services</a>
+      <a href="#">Cabinet Respray</a>
+      <a href="#">Drywall</a>
+      <a href="#">Home Restoration</a>
+      <a href="#">Commercial Painting</a>
+      <a href="#">HOA &amp; Property Management</a>
+      <a href="#">Preventative Maintenance</a>
+    </div>
   </div>
 </section>
 
@@ -204,7 +235,6 @@
       <blockquote class="serif" style="font-size:28px;font-style:italic;max-width:36ch;padding-bottom:4px">&ldquo;Showed up on time, did the job quickly, and was polite and professional. Would definitely use again.&rdquo;</blockquote>
       <div class="small" style="margin-top:12px">Chris Y. &middot; Jacksonville Beach</div>
     </div>
-    <a class="btn" href="#contact">Get a Free Estimate</a>
   </div>
 </section>
 
@@ -241,7 +271,7 @@
         <p style="margin-top:14px;color:var(--shell)">904.235.0423</p>
         <p class="small" style="margin-top:6px">Military discounts available.</p>
       </div>
-      <div><h4>Neighborhoods</h4><ul><li><a href="#">Jacksonville Beach</a></li><li><a href="#">Neptune Beach</a></li><li><a href="#">Atlantic Beach</a></li><li><a href="neighborhood-ponte-vedra-beach.html">Ponte Vedra Beach</a></li><li><a href="#">View all fourteen</a></li></ul></div>
+      <div><h4>Neighborhoods</h4><ul><li><a href="neighborhood-jacksonville-beach.html">Jacksonville Beach</a></li><li><a href="neighborhood-neptune-beach.html">Neptune Beach</a></li><li><a href="neighborhood-atlantic-beach.html">Atlantic Beach</a></li><li><a href="neighborhood-ponte-vedra-beach.html">Ponte Vedra Beach</a></li><li><a href="neighborhood-san-marco.html">San Marco</a></li><li><a href="neighborhood-avondale.html">Avondale</a></li><li><a href="neighborhood-ortega.html">Ortega</a></li><li><a href="neighborhood-riverside.html">Riverside</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="#">Residential Painting</a></li><li><a href="#">Luxury Exteriors</a></li><li><a href="#">Drywall</a></li><li><a href="#">Home Restoration</a></li><li><a href="#">View all ten</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="#">Reviews</a></li><li><a href="#">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
     </div>
