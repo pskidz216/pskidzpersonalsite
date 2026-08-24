@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Pristine Coastal Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  html,body{overflow-x:clip}
+  .ihead{padding-top:88px;padding-bottom:64px}
+  .ihead h1{font-size:clamp(48px,6.5vw,92px);letter-spacing:-.015em;line-height:1.04;max-width:14ch}
+  .ihead .lead{margin-top:26px}
+  .band{background:var(--harbor-deep);color:var(--haint)}
+  .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-top:64px;padding-bottom:64px}
+  .band h2{color:var(--shell);font-size:clamp(28px,3vw,40px);max-width:20ch}
+  .band p{font-weight:300;margin-top:10px;max-width:46ch}
+  .note{font-size:12.5px;color:var(--grey);border:1px dashed var(--sand);padding:12px 18px;display:inline-block}
+  .nav__links{margin-left:0}
+  @media(max-width:768px){.ihead{padding-top:52px;padding-bottom:40px}}
+  .contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:start}
+  @media(max-width:900px){.contact{grid-template-columns:1fr;gap:44px}}
+  .cform{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .cform label{display:block;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+  .cform input,.cform select,.cform textarea{width:100%;font-family:var(--sans);font-size:15px;color:var(--body);background:var(--white);border:1px solid var(--sand);padding:13px 14px;border-radius:0;-webkit-appearance:none;appearance:none}
+  .cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--harbor)}
+  .cform .full{grid-column:1/-1}
+  .cform textarea{min-height:130px;resize:vertical}
+  .cform .btn{border:0;cursor:pointer;justify-self:start}
+  @media(max-width:640px){.cform{grid-template-columns:1fr}}
+  .cmeta li{list-style:none;padding:13px 0;border-bottom:1px solid var(--hairline);font-size:15px;display:flex;justify-content:space-between;gap:18px}
+  .cmeta li span:first-child{color:var(--grey);font-size:13px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  .cmeta li span:last-child{text-align:right}
+  .cmeta{border-top:1px solid var(--hairline);margin-top:26px}
+  .next{border-top:1px solid var(--hairline);margin-top:36px}
+  .next>div{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--hairline)}
+  .next .n{font-size:12px;letter-spacing:.18em;color:var(--coral-deep);font-variant-numeric:tabular-nums;flex:none}
+  .next p{font-size:15px}
+  .ctel{font-family:var(--sans);font-weight:300;letter-spacing:-.01em;font-variant-numeric:lining-nums;font-size:clamp(30px,3vw,40px);color:var(--harbor-deep);display:inline-block;margin-top:6px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav__in">
+    <a class="brand--lockup" href="#" aria-label="Pristine Coastal Co."><img src="assets/logo-lockup.svg" alt="Pristine Coastal Co."></a>
+    <div class="nav__links">
+      <a href="neighborhoods.html">Neighborhoods</a><a href="services.html">Services</a><a href="work.html">The work</a><a href="process.html">Process</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
+    </div>
+    <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
+    <a class="btn" href="contact.html">Free Estimate</a>
+  </div>
+</nav>
+
+<header class="wrap ihead">
+  <p class="lbl">Contact</p>
+  <h1 style="margin-top:16px">Talk to us.</h1>
+  <p class="lead">Call, text, or send the form. You will hear back the same or next business day, and the next step is always the same: a free walkthrough, on camera, with the price in writing after.</p>
+  <a class="ctel" href="tel:9042350423">904.235.0423</a>
+</header>
+
+<section class="sec sec--tight hairline-top" id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2 class="d2" style="margin:0 0 18px">What happens next.</h2>
+      <div class="next">
+        <div><span class="n">01</span><p>We call you back, same or next business day, and set a time that works.</p></div>
+        <div><span class="n">02</span><p>The free walkthrough: under an hour, recorded, every question answered on camera.</p></div>
+        <div><span class="n">03</span><p>The written estimate, usually within two business days. The price is the price.</p></div>
+      </div>
+      <ul class="cmeta">
+        <li><span>Phone</span><span><a href="tel:9042350423">904.235.0423</a></span></li>
+        <li><span>Service area</span><span>Jacksonville &amp; the First Coast, FL</span></li>
+        <li><span>Owner</span><span>Veteran owned &amp; operated</span></li>
+        <li><span>Hours</span><span>Call or text, seven days a week</span></li>
+      </ul>
+    </div>
+    <form class="cform" action="#" method="post">
+      <div><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" autocomplete="name"></div>
+      <div><label for="cf-phone">Phone</label><input id="cf-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email"></div>
+      <div><label for="cf-hood">Neighborhood</label><select id="cf-hood" name="neighborhood"><option>Jacksonville Beach</option><option>Neptune Beach</option><option>Atlantic Beach</option><option>Ponte Vedra Beach</option><option>San Marco</option><option>Avondale</option><option>Ortega</option><option>Riverside</option><option>Fernandina Beach</option><option>Amelia Island</option><option>St. Augustine</option><option>Somewhere else on the First Coast</option></select></div>
+      <div><label for="cf-svc">What do you need?</label><select id="cf-svc" name="service"><option>Exterior painting</option><option>Interior painting</option><option>Cabinets</option><option>Drywall</option><option>Restoration</option><option>Commercial / HOA</option><option>Not sure yet</option></select></div>
+      <div><label for="cf-when">When?</label><select id="cf-when" name="timing"><option>As soon as possible</option><option>In the next month</option><option>In the next few months</option><option>Just planning ahead</option></select></div>
+      <div class="full"><label for="cf-msg">Tell us about the project</label><textarea id="cf-msg" name="message" placeholder="Two-story stucco three blocks from the beach, south side chalking&hellip;"></textarea></div>
+      <button class="btn" type="submit">Book the Free Walkthrough</button>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">Pristine Coastal Co<b>.</b></div>
+        <p style="margin-top:16px;max-width:36ch">Veteran owned painting, drywall and restoration for Jacksonville, the Beaches and the First Coast of Florida.</p>
+        <p style="margin-top:14px;color:var(--shell)">904.235.0423</p>
+        <p class="small" style="margin-top:6px"><a href="military.html">Military discounts available.</a></p>
+      </div>
+      <div><h4>Neighborhoods</h4><ul><li><a href="neighborhood-jacksonville-beach.html">Jacksonville Beach</a></li><li><a href="neighborhood-neptune-beach.html">Neptune Beach</a></li><li><a href="neighborhood-atlantic-beach.html">Atlantic Beach</a></li><li><a href="neighborhood-ponte-vedra-beach.html">Ponte Vedra Beach</a></li><li><a href="neighborhoods.html">View all fourteen</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="service-residential-painting.html">Residential Painting</a></li><li><a href="service-luxury-exterior.html">Luxury Exteriors</a></li><li><a href="service-drywall.html">Drywall</a></li><li><a href="service-home-restoration.html">Home Restoration</a></li><li><a href="services.html">View all ten</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="work.html">The work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; 2026 Pristine Coastal Co. &middot; Jacksonville, Florida</span>
+      <span><a href="guarantee.html">Guarantee</a> &middot; <a href="financing.html">Financing</a> &middot; <a href="military.html">Military &amp; First Responders</a> &middot; <a href="careers.html">Careers</a></span>
+      <span>Licensed &amp; insured &middot; FL</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Production: ContactPage + LocalBusiness JSON-LD; form posts to the API route with validation, honeypot and rate limiting. -->
+<script src="reveal.js"></script>
+<script src="faq.js"></script>
+<script src="site-nav.js"></script>
+</body>
+</html>

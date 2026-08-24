@@ -29,10 +29,10 @@
   panel.innerHTML =
     '<div class="mnav__head"><span class="mnav__brand">Pristine Coastal Co<b>.</b></span>' +
     '<button class="mnav__close" aria-label="Close menu">&times;</button></div>' +
-    '<nav><a class="mitem" href="#">Neighborhoods</a><a class="mitem" href="#">Services</a>' +
-    '<a class="mitem" href="#">The work</a><a class="mitem" href="#">Process</a>' +
-    '<a class="mitem" href="#">Pricing</a><a class="mitem" href="#">About</a></nav>' +
-    '<div class="mnav__foot"><a class="btn" href="#">Get a Free Estimate</a>' +
+    '<nav><a class="mitem" href="neighborhoods.html">Neighborhoods</a><a class="mitem" href="services.html">Services</a>' +
+    '<a class="mitem" href="work.html">The work</a><a class="mitem" href="process.html">Process</a>' +
+    '<a class="mitem" href="pricing.html">Pricing</a><a class="mitem" href="about.html">About</a></nav>' +
+    '<div class="mnav__foot"><a class="btn" href="contact.html">Get a Free Estimate</a>' +
     '<a class="tel" href="tel:9042350423">904.235.0423</a></div>';
   document.body.appendChild(panel);
 
