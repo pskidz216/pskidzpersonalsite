@@ -42,6 +42,9 @@
   + '.dsub__col a{display:block;font-size:15px;font-weight:300;color:var(--haint);padding:5px 0;transition:color .2s,padding-left .25s var(--ease-wd)}'
   + '.dsub__col a:hover{color:var(--shell);padding-left:6px}'
   + '.dsub__all{color:var(--coral) !important;font-weight:400 !important}'
+  + '.dmisc{display:flex;gap:22px;flex-wrap:wrap;padding:20px 0 4px;font-size:13.5px}'
+  + '.dmisc a{color:var(--haint);letter-spacing:.06em;text-transform:uppercase;font-weight:400}'
+  + '.dmisc a:hover{color:var(--shell)}'
   + '.drawer__foot{display:flex;align-items:center;gap:22px;padding-top:28px;flex-wrap:wrap}'
   + '@media(max-width:768px){.drawer__panel{padding:22px 24px 30px}.dsub{grid-template-columns:1fr}.dgroup.is-open .dsub{max-height:560px}}';
   var style = document.createElement('style');
@@ -90,6 +93,7 @@
   + '<a class="ditem" href="#">Process</a>'
   + '<a class="ditem" href="pricing.html">Pricing</a>'
   + '<a class="ditem" href="#">About</a>'
+  + '<div class="dmisc"><a href="reviews.html">Reviews</a><a href="' + estimate + '">Contact</a><a href="neighborhoods.html">Neighborhoods A&ndash;Z</a></div>'
   + '</nav>'
   + '<div class="drawer__foot">'
   + '<a class="btn" href="' + estimate + '">Get a Free Estimate</a>'

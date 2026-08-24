@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reviews | Pristine Coastal Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  html,body{overflow-x:clip}
+  /* ---- reviews (2026-08-23): editorial treatment, no widgets ---- */
+  .rhead{padding-top:88px;padding-bottom:64px}
+  .rhead h1{font-size:clamp(48px,6.5vw,92px);letter-spacing:-.015em;line-height:1.04;max-width:14ch}
+  .rhead .lead{margin-top:26px}
+  .agg{display:flex;align-items:baseline;gap:26px;margin-top:44px;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:22px 0;flex-wrap:wrap}
+  .agg b{font-family:var(--sans);font-weight:300;font-size:44px;color:var(--harbor-deep);line-height:1;font-variant-numeric:lining-nums}
+  .agg .stars{font-size:13px;letter-spacing:2px}
+  .agg span{font-size:14px;color:var(--grey)}
+  .agg a{font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--harbor-deep);border-bottom:1px solid var(--coral);padding-bottom:2px;margin-left:auto}
+  @media(max-width:768px){.rhead{padding-top:52px;padding-bottom:40px}.agg a{margin-left:0}}
+
+  /* featured review: quote beside the job it describes */
+  .rfeat{display:grid;grid-template-columns:minmax(0,13fr) minmax(0,11fr);gap:clamp(48px,6vw,110px);align-items:center;padding:72px 0}
+  .rfeat figure{position:relative;margin:0}
+  .rfeat figure img{aspect-ratio:16/11;object-fit:cover;width:100%;height:100%}
+  .rfeat__txt{padding-right:max(48px,calc((100vw - 1280px)/2 + 48px))}
+  .rfeat blockquote{font-family:var(--serif);font-weight:600;font-style:italic;font-size:clamp(28px,2.9vw,40px);line-height:1.35;color:var(--harbor)}
+  .rwho{margin-top:18px;font-size:13.5px;color:var(--grey)}
+  .rwho b{font-weight:500;color:var(--harbor-deep)}
+  .rjob{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-deep)}
+  @media(max-width:900px){.rfeat{grid-template-columns:1fr;gap:32px;padding:44px 0}.rfeat__txt{padding:0 20px}}
+
+  /* review wall: hairline ledger, not cards */
+  .rwall{columns:2;column-gap:64px}
+  .rev{break-inside:avoid;border-top:1px solid var(--hairline);padding:30px 0 34px}
+  .rev blockquote{font-family:var(--serif);font-weight:600;font-style:italic;font-size:22px;line-height:1.45;color:var(--harbor-deep)}
+  .rev .stars{font-size:11px;letter-spacing:2px;margin-bottom:12px}
+  @media(max-width:900px){.rwall{columns:1}}
+
+  /* walkthrough band */
+  .wband{background:var(--night);color:var(--haint)}
+  .wband .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:center;padding-top:88px;padding-bottom:88px}
+  .wband h2{color:var(--shell);font-size:clamp(28px,3vw,40px);max-width:22ch}
+  .wband p{font-weight:300;margin-top:16px;max-width:52ch}
+  .wband ul{list-style:none;margin-top:8px}
+  .wband li{display:flex;gap:12px;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(195,216,212,.18);font-size:15px}
+  .wband li::before{content:"";width:6px;height:6px;background:var(--coral);flex:none;transform:translateY(-1px)}
+  @media(max-width:900px){.wband .wrap{grid-template-columns:1fr;gap:36px;padding-top:64px;padding-bottom:64px}}
+
+  .note{font-size:12.5px;color:var(--grey);border:1px dashed var(--sand);padding:12px 18px;display:inline-block}
+
+  .band{background:var(--harbor-deep);color:var(--haint)}
+  .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-top:64px;padding-bottom:64px}
+  .band h2{color:var(--shell);font-size:clamp(28px,3vw,40px);max-width:20ch}
+  .band p{font-weight:300;margin-top:10px;max-width:46ch}
+
+  .nav__links{margin-left:0}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__in">
+    <a class="brand--lockup" href="#" aria-label="Pristine Coastal Co."><img src="assets/logo-lockup.svg" alt="Pristine Coastal Co."></a>
+    <div class="nav__links">
+      <a href="neighborhoods.html">Neighborhoods</a><a href="#">Services</a><a href="#">The work</a><a href="#">Process</a><a href="pricing.html">Pricing</a><a href="#">About</a>
+    </div>
+    <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
+    <a class="btn" href="neighborhood-jacksonville-beach.html#contact">Free Estimate</a>
+  </div>
+</nav>
+
+<header class="wrap rhead">
+  <p class="lbl">Reviews</p>
+  <h1 style="margin-top:16px">In their words.</h1>
+  <p class="lead">Every review here is public, on Google, under a real name. We do not edit them, we do not gate them, and we do not pay for them. The recorded walkthrough at the end of every job is why most of them read the way they do.</p>
+  <div class="agg" data-reveal>
+    <b>4.9</b>
+    <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+    <span>From Google reviews across the First Coast</span>
+    <a href="#">Read them on Google</a>
+  </div>
+</header>
+
+<section class="rfeat hairline-top" aria-label="Featured review">
+  <figure>
+    <img src="assets/real-estate-shingle.jpg" alt="The repainted shingle-style home this review describes">
+    <span class="hood__coord" style="position:absolute;bottom:12px;right:14px">Jacksonville Beach &middot; Exterior</span>
+  </figure>
+  <div class="rfeat__txt">
+    <blockquote>&ldquo;Showed up on time, did the job quickly, and was polite and professional. Would definitely use again.&rdquo;</blockquote>
+    <div class="rwho"><b>Chris Y.</b> &middot; Google review</div>
+    <span class="rjob">Exterior repaint &middot; the house in the photograph</span>
+  </div>
+</section>
+
+<section class="sec sec--tight hairline-top">
+  <div class="wrap">
+    <div class="rwall">
+      <div class="rev" data-reveal>
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Showed up when they said, finished when they said, and the walkthrough video settled every question.&rdquo;</blockquote>
+        <div class="rwho"><b>Marcus B.</b> &middot; Ponte Vedra Beach &middot; Exterior</div>
+      </div>
+      <div class="rev" data-reveal>
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Adam showed up on time, did the job quickly, and was polite and professional. Would definitely use again.&rdquo;</blockquote>
+        <div class="rwho"><b>Renee C.</b> &middot; Google review</div>
+      </div>
+      <div class="rev" data-reveal>
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Polite, professional, and the house was cleaner when they left than when they arrived.&rdquo;</blockquote>
+        <div class="rwho"><b>Anne H.</b> &middot; Google review</div>
+      </div>
+      <div class="rev" data-reveal>
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;On time, quick, professional. Would use again without thinking about it.&rdquo;</blockquote>
+        <div class="rwho"><b>Elizabeth R.</b> &middot; Google review</div>
+      </div>
+      <div class="rev" data-reveal>
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Did exactly what the estimate said, for exactly what the estimate said.&rdquo;</blockquote>
+        <div class="rwho"><b>Patricia H.</b> &middot; Google review</div>
+      </div>
+      <div class="rev" data-reveal>
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;Quick, polite, professional. The kind of crew you hand a key to.&rdquo;</blockquote>
+        <div class="rwho"><b>Stephen P.</b> &middot; Google review</div>
+      </div>
+    </div>
+    <p style="margin-top:44px"><span class="note">Layout preview: names are real Google reviewers from the current profile; production pulls the live reviews and full text directly from Google.</span></p>
+  </div>
+</section>
+
+<section class="wband">
+  <div class="wrap">
+    <div>
+      <p class="lbl">Why the reviews read this way</p>
+      <h2 class="serif" style="margin-top:14px">Every job ends with a recorded walkthrough.</h2>
+      <p>Before we call a job done, we walk every surface on camera and you keep the video. It is why the reviews talk about finishing on time and settling questions: there is nothing left to argue about when the work is documented.</p>
+    </div>
+    <ul>
+      <li>Walkthrough recorded on every job, kept by you</li>
+      <li>The estimate is the price, in writing</li>
+      <li>Contained, cleaned and reset every day</li>
+      <li>Licensed &amp; insured, veteran owned</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Be the next one we walk through.</h2>
+      <p>The estimate is free, the walkthrough is recorded, and the price is the price.</p>
+    </div>
+    <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <a class="nav__tel" style="color:var(--shell);font-family:var(--serif);font-size:26px" href="tel:9042350423">904.235.0423</a>
+      <a class="btn" href="neighborhood-jacksonville-beach.html#contact">Book the Free Walkthrough</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">Pristine Coastal Co<b>.</b></div>
+        <p style="margin-top:16px;max-width:36ch">Veteran owned painting, drywall and restoration for Jacksonville, the Beaches and the First Coast of Florida.</p>
+        <p style="margin-top:14px;color:var(--shell)">904.235.0423</p>
+        <p class="small" style="margin-top:6px">Military discounts available.</p>
+      </div>
+      <div><h4>Neighborhoods</h4><ul><li><a href="neighborhood-jacksonville-beach.html">Jacksonville Beach</a></li><li><a href="neighborhood-neptune-beach.html">Neptune Beach</a></li><li><a href="neighborhood-atlantic-beach.html">Atlantic Beach</a></li><li><a href="neighborhood-ponte-vedra-beach.html">Ponte Vedra Beach</a></li><li><a href="neighborhoods.html">View all fourteen</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#">Residential Painting</a></li><li><a href="#">Luxury Exteriors</a></li><li><a href="#">Drywall</a></li><li><a href="#">Home Restoration</a></li><li><a href="#">View all ten</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="#">FAQ</a></li><li><a href="neighborhood-jacksonville-beach.html#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; 2026 Pristine Coastal Co. &middot; Jacksonville, Florida</span>
+      <span>Licensed &amp; insured &middot; FL</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Production: AggregateRating + Review JSON-LD from the live Google profile — the stars belong in the search results, not shouting on the page. -->
+<script src="reveal.js"></script>
+<script src="site-nav.js"></script>
+</body>
+</html>
