@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Process | Pristine Coastal Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  html,body{overflow-x:clip}
+  /* ---- process (2026-08-23): the five steps, expanded ---- */
+  .ihead{padding-top:88px;padding-bottom:64px}
+  .ihead h1{font-size:clamp(48px,6.5vw,92px);letter-spacing:-.015em;line-height:1.04;max-width:13ch}
+  .ihead .lead{margin-top:26px}
+  .ifacts{display:flex;gap:0;margin-top:44px;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+  .ifacts div{flex:1;padding:20px 28px;border-left:1px solid var(--hairline)}
+  .ifacts div:first-child{border-left:0;padding-left:0}
+  .ifacts b{display:block;font-family:var(--sans);font-weight:300;font-size:32px;letter-spacing:-.01em;color:var(--harbor-deep);line-height:1.1;font-variant-numeric:lining-nums tabular-nums}
+  .ifacts span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+  @media(max-width:768px){.ihead{padding-top:52px;padding-bottom:40px}.ifacts{flex-wrap:wrap}.ifacts div{flex:1 1 40%;padding:14px 18px}.ifacts div:first-child{padding-left:0}}
+
+  /* step rows: giant number, content, photo on alternating sides */
+  .step{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,5vw,88px);align-items:center;padding:64px 0;border-top:1px solid var(--hairline)}
+  .step__num{font-family:var(--sans);font-weight:300;font-size:15px;letter-spacing:.2em;color:var(--coral-deep);font-variant-numeric:tabular-nums;margin-bottom:14px}
+  .step h2{font-size:clamp(30px,3vw,42px)}
+  .step .lead{margin-top:16px;font-size:16.5px}
+  .step ul{list-style:none;margin-top:22px;border-top:1px solid var(--hairline)}
+  .step li{display:flex;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--hairline);font-size:15px;color:var(--body)}
+  .step li::before{content:"";width:6px;height:6px;background:var(--coral);flex:none;transform:translateY(-1px)}
+  .step figure{margin:0;position:relative}
+  .step figure img{aspect-ratio:4/3.1;object-fit:cover;width:100%}
+  .step figcaption{font-size:12.5px;color:var(--grey);margin-top:10px;letter-spacing:.02em}
+  .step--flip{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
+  .step--flip figure{order:-1}
+  @media(max-width:900px){.step,.step--flip{grid-template-columns:1fr;gap:28px;padding:44px 0}.step--flip figure{order:0}}
+
+  /* never-have-to band */
+  .never{background:var(--night);color:var(--haint)}
+  .never .wrap{padding-top:88px;padding-bottom:88px}
+  .never h2{color:var(--shell);font-size:clamp(28px,3vw,40px);max-width:22ch}
+  .nlist{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;margin-top:36px}
+  .nlist div{display:flex;gap:14px;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(195,216,212,.18);font-size:15.5px;font-weight:300}
+  .nlist div::before{content:"\2715";color:var(--coral);font-size:12px;flex:none}
+  @media(max-width:768px){.nlist{grid-template-columns:1fr}.never .wrap{padding-top:64px;padding-bottom:64px}}
+
+  .band{background:var(--harbor-deep);color:var(--haint)}
+  .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-top:64px;padding-bottom:64px}
+  .band h2{color:var(--shell);font-size:clamp(28px,3vw,40px);max-width:20ch}
+  .band p{font-weight:300;margin-top:10px;max-width:46ch}
+
+  .nav__links{margin-left:0}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__in">
+    <a class="brand--lockup" href="#" aria-label="Pristine Coastal Co."><img src="assets/logo-lockup.svg" alt="Pristine Coastal Co."></a>
+    <div class="nav__links">
+      <a href="neighborhoods.html">Neighborhoods</a><a href="services.html">Services</a><a href="#">The work</a><a href="process.html">Process</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
+    </div>
+    <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
+    <a class="btn" href="neighborhood-jacksonville-beach.html#contact">Free Estimate</a>
+  </div>
+</nav>
+
+<header class="wrap ihead">
+  <p class="lbl">The process</p>
+  <h1 style="margin-top:16px">No step where you get surprised.</h1>
+  <p class="lead">Every job runs the same five steps, in the same order, whether it is one ceiling or a whole oceanfront exterior. The estimate is free, the price is in writing, and the job is not done until the final walkthrough is on camera and in your hands.</p>
+  <div class="ifacts" data-reveal>
+    <div><b>5</b><span>Steps, every job</span></div>
+    <div><b>1</b><span>Lead on your job</span></div>
+    <div><b>0</b><span>Surprise charges</span></div>
+    <div><b>100%</b><span>Jobs ending on camera</span></div>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="step">
+    <div>
+      <div class="step__num">STEP 01</div>
+      <h2 class="serif">The walkthrough</h2>
+      <p class="lead">We walk the job with you, on camera, and you keep the video. This is where the scope gets honest: what gets painted, what gets repaired first, and what can wait a year without costing you anything.</p>
+      <ul>
+        <li>Free, and usually under an hour</li>
+        <li>Recorded, so nothing said here can drift later</li>
+        <li>Problems flagged before they are painted over</li>
+      </ul>
+    </div>
+    <figure data-reveal>
+      <img src="assets/c-p1-consult.jpg" alt="Walking a homeowner through the estimate on site">
+      <figcaption>The walkthrough &middot; on site, on camera</figcaption>
+    </figure>
+  </div>
+
+  <div class="step step--flip">
+    <div>
+      <div class="step__num">STEP 02</div>
+      <h2 class="serif">The price, in writing</h2>
+      <p class="lead">A written estimate with the prep listed line by line: wash, repairs, sanding, primer, coats, cleanup. The price is the price. It moves only if the scope moves, and you approve that in writing too.</p>
+      <ul>
+        <li>Ranges already published on the pricing page</li>
+        <li>Assumptions and exclusions spelled out, not discovered</li>
+        <li>No deposit to get a number</li>
+      </ul>
+    </div>
+    <figure data-reveal>
+      <img src="assets/hero-2-street.jpg" alt="A finished repaint on an oak-lined Jacksonville street">
+      <figcaption>What the number buys &middot; the finished standard</figcaption>
+    </figure>
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step__num">STEP 03</div>
+      <h2 class="serif">Prep like it matters</h2>
+      <p class="lead">Most of the job happens before the color. Wash, scrape, repair, sand, prime &mdash; on the coast, this is the whole difference between a four-year paint job and a ten-year one.</p>
+      <ul>
+        <li>Soft wood and moisture fixed, never painted over</li>
+        <li>Marine-grade primers where the salt reaches</li>
+        <li>Prep is in the estimate, so you can see you paid for it</li>
+      </ul>
+    </div>
+    <figure data-reveal>
+      <img src="assets/crew-cutin.jpg" alt="Hand-brushing window trim during prep and finish">
+      <figcaption>By hand, where it matters &middot; trim and cut lines</figcaption>
+    </figure>
+  </div>
+
+  <div class="step step--flip">
+    <div>
+      <div class="step__num">STEP 04</div>
+      <h2 class="serif">Paint, contained</h2>
+      <p class="lead">Rooms contained, floors covered, landscaping protected. Every evening the site is cleaned and reset, so you keep living your life &mdash; or running your business &mdash; while the work happens around it.</p>
+      <ul>
+        <li>Daily cleanup, not end-of-job cleanup</li>
+        <li>The same crew start to finish</li>
+        <li>Walkways and doorways stay usable</li>
+      </ul>
+    </div>
+    <figure data-reveal>
+      <img src="assets/real-crew-spray.jpg" alt="Interior under full containment during spraying">
+      <figcaption>Containment before a drop moves &middot; a real job, mid-spray</figcaption>
+    </figure>
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step__num">STEP 05</div>
+      <h2 class="serif">The recorded walkthrough</h2>
+      <p class="lead">The job ends the way it started: every painted surface walked on camera, with you holding the video. If something is not right, it gets fixed before we call it done &mdash; because done means documented.</p>
+      <ul>
+        <li>Every surface, on camera, kept by you</li>
+        <li>Punch-list items fixed before sign-off</li>
+        <li>It is why our reviews read the way they do</li>
+      </ul>
+    </div>
+    <figure data-reveal>
+      <img src="assets/hero-3-finish.jpg" alt="Finished cut line where wall meets trim">
+      <figcaption>The standard, up close &middot; a finished cut line</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="never">
+  <div class="wrap">
+    <p class="lbl" style="color:var(--coral)">The other half of the process</p>
+    <h2 class="serif" style="margin-top:14px">Things you never have to do.</h2>
+    <div class="nlist" data-reveal>
+      <div>Chase us for updates &mdash; the schedule is in writing and weather gets a phone call</div>
+      <div>Argue about what was said &mdash; both walkthroughs are on video</div>
+      <div>Discover a bigger bill &mdash; scope changes are approved in writing first</div>
+      <div>Clean up after a crew &mdash; the site resets every evening</div>
+      <div>Wonder who is in your house &mdash; one lead, one crew, start to finish</div>
+      <div>Beg for a callback &mdash; same or next business day, every time</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--sand hairline-top">
+  <div class="wrap" style="max-width:920px">
+    <h2 class="d2" data-reveal>Process questions, answered.</h2>
+    <div class="faq" style="margin-top:44px">
+      <div class="faq__row">
+        <h3>How long does a job take, start to finish?<span>&minus;</span></h3>
+        <p>Most interiors run two to five days and most single-family exteriors one to two weeks; estate-scale work runs two to four. The schedule is in the written estimate, and weather is the only thing allowed to move it &mdash; with a phone call, not a silence.</p>
+      </div>
+      <div class="faq__row"><h3>Do I need to be home while you work?<span>+</span></h3>
+        <p>No. Many clients hand us a key or a code. Every stage is photographed, decisions can be approved by phone, and the recorded walkthrough means you can inspect the finished work whenever suits you.</p></div>
+      <div class="faq__row"><h3>What if I change my mind about a color mid-job?<span>+</span></h3>
+        <p>It happens, and it is fine. We stop, sample the new color on the wall, and put the change and any cost difference in writing before continuing. No change is billed that you did not approve first.</p></div>
+      <div class="faq__row"><h3>What happens if you find damage during prep?<span>+</span></h3>
+        <p>You see it before we touch it: photographed, explained, priced in writing. Painting over a problem is the one thing we will not do, but the decision on how far to go is always yours.</p></div>
+      <div class="faq__row"><h3>Is the estimate really free?<span>+</span></h3>
+        <p>Yes. We walk the job, record the walkthrough, and put the price in writing. No deposit to get a number, and the price does not move unless the scope does.</p></div>
+      <div class="faq__row"><h3>What does the recorded walkthrough actually cover?<span>+</span></h3>
+        <p>Every painted surface, on camera, at the start and at the end. The first video locks the scope; the second proves the finish. You keep both.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="stars" style="margin-bottom:14px">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <blockquote class="serif" style="font-size:28px;font-style:italic;max-width:36ch;padding-bottom:4px">&ldquo;Showed up when they said, finished when they said, and the walkthrough video settled every question.&rdquo;</blockquote>
+    <div class="small" style="margin-top:12px">Marcus B. &middot; Ponte Vedra Beach</div>
+    <a class="tlink" style="display:inline-block;margin-top:16px" href="reviews.html">Read all our reviews</a>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Start at step one.</h2>
+      <p>The walkthrough is free, it is recorded, and it usually takes less than an hour.</p>
+    </div>
+    <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <a class="nav__tel" style="color:var(--shell);font-family:var(--serif);font-size:26px" href="tel:9042350423">904.235.0423</a>
+      <a class="btn" href="neighborhood-jacksonville-beach.html#contact">Book the Free Walkthrough</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">Pristine Coastal Co<b>.</b></div>
+        <p style="margin-top:16px;max-width:36ch">Veteran owned painting, drywall and restoration for Jacksonville, the Beaches and the First Coast of Florida.</p>
+        <p style="margin-top:14px;color:var(--shell)">904.235.0423</p>
+        <p class="small" style="margin-top:6px">Military discounts available.</p>
+      </div>
+      <div><h4>Neighborhoods</h4><ul><li><a href="neighborhood-jacksonville-beach.html">Jacksonville Beach</a></li><li><a href="neighborhood-neptune-beach.html">Neptune Beach</a></li><li><a href="neighborhood-atlantic-beach.html">Atlantic Beach</a></li><li><a href="neighborhood-ponte-vedra-beach.html">Ponte Vedra Beach</a></li><li><a href="neighborhoods.html">View all fourteen</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="service-residential-painting.html">Residential Painting</a></li><li><a href="service-luxury-exterior.html">Luxury Exteriors</a></li><li><a href="service-drywall.html">Drywall</a></li><li><a href="service-home-restoration.html">Home Restoration</a></li><li><a href="services.html">View all ten</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="#">FAQ</a></li><li><a href="neighborhood-jacksonville-beach.html#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; 2026 Pristine Coastal Co. &middot; Jacksonville, Florida</span>
+      <span>Licensed &amp; insured &middot; FL</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Production page emits: HowTo + FAQPage JSON-LD — the five steps as HowToSteps, quotable by answer engines. -->
+<script src="reveal.js"></script>
+<script src="faq.js"></script>
+<script src="site-nav.js"></script>
+</body>
+</html>
