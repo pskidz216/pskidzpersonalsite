@@ -90,7 +90,7 @@
   + '<a href="service-drywall.html">Drywall</a><a href="service-home-restoration.html">Home Restoration</a><a href="service-commercial-painting.html">Commercial &amp; HOA</a><a href="services.html" class="dsub__all">All ten &rarr;</a>'
   + '</div></div></div>'
   + '<a class="ditem" href="#">The work</a>'
-  + '<a class="ditem" href="#">Process</a>'
+  + '<a class="ditem" href="process.html">Process</a>'
   + '<a class="ditem" href="pricing.html">Pricing</a>'
   + '<a class="ditem" href="about.html">About</a>'
   + '<div class="dmisc"><a href="reviews.html">Reviews</a><a href="' + estimate + '">Contact</a><a href="neighborhoods.html">Neighborhoods A&ndash;Z</a></div>'
