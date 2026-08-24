@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Pristine Coastal Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  html,body{overflow-x:clip}
+  /* ---- about (2026-08-23): veteran story, full process, values ---- */
+  .phead{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,13fr);gap:clamp(48px,6vw,110px);align-items:center;padding:56px 0 96px}
+  .phead__txt{padding-left:max(48px,calc((100vw - 1280px)/2 + 48px))}
+  .phead figure{position:relative;margin:0}
+  .phead figure img{aspect-ratio:16/11;object-fit:cover;width:100%;height:100%}
+  .phead .coord{position:absolute;bottom:12px;right:14px;font-size:11px;letter-spacing:.16em;color:rgba(246,240,230,.95);text-shadow:0 1px 6px rgba(24,40,53,.65)}
+  @media(max-width:900px){.phead{grid-template-columns:1fr;gap:36px;padding:32px 0 48px}.phead__txt{padding:0 20px}}
+
+  /* story */
+  .story{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}
+  .story h2{max-width:14ch}
+  .story .cols p{margin-bottom:20px;max-width:62ch}
+  @media(max-width:900px){.story{grid-template-columns:1fr;gap:24px}}
+
+  /* process ledger */
+  .proc{border-top:1px solid var(--hairline)}
+  .proc>div{display:grid;grid-template-columns:72px minmax(0,4fr) minmax(0,7fr);gap:32px;padding:34px 0;border-bottom:1px solid var(--hairline);align-items:baseline}
+  .proc .pnum{font-size:13px;letter-spacing:.18em;color:var(--coral-deep);font-variant-numeric:tabular-nums}
+  .proc h3{font-size:28px}
+  .proc p{font-size:15.5px;max-width:56ch}
+  @media(max-width:640px){.proc>div{grid-template-columns:44px 1fr;gap:12px 18px}.proc p{grid-column:2}}
+
+  /* values */
+  .vals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(195,216,212,.25)}
+  .vals div{padding:34px 36px 6px;border-left:1px solid rgba(195,216,212,.25)}
+  .vals div:first-child{border-left:0;padding-left:0}
+  .vals h3{font-size:28px;margin-bottom:12px}
+  .vals p{font-size:15px;font-weight:300;color:var(--haint)}
+  @media(max-width:900px){.vals{grid-template-columns:1fr}.vals div{border-left:0;padding:26px 0 0}}
+
+  /* facts strip */
+  .ifacts{display:flex;gap:0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+  .ifacts div{flex:1;padding:20px 28px;border-left:1px solid var(--hairline)}
+  .ifacts div:first-child{border-left:0;padding-left:0}
+  .ifacts b{display:block;font-family:var(--sans);font-weight:300;font-size:32px;letter-spacing:-.01em;color:var(--harbor-deep);line-height:1.1;font-variant-numeric:lining-nums tabular-nums}
+  .ifacts span{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+  @media(max-width:768px){.ifacts{flex-wrap:wrap}.ifacts div{flex:1 1 40%;padding:14px 18px}.ifacts div:first-child{padding-left:0}}
+
+  .note{font-size:12.5px;color:var(--grey);border:1px dashed var(--sand);padding:12px 18px;display:inline-block}
+
+  .band{background:var(--harbor-deep);color:var(--haint)}
+  .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-top:64px;padding-bottom:64px}
+  .band h2{color:var(--shell);font-size:clamp(28px,3vw,40px);max-width:20ch}
+  .band p{font-weight:300;margin-top:10px;max-width:46ch}
+
+  .nav__links{margin-left:0}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__in">
+    <a class="brand--lockup" href="#" aria-label="Pristine Coastal Co."><img src="assets/logo-lockup.svg" alt="Pristine Coastal Co."></a>
+    <div class="nav__links">
+      <a href="neighborhoods.html">Neighborhoods</a><a href="services.html">Services</a><a href="#">The work</a><a href="#">Process</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
+    </div>
+    <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
+    <a class="btn" href="neighborhood-jacksonville-beach.html#contact">Free Estimate</a>
+  </div>
+</nav>
+
+<header class="phead">
+  <div class="phead__txt">
+    <p class="lbl">About</p>
+    <h1 class="d1" style="margin-top:14px">Who you&rsquo;re<br>hiring.</h1>
+    <p class="lead" style="margin-top:24px">Pristine Coastal Co. is a veteran-owned painting, drywall and restoration company, founded by a Marine and run the way the Marines run things: show up on time, do it right, and document the work. Twenty-two years on the First Coast, from the Beaches to St. Augustine.</p>
+    <div class="hero__cta" style="margin-top:30px"><a class="btn" href="neighborhood-jacksonville-beach.html#contact">Book the Free Walkthrough</a></div>
+  </div>
+  <figure>
+    <img src="assets/hero-2-street.jpg" alt="Freshly painted historic home under the oaks in Jacksonville">
+    <span class="coord">Jacksonville, Florida &middot; est. on the First Coast</span>
+  </figure>
+</header>
+
+<section class="sec sec--tight hairline-top">
+  <div class="wrap story">
+    <div>
+      <p class="lbl">The story</p>
+      <h2 class="d2" style="margin-top:14px">From the Corps to the coast.</h2>
+    </div>
+    <div class="cols">
+      <p>The discipline came first. Before there was a company there was the Marine Corps, and the habits that stick with you after: you are early or you are late, the standard is the standard, and nobody gets to call a job finished except the person inspecting it.</p>
+      <p>Painting on the First Coast turned out to reward exactly those habits. Salt air punishes shortcuts here faster than almost anywhere in the country, and the difference between a four-year paint job and a ten-year one is almost entirely what happens before the color goes on. Twenty-two years later, that is still the whole business model: prep like it matters, put the price in writing, and film the finished work.</p>
+      <p>The recorded walkthrough started as a habit and became the signature. Every job ends with the crew walking every painted surface on camera, and the homeowner keeps the video. It settles questions before they become arguments, and it means our standard is checkable, not claimed.</p>
+      <p style="margin-top:28px"><span class="note">Layout preview: the founder&rsquo;s story runs on Arron&rsquo;s real details and photograph before anything publishes.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight hairline-top">
+  <div class="wrap">
+    <p class="lbl">The process</p>
+    <h2 class="d2" style="margin:14px 0 40px;max-width:22ch">Every job runs the same five steps.</h2>
+    <div class="proc">
+      <div>
+        <span class="pnum">01</span>
+        <h3>The walkthrough</h3>
+        <p>We walk the job with you, on camera. What gets painted, what gets repaired, what it costs. You keep the video, so nothing said at the estimate can drift later.</p>
+      </div>
+      <div>
+        <span class="pnum">02</span>
+        <h3>The price, in writing</h3>
+        <p>A written estimate with the prep listed line by line. The price is the price; it moves only if the scope does, and you approve that in writing too.</p>
+      </div>
+      <div>
+        <span class="pnum">03</span>
+        <h3>Prep like it matters</h3>
+        <p>Wash, scrape, repair, sand, prime. Most of the job happens here, which is why our exteriors last eight to ten years on a coast that eats paint in four.</p>
+      </div>
+      <div>
+        <span class="pnum">04</span>
+        <h3>Paint, contained</h3>
+        <p>Rooms contained, floors covered, landscaping protected, and the site cleaned and reset every evening. You keep living your life while we work.</p>
+      </div>
+      <div>
+        <span class="pnum">05</span>
+        <h3>The recorded walkthrough</h3>
+        <p>The job ends the way it started: every surface on camera, with you holding the video. Done means documented.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--ink">
+  <div class="wrap">
+    <p class="lbl" style="color:var(--coral)">What we hold ourselves to</p>
+    <h2 class="d2" style="margin:14px 0 44px;color:var(--shell)">Three rules, no exceptions.</h2>
+    <div class="vals">
+      <div>
+        <h3>Show up when we said</h3>
+        <p>Early or late; there is no third option. The schedule is in writing and weather is the only thing allowed to move it, with a phone call, not a silence.</p>
+      </div>
+      <div>
+        <h3>The price is the price</h3>
+        <p>Published ranges, a written estimate, and no number that grows in the dark. If we misjudged the work, that is our tuition, not your bill.</p>
+      </div>
+      <div>
+        <h3>Leave it cleaner</h3>
+        <p>Every evening the site is reset: floors clear, drops folded, walkways open. The last day looks like we were never there, except for the paint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight">
+  <div class="wrap">
+    <div class="ifacts" data-reveal>
+      <div><b>22</b><span>Years on the First Coast</span></div>
+      <div><b>14</b><span>Neighborhoods served</span></div>
+      <div><b>10</b><span>Services under one roof</span></div>
+      <div><b>100%</b><span>Jobs ending on camera</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="stars" style="margin-bottom:14px">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <blockquote class="serif" style="font-size:28px;font-style:italic;max-width:36ch;padding-bottom:4px">&ldquo;Showed up when they said, finished when they said, and the walkthrough video settled every question.&rdquo;</blockquote>
+    <div class="small" style="margin-top:12px">Marcus B. &middot; Ponte Vedra Beach</div>
+    <a class="tlink" style="display:inline-block;margin-top:16px" href="reviews.html">Read all our reviews</a>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div>
+      <h2 class="serif">Hire the standard, not the pitch.</h2>
+      <p>The estimate is free, the walkthrough is recorded, and the price is the price.</p>
+    </div>
+    <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <a class="nav__tel" style="color:var(--shell);font-family:var(--serif);font-size:26px" href="tel:9042350423">904.235.0423</a>
+      <a class="btn" href="neighborhood-jacksonville-beach.html#contact">Book the Free Walkthrough</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">Pristine Coastal Co<b>.</b></div>
+        <p style="margin-top:16px;max-width:36ch">Veteran owned painting, drywall and restoration for Jacksonville, the Beaches and the First Coast of Florida.</p>
+        <p style="margin-top:14px;color:var(--shell)">904.235.0423</p>
+        <p class="small" style="margin-top:6px">Military discounts available.</p>
+      </div>
+      <div><h4>Neighborhoods</h4><ul><li><a href="neighborhood-jacksonville-beach.html">Jacksonville Beach</a></li><li><a href="neighborhood-neptune-beach.html">Neptune Beach</a></li><li><a href="neighborhood-atlantic-beach.html">Atlantic Beach</a></li><li><a href="neighborhood-ponte-vedra-beach.html">Ponte Vedra Beach</a></li><li><a href="neighborhoods.html">View all fourteen</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="service-residential-painting.html">Residential Painting</a></li><li><a href="service-luxury-exterior.html">Luxury Exteriors</a></li><li><a href="service-drywall.html">Drywall</a></li><li><a href="service-home-restoration.html">Home Restoration</a></li><li><a href="services.html">View all ten</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="#">FAQ</a></li><li><a href="neighborhood-jacksonville-beach.html#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; 2026 Pristine Coastal Co. &middot; Jacksonville, Florida</span>
+      <span>Licensed &amp; insured &middot; FL</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Production page emits: AboutPage + LocalBusiness(Painter) JSON-LD with founder, foundingDate and areaServed once Arron's real details land. -->
+<script src="reveal.js"></script>
+<script src="site-nav.js"></script>
+</body>
+</html>
