@@ -49,6 +49,25 @@
 
   .note{font-size:12.5px;color:var(--grey);border:1px dashed var(--sand);padding:12px 18px;display:inline-block}
 
+  /* owner + crew */
+  .owner{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,5vw,88px);align-items:center}
+  @media(max-width:900px){.owner{grid-template-columns:1fr;gap:32px}}
+  .owner h2{font-size:clamp(30px,3vw,42px)}
+  .owner .lead{margin-top:16px;font-size:16.5px}
+  .owner ul{list-style:none;margin-top:22px;border-top:1px solid var(--hairline)}
+  .owner li{display:flex;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--hairline);font-size:15px;color:var(--body)}
+  .owner li::before{content:"";width:6px;height:6px;background:var(--coral);flex:none;transform:translateY(-1px)}
+  .pslot{border:1px dashed var(--sand);background:rgba(195,216,212,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+  .pslot--portrait{aspect-ratio:4/4.6}
+  .pslot--wide{aspect-ratio:16/10}
+  .pslot img{width:44px;height:44px;opacity:.55}
+  .pslot span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);text-align:center;padding:0 20px}
+  .crew{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:40px}
+  @media(max-width:900px){.crew{grid-template-columns:1fr}}
+  .crew figure{margin:0}
+  .crew figure img{aspect-ratio:16/10;object-fit:cover;width:100%}
+  .crew figcaption{font-size:12.5px;color:var(--grey);margin-top:10px;letter-spacing:.02em}
+
   .band{background:var(--harbor-deep);color:var(--haint)}
   .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-top:64px;padding-bottom:64px}
   .band h2{color:var(--shell);font-size:clamp(28px,3vw,40px);max-width:20ch}
@@ -93,8 +112,50 @@
       <p>The discipline came first. Before there was a company there was the Marine Corps, and the habits that stick with you after: you are early or you are late, the standard is the standard, and nobody gets to call a job finished except the person inspecting it.</p>
       <p>Painting on the First Coast turned out to reward exactly those habits. Salt air punishes shortcuts here faster than almost anywhere in the country, and the difference between a four-year paint job and a ten-year one is almost entirely what happens before the color goes on. Twenty-two years later, that is still the whole business model: prep like it matters, put the price in writing, and film the finished work.</p>
       <p>The recorded walkthrough started as a habit and became the signature. Every job ends with the crew walking every painted surface on camera, and the homeowner keeps the video. It settles questions before they become arguments, and it means our standard is checkable, not claimed.</p>
-      <p style="margin-top:28px"><span class="note">Layout preview: the founder&rsquo;s story runs on Arron&rsquo;s real details and photograph before anything publishes.</span></p>
+      <p style="margin-top:28px"><span class="note">Layout preview: the founder&rsquo;s story runs on Arron&rsquo;s real details before anything publishes.</span></p>
     </div>
+  </div>
+</section>
+
+<section class="sec sec--tight hairline-top">
+  <div class="wrap owner">
+    <div class="pslot pslot--portrait" data-reveal>
+      <img src="assets/icon-brush-harbor.svg" alt="">
+      <span>Photo slot &middot; Arron, portrait on a job site</span>
+    </div>
+    <div>
+      <p class="lbl">The owner</p>
+      <h2 class="serif" style="margin-top:14px">Arron. Marine, painter, owner.</h2>
+      <p class="lead">Arron founded Pristine Coastal Co. and still runs it from the field, not a desk. The first walkthrough on your job is usually his, the last one always is, and the recorded-walkthrough standard the whole company runs on is his rule. If something is not right, he is the one who answers for it &mdash; by name, on camera.</p>
+      <ul>
+        <li>United States Marine Corps veteran</li>
+        <li>Founder, and still on the jobs weekly</li>
+        <li>The person your walkthrough video answers to</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight hairline-top">
+  <div class="wrap">
+    <p class="lbl">The crew</p>
+    <h2 class="d2" style="margin:14px 0 8px;max-width:24ch">One crew, start to finish.</h2>
+    <p class="lead" style="font-size:16px;max-width:62ch">No rotating strangers: the crew that starts your job finishes it, under one lead, held to the same filmed standard Arron holds himself to. These are the hands doing the work.</p>
+    <div class="crew">
+      <figure data-reveal>
+        <img src="assets/crew-cutin.jpg" alt="Crew member cutting in window trim by hand">
+        <figcaption>Trim, cut in by hand</figcaption>
+      </figure>
+      <figure data-reveal>
+        <img src="assets/real-crew-spray.jpg" alt="Crew spraying inside full containment">
+        <figcaption>Inside the containment, mid-spray</figcaption>
+      </figure>
+      <div class="pslot pslot--wide" data-reveal>
+        <img src="assets/icon-brush-harbor.svg" alt="">
+        <span>Photo slot &middot; Arron &amp; the crew, together on site</span>
+      </div>
+    </div>
+    <p style="margin-top:36px"><span class="note">Layout preview: portrait and crew photo slots fill with Arron&rsquo;s real photographs before anything publishes.</span></p>
   </div>
 </section>
 
