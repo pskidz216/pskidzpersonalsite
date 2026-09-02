@@ -18,7 +18,11 @@ export function BuildsList() {
   }, []);
 
   return (
-    <section className="rd-section--paper rd-pad" id="built" ref={sectionRef}>
+    <section
+      className="rd-section--paper rd-pad rd-pad--tight-top"
+      id="built"
+      ref={sectionRef}
+    >
       <div className="rd-builds_head">
         <h2 data-rd-reveal="">Built by hand</h2>
         <span className="rd-data rd-data--teal" data-rd-reveal="opacity">

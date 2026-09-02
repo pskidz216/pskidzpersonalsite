@@ -44,7 +44,7 @@ export function OffClockSection() {
 
   return (
     <section
-      className="rd-section--paper rd-pad rd-offclock"
+      className="rd-section--paper rd-pad rd-pad--tight-top"
       id="offclock"
       ref={sectionRef}
     >

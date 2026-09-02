@@ -19,7 +19,7 @@ export function CredentialsList() {
 
   return (
     <section
-      className="rd-section--paper rd-pad"
+      className="rd-section--paper rd-pad rd-pad--tight-top"
       id="certifications"
       ref={sectionRef}
     >

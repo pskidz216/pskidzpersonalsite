@@ -353,6 +353,11 @@
 .rd-pad {
   padding: clamp(5rem, 12vw, 11rem) 4vw;
 }
+/* For a padded section directly following another padded section —
+   the section above already carries the full seam gap. */
+.rd-pad--tight-top {
+  padding-top: clamp(1rem, 2.5vw, 2.5rem);
+}
 .rd-anchor {
   display: block;
   position: relative;
@@ -902,10 +907,6 @@
 }
 
 /* ---------- off the clock ---------- */
-.rd-offclock {
-  /* Certs section above already carries full bottom padding */
-  padding-top: clamp(1rem, 2.5vw, 2.5rem);
-}
 .rd-offclock_head {
   display: flex;
   justify-content: space-between;
@@ -989,7 +990,7 @@
   overflow: hidden;
 }
 .rd-contact_inner {
-  padding: clamp(6rem, 14vw, 12rem) 4vw 3rem;
+  padding: clamp(3.5rem, 8vw, 8rem) 4vw 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
