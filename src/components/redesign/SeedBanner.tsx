@@ -7,7 +7,6 @@ import { prefersReducedMotion } from "./reveal";
 
 /**
  * Tall parallax banner playing the seed film from the Spiritual Site build.
- * Carries the legacy #offclock anchor so old deep links still land here.
  */
 export function SeedBanner() {
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -41,7 +40,7 @@ export function SeedBanner() {
   }, []);
 
   return (
-    <div className="rd-banner" id="offclock" ref={bannerRef}>
+    <div className="rd-banner" ref={bannerRef}>
       <div className="rd-banner_inner">
         <div className="rd-banner_media" ref={mediaRef}>
           <video

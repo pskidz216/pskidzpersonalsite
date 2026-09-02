@@ -7,6 +7,7 @@ import { SeedBanner } from "@/components/redesign/SeedBanner";
 import { SystemsGrid } from "@/components/redesign/SystemsGrid";
 import { BuildsList } from "@/components/redesign/BuildsList";
 import { CredentialsList } from "@/components/redesign/CredentialsList";
+import { OffClockSection } from "@/components/redesign/OffClockSection";
 import { ContactFooter } from "@/components/redesign/ContactFooter";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <SystemsGrid />
         <BuildsList />
         <CredentialsList />
+        <OffClockSection />
         <ContactFooter />
       </main>
     </>

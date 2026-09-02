@@ -9,6 +9,7 @@ const links = [
   { label: "Systems", href: "#skills" },
   { label: "Builds", href: "#built" },
   { label: "Credentials", href: "#certifications" },
+  { label: "Off the Clock", href: "#offclock" },
 ];
 
 export function RedesignNav() {

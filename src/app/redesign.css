@@ -901,6 +901,89 @@
   }
 }
 
+/* ---------- off the clock ---------- */
+.rd-offclock {
+  /* Certs section above already carries full bottom padding */
+  padding-top: clamp(1rem, 2.5vw, 2.5rem);
+}
+.rd-offclock_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.rd-offclock_head h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.rd-offclock_lede {
+  color: var(--rd-muted);
+}
+.rd-offclock_stage {
+  height: clamp(3.25rem, 8vw, 6rem);
+  margin-top: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.rd-offclock_word {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  white-space: nowrap;
+  animation: 0.55s var(--rd-ease-enter) both rd-offclock-in;
+}
+@keyframes rd-offclock-in {
+  0% {
+    opacity: 0;
+    transform: translateY(110%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rd-offclock_word {
+    animation: none;
+  }
+}
+.rd-offclock_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 0.5px solid rgba(20, 20, 20, 0.15);
+}
+.rd-offclock_item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  color: var(--rd-muted);
+  transition: var(--rd-t-hover);
+}
+.rd-offclock_item:hover {
+  color: var(--rd-ink);
+}
+.rd-offclock_item--active {
+  color: var(--rd-teal);
+}
+.rd-offclock_index {
+  font-size: 0.5625rem;
+  opacity: 0.6;
+}
+
 /* ---------- contact / footer ---------- */
 .rd-contact {
   overflow: hidden;
