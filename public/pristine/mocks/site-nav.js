@@ -96,7 +96,7 @@
   + '<div class="dmisc"><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a><a href="' + estimate + '">Contact</a><a href="neighborhoods.html">Neighborhoods A&ndash;Z</a></div>'
   + '</nav>'
   + '<div class="drawer__foot">'
-  + '<a class="btn" href="' + estimate + '">Get a Free Estimate</a>'
+  + '<a class="btn" href="' + estimate + '">Schedule Your Estimate</a>'
   + '<a class="nav__tel" style="color:var(--haint)" href="tel:9042350423">904.235.0423</a>'
   + '</div></aside>';
   document.body.appendChild(drawer);

@@ -6,6 +6,7 @@
 <title>About | Pristine Coastal Co.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Pristine Coastal Co. is built on the standards I learned as a Marine: we show up on time, we do it right, and we stand behind our work. Twenty-two years painting Florida’s First Coast, from the Beaches to St. Augustine.">
 <link rel="stylesheet" href="shared.css">
 <style>
   html,body{overflow-x:clip}
@@ -74,6 +75,21 @@
   .band p{font-weight:300;margin-top:10px;max-width:46ch}
 
   .nav__links{margin-left:0}
+
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;border-top:1px solid var(--hairline)}
+  .quad>div{padding:28px 0;border-bottom:1px solid var(--hairline)}
+  .quad h3{font-size:26px;margin-bottom:10px}
+  .quad p{font-size:15.5px;max-width:52ch}
+  @media(max-width:768px){.quad{grid-template-columns:1fr;gap:0}}
+  .owner__name{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3vw,42px);color:var(--harbor-deep);line-height:1.1}
+  .owner__title{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-deep);margin-top:12px}
+  .projrow{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+  @media(max-width:768px){.projrow{grid-template-columns:1fr}}
+  .projrow figure{margin:0}
+  .projrow img{aspect-ratio:16/10;object-fit:cover;width:100%}
+  .projrow .pmeta{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-deep);margin-top:14px}
+  .projrow h3{font-size:26px;margin-top:8px}
+  .projrow .pdet{font-size:14px;color:var(--grey);margin-top:6px}
 </style>
 </head>
 <body>
@@ -85,20 +101,21 @@
       <a href="neighborhoods.html">Neighborhoods</a><a href="services.html">Services</a><a href="work.html">The work</a><a href="process.html">Process</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
     </div>
     <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
-    <a class="btn" href="contact.html">Free Estimate</a>
+    <a class="btn" href="contact.html">Schedule Your Estimate</a>
   </div>
 </nav>
 
 <header class="phead">
   <div class="phead__txt">
     <p class="lbl">About</p>
-    <h1 class="d1" style="margin-top:14px">Who you&rsquo;re<br>hiring.</h1>
-    <p class="lead" style="margin-top:24px">Pristine Coastal Co. is a veteran-owned painting, drywall and restoration company, founded by a Marine and run the way the Marines run things: show up on time, do it right, and document the work. Twenty-two years on the First Coast, from the Beaches to St. Augustine.</p>
-    <div class="hero__cta" style="margin-top:30px"><a class="btn" href="contact.html">Book the Free Walkthrough</a></div>
+    <h1 class="d1" style="margin-top:14px">One standard.<br>Every surface.</h1>
+    <p class="lead" style="margin-top:24px">Pristine Coastal Co. is a veteran-owned painting and restoration company built for Florida&rsquo;s First Coast. We protect exteriors against demanding coastal conditions and bring the same standard of preparation, craftsmanship, and care inside the home.</p>
+    <div class="hero__cta" style="margin-top:30px"><a class="btn" href="contact.html">Schedule Your Estimate</a><a class="tlink" href="work.html">See our work</a></div>
+    <p class="small" style="margin-top:26px;letter-spacing:.14em;text-transform:uppercase;font-size:11.5px">Veteran-owned &middot; Licensed &amp; insured &middot; 22 years on the First Coast</p>
   </div>
   <figure>
     <img src="assets/hero-2-street.jpg" alt="Freshly painted historic home under the oaks in Jacksonville">
-    <span class="coord">Jacksonville, Florida &middot; est. on the First Coast</span>
+    <span class="coord">Jacksonville, Florida &middot; Florida&rsquo;s First Coast</span>
   </figure>
 </header>
 
@@ -106,13 +123,41 @@
   <div class="wrap story">
     <div>
       <p class="lbl">The story</p>
-      <h2 class="d2" style="margin-top:14px">From the Corps to the coast.</h2>
+      <h2 class="d2" style="margin-top:14px">A Marine&rsquo;s rule: integrity comes first.</h2>
     </div>
     <div class="cols">
-      <p>The discipline came first. Before there was a company there was the Marine Corps, and the habits that stick with you after: you are early or you are late, the standard is the standard, and nobody gets to call a job finished except the person inspecting it.</p>
-      <p>Painting on the First Coast turned out to reward exactly those habits. Salt air punishes shortcuts here faster than almost anywhere in the country, and the difference between a four-year paint job and a ten-year one is almost entirely what happens before the color goes on. Twenty-two years later, that is still the whole business model: prep like it matters, put the price in writing, and film the finished work.</p>
-      <p>The recorded walkthrough started as a habit and became the signature. Every job ends with the crew walking every painted surface on camera, and the homeowner keeps the video. It settles questions before they become arguments, and it means our standard is checkable, not claimed.</p>
-      <p style="margin-top:28px"><span class="note">Layout preview: the founder&rsquo;s story runs on Arron&rsquo;s real details before anything publishes.</span></p>
+      <p>The company started with one crew and a simple promise: show up when we say we will, protect the home, and finish what we start. That rule still drives every estimate, every prep day and every final walk.</p>
+      <p style="margin-top:28px"><span class="note">Layout preview: the founder&rsquo;s story expands with Arron&rsquo;s own words before anything publishes.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight hairline-top">
+  <div class="wrap">
+    <p class="lbl">Why homeowners call us</p>
+    <h2 class="d2" style="margin:14px 0 10px;max-width:22ch">Why homeowners call us.</h2>
+    <p class="lead" style="font-size:16px;margin-bottom:36px">The work is the reason. The process is why they refer us.</p>
+    <div class="quad">
+      <div><h3>We protect first.</h3><p>Floors, furniture, landscaping and adjacent surfaces are covered before a can opens.</p></div>
+      <div><h3>We prep to the surface.</h3><p>Stucco, plaster, drywall and millwork each get the system they need.</p></div>
+      <div><h3>We communicate.</h3><p>Clear communication and regular updates throughout the project. You&rsquo;ll know what&rsquo;s happening and what comes next.</p></div>
+      <div><h3>We stand behind our work.</h3><p>We take responsibility for our work and provide clear warranty coverage based on the products and coating system selected for your project.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--ink">
+  <div class="wrap">
+    <p class="lbl" style="color:var(--coral)">Built for the First Coast</p>
+    <h2 class="d2" style="margin:14px 0 10px;color:var(--shell)">Built for the First Coast.</h2>
+    <p class="lead" style="font-size:16px;color:var(--haint);font-weight:300;margin-bottom:8px">Salt, sun, humidity, and wind are hard on exterior coatings. We select products and preparation methods specifically for the conditions homes face on the First Coast.</p>
+    <div class="vals" style="margin-top:36px">
+      <div><h3>Salt &amp; wind</h3><p>Elastomeric sealants, high-build primers, and durable exterior coatings selected for coastal exposure.</p></div>
+      <div><h3>UV &amp; heat</h3><p>UV-stable topcoats and light-reflective colors where they make sense.</p></div>
+      <div><h3>Moisture</h3><p>Moisture readings before we coat. Breathable systems on masonry.</p></div>
+    </div>
+    <div class="vals" style="margin-top:0;border-top:0">
+      <div style="border-left:0;padding-left:0"><h3>Warranty</h3><p>Warranty coverage is based on the products and coating system selected, with workmanship backed by Pristine Coastal.</p></div>
     </div>
   </div>
 </section>
@@ -124,23 +169,26 @@
       <span>Photo slot &middot; Arron, portrait on a job site</span>
     </div>
     <div>
-      <p class="lbl">The owner</p>
-      <h2 class="serif" style="margin-top:14px">Arron. Marine, painter, owner.</h2>
-      <p class="lead">Arron founded Pristine Coastal Co. and still runs it from the field, not a desk. The first walkthrough on your job is usually his, the last one always is, and the recorded-walkthrough standard the whole company runs on is his rule. If something is not right, he is the one who answers for it &mdash; by name, on camera.</p>
-      <ul>
-        <li>United States Marine Corps veteran</li>
-        <li>Founder, and still on the jobs weekly</li>
-        <li>The person your walkthrough video answers to</li>
-      </ul>
+      <p class="lbl">Meet the owner</p>
+      <div class="owner__name" style="margin-top:14px">Arron Marlowe</div>
+      <div class="owner__title">Owner &middot; U.S. Marine Corps veteran</div>
+      <p class="lead" style="margin-top:20px">Twenty-two years painting the First Coast. Arron remains closely involved in the company, setting the standard for preparation, craftsmanship, and customer care.</p>
+      <a class="tlink" style="display:inline-block;margin-top:22px" href="#">Read Arron&rsquo;s story</a>
     </div>
   </div>
 </section>
 
 <section class="sec sec--tight hairline-top">
   <div class="wrap">
-    <p class="lbl">The crew</p>
-    <h2 class="d2" style="margin:14px 0 8px;max-width:24ch">One crew, start to finish.</h2>
-    <p class="lead" style="font-size:16px;max-width:62ch">No rotating strangers: the crew that starts your job finishes it, under one lead, held to the same filmed standard Arron holds himself to. These are the hands doing the work.</p>
+    <p class="lbl">The crew standard</p>
+    <h2 class="d2" style="margin:14px 0 10px;max-width:24ch">The crew standard.</h2>
+    <p class="lead" style="font-size:16px;max-width:62ch">Every painter works from the same prep, protection and finish checklist.</p>
+    <div class="quad" style="margin-top:36px">
+      <div><h3>Protect</h3><p>Cover before we open a can.</p></div>
+      <div><h3>Prep</h3><p>Repair, sand, bond and prime to the surface.</p></div>
+      <div><h3>Finish</h3><p>Apply each coat properly for consistent coverage and a professional finish.</p></div>
+      <div><h3>Verify</h3><p>Review the completed work, address remaining details, and provide care and warranty information.</p></div>
+    </div>
     <div class="crew">
       <figure data-reveal>
         <img src="assets/crew-cutin.jpg" alt="Crew member cutting in window trim by hand">
@@ -148,7 +196,7 @@
       </figure>
       <figure data-reveal>
         <img src="assets/real-crew-spray.jpg" alt="Crew spraying inside full containment">
-        <figcaption>Inside the containment, mid-spray</figcaption>
+        <figcaption>Protected and contained before a can opens</figcaption>
       </figure>
       <div class="pslot pslot--wide" data-reveal>
         <img src="assets/icon-brush-harbor.svg" alt="">
@@ -161,88 +209,49 @@
 
 <section class="sec sec--tight hairline-top">
   <div class="wrap">
-    <p class="lbl">The process</p>
-    <h2 class="d2" style="margin:14px 0 40px;max-width:22ch">Every job runs the same five steps.</h2>
-    <div class="proc">
-      <div>
-        <span class="pnum">01</span>
-        <h3>The walkthrough</h3>
-        <p>We walk the job with you, on camera. What gets painted, what gets repaired, what it costs. You keep the video, so nothing said at the estimate can drift later.</p>
-      </div>
-      <div>
-        <span class="pnum">02</span>
-        <h3>The price, in writing</h3>
-        <p>A written estimate with the prep listed line by line. The price is the price; it moves only if the scope does, and you approve that in writing too.</p>
-      </div>
-      <div>
-        <span class="pnum">03</span>
-        <h3>Prep like it matters</h3>
-        <p>Wash, scrape, repair, sand, prime. Most of the job happens here, which is why our exteriors last eight to ten years on a coast that eats paint in four.</p>
-      </div>
-      <div>
-        <span class="pnum">04</span>
-        <h3>Paint, contained</h3>
-        <p>Rooms contained, floors covered, landscaping protected, and the site cleaned and reset every evening. You keep living your life while we work.</p>
-      </div>
-      <div>
-        <span class="pnum">05</span>
-        <h3>The recorded walkthrough</h3>
-        <p>The job ends the way it started: every surface on camera, with you holding the video. Done means documented.</p>
-      </div>
+    <p class="lbl">The standard is visible</p>
+    <h2 class="d2" style="margin:14px 0 10px;max-width:24ch">The standard is visible.</h2>
+    <p class="lead" style="font-size:16px">Before and after. Scope and products. The result.</p>
+    <div class="projrow">
+      <figure data-reveal>
+        <a href="neighborhood-ponte-vedra-beach.html"><img src="assets/real-oceanfront.jpg" alt="Oceanfront stucco restoration in Ponte Vedra Beach"></a>
+        <div class="pmeta">Ponte Vedra Beach &middot; Exterior</div>
+        <h3 class="serif">Oceanfront stucco restoration</h3>
+        <p class="pdet">Elastomeric coating system</p>
+      </figure>
+      <figure data-reveal>
+        <a href="neighborhood-san-marco.html"><img src="assets/real-marble-bath.jpg" alt="Level 5 walls and fine-finish millwork in San Marco"></a>
+        <div class="pmeta">San Marco &middot; Interior</div>
+        <h3 class="serif">Level 5 walls and fine-finish millwork</h3>
+        <p class="pdet">Sprayed trim &middot; Smooth-finish doors</p>
+      </figure>
     </div>
   </div>
 </section>
 
-<section class="sec sec--ink">
-  <div class="wrap">
-    <p class="lbl" style="color:var(--coral)">What we hold ourselves to</p>
-    <h2 class="d2" style="margin:14px 0 44px;color:var(--shell)">Three rules, no exceptions.</h2>
-    <div class="vals">
-      <div>
-        <h3>Show up when we said</h3>
-        <p>Early or late; there is no third option. The schedule is in writing and weather is the only thing allowed to move it, with a phone call, not a silence.</p>
-      </div>
-      <div>
-        <h3>The price is the price</h3>
-        <p>Published ranges, a written estimate, and no number that grows in the dark. If we misjudged the work, that is our tuition, not your bill.</p>
-      </div>
-      <div>
-        <h3>Leave it cleaner</h3>
-        <p>Every evening the site is reset: floors clear, drops folded, walkways open. The last day looks like we were never there, except for the paint.</p>
-      </div>
+<section class="sec sec--sand hairline-top">
+  <div class="wrap" style="max-width:920px">
+    <h2 class="d2" data-reveal>Straight answers.</h2>
+    <div class="faq" style="margin-top:44px">
+      <div class="faq__row"><h3>Are you licensed and insured?<span>&minus;</span></h3>
+        <p>Yes. We carry general liability and workers&rsquo; compensation. Certificates are available on request.</p></div>
+      <div class="faq__row"><h3>What areas do you serve?<span>+</span></h3>
+        <p>Jacksonville, Jacksonville Beach, Ponte Vedra Beach, Atlantic Beach, Neptune Beach, Amelia Island and St. Augustine.</p></div>
+      <div class="faq__row"><h3>Do you offer a warranty?<span>+</span></h3>
+        <p>Yes. Warranty coverage varies based on the products and coating system selected for your project. Your specific warranty will be clearly outlined in your estimate.</p></div>
     </div>
-  </div>
-</section>
-
-<section class="sec sec--tight">
-  <div class="wrap">
-    <div class="ifacts" data-reveal>
-      <div><b>22</b><span>Years on the First Coast</span></div>
-      <div><b>14</b><span>Neighborhoods served</span></div>
-      <div><b>10</b><span>Services under one roof</span></div>
-      <div><b>100%</b><span>Jobs ending on camera</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="stars" style="margin-bottom:14px">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-    <blockquote class="serif" style="font-size:28px;font-style:italic;max-width:36ch;padding-bottom:4px">&ldquo;Showed up when they said, finished when they said, and the walkthrough video settled every question.&rdquo;</blockquote>
-    <div class="small" style="margin-top:12px">Marcus B. &middot; Ponte Vedra Beach</div>
-    <a class="tlink" style="display:inline-block;margin-top:16px" href="reviews.html">Read all our reviews</a>
   </div>
 </section>
 
 <section class="band">
   <div class="wrap">
     <div>
-      <h2 class="serif">Hire the standard, not the pitch.</h2>
-      <p>The estimate is free, the walkthrough is recorded, and the price is the price.</p>
+      <h2 class="serif">Ready to see what your project needs?</h2>
+      <p>Your estimate is free, carries no obligation, and the scope is clear before we start.</p>
     </div>
     <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
       <a class="nav__tel" style="color:var(--shell);font-family:var(--serif);font-size:26px" href="tel:9042350423">904.235.0423</a>
-      <a class="btn" href="contact.html">Book the Free Walkthrough</a>
+      <a class="btn" href="contact.html">Schedule Your Estimate</a>
     </div>
   </div>
 </section>
@@ -268,8 +277,9 @@
   </div>
 </footer>
 
-<!-- Production page emits: AboutPage + LocalBusiness(Painter) JSON-LD with founder, foundingDate and areaServed once Arron's real details land. -->
+<!-- Production page emits: AboutPage + LocalBusiness(Painter) JSON-LD with founder Arron Marlowe, foundingDate and areaServed. -->
 <script src="reveal.js"></script>
+<script src="faq.js"></script>
 <script src="site-nav.js"></script>
 </body>
 </html>

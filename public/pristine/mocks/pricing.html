@@ -8,10 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-  .phead{max-width:880px;padding:72px 0 56px}
+  .phead{max-width:880px;padding-top:72px;padding-bottom:56px}
   .calc{display:grid;grid-template-columns:6fr 6fr;background:var(--harbor-deep);color:var(--haint)}
   .calc__form{padding:56px 60px}
-  .calc__form h2{color:var(--shell);font-size:28px;margin-bottom:34px}
+  .calc__form h2{color:var(--shell);font-size:28px;margin-bottom:10px}
+  .calc__intro{font-size:14.5px;font-weight:300;color:var(--haint);margin-bottom:30px;max-width:44ch}
+  .goal__desc{font-size:14px;font-weight:300;color:var(--shell);margin:-16px 0 12px;max-width:48ch}
+  .goal__note{font-size:12.5px;font-weight:300;color:var(--haint);opacity:.85;max-width:48ch}
+  #seg-goal span{font-size:12.5px;padding:12px 6px;line-height:1.3}
   .seg{display:flex;border:1px solid rgba(195,216,212,.35);margin-bottom:28px}
   .seg span{flex:1;text-align:center;padding:12px 0;font-size:14px;cursor:pointer}
   .seg .on{background:var(--shell);color:var(--harbor-deep);font-weight:500}
@@ -34,6 +38,7 @@
   td:nth-child(2){color:var(--body);font-size:14.5px;padding-right:40px}
   td:last-child,th:last-child{text-align:right;white-space:nowrap;font-weight:500;color:var(--harbor-deep)}
   .note{display:inline-block;background:rgba(232,115,90,.12);color:var(--coral-deep);font-size:12.5px;padding:6px 12px;margin-top:22px}
+  .tnote{font-size:13.5px;color:var(--grey);margin-top:22px;max-width:70ch}
   .movers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
   .movers>div{background:#fff;border:1px solid var(--hairline);padding:34px 34px 30px}
   .movers h3{font-size:28px;margin-bottom:12px}
@@ -60,69 +65,71 @@
       <a href="neighborhoods.html">Neighborhoods</a><a href="services.html">Services</a><a href="work.html">The work</a><a href="process.html">Process</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
     </div>
     <a class="nav__tel" style="margin-left:auto" href="tel:9042350423">904.235.0423</a>
-    <a class="btn" href="contact.html">Free Estimate</a>
+    <a class="btn" href="contact.html">Schedule Your Estimate</a>
   </div>
 </nav>
 
 <header class="wrap phead">
-  <h1 class="d1">Painting prices in Jacksonville, and what moves them.</h1>
-  <p class="lead" style="margin-top:24px">Interior painting in Jacksonville typically runs $4,800 to $19,500 and exteriors $7,200 to $28,000, driven by size, substrate and finish tier. Every range below is published, not gated. The calculator gives you a figure in about ten seconds, and the free walkthrough is what turns it into a quote.</p>
+  <h1 class="d1">Painting Prices&mdash;and What Affects Them</h1>
+  <p class="lead" style="margin-top:24px">Interior projects typically range from $4,800&ndash;$19,500, while exterior projects range from $7,200&ndash;$28,000. Pricing depends on the size and condition of your home, the surfaces being painted, the preparation needed, and your finish selections. Use the calculator below to get a feel for potential cost, and your scheduled estimate will provide the actual price for your project.</p>
 </header>
 
 <div class="wrap" style="margin-bottom:104px">
   <div class="calc">
     <div class="calc__form">
-      <h2 class="serif">What will my project run?</h2>
-      <label>Project</label>
+      <h2 class="serif">What Could My Project Cost?</h2>
+      <p class="calc__intro">Tell us a little about your project and we&rsquo;ll give you a potential price range.</p>
+      <label>Project Type</label>
       <div class="seg" id="seg-project"><span class="on" data-v="interior">Interior</span><span data-v="exterior">Exterior</span></div>
-      <label>Home size</label>
+      <label>Home Size</label>
       <div class="slider__val" style="margin:0 0 6px" id="sqft-out">3,250 sq ft</div>
       <input type="range" id="sqft" min="1200" max="7000" step="50" value="3250" aria-label="Home size in square feet">
       <div class="slider__ends"><span>1,200</span><span>7,000 sq ft</span></div>
-      <label>Finish tier</label>
-      <div class="seg" id="seg-tier"><span data-v="standard">Standard</span><span class="on" data-v="premium">Premium</span><span data-v="fine">Fine finish</span></div>
+      <label>Project Goal</label>
+      <div class="seg" id="seg-goal"><span data-v="refresh">Refresh</span><span class="on" data-v="protection">Long-Term Protection</span><span data-v="premium">Premium Finish</span></div>
+      <p class="goal__desc" id="goal-desc">Higher-performing materials selected for durability and longer service life.</p>
+      <p class="goal__note">Our standard of craftsmanship stays the same no matter which option you choose.</p>
     </div>
     <div class="calc__out">
-      <span class="small">Homes like this typically run</span>
-      <div class="fig" id="calc-fig">$9,400 to $13,300</div>
-      <p id="calc-desc">Walls, trim and ceilings, two coats over a prepped surface.</p>
-      <div class="hero__cta"><a class="btn" href="contact.html">Book the free walkthrough</a><a class="btn btn--ghost" href="#published">See the published tables</a></div>
+      <span class="small">Your Potential Project Range</span>
+      <div class="fig" id="calc-fig">$9,400&ndash;$13,300</div>
+      <p id="calc-desc">Based on similar Pristine Coastal projects. Your scheduled estimate will provide an exact price for your home.</p>
+      <div class="hero__cta"><a class="btn" href="contact.html">Schedule Your Estimate</a><a class="btn btn--ghost" href="#published">See typical project costs</a></div>
     </div>
   </div>
 </div>
 
 <section class="sec hairline-top" id="published" style="padding-top:88px">
   <div class="wrap" style="max-width:1000px">
-    <h2 class="d2" data-reveal>The published ranges.</h2>
-    <p class="lead" style="margin:18px 0 44px">Plain text on the page, because a calculator is invisible to a search engine and this is the part that gets quoted.</p>
+    <h2 class="d2" data-reveal>Typical Project Costs</h2>
+    <p class="lead" style="margin:18px 0 44px">Select your home size to see a typical project scope, timeline, and price range.</p>
     <table>
-      <thead><tr><th>Work</th><th>Scope</th><th>Typical range</th></tr></thead>
+      <thead><tr><th>Project</th><th>Typical Scope</th><th>Typical Price Range</th></tr></thead>
       <tbody>
-        <tr><td>Interior</td><td>Walls, trim and ceilings, two coats over a prepped surface</td><td>$4,800 to $19,500</td></tr>
-        <tr><td>Exterior</td><td>Stucco or fiber cement, wash, prime and two coats</td><td>$7,200 to $28,000</td></tr>
-        <tr><td>Cabinetry</td><td>Per kitchen, doors sprayed off site</td><td>$4,400 to $11,800</td></tr>
-        <tr><td>Historic plaster</td><td>Per room, bonding skim and flat finish</td><td>$3,900 to $14,500</td></tr>
+        <tr><td>Interior</td><td>Walls, ceilings, trim and doors&mdash;as needed based on your project.</td><td>$4,800&ndash;$19,500</td></tr>
+        <tr><td>Exterior</td><td>Exterior surfaces properly prepared and coated based on their condition and material.</td><td>$7,200&ndash;$28,000</td></tr>
+        <tr><td>Cabinetry</td><td>Professional cabinet refinishing based on kitchen size, condition, and number of doors and drawers.</td><td>$4,400&ndash;$11,800</td></tr>
       </tbody>
     </table>
-    <span class="note">Sample figures. The live page publishes Arron's real ranges before launch.</span>
+    <p class="tnote">Pricing reflects typical project conditions. Repairs, access, height, and the amount of preparation needed can affect the final price.</p>
   </div>
 </section>
 
 <section class="sec sec--sand">
   <div class="wrap">
-    <h2 class="d2" data-reveal>Three things move the number.</h2>
+    <h2 class="d2" data-reveal>What Affects the Price?</h2>
     <div class="movers" style="margin-top:48px">
       <div>
-        <h3>Surface condition</h3>
-        <p>Prep is most of the job. Chalking stucco, failing caulk or water-stained drywall get corrected before paint, and that labor is where ranges widen.</p>
+        <h3>Surface Condition</h3>
+        <p>The condition of your home determines how much preparation is needed before painting. Cracks, failing caulk, damaged drywall, and other repairs can increase the scope and cost of the project.</p>
       </div>
       <div>
-        <h3>Exposure</h3>
-        <p>Oceanfront and Intracoastal homes need marine-grade systems. The material costs more once, and lasts roughly twice as long as builder grade on the windward side.</p>
+        <h3>Coastal Exposure</h3>
+        <p>Homes on the First Coast are exposed to salt, moisture, intense sun, and coastal weather. These conditions can affect the preparation and coating system we recommend for longer-lasting protection.</p>
       </div>
       <div>
-        <h3>Finish tier</h3>
-        <p>Standard, premium or fine finish. Fine finish means sprayed doors and millwork, hand-rubbed, with a Level 5 wall where light rakes across it.</p>
+        <h3>Level of Finish</h3>
+        <p>New paint will refresh the color and finish, but it will not hide existing imperfections. If you want a smoother, more uniform appearance, additional preparation can be included to correct surface flaws before painting.</p>
       </div>
     </div>
   </div>
@@ -130,29 +137,29 @@
 
 <section class="sec">
   <div class="wrap why">
-    <img src="assets/c-p1-consult.jpg" alt="Arron walking a homeowner through the estimate on site">
+    <img src="assets/c-p1-consult.jpg" alt="Walking a homeowner through the written estimate on site">
     <div>
-      <h2 class="d2" data-reveal>Why the number is not behind a form.</h2>
-      <p class="lead" style="margin:20px 0 0">Gating a range loses most of the people who came to find it. So the range is free. The written breakdown is what the walkthrough produces: the assumptions, what is and is not included, the prep standard, and the questions worth asking any contractor before you sign.</p>
-      <div class="hero__cta" style="margin-top:30px"><a class="btn" href="contact.html">Book the free walkthrough</a><a class="nav__tel" href="tel:9042350423">904.235.0423</a></div>
+      <h2 class="d2" data-reveal>Clear Pricing. No Guesswork.</h2>
+      <p class="lead" style="margin:20px 0 0">We believe you should have a realistic idea of what your project may cost before scheduling an estimate. The ranges above give you a starting point. Your estimate will clearly outline the scope, preparation, materials, and what is&mdash;and is not&mdash;included in your project.</p>
+      <div class="hero__cta" style="margin-top:30px"><a class="btn" href="contact.html">Schedule Your Estimate</a><a class="nav__tel" href="tel:9042350423">904.235.0423</a></div>
     </div>
   </div>
 </section>
 
 <section class="sec sec--sand hairline-top">
   <div class="wrap" style="max-width:920px">
-    <h2 class="d2" data-reveal>Cost questions, answered.</h2>
+    <h2 class="d2" data-reveal>Common Pricing Questions</h2>
     <div class="faq" style="margin-top:44px">
       <div class="faq__row">
         <h3>How much does it cost to paint a 3,000 sq ft house interior in Jacksonville?<span>&minus;</span></h3>
-        <p>A 3,000 sq ft interior typically runs $9,000 to $13,000 at a premium tier: walls, trim and ceilings, two coats over a prepped surface. Fine-finish millwork and Level 5 walls sit above that. The walkthrough pins the number to your rooms and surfaces.</p>
+        <p>A 3,000 sq. ft. interior typically ranges from $9,000&ndash;$13,000, depending on the surfaces being painted, their condition, and the level of preparation needed. More extensive surface correction or specialty finishes can increase the cost. Your scheduled estimate will provide an exact price based on your home and project scope.</p>
       </div>
       <div class="faq__row"><h3>What is included in the estimate?<span>+</span></h3>
-        <p>The written estimate lists prep, surface repairs, materials, the number of coats and cleanup, with the assumptions spelled out. Anything excluded is excluded in writing, not discovered later.</p></div>
-      <div class="faq__row"><h3>Is the walkthrough really free?<span>+</span></h3>
-        <p>Yes. It takes about an hour, it is recorded so nothing gets remembered wrong, and it carries no obligation. If we are not the right crew for the job, we will say so.</p></div>
+        <p>Your written estimate clearly outlines the project scope, preparation, repairs, materials, and cleanup. Any exclusions will also be clearly identified so you know exactly what is&mdash;and is not&mdash;included before the project begins.</p></div>
+      <div class="faq__row"><h3>Is the estimate free?<span>+</span></h3>
+        <p>Yes. Your estimate is free and carries no obligation. We&rsquo;ll take the time to understand your project, evaluate the surfaces, and clearly define the scope before providing your price.</p></div>
       <div class="faq__row"><h3>Do you offer military discounts?<span>+</span></h3>
-        <p>Yes. Pristine Coastal is veteran owned and military discounts are available on residential work. Mention your service when you book the walkthrough.</p></div>
+        <p>Yes. Pristine Coastal is veteran-owned, and we&rsquo;re proud to offer military discounts on residential projects. Let us know about your service when scheduling your estimate.</p></div>
     </div>
   </div>
 </section>
@@ -184,22 +191,23 @@
 <script>
 (function () {
   var RATES = {
-    interior: { standard: [2.45, 3.5], premium: [2.9, 4.1], fine: [3.9, 5.5] },
-    exterior: { standard: [3.05, 4.35], premium: [3.6, 5.1], fine: [4.85, 6.9] }
+    interior: { refresh: [2.45, 3.5], protection: [2.9, 4.1], premium: [3.9, 5.5] },
+    exterior: { refresh: [3.05, 4.35], protection: [3.6, 5.1], premium: [4.85, 6.9] }
   };
-  var DESC = {
-    interior: 'Walls, trim and ceilings, two coats over a prepped surface.',
-    exterior: 'Wash, prime and two coats on stucco or fiber cement.'
+  var GOAL = {
+    refresh: 'A clean, professional repaint when keeping costs simple is the priority.',
+    protection: 'Higher-performing materials selected for durability and longer service life.',
+    premium: 'Our highest-performing coating systems with added attention to finish and detail.'
   };
-  var state = { project: 'interior', tier: 'premium', sqft: 3250 };
+  var state = { project: 'interior', goal: 'protection', sqft: 3250 };
   var fig = document.getElementById('calc-fig');
-  var desc = document.getElementById('calc-desc');
   var sqftOut = document.getElementById('sqft-out');
   var money = function (n) { return '$' + (Math.round(n / 100) * 100).toLocaleString('en-US'); };
+  var goalDesc = document.getElementById('goal-desc');
   var render = function () {
-    var r = RATES[state.project][state.tier];
-    fig.textContent = money(state.sqft * r[0]) + ' to ' + money(state.sqft * r[1]);
-    desc.textContent = DESC[state.project];
+    var r = RATES[state.project][state.goal];
+    fig.textContent = money(state.sqft * r[0]) + '\u2013' + money(state.sqft * r[1]);
+    goalDesc.textContent = GOAL[state.goal];
     sqftOut.textContent = state.sqft.toLocaleString('en-US') + ' sq ft';
   };
   var wireSeg = function (id, key) {
@@ -214,7 +222,7 @@
     });
   };
   wireSeg('seg-project', 'project');
-  wireSeg('seg-tier', 'tier');
+  wireSeg('seg-goal', 'goal');
   document.getElementById('sqft').addEventListener('input', function (e) {
     state.sqft = parseInt(e.target.value, 10); render();
   });
