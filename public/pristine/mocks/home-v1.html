@@ -11,12 +11,14 @@
   html,body{overflow-x:clip}
   .nav{transition:transform .5s var(--ease-wd)}
   .nav__in{height:96px;position:relative}
-  @media(min-width:1010px){
+  @media(min-width:901px){
     .brand--lockup{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0}
     .brand--lockup img{height:64px}
     .nav__tel{margin-left:auto}
   }
   @media(max-width:900px){.nav__in{height:72px}}
+  @media(max-width:1050px){.brand--lockup img{height:52px}}
+  @media(max-width:1260px){.nav .btn{margin-left:auto}}
   .nav.is-hidden{transform:translateY(-100%)}
 
   /* ---- hero with parallax + haze seam ---- */
