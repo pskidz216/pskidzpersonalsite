@@ -6,7 +6,7 @@
 
   var css = ''
   + '.nav__in{height:96px;position:relative}'
-  + '@media(min-width:901px){'
+  + '@media(min-width:1010px){'
   + '.brand--lockup{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0}'
   + '.brand--lockup img{height:64px}'
   + '}'
