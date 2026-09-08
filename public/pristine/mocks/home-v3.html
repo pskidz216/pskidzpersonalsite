@@ -38,7 +38,7 @@
     background:linear-gradient(to top,var(--white) 8%,rgba(255,255,255,.72) 38%,rgba(255,255,255,0) 100%)}
 
   /* ---- giant title fade (WD pattern 6, in brand serif) ---- */
-  .giant{padding:20svh 0 6svh;overflow:hidden;background:var(--white)}
+  .giant{padding:7svh 0 4svh;overflow:hidden;background:var(--white)}
   .giant p{font-family:var(--serif);font-weight:600;font-size:120px;line-height:.92;letter-spacing:.02em;
     text-transform:uppercase;white-space:nowrap;text-align:center;color:var(--harbor-deep);will-change:opacity,transform}
   .giant span{color:var(--coral)}
@@ -164,7 +164,7 @@
     .row{flex-wrap:wrap;gap:6px 16px;padding:24px 4px}
     .row h3{flex:1 1 100%}
     .fq .creds{gap:28px}
-    .giant{padding:12svh 0 4svh}
+    .giant{padding:5svh 0 3svh}
   }
   @media(max-width:768px){
     .tall__inner{height:88svh}
@@ -245,7 +245,7 @@
       </a></div>
       <div class="hpanel hpanel--card"><a class="hcard" href="neighborhood-ponte-vedra-beach.html">
         <img loading="lazy" decoding="async" src="assets/hood-pontevedra.jpg" alt="Sandy beach path through dunes in Ponte Vedra Beach">
-        <div class="hcard__txt"><div class="hcard__coord">[ 30&deg;14'22&quot;N &middot; 81&deg;23'07&quot;W ]</div><h3>Ponte Vedra Beach</h3><p>Oceanfront exposure. Salt and UV halve the life of a standard system, so this is marine-grade work or a repaint in four years.</p></div>
+        <div class="hcard__txt"><div class="hcard__coord">[ 30&deg;14'22&quot;N &middot; 81&deg;23'07&quot;W ]</div><h3>Ponte Vedra Beach</h3><p>Oceanfront exposure. Salt and UV shorten the life of a standard system, so the coating here is specified for the exposure.</p></div>
       </a></div>
       <div class="hpanel hpanel--card"><a class="hcard" href="neighborhood-neptune-beach.html">
         <img loading="lazy" decoding="async" src="assets/hood-neptune.jpg" alt="Older painted cottages under live oaks in Neptune Beach">
@@ -556,6 +556,31 @@
     ScrollTrigger.addEventListener('refreshInit', setup);
   }
 })();
+
+  /* optically centre the lockup between the menu button and the right-hand cluster */
+  (function(){
+    var nav = document.querySelector('.nav__in');
+    if (!nav) return;
+    var lockup = nav.querySelector('.brand--lockup');
+    if (!lockup) return;
+    var place = function(){
+      if (window.innerWidth < 901) { lockup.style.left = ''; lockup.style.transform = ''; return; }
+      var menu = nav.querySelector('.menu-btn') || nav.querySelector('.nav__links');
+      var right = nav.querySelector('.nav__tel') && getComputedStyle(nav.querySelector('.nav__tel')).display !== 'none'
+                  ? nav.querySelector('.nav__tel') : nav.querySelector('.btn');
+      if (!menu || !right) return;
+      var nr = nav.getBoundingClientRect();
+      var leftEdge  = menu.getBoundingClientRect().right - nr.left;
+      var rightEdge = right.getBoundingClientRect().left - nr.left;
+      var mid = (leftEdge + rightEdge) / 2;
+      lockup.style.left = mid + 'px';
+      lockup.style.transform = 'translate(-50%,-50%)';
+    };
+    place();
+    window.addEventListener('resize', place);
+    window.addEventListener('load', place);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  })();
 </script>
 </body>
 </html>
