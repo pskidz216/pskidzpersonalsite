@@ -522,6 +522,30 @@
     ScrollTrigger.addEventListener('refreshInit', setup);
   }
 })();
+
+  /* balance the lockup between the menu button and the right-hand cluster */
+  (function(){
+    var nav = document.querySelector('.nav__in');
+    if (!nav) return;
+    var lockup = nav.querySelector('.brand--lockup');
+    if (!lockup) return;
+    var place = function(){
+      if (window.innerWidth < 901) { lockup.style.left = ''; lockup.style.transform = ''; return; }
+      var menu = nav.querySelector('.menu-btn') || nav.querySelector('.nav__links');
+      var tel = nav.querySelector('.nav__tel');
+      var right = tel && getComputedStyle(tel).display !== 'none' ? tel : nav.querySelector('.btn');
+      if (!menu || !right) return;
+      var nr = nav.getBoundingClientRect();
+      var mid = ((menu.getBoundingClientRect().right - nr.left) +
+                 (right.getBoundingClientRect().left - nr.left)) / 2;
+      lockup.style.left = mid + 'px';
+      lockup.style.transform = 'translate(-50%,-50%)';
+    };
+    place();
+    window.addEventListener('resize', place);
+    window.addEventListener('load', place);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  })();
 </script>
 </body>
 </html>
