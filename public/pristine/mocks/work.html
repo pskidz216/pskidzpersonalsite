@@ -20,13 +20,20 @@
   .note{font-size:12.5px;color:var(--grey);border:1px dashed var(--sand);padding:12px 18px;display:inline-block}
   .nav__links{margin-left:0}
   @media(max-width:768px){.ihead{padding-top:52px;padding-bottom:40px}}
-  .gwall{columns:3;column-gap:28px}
-  .gph{break-inside:avoid;margin:0 0 28px}
-  .gph img{width:100%;display:block}
+  .gwall{display:grid;grid-template-columns:repeat(6,1fr);gap:36px 28px}
+  .gph{grid-column:span 2;margin:0}
+  .gph--wide{grid-column:span 3}
+  .gph img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--sand)}
+  .gph--tall img{object-position:50% 32%}
   .gph figcaption{font-size:13px;color:var(--grey);margin-top:10px;letter-spacing:.02em}
   .gph figcaption a{color:var(--harbor-deep);border-bottom:1px solid var(--coral)}
-  @media(max-width:1024px){.gwall{columns:2}}
-  @media(max-width:640px){.gwall{columns:1}}
+  @media(max-width:1024px){
+    .gwall{grid-template-columns:repeat(2,1fr)}
+    .gph,.gph--wide{grid-column:span 1}
+    .gph:last-child:nth-child(odd){grid-column:1/-1}
+    .gph:last-child:nth-child(odd) img{aspect-ratio:21/9}
+  }
+  @media(max-width:640px){.gwall{grid-template-columns:1fr}.gph:last-child:nth-child(odd){grid-column:auto}}
   .ghead{display:flex;align-items:baseline;gap:22px;border-top:1px solid var(--hairline);padding-top:26px;margin:64px 0 36px}
   .ghead:first-of-type{margin-top:0}
   .ghead .num{font-size:12px;letter-spacing:.18em;color:var(--coral-deep);font-variant-numeric:tabular-nums}
@@ -67,7 +74,7 @@
         <img loading="lazy" src="assets/real-oceanfront.jpg" alt="Oceanfront home, coated for the exposure">
         <figcaption>Oceanfront home, coated for the exposure &middot; <a href="service-luxury-exterior.html">Luxury Exterior</a></figcaption>
       </figure>
-      <figure class="gph" data-reveal>
+      <figure class="gph gph--tall" data-reveal>
         <img loading="lazy" src="assets/real-porch-haint.jpg" alt="Porch and haint blue ceiling">
         <figcaption>Porch and haint blue ceiling &middot; <a href="service-residential-painting.html">Residential</a></figcaption>
       </figure>
@@ -83,11 +90,11 @@
 
     <div class="ghead"><span class="num">02</span><h2 class="serif">Interiors &amp; fine finish</h2></div>
     <div class="gwall">
-      <figure class="gph" data-reveal>
+      <figure class="gph gph--wide" data-reveal>
         <img loading="lazy" src="assets/real-cabinets.jpg" alt="Kitchen cabinet respray">
         <figcaption>Kitchen cabinet respray &middot; <a href="service-luxury-residential.html">Luxury Residential</a></figcaption>
       </figure>
-      <figure class="gph" data-reveal>
+      <figure class="gph gph--wide" data-reveal>
         <img loading="lazy" src="assets/real-marble-bath.jpg" alt="Primary bath, fine-finish repaint">
         <figcaption>Primary bath, fine-finish repaint &middot; <a href="service-luxury-residential.html">Luxury Residential</a></figcaption>
       </figure>
@@ -107,19 +114,19 @@
 
     <div class="ghead"><span class="num">03</span><h2 class="serif">Restoration &amp; in progress</h2></div>
     <div class="gwall">
-      <figure class="gph" data-reveal>
+      <figure class="gph gph--wide" data-reveal>
         <img loading="lazy" src="assets/case-ceiling.jpg" alt="The call we get: cracked ceiling, before">
         <figcaption>The call we get: cracked ceiling, before &middot; <a href="service-drywall.html">Drywall</a></figcaption>
       </figure>
-      <figure class="gph" data-reveal>
+      <figure class="gph gph--wide" data-reveal>
         <img loading="lazy" src="assets/case-plaster.jpg" alt="The same kind of room, after">
         <figcaption>The same kind of room, after &middot; <a href="service-home-restoration.html">Restoration</a></figcaption>
       </figure>
-      <figure class="gph" data-reveal>
+      <figure class="gph gph--wide gph--tall" data-reveal>
         <img loading="lazy" src="assets/real-beach-window.jpg" alt="Oceanfront unit, mid-restoration">
         <figcaption>Oceanfront unit, mid-restoration &middot; <a href="service-commercial-services.html">Commercial Services</a></figcaption>
       </figure>
-      <figure class="gph" data-reveal>
+      <figure class="gph gph--wide" data-reveal>
         <img loading="lazy" src="assets/real-crew-spray.jpg" alt="Full containment before a drop moves">
         <figcaption>Full containment before a drop moves &middot; <a href="service-commercial-painting.html">Commercial</a></figcaption>
       </figure>
