@@ -64,7 +64,8 @@
   openBtn.innerHTML = '<span class="menu-btn__ico"><i></i><i></i></span>Menu';
   nav.insertBefore(openBtn, nav.firstChild);
 
-  var estimate = document.getElementById('contact') ? '#contact' : 'contact.html';
+  /* every Schedule Your Estimate button goes to the estimate page; on that page, to its form */
+  var estimate = document.getElementById('estimate-form') ? '#estimate-form' : 'contact.html';
   var drawer = document.createElement('div');
   drawer.className = 'drawer'; drawer.id = 'drawer'; drawer.setAttribute('aria-hidden', 'true');
   drawer.innerHTML = ''
@@ -95,7 +96,7 @@
   + '<a class="ditem" href="process.html">Process</a>'
   + '<a class="ditem" href="pricing.html">Pricing</a>'
   + '<a class="ditem" href="about.html">About</a>'
-  + '<div class="dmisc"><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a><a href="' + estimate + '">Contact</a><a href="neighborhoods.html">Neighborhoods A&ndash;Z</a></div>'
+  + '<div class="dmisc"><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="neighborhoods.html">Neighborhoods A&ndash;Z</a></div>'
   + '</nav>'
   + '<div class="drawer__foot">'
   + '<a class="btn" href="' + estimate + '">Schedule Your Estimate</a>'
