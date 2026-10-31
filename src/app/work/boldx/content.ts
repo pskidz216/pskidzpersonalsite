@@ -112,6 +112,12 @@ export const boldxCaseStudy = {
         },
         {
           when: "2025–2026",
+          title: "Contracts, the sales function and the number",
+          detail:
+            "Built the sales function alongside marketing. Negotiated long-term agreements, purchase-order terms and renewals with Tier-1 accounts. Set the 2026 revenue target at $24M and built the plan behind it.",
+        },
+        {
+          when: "2025–2026",
           title: "AI sales-intelligence agent",
           detail:
             "A LinkedIn queue with AI-drafted outreach, pipeline, sequences and buying signals, built on Claude.",
@@ -214,7 +220,7 @@ export const boldxCaseStudy = {
     ] as GalleryItem[],
   },
   closing: {
-    ended: "The role ended in October 2026.",
+    ended: "The role ended in October 2026, with the 2026 number set at $24M. I hope they hit it.",
     cta: "Want this built for your company?",
     sub: "The brand, the plan and the revenue systems, from one operator. Miami based, working everywhere.",
     primary: { label: "Ways to work together", href: "/pricing" },

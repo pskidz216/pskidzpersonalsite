@@ -18,9 +18,9 @@ describe("BoldX chapter is closed and credited as a brand build", () => {
     expect(boldx?.tags).toContain("Brand Build");
   });
 
-  it("does not carry BoldX's revenue target as a personal metric", () => {
+  it("carries the $24M target as something Paul set, not as his metric", () => {
     expect(boldx?.metric.label).not.toMatch(/revenue/i);
-    expect(boldx?.description).not.toMatch(/\$24M/);
+    expect(boldx?.description).toMatch(/set the 2026 revenue target at \$24M/);
   });
 
   it("names BoldX Industries in the Brand & Creative system", () => {
