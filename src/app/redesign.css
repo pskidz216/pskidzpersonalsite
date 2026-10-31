@@ -1221,3 +1221,112 @@
     animation: none;
   }
 }
+
+/* ---------- case study feature (home) ---------- */
+.rd-feature {
+  border-top: 0.5px solid rgba(20, 20, 20, 0.15);
+}
+.rd-feature_grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+.rd-feature_copy {
+  min-width: 0;
+}
+.rd-feature_eyebrow {
+  display: block;
+  margin-bottom: 2rem;
+}
+.rd-feature_title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 6.4vw, 6rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  max-width: 11ch;
+}
+.rd-feature_sub {
+  margin: 2rem 0 0;
+  color: var(--rd-ink-2);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+.rd-feature_facts {
+  list-style: none;
+  margin: 2.75rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+}
+.rd-feature_facts li {
+  border-top: 0.5px solid rgba(20, 20, 20, 0.2);
+  padding-top: 1rem;
+}
+.rd-feature_facts b {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.rd-feature_facts span {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--rd-muted);
+  font-size: 0.9rem;
+}
+.rd-feature_actions {
+  margin-top: 2.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.rd-feature_media {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1.1;
+  min-width: 0;
+}
+.rd-feature_media img {
+  position: absolute;
+  height: auto;
+  border-radius: var(--rd-radius-hover);
+  box-shadow: 0 18px 50px rgba(20, 20, 20, 0.22);
+  transition: transform 0.6s var(--rd-ease-sig);
+}
+.rd-feature_back {
+  top: 0;
+  right: 0;
+  width: 64%;
+  transform: rotate(3deg);
+}
+.rd-feature_front {
+  left: 0;
+  bottom: 0;
+  width: 72%;
+  z-index: 2;
+  transform: rotate(-2deg);
+}
+.rd-feature_media:hover .rd-feature_front {
+  transform: rotate(-1deg) translateY(-6px);
+}
+.rd-feature_media:hover .rd-feature_back {
+  transform: rotate(2deg) translateY(-4px);
+}
+@media (max-width: 800px) {
+  .rd-feature_grid {
+    grid-template-columns: 1fr;
+  }
+  .rd-feature_media {
+    max-width: 22rem;
+    width: 100%;
+    margin: 1rem auto 0;
+  }
+}

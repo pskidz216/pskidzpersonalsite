@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { boldxCaseStudy } from "@/app/work/boldx/content";
-import { projects, navLinks } from "@/lib/data";
+import { careerEntries, projects, navLinks } from "@/lib/data";
 
 const everything = JSON.stringify(boldxCaseStudy);
 
@@ -43,5 +43,13 @@ describe("BoldX case study content", () => {
     expect(ladder?.description).toMatch(/BoldX/);
     expect(ladder?.href).toMatch(/americanlaborladders\.com/);
     expect(navLinks.some((l) => l.href === "/work/boldx")).toBe(true);
+  });
+
+  it("claims no outbound engine or SDR agent, which Paul never launched", () => {
+    const career = careerEntries.find((e) => e.id === "boldx");
+    const boldxBuilds = projects.filter((p) => /BoldX/.test(p.name + p.description));
+    const claims = everything + JSON.stringify(career) + JSON.stringify(boldxBuilds);
+    expect(claims).not.toMatch(/SDR|outbound|sales[- ]intelligence|Clay|Apollo|Instantly|Heyreach|n8n/i);
+    expect(projects.some((p) => p.name === "BoldX Sales Agent")).toBe(false);
   });
 });

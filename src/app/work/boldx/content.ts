@@ -81,12 +81,6 @@ export const boldxCaseStudy = {
           detail:
             "Seven pillars: concentrate on the accounts that matter, put an engineer on the second call, consolidate customer service behind an AI agent, open two new demand channels, shoot one video library, automate quoting, and tie sales to an operations feedback loop. Phased over 24 months.",
         },
-        {
-          when: "2025–2026",
-          title: "Outbound targeting",
-          detail:
-            "Fourteen NAICS target-account lists and the SDR engine design: Clay to Apollo to Instantly and Heyreach, orchestrated by n8n into HubSpot.",
-        },
       ],
     },
     {
@@ -115,12 +109,6 @@ export const boldxCaseStudy = {
           title: "Contracts, close and the number",
           detail:
             "Owned close and customer success alongside marketing, with a three-person team. Converted one-off work into long-term agreements, negotiated purchase-order terms, renewals and a $500K inventory buyout. Set the 2026 revenue target at $24M and paced about 20% year-over-year growth.",
-        },
-        {
-          when: "2025–2026",
-          title: "AI sales-intelligence agent",
-          detail:
-            "A LinkedIn queue with AI-drafted outreach, pipeline, sequences and buying signals, built on Claude.",
         },
         {
           when: "Jul 2026",
@@ -182,7 +170,6 @@ export const boldxCaseStudy = {
   broke: {
     label: "What broke",
     items: [
-      "The outbound engine took longer than the plan said. Designed in April 2026, still not sending in May. Infrastructure before activity is the right order; the gap was still too long.",
       "Customers pushed back on lead time, not price, and marketing cannot shorten a lead time. The 2026–2028 plan put an operations track beside every sales move for that reason.",
     ],
   },
@@ -191,11 +178,9 @@ export const boldxCaseStudy = {
     items: [
       "HubSpot",
       "Claude",
+      "ElevenLabs",
       "Next.js",
       "Flask",
-      "n8n",
-      "Clay",
-      "Apollo",
       "Canva",
       "Higgsfield",
       "Craft CMS",
@@ -214,7 +199,6 @@ export const boldxCaseStudy = {
       { src: "/work/boldx/connector-comparison.webp", alt: "Comparison graphic of MIL-spec circular connector series", caption: "MIL-spec connector comparison, August 2026" },
       { src: "/work/boldx/chart-seal-types.webp", alt: "Chart of hermetic seal types from a BoldX article", caption: "From the glass-to-metal sealing article, September 2026" },
       { src: "/work/boldx/linkedin-banner.webp", alt: "BoldX LinkedIn banner", caption: "LinkedIn banner" },
-      { src: "/work/boldx/sales-agent.webp", alt: "The AI sales-intelligence agent's LinkedIn queue with sample prospects", caption: "AI sales-intelligence agent, sample data" },
       { src: "/work/boldx/tee.webp", alt: "White T-shirt mockup with the BoldX mark", caption: "Apparel" },
       { src: "/work/boldx/zoom-background.webp", alt: "BoldX Zoom background", caption: "Zoom background" },
     ] as GalleryItem[],
