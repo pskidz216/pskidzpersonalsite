@@ -43,7 +43,7 @@ export const boldxCaseStudy = {
         },
         {
           when: "2025",
-          title: "Identity and Brand Guidelines",
+          title: "Identity system",
           detail:
             "The logo system in every lockup and colourway, PMS 185 C red with 446 C charcoal, Big Shoulders Display over Work Sans, and the rules for using them.",
         },
@@ -80,14 +80,14 @@ export const boldxCaseStudy = {
           when: "May 2026",
           title: "Sales & Marketing Strategy 2026–2028",
           detail:
-            "Seven pillars: concentrate on the accounts that matter, put an engineer on the second call, consolidate customer service behind an AI agent, open two new demand channels, shoot one video library, automate quoting, and tie sales to an operations feedback loop. Phased over 24 months.",
+            "Seven pillars: concentrate on the accounts that matter, put an engineer on the second call, consolidate customer service behind an AI agent, open two new demand channels, shoot one video library, cut quote turnaround, and tie sales to an operations feedback loop. Phased over 24 months.",
         },
       ],
     },
     {
       label: "Revenue systems",
       intro:
-        "The ERP dated from the mid-1990s and could not show me the pipeline as it moved. So I built small external apps and workflows around it, for my team first and then the company, to see the data in real time.",
+        "The ERP dated from the mid-1990s and could not show me the pipeline as it moved. Seeing a quote meant calling someone or waiting for a custom Excel file in my inbox. So I built small external apps and workflows around the ERP, all with AI agents, so my team and then the company could see the quote pipeline in real time.",
       entries: [
         {
           when: "Apr 2026",
@@ -97,9 +97,9 @@ export const boldxCaseStudy = {
         },
         {
           when: "Jun–Jul 2026",
-          title: "Quote-expiry campaign",
+          title: "Quote-expiry email campaign",
           detail:
-            "So no quote lapsed unanswered. Five days before a quote expires, a daily sweep moves the deal and HubSpot sends a branded email, with a second send three business days later if nobody clicks. One button alerts the team to move forward; five others stamp the reason we lost it on the deal.",
+            "Automated emails timed to each quote's expiration that moved customers to buy before it lapsed. Five days out, a daily sweep moves the deal and HubSpot sends the branded email; a second follows three business days later if nobody clicks. One button says move forward and alerts the team; five others stamp the reason we lost it.",
         },
         {
           when: "2026",
@@ -130,12 +130,6 @@ export const boldxCaseStudy = {
     {
       label: "Launches and marketing",
       entries: [
-        {
-          when: "2025",
-          title: "Murphy AMPI handcuff",
-          detail:
-            "One-pager and launch collateral for a patented, non-pickable police duty handcuff.",
-        },
         {
           when: "Sep 2026",
           title: "American Labor Ladders",
@@ -174,7 +168,7 @@ export const boldxCaseStudy = {
       { value: "$11.6M", label: "quoted through the pipeline I built, Jan–Aug 2026" },
       { value: "147", label: "deals closed-won, Jan–Aug 2026" },
       { value: "$500K", label: "inventory buyout negotiated" },
-      { value: "3", label: "product lines launched" },
+      { value: "2", label: "product lines launched" },
     ],
   },
   broke: {
@@ -200,17 +194,17 @@ export const boldxCaseStudy = {
     label: "The work",
     items: [
       { src: "/work/boldx/bible-cover.webp", alt: "Cover of the BoldX Brand Strategy and Branding Bible", caption: "Brand Strategy & Branding Bible, January 2025" },
-      { src: "/work/boldx/guidelines-1.webp", alt: "BoldX logo mounted on a dark office wall, the cover of the 2025 brand guidelines", caption: "Brand Guidelines 2025" },
+      { src: "/work/boldx/bible-p14.webp", alt: "A spread from the brand bible: Brand Belief in white on a red panel, the belief statement on the right", caption: "The bible's Brand Belief spread" },
       { src: "/work/boldx/catalog-cover.webp", alt: "Cover of the BoldX product catalog: a red-lit machined part and the line Deep Well to Deep Space", caption: "Product catalog, October 2025" },
       { src: "/work/boldx/bible-p09.webp", alt: "A spread from the brand bible on the buyer's pain points, red panel on the left", caption: "The bible's audience chapter" },
-      { src: "/work/boldx/guidelines-2.webp", alt: "Brand guidelines page showing the logo lockups and clear-space rules", caption: "Logo lockups and clear space" },
-      { src: "/work/boldx/murphy.webp", alt: "One-page sell sheet for the AMPI Murphy duty handcuff", caption: "Murphy AMPI one-pager" },
+      { src: "/work/boldx/identity-lockups.webp", alt: "Identity page showing the primary logo, the lockup without the tagline and the icon", caption: "Primary logo, lockup and icon" },
       { src: "/work/boldx/ladder-og.webp", alt: "Share image for the American Labor Ladders website", caption: "American Labor Ladders site, September 2026" },
       { src: "/work/boldx/connector-comparison.webp", alt: "Comparison graphic of MIL-spec circular connector series", caption: "MIL-spec connector comparison, August 2026" },
       { src: "/work/boldx/chart-seal-types.webp", alt: "Chart of hermetic seal types from a BoldX article", caption: "From the glass-to-metal sealing article, September 2026" },
       { src: "/work/boldx/linkedin-banner.webp", alt: "BoldX LinkedIn banner", caption: "LinkedIn banner" },
       { src: "/work/boldx/tee.webp", alt: "White T-shirt mockup with the BoldX mark", caption: "Apparel" },
-      { src: "/work/boldx/zoom-background.webp", alt: "BoldX Zoom background", caption: "Zoom background" },
+      { src: "/work/boldx/zoom-background.webp", alt: "BoldX Zoom background, dark version with the white logo", caption: "Zoom background, 2025" },
+      { src: "/work/boldx/zoom-background-2026.webp", alt: "Virtual meeting background: Paul Skidmore, VP, Sales & Marketing, a Connect with me QR code and the BoldX logo over brushed metal", caption: "Zoom background with name and title, April 2026" },
     ] as GalleryItem[],
   },
   closing: {

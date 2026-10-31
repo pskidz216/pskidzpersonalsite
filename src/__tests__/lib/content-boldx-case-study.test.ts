@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { boldxCaseStudy } from "@/app/work/boldx/content";
 import { careerEntries, projects, navLinks } from "@/lib/data";
+import * as data from "@/lib/data";
+import { boldxFeature } from "@/app/work/boldx/feature";
 
 const everything = JSON.stringify(boldxCaseStudy);
 
@@ -70,5 +72,24 @@ describe("BoldX case study content", () => {
 
   it("leaves the employee handbook, the HRIS and the org chart off the page", () => {
     expect(everything).not.toMatch(/handbook|HRIS|org chart/i);
+  });
+
+  it("keeps the Murphy handcuff, AI quoting and 'brand guidelines' off every BoldX claim", () => {
+    const claims = everything + JSON.stringify(boldxFeature) + JSON.stringify(data);
+    expect(claims).not.toMatch(/Murphy|handcuff|AI quoting|automated? quoting|guidelines/i);
+    const lines = boldxCaseStudy.numbers.stats.find((s) => /product lines/.test(s.label));
+    expect(lines?.value).toBe("2");
+  });
+
+  it("says the quote pipeline was built with AI agents to see quotes live, and the expiry emails moved customers to buy", () => {
+    const revenue = boldxCaseStudy.ledger.find((g) => g.label === "Revenue systems");
+    expect(revenue?.intro).toMatch(/AI agents/);
+    expect(revenue?.intro).toMatch(/Excel|spreadsheet/i);
+    const expiry = revenue?.entries.find((e) => /expir/i.test(e.title));
+    expect(expiry?.detail).toMatch(/buy|purchase|order/i);
+  });
+
+  it("shows both Zoom backgrounds in the gallery", () => {
+    expect(boldxCaseStudy.gallery.items.filter((i) => /zoom/i.test(i.caption))).toHaveLength(2);
   });
 });

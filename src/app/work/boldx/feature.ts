@@ -2,7 +2,7 @@
 export const boldxFeature = {
   eyebrow: "[ Case study — BoldX, 2025–2026 ]",
   title: "I built the BoldX brand.",
-  sub: "Hermetic connectors and precision machining for aerospace and defense. From January 2025 to October 2026 I owned go-to-market end to end: the brand bible, the catalog, the plan, quote-to-close on HubSpot, three launches, the contracts and the number.",
+  sub: "Hermetic connectors and precision machining for aerospace and defense. From January 2025 to October 2026 I owned go-to-market end to end: the brand bible, the catalog, the plan, quote-to-close on HubSpot, two launches, the contracts and the number.",
   facts: [
     { value: "Jan 2025", label: "Brand Strategy & Branding Bible" },
     { value: "32 pages", label: "Product catalog, October 2025" },

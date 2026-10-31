@@ -18,7 +18,7 @@ const typeLabels: Record<string, string> = {
  */
 const descriptionOverrides: Record<string, string> = {
   boldx:
-    "Owned go-to-market end to end: brand, marketing, pipeline, close and customer success. Rebuilt the brand from the bible up, rebuilt quote-to-close on HubSpot with AI quoting, converted one-off work into long-term contracts with a $500K inventory buyout, launched three product lines, and set the 2026 target at $24M.",
+    "Owned go-to-market end to end: brand, marketing, pipeline, close and customer success. Rebuilt the brand from the bible up, put the quote pipeline on HubSpot in real time with AI agents, converted one-off work into long-term contracts with a $500K inventory buyout, launched two product lines, and set the 2026 target at $24M.",
 };
 
 /**

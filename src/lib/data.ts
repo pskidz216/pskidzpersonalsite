@@ -78,7 +78,7 @@ export const careerEntries: CareerEntry[] = [
     dateRange: "2025 — 2026",
     type: "corporate",
     description:
-      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity (January 2025), guidelines, a 32-page catalog (October 2025), the 12-month marketing plan and the 2026–2028 sales strategy. Rebuilt quote-to-close on HubSpot with AI quoting and pipeline automation; $11.6M quoted and 147 deals closed-won, January–August 2026. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Murphy AMPI handcuff, the Smart Ladder and InEX, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
+      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity (January 2025), a 32-page catalog (October 2025), the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won, January–August 2026. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Smart Ladder and InEX, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
     metric: { value: "147", label: "deals closed-won, 2026 YTD" },
     tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
@@ -118,7 +118,7 @@ export const skillBlocks: SkillBlock[] = [
   {
     title: "Brand & Creative",
     description:
-      "Naming, color systems, visual identity: from the BoldX Industries rebrand (brand bible, identity, guidelines, a 32-page catalog) down to a single product launch (the Murphy AMPI handcuff, the American Labor Ladders Smart Ladder). I get outside the box and let creative instinct drive brands that actually stand out.",
+      "Naming, color systems, visual identity: from the BoldX Industries rebrand (brand bible, identity, a 32-page catalog) down to a single product launch (the American Labor Ladders Smart Ladder). I get outside the box and let creative instinct drive brands that actually stand out.",
     tools: "Brand Strategy, Visual Identity, Product Naming",
   },
 ];
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     name: "BoldX Industries",
     tag: "Brand System",
     description:
-      "Brand bible, identity, guidelines, a 32-page catalog, a 12-month plan and the 2026–2028 strategy for an aerospace and defense manufacturer. The full case study.",
+      "Brand bible, identity, a 32-page catalog, a 12-month plan and the 2026–2028 strategy for an aerospace and defense manufacturer. The full case study.",
     tech: "Brand Strategy, Identity, Catalog Design, Canva",
     image: "/work/boldx/catalog-cover-wide.webp",
     href: "/work/boldx",
