@@ -6,6 +6,7 @@ export interface LedgerEntry {
 
 export interface LedgerGroup {
   label: string;
+  intro?: string;
   entries: LedgerEntry[];
 }
 
@@ -26,7 +27,7 @@ export const boldxCaseStudy = {
     label: "Where it started",
     paragraphs: [
       "January 2025. A precision manufacturer in Batavia, Ohio with two business lines, hermetic connectors and CNC machining, and Tier-1 aerospace and defense customers who trusted the parts and had never been told a story about the company that made them.",
-      "No brand system. No personas, no plan, no film. Quotes typed by hand. Sales, marketing and customer success were one seat, and I took it.",
+      "No brand system. No personas, no plan, no film. An ERP from the mid-1990s, quotes typed by hand, and no way to watch the pipeline move. Sales, marketing and customer success were one seat, and I took it.",
     ],
   },
   ledgerLabel: "What I built",
@@ -62,7 +63,7 @@ export const boldxCaseStudy = {
           when: "2025",
           title: "Social and collateral system",
           detail:
-            "LinkedIn banners, Zoom and Popl backgrounds, stationery, apparel, Instagram and TikTok marks.",
+            "LinkedIn banners, Zoom and Popl backgrounds, stationery, email signatures, apparel, Instagram and TikTok marks.",
         },
       ],
     },
@@ -85,12 +86,20 @@ export const boldxCaseStudy = {
     },
     {
       label: "Revenue systems",
+      intro:
+        "The ERP dated from the mid-1990s and could not show me the pipeline as it moved. So I built small external apps and workflows around it, for my team first and then the company, to see the data in real time.",
       entries: [
         {
           when: "Apr 2026",
           title: "Quote-to-HubSpot app",
           detail:
             "Next.js and OCR. Reads supplier and customer quote PDFs and creates the deals in HubSpot. Seventeen deals and about $270K of pipeline moved in one observed day.",
+        },
+        {
+          when: "Jun–Jul 2026",
+          title: "Quote-expiry campaign",
+          detail:
+            "So no quote lapsed unanswered. Five days before a quote expires, a daily sweep moves the deal and HubSpot sends a branded email, with a second send three business days later if nobody clicks. One button alerts the team to move forward; five others stamp the reason we lost it on the deal.",
         },
         {
           when: "2026",
@@ -114,7 +123,7 @@ export const boldxCaseStudy = {
           when: "Jul 2026",
           title: "One process for the whole company",
           detail:
-            "Stood up company-wide communication on Microsoft Teams and SharePoint so sales, operations and the shop floor ran one process. Then an employee handbook with Claude built in, a password-protected org chart generated from the HRIS export, and company email signatures.",
+            "Stood up company-wide communication on Microsoft Teams and SharePoint so sales, operations and the shop floor ran one process.",
         },
       ],
     },
@@ -153,7 +162,8 @@ export const boldxCaseStudy = {
         {
           when: "2026",
           title: "PBExpo",
-          detail: "Booth 565, Miami Beach.",
+          detail:
+            "Booth 565, Miami Beach. Ran the whole show for the company, from the booth and its marketing collateral to the sales conversations on the floor.",
         },
       ],
     },

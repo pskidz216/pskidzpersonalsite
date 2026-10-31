@@ -52,4 +52,23 @@ describe("BoldX case study content", () => {
     expect(claims).not.toMatch(/SDR|outbound|sales[- ]intelligence|Clay|Apollo|Instantly|Heyreach|n8n/i);
     expect(projects.some((p) => p.name === "BoldX Sales Agent")).toBe(false);
   });
+
+  it("explains the revenue systems by the 1990s ERP and keeps the quote-expiry campaign", () => {
+    const revenue = boldxCaseStudy.ledger.find((g) => g.label === "Revenue systems");
+    expect(revenue?.intro).toMatch(/ERP/);
+    expect(revenue?.intro).toMatch(/real time/);
+    expect(revenue?.entries.some((e) => /expir/i.test(e.title + e.detail))).toBe(true);
+  });
+
+  it("says Paul ran the PBExpo booth, collateral to sales conversations", () => {
+    const launches = boldxCaseStudy.ledger.find((g) => g.label === "Launches and marketing");
+    const expo = launches?.entries.find((e) => e.title === "PBExpo");
+    expect(expo?.detail).toMatch(/booth/i);
+    expect(expo?.detail).toMatch(/collateral/i);
+    expect(expo?.detail).toMatch(/sales conversations/i);
+  });
+
+  it("leaves the employee handbook, the HRIS and the org chart off the page", () => {
+    expect(everything).not.toMatch(/handbook|HRIS|org chart/i);
+  });
 });

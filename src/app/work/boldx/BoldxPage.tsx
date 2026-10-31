@@ -129,26 +129,33 @@ export function BoldxPage() {
                   >
                     {group.label}
                   </h2>
-                  <ol className="m-0 p-0 list-none border-t border-timeline-line">
-                    {group.entries.map((entry) => (
-                      <li
-                        key={entry.title}
-                        className="grid sm:grid-cols-[110px_1fr] gap-1 sm:gap-6 py-5 border-b border-timeline-line"
-                      >
-                        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted pt-1 tabular-nums">
-                          {entry.when}
-                        </span>
-                        <div>
-                          <h3 className="font-body font-semibold text-lg leading-snug mb-1">
-                            {entry.title}
-                          </h3>
-                          <p className="font-body text-text-secondary leading-relaxed max-w-prose">
-                            {entry.detail}
-                          </p>
-                        </div>
-                      </li>
-                    ))}
-                  </ol>
+                  <div>
+                    {group.intro ? (
+                      <p className="font-body text-text-secondary leading-relaxed max-w-prose mb-6">
+                        {group.intro}
+                      </p>
+                    ) : null}
+                    <ol className="m-0 p-0 list-none border-t border-timeline-line">
+                      {group.entries.map((entry) => (
+                        <li
+                          key={entry.title}
+                          className="grid sm:grid-cols-[110px_1fr] gap-1 sm:gap-6 py-5 border-b border-timeline-line"
+                        >
+                          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted pt-1 tabular-nums">
+                            {entry.when}
+                          </span>
+                          <div>
+                            <h3 className="font-body font-semibold text-lg leading-snug mb-1">
+                              {entry.title}
+                            </h3>
+                            <p className="font-body text-text-secondary leading-relaxed max-w-prose">
+                              {entry.detail}
+                            </p>
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
                 </div>
               ))}
             </div>
