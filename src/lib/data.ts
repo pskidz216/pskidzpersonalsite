@@ -75,12 +75,12 @@ export const careerEntries: CareerEntry[] = [
     id: "boldx",
     company: "BoldX Industries",
     role: "VP, Sales & Marketing",
-    dateRange: "2025 — Present",
+    dateRange: "2025 — 2026",
     type: "corporate",
     description:
-      "Leading sales and marketing for an aerospace, defense, and product assembly company specializing in hermetic connectors and precision CNC machining. Launched 3-5 new product assembly lines, spearheading the Sun Belt Ladder initiative for customer acquisition, and opening new revenue in aerospace, military, and defense. Built AI-powered sales intelligence systems using Claude and Grok to automate prospecting and deal research. Drove HubSpot-ERP integration for streamlined customer data management. Expanding aerospace presence at industry conferences including PBExpo. Tracking to push revenue past $24M in 2026.",
-    metric: { value: "$24M+", label: "projected 2026 revenue" },
-    tags: ["Aerospace & Defense", "Hermetic Connectors", "AI-Powered Sales", "HubSpot/ERP Integration"],
+      "Rebuilt BoldX Industries from the brand bible up: brand strategy and identity (January 2025), guidelines, a 32-page product catalog, the 12-month marketing plan and the 2026–2028 sales and marketing strategy for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts. Launched the Murphy AMPI handcuff, the Smart Ladder and InEX, and built the American Labor Ladders site. Built the revenue systems behind the pipeline: the quote-to-HubSpot app, the ERP orders dashboard, weekly pipeline reporting, and an AI sales-intelligence agent on Claude. Took the company to PBExpo 2026.",
+    metric: { value: "3", label: "product lines launched" },
+    tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
 ];
 
@@ -118,7 +118,7 @@ export const skillBlocks: SkillBlock[] = [
   {
     title: "Brand & Creative",
     description:
-      "Naming, color systems, visual identity, from enterprise rebrand down to a single product launch. I get outside the box and let creative instinct drive brands that actually stand out.",
+      "Naming, color systems, visual identity: from the BoldX Industries rebrand (brand bible, identity, guidelines, a 32-page catalog) down to a single product launch (the Murphy AMPI handcuff, the American Labor Ladders Smart Ladder). I get outside the box and let creative instinct drive brands that actually stand out.",
     tools: "Brand Strategy, Visual Identity, Product Naming",
   },
 ];

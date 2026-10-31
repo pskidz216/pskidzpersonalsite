@@ -18,7 +18,7 @@ const typeLabels: Record<string, string> = {
  */
 const descriptionOverrides: Record<string, string> = {
   boldx:
-    "Leading sales and marketing for an aerospace, defense, and product assembly company specializing in hermetic connectors and precision CNC machining. Built AI-powered sales intelligence to automate prospecting and deal research, and drove the HubSpot-ERP integration behind it.",
+    "Rebuilt BoldX from the brand bible up: strategy, identity, guidelines, a 32-page catalog, the 12-month plan and the 2026–2028 sales strategy. Launched Murphy AMPI, Smart Ladder and InEX, built the American Labor Ladders site, the quote-to-HubSpot pipeline and the AI sales agent.",
 };
 
 /**
