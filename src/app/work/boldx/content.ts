@@ -19,14 +19,14 @@ export const boldxCaseStudy = {
   eyebrow: "[ Case study — BoldX Industries · Batavia, OH · 2025–2026 ]",
   hero: {
     h1: "I built the BoldX brand.",
-    sub: "A hermetic-connector and precision-machining manufacturer selling into aerospace and defense. From January 2025 to October 2026 I owned sales and marketing. Here is what I built, dated, and what it did.",
+    sub: "A hermetic-connector and precision-machining manufacturer selling into aerospace and defense. From January 2025 to October 2026 I owned go-to-market end to end: brand, marketing, pipeline, close and customer success, with a three-person team. Here is what I built, dated, and what it did.",
     coverAlt: "Cover of the BoldX Brand Strategy and Branding Bible, dated 21 January 2025",
   },
   start: {
     label: "Where it started",
     paragraphs: [
       "January 2025. A precision manufacturer in Batavia, Ohio with two business lines, hermetic connectors and CNC machining, and Tier-1 aerospace and defense customers who trusted the parts and had never been told a story about the company that made them.",
-      "No brand system. No personas, no plan, no film. Quotes typed by hand. Sales and marketing was one seat, and I took it.",
+      "No brand system. No personas, no plan, no film. Quotes typed by hand. Sales, marketing and customer success were one seat, and I took it.",
     ],
   },
   ledgerLabel: "What I built",
@@ -112,9 +112,9 @@ export const boldxCaseStudy = {
         },
         {
           when: "2025–2026",
-          title: "Contracts, the sales function and the number",
+          title: "Contracts, close and the number",
           detail:
-            "Built the sales function alongside marketing. Negotiated long-term agreements, purchase-order terms and renewals with Tier-1 accounts. Set the 2026 revenue target at $24M and built the plan behind it.",
+            "Owned close and customer success alongside marketing, with a three-person team. Converted one-off work into long-term agreements, negotiated purchase-order terms, renewals and a $500K inventory buyout. Set the 2026 revenue target at $24M and paced about 20% year-over-year growth.",
         },
         {
           when: "2025–2026",
@@ -124,9 +124,9 @@ export const boldxCaseStudy = {
         },
         {
           when: "Jul 2026",
-          title: "Handbook, org chart, signatures",
+          title: "One process for the whole company",
           detail:
-            "An employee handbook with Claude built in, a password-protected org chart generated from the HRIS export, and company email signatures.",
+            "Stood up company-wide communication on Microsoft Teams and SharePoint so sales, operations and the shop floor ran one process. Then an employee handbook with Claude built in, a password-protected org chart generated from the HRIS export, and company email signatures.",
         },
       ],
     },
@@ -175,7 +175,7 @@ export const boldxCaseStudy = {
     stats: [
       { value: "$11.6M", label: "quoted through the pipeline I built, Jan–Aug 2026" },
       { value: "147", label: "deals closed-won, Jan–Aug 2026" },
-      { value: "20%", label: "close rate on quoted volume, May 2026" },
+      { value: "$500K", label: "inventory buyout negotiated" },
       { value: "3", label: "product lines launched" },
     ],
   },

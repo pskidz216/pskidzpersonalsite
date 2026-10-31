@@ -68,7 +68,7 @@ export function ContactFooter() {
         <p className="rd-contact_sub" data-rd-reveal="">
           Available now. Looking for a VP Sales &amp; Marketing or CRO seat at
           a $5M–$150M industrial or B2B company, or a fractional operator
-          engagement. Miami based, working everywhere.
+          engagement. Remote US or South Florida; Miami based.
         </p>
         <div className="rd-contact_actions" data-rd-reveal="">
           <a className="rd-btn-coral" href={emailHref}>

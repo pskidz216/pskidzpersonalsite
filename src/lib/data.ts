@@ -74,11 +74,11 @@ export const careerEntries: CareerEntry[] = [
   {
     id: "boldx",
     company: "BoldX Industries",
-    role: "VP, Sales & Marketing",
+    role: "GTM Manager, Sales, Marketing & Customer Success",
     dateRange: "2025 — 2026",
     type: "corporate",
     description:
-      "Rebuilt BoldX Industries from the brand bible up: brand strategy and identity (January 2025), guidelines, a 32-page product catalog, the 12-month marketing plan and the 2026–2028 sales and marketing strategy for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts. Launched the Murphy AMPI handcuff, the Smart Ladder and InEX, and built the American Labor Ladders site. Built the revenue systems behind the pipeline: the quote-to-HubSpot app, the ERP orders dashboard, weekly pipeline reporting, and an AI sales-intelligence agent on Claude. Built the sales function alongside marketing, negotiated long-term agreements, purchase-order terms and renewals with Tier-1 accounts, and set the 2026 revenue target at $24M. Took the company to PBExpo 2026.",
+      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity (January 2025), guidelines, a 32-page catalog (October 2025), the 12-month marketing plan and the 2026–2028 sales strategy. Rebuilt quote-to-close on HubSpot with AI quoting and pipeline automation; $11.6M quoted and 147 deals closed-won, January–August 2026. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Murphy AMPI handcuff, the Smart Ladder and InEX, built the American Labor Ladders site, shipped an AI sales-intelligence agent on Claude, and took the company to PBExpo 2026.",
     metric: { value: "147", label: "deals closed-won, 2026 YTD" },
     tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },

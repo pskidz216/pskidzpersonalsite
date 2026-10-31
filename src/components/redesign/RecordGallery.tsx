@@ -18,7 +18,7 @@ const typeLabels: Record<string, string> = {
  */
 const descriptionOverrides: Record<string, string> = {
   boldx:
-    "Rebuilt BoldX from the brand bible up: strategy, identity, guidelines, a 32-page catalog and the 2026–2028 sales strategy. Built the sales function, negotiated the Tier-1 contracts, launched three product lines, shipped the quote-to-HubSpot pipeline and the AI sales agent, and set the 2026 target at $24M.",
+    "Owned go-to-market end to end: brand, marketing, pipeline, close and customer success. Rebuilt the brand from the bible up, rebuilt quote-to-close on HubSpot with AI quoting, converted one-off work into long-term contracts with a $500K inventory buyout, launched three product lines, and set the 2026 target at $24M.",
 };
 
 /**
