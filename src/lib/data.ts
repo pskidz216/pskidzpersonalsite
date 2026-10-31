@@ -79,7 +79,7 @@ export const careerEntries: CareerEntry[] = [
     type: "corporate",
     description:
       "Rebuilt BoldX Industries from the brand bible up: brand strategy and identity (January 2025), guidelines, a 32-page product catalog, the 12-month marketing plan and the 2026–2028 sales and marketing strategy for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts. Launched the Murphy AMPI handcuff, the Smart Ladder and InEX, and built the American Labor Ladders site. Built the revenue systems behind the pipeline: the quote-to-HubSpot app, the ERP orders dashboard, weekly pipeline reporting, and an AI sales-intelligence agent on Claude. Took the company to PBExpo 2026.",
-    metric: { value: "3", label: "product lines launched" },
+    metric: { value: "147", label: "deals closed-won, 2026 YTD" },
     tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
 ];
@@ -130,9 +130,28 @@ export interface Project {
   tech: string;
   image: string;
   video?: string;
+  href?: string;
 }
 
 export const projects: Project[] = [
+  {
+    name: "BoldX Industries",
+    tag: "Brand System",
+    description:
+      "Brand bible, identity, guidelines, a 32-page catalog, a 12-month plan and the 2026–2028 strategy for an aerospace and defense manufacturer. The full case study.",
+    tech: "Brand Strategy, Identity, Catalog Design, Canva",
+    image: "/work/boldx/guidelines-1.webp",
+    href: "/work/boldx",
+  },
+  {
+    name: "BoldX Sales Agent",
+    tag: "AI SDR Agent",
+    description:
+      "Sales-intelligence agent for BoldX Industries: a LinkedIn queue with AI-drafted outreach, pipeline, sequences and buying signals from aerospace prospects.",
+    tech: "Next.js, Claude, HubSpot, Supabase",
+    image: "/projects/boldx-portal.png",
+    href: "/work/boldx",
+  },
   {
     name: "FckYourWebsite",
     tag: "Audit SaaS",
@@ -159,11 +178,12 @@ export const projects: Project[] = [
   },
   {
     name: "American Labor Ladders",
-    tag: "Product Site",
+    tag: "BoldX Launch",
     description:
-      "Product marketing site for the Game Changer Smart Ladder. Animated hero, spec breakdowns, and contact forms with smooth page transitions throughout.",
+      "Product marketing site I built for BoldX Industries' Game Changer Smart Ladder, the first sensor-equipped ladder built for injury prevention. Animated hero, spec breakdowns, contact forms into HubSpot, smooth page transitions. Paired with the product manual.",
     tech: "React, Framer Motion, Vite",
     image: "/projects/american-labor-ladders.png",
+    href: "https://americanlaborladders.com",
   },
   {
     name: "Signal Agent",
@@ -193,15 +213,13 @@ export const projects: Project[] = [
 ];
 
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "AI", href: "#ai" },
-  { label: "2.16 OS", href: "#flagship" },
+  { label: "The Record", href: "#experience" },
+  { label: "Systems", href: "#skills" },
   { label: "Builds", href: "#built" },
-  { label: "Life", href: "#offclock" },
-  { label: "Contact", href: "#contact" },
+  { label: "BoldX", href: "/work/boldx" },
+  { label: "Credentials", href: "#certifications" },
+  { label: "Off the Clock", href: "#offclock" },
+  { label: "Work with me", href: "/pricing" },
 ];
 
 export interface Certification {

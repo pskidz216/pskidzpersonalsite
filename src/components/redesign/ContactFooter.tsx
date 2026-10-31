@@ -85,6 +85,14 @@ export function ContactFooter() {
           <a className="rd-btn-ghost" href="/pricing">
             Ways to work together
           </a>
+          <a
+            className="rd-btn-ghost"
+            href="/Paul-Skidmore-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Résumé ↗
+          </a>
         </div>
         <div className="rd-footer_meta">
           <div className="rd-footer_left">

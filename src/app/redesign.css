@@ -170,7 +170,8 @@
   justify-content: center;
   gap: 2rem;
 }
-.rd-mobile-overlay button {
+.rd-mobile-overlay button,
+.rd-mobile-overlay a {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.9rem;
