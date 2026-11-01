@@ -50,7 +50,7 @@ export function AnalyticsConsent() {
     <div
       role="region"
       aria-label="Analytics choice"
-      className="fixed inset-x-3 bottom-3 md:inset-x-auto md:right-6 md:bottom-6 md:max-w-sm z-[900] rounded-2xl bg-bg-dark text-text-inverse p-4 shadow-[0_16px_48px_rgba(0,0,0,0.35)]"
+      className="fixed inset-x-3 bottom-3 md:inset-x-6 md:bottom-3 z-[900] rounded-2xl bg-bg-dark text-text-inverse p-4 md:px-5 md:py-2.5 md:flex md:items-center md:justify-between md:gap-6 shadow-[0_16px_48px_rgba(0,0,0,0.35)]"
     >
       <p className="font-body text-[13px] leading-snug">
         This site counts page views with privacy-friendly analytics. No cookies, no ad tracking.{" "}
@@ -58,7 +58,7 @@ export function AnalyticsConsent() {
           Privacy
         </Link>
       </p>
-      <div className="mt-3 flex gap-2">
+      <div className="mt-3 md:mt-0 flex shrink-0 gap-2">
         <button
           type="button"
           onClick={() => choose("accepted")}
