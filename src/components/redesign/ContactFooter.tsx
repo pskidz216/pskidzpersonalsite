@@ -67,9 +67,10 @@ export function ContactFooter() {
           Let&#39;s talk
         </h2>
         <p className="rd-contact_sub" data-rd-reveal="">
-          Available now. Looking for a VP Sales &amp; Marketing or CRO seat at
-          a $5M–$150M industrial or B2B company, or a fractional operator
-          engagement. Remote US or South Florida; Miami based.
+          Available now. I&#39;m looking for a business development or Director of
+          Partnerships role where my network helps a company grow, long-term or
+          fractional. Tech, AI, manufacturing, industrial, or anywhere my skill
+          set plus AI can drive growth. Remote US or South Florida; Miami based.
         </p>
         <div className="rd-contact_actions" data-rd-reveal="">
           <a className="rd-btn-coral" href={emailHref}>
