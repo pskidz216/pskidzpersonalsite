@@ -66,8 +66,9 @@ export function ContactFooter() {
           Let&#39;s talk
         </h2>
         <p className="rd-contact_sub" data-rd-reveal="">
-          Open to conversations about revenue leadership, AI-driven sales
-          systems, and hard growth problems. Miami based, working everywhere.
+          Available now. Looking for a VP Sales &amp; Marketing or CRO seat at
+          a $5M–$150M industrial or B2B company, or a fractional operator
+          engagement. Remote US or South Florida; Miami based.
         </p>
         <div className="rd-contact_actions" data-rd-reveal="">
           <a className="rd-btn-coral" href={emailHref}>
@@ -80,6 +81,17 @@ export function ContactFooter() {
             rel="noopener noreferrer"
           >
             LinkedIn ↗
+          </a>
+          <a className="rd-btn-ghost" href="/pricing">
+            Ways to work together
+          </a>
+          <a
+            className="rd-btn-ghost"
+            href="/Paul-Skidmore-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Résumé ↗
           </a>
         </div>
         <div className="rd-footer_meta">

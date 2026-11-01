@@ -2,8 +2,8 @@ export const auditContent = {
   hero: {
     h1: "Workflow Audit",
     subhead:
-      "I run AI and automation systems at BOLDx Industries and its affiliated businesses. I'm open to helping other operators do the same — auditing workflows and showing them what's worth building, what's worth buying, and what's not worth doing.",
-    highlight: "BOLDx Industries",
+      "I built and ran the AI and automation systems at BoldX Industries, an aerospace and defense manufacturer, from 2025 to 2026. I'm open to doing the same for other operators: auditing workflows and showing them what's worth building, what's worth buying, and what's not worth doing.",
+    highlight: "BoldX Industries",
   },
   whatItIs: {
     label: "What it is",

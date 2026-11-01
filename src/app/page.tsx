@@ -2,6 +2,7 @@ import "./redesign.css";
 import { RedesignNav } from "@/components/redesign/RedesignNav";
 import { RedesignHero } from "@/components/redesign/RedesignHero";
 import { IntroSection } from "@/components/redesign/IntroSection";
+import { CaseStudyFeature } from "@/components/redesign/CaseStudyFeature";
 import { RecordGallery } from "@/components/redesign/RecordGallery";
 import { SeedBanner } from "@/components/redesign/SeedBanner";
 import { SystemsGrid } from "@/components/redesign/SystemsGrid";
@@ -17,6 +18,7 @@ export default function Home() {
       <main>
         <RedesignHero />
         <IntroSection />
+        <CaseStudyFeature />
         <RecordGallery />
         <SeedBanner />
         <SystemsGrid />

@@ -74,13 +74,13 @@ export const careerEntries: CareerEntry[] = [
   {
     id: "boldx",
     company: "BoldX Industries",
-    role: "VP, Sales & Marketing",
-    dateRange: "2025 — Present",
+    role: "GTM Manager, Sales, Marketing & Customer Success",
+    dateRange: "2025 — 2026",
     type: "corporate",
     description:
-      "Leading sales and marketing for an aerospace, defense, and product assembly company specializing in hermetic connectors and precision CNC machining. Launched 3-5 new product assembly lines, spearheading the Sun Belt Ladder initiative for customer acquisition, and opening new revenue in aerospace, military, and defense. Built AI-powered sales intelligence systems using Claude and Grok to automate prospecting and deal research. Drove HubSpot-ERP integration for streamlined customer data management. Expanding aerospace presence at industry conferences including PBExpo. Tracking to push revenue past $24M in 2026.",
-    metric: { value: "$24M+", label: "projected 2026 revenue" },
-    tags: ["Aerospace & Defense", "Hermetic Connectors", "AI-Powered Sales", "HubSpot/ERP Integration"],
+      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity, a 32-page catalog, the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Smart Ladder, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
+    metric: { value: "147", label: "deals closed-won" },
+    tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
 ];
 
@@ -113,12 +113,12 @@ export const skillBlocks: SkillBlock[] = [
     title: "Product Strategy",
     description:
       "From concept to MVP, fast. Using AI to accelerate prototyping, build internal tools, and ship products that would've taken teams of ten.",
-    tools: "Next.js, Rapid Prototyping, Claude Code",
+    tools: "Rapid Prototyping, Claude Code",
   },
   {
     title: "Brand & Creative",
     description:
-      "Naming, color systems, visual identity, from enterprise rebrand down to a single product launch. I get outside the box and let creative instinct drive brands that actually stand out.",
+      "Naming, color systems, visual identity: from the BoldX Industries rebrand (brand bible, identity, a 32-page catalog) down to a single product launch (the American Labor Ladders Smart Ladder). I get outside the box and let creative instinct drive brands that actually stand out.",
     tools: "Brand Strategy, Visual Identity, Product Naming",
   },
 ];
@@ -130,23 +130,25 @@ export interface Project {
   tech: string;
   image: string;
   video?: string;
+  href?: string;
 }
 
 export const projects: Project[] = [
   {
-    name: "FckYourWebsite",
-    tag: "Audit SaaS",
+    name: "BoldX Industries",
+    tag: "Brand System",
     description:
-      "A productized website audit. The buyer pays, a pipeline captures their site with Playwright, Claude Opus tears it apart against modern conversion principles, and a branded punch-list PDF lands in their inbox — no call, no upsell.",
-    tech: "Next.js, Stripe, Supabase, Playwright, Anthropic SDK",
-    image: "/projects/fckyourwebsite.png",
+      "Brand bible, identity, a 32-page catalog, a 12-month plan and the 2026–2028 strategy for an aerospace and defense manufacturer. The full case study.",
+    tech: "Brand Strategy, Identity, Catalog Design, Canva",
+    image: "/work/boldx/catalog-cover-wide.webp",
+    href: "/work/boldx",
   },
   {
     name: "AI Wireframe Prototype",
     tag: "Wireframe Audit",
     description:
       "AI-built interactive wireframes exploring layout directions for a luxury fragrance brand.",
-    tech: "Next.js, Claude Code, HTML/CSS Prototyping",
+    tech: "Claude Code, HTML/CSS Prototyping",
     image: "/projects/wireframe-prototype.png",
   },
   {
@@ -159,18 +161,19 @@ export const projects: Project[] = [
   },
   {
     name: "American Labor Ladders",
-    tag: "Product Site",
+    tag: "BoldX Launch",
     description:
-      "Product marketing site for the Game Changer Smart Ladder. Animated hero, spec breakdowns, and contact forms with smooth page transitions throughout.",
+      "Product marketing site I built for BoldX Industries' Game Changer Smart Ladder, the first sensor-equipped ladder built for injury prevention. Animated hero, spec breakdowns, contact forms into HubSpot, smooth page transitions. Paired with the product manual.",
     tech: "React, Framer Motion, Vite",
     image: "/projects/american-labor-ladders.png",
+    href: "https://americanlaborladders.com",
   },
   {
     name: "Signal Agent",
     tag: "Lead Intelligence",
     description:
       "An autonomous signal agent that scrapes Reddit, forums, and search for buying-intent signals, then finds, enriches, and validates leads before they ever reach the pipeline. Multi-tenant — one engine, many brand profiles, scored and deduped on a schedule.",
-    tech: "Python, Playwright, Clay, SQLite",
+    tech: "Python, Playwright, SQLite",
     image: "/projects/signal-agent.png",
   },
   {
@@ -178,7 +181,7 @@ export const projects: Project[] = [
     tag: "Quiz Engine",
     description:
       "A 7-step quiz that turns a person's answers into personalized supplement recommendations across nine brand partners, ending on a results page built to be shared.",
-    tech: "Next.js, Supabase, Tailwind",
+    tech: "Supabase, Tailwind",
     image: "/projects/human-os.png",
   },
   {
@@ -186,22 +189,20 @@ export const projects: Project[] = [
     tag: "Parallax Experience",
     description:
       "A spiritual wellness platform built around scroll-driven parallax motion — custom GSAP and Framer Motion choreography with Lenis smooth-scroll on every section.",
-    tech: "Next.js, GSAP, Framer Motion, Lenis",
+    tech: "GSAP, Framer Motion, Lenis",
     image: "/projects/spiritual-site.png",
     video: "/projects/spiritual-site.mp4",
   },
 ];
 
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "AI", href: "#ai" },
-  { label: "2.16 OS", href: "#flagship" },
+  { label: "The Record", href: "#experience" },
+  { label: "Systems", href: "#skills" },
   { label: "Builds", href: "#built" },
-  { label: "Life", href: "#offclock" },
-  { label: "Contact", href: "#contact" },
+  { label: "BoldX", href: "/work/boldx" },
+  { label: "Credentials", href: "#certifications" },
+  { label: "Off the Clock", href: "#offclock" },
+  { label: "Work with me", href: "/pricing" },
 ];
 
 export interface Certification {

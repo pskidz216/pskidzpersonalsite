@@ -18,7 +18,7 @@ const typeLabels: Record<string, string> = {
  */
 const descriptionOverrides: Record<string, string> = {
   boldx:
-    "Leading sales and marketing for an aerospace, defense, and product assembly company specializing in hermetic connectors and precision CNC machining. Built AI-powered sales intelligence to automate prospecting and deal research, and drove the HubSpot-ERP integration behind it.",
+    "Owned go-to-market end to end: brand, marketing, pipeline, close and customer success. Rebuilt the brand from the bible up, put the quote pipeline on HubSpot in real time with AI agents, converted one-off work into long-term contracts with a $500K inventory buyout, launched the Smart Ladder, and set the 2026 target at $24M.",
 };
 
 /**

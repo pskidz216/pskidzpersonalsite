@@ -63,8 +63,8 @@ export function RedesignHero() {
         </h1>
         <div className="rd-hero_meta" data-rd-reveal="">
           <span className="rd-data">
-            VP, Sales &amp; Marketing — BoldX Industries · Aerospace &amp;
-            Defense
+            Built the BoldX Industries brand, 2025–2026 · Open to the next
+            operator seat
           </span>
           <div className="rd-hero_scrollcue">
             <span className="rd-data">Scroll</span>

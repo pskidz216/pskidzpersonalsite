@@ -3,14 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PSSeal } from "@/components/ui/PSSeal";
+import { navLinks } from "@/lib/data";
 
-const links = [
-  { label: "The Record", href: "#experience" },
-  { label: "Systems", href: "#skills" },
-  { label: "Builds", href: "#built" },
-  { label: "Credentials", href: "#certifications" },
-  { label: "Off the Clock", href: "#offclock" },
-];
+const isPath = (href: string) => href.startsWith("/");
 
 export function RedesignNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -36,15 +31,21 @@ export function RedesignNav() {
           </a>
         </div>
         <div className="rd-nav_island rd-nav_island--links">
-          {links.map((link) => (
-            <button
-              key={link.href}
-              className="rd-nav_link"
-              onClick={() => handleClick(link.href)}
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) =>
+            isPath(link.href) ? (
+              <a key={link.href} className="rd-nav_link" href={link.href}>
+                {link.label}
+              </a>
+            ) : (
+              <button
+                key={link.href}
+                className="rd-nav_link"
+                onClick={() => handleClick(link.href)}
+              >
+                {link.label}
+              </button>
+            )
+          )}
         </div>
         <div className="rd-nav_island">
           <button
@@ -71,21 +72,35 @@ export function RedesignNav() {
             transition={{ duration: 0.3 }}
             className="rd-mobile-overlay"
           >
-            {links.map((link, i) => (
-              <motion.button
-                key={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: i * 0.08 + 0.1,
-                  duration: 0.4,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                onClick={() => handleClick(link.href)}
-              >
-                {link.label}
-              </motion.button>
-            ))}
+            {navLinks.map((link, i) => {
+              const transition = {
+                delay: i * 0.08 + 0.1,
+                duration: 0.4,
+                ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+              };
+              return isPath(link.href) ? (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={transition}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </motion.a>
+              ) : (
+                <motion.button
+                  key={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={transition}
+                  onClick={() => handleClick(link.href)}
+                >
+                  {link.label}
+                </motion.button>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>

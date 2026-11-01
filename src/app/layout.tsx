@@ -5,13 +5,13 @@ import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paulskidmoreii.com"),
-  title: "Paul Skidmore | AI Innovator · Human Connector · Growth Strategist",
+  title: "Paul Skidmore | Revenue Operator · Brand Builder · Miami",
   description:
-    "AI Innovator · Human Connector · Growth Strategist. Based in Miami, FL.",
+    "Sales and marketing leader who rebuilt the BoldX Industries brand and built the AI behind its pipeline. Open to operator roles and consulting. Miami, FL.",
   openGraph: {
     title: "Paul Skidmore",
     description:
-      "AI Innovator · Human Connector · Growth Strategist",
+      "Rebuilt the BoldX Industries brand and built the AI behind its pipeline. Open to operator roles and consulting.",
     type: "website",
     url: "https://paulskidmoreii.com",
     siteName: "Paul Skidmore",
@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Paul Skidmore",
-    description: "AI Innovator · Human Connector · Growth Strategist",
+    description:
+      "Rebuilt the BoldX Industries brand and built the AI behind its pipeline. Open to operator roles and consulting.",
   },
 };
 
