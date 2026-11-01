@@ -1,10 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type MouseEvent } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { registerScrollTrigger } from "@/lib/gsapLenis";
+import { heroContent } from "@/lib/data";
 import { observeReveals, prefersReducedMotion } from "./reveal";
+
+function scrollToSection(event: MouseEvent<HTMLAnchorElement>, href: string) {
+  const target = document.querySelector(href);
+  if (!target) return;
+  event.preventDefault();
+  target.scrollIntoView({ behavior: "smooth" });
+}
 
 export function RedesignHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -48,7 +56,7 @@ export function RedesignHero() {
     <header className="rd-hero" id="top" ref={sectionRef}>
       <div className="rd-hero_media" ref={mediaRef}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/headshot.jpg" alt="Paul Skidmore" />
+        <img src="/images/headshot-hero.webp" alt="Paul Skidmore" fetchPriority="high" />
       </div>
       <div className="rd-hero_scrim" />
       <div className="rd-hero_content">
@@ -59,17 +67,26 @@ export function RedesignHero() {
           </span>
         </div>
         <h1 className="rd-hero_title" data-rd-reveal="">
-          I build revenue engines, and the <em>AI systems</em> that run them.
+          {heroContent.titleLead} <em>{heroContent.titleAccent}</em>
         </h1>
-        <div className="rd-hero_meta" data-rd-reveal="">
-          <span className="rd-data">
-            Built the BoldX Industries brand, 2025–2026 · Open to the next
-            operator seat
-          </span>
-          <div className="rd-hero_scrollcue">
-            <span className="rd-data">Scroll</span>
-            <i />
-          </div>
+        <p className="rd-hero_sub" data-rd-reveal="">
+          {heroContent.sub}
+        </p>
+        <div className="rd-hero_actions" data-rd-reveal="">
+          {heroContent.actions.map((action) => (
+            <a
+              key={action.href}
+              href={action.href}
+              className={action.primary ? "rd-btn-coral" : "rd-btn-ghost"}
+              onClick={
+                action.href.startsWith("#")
+                  ? (event) => scrollToSection(event, action.href)
+                  : undefined
+              }
+            >
+              {action.label}
+            </a>
+          ))}
         </div>
       </div>
     </header>

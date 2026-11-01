@@ -165,7 +165,7 @@ export const projects: Project[] = [
     description:
       "Product marketing site I built for BoldX Industries' Game Changer Smart Ladder, the first sensor-equipped ladder built for injury prevention. Animated hero, spec breakdowns, contact forms into HubSpot, smooth page transitions. Paired with the product manual.",
     tech: "React, Framer Motion, Vite",
-    image: "/projects/american-labor-ladders.png",
+    image: "/projects/american-labor-ladders.webp",
     href: "https://americanlaborladders.com",
   },
   {
@@ -190,10 +190,26 @@ export const projects: Project[] = [
     description:
       "A spiritual wellness platform built around scroll-driven parallax motion — custom GSAP and Framer Motion choreography with Lenis smooth-scroll on every section.",
     tech: "GSAP, Framer Motion, Lenis",
-    image: "/projects/spiritual-site.png",
+    image: "/projects/spiritual-site.webp",
     video: "/projects/spiritual-site.mp4",
   },
 ];
+
+const heroTitleLead = "I'm";
+const heroTitleAccent = "ready to work.";
+
+/** The first thing on the site, in Paul's words. */
+export const heroContent = {
+  title: `${heroTitleLead} ${heroTitleAccent}`,
+  titleLead: heroTitleLead,
+  titleAccent: heroTitleAccent,
+  sub: "I'm ready to help companies. I build revenue engines, and the AI systems that run them.",
+  actions: [
+    { label: "Check out how I helped BoldX", href: "/work/boldx", primary: true },
+    { label: "Here's what I do", href: "#skills", primary: false },
+    { label: "See my portfolio below", href: "#built", primary: false },
+  ],
+};
 
 export const navLinks = [
   { label: "The Record", href: "#experience" },

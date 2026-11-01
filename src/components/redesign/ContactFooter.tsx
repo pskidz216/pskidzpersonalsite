@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { registerScrollTrigger } from "@/lib/gsapLenis";
 import { PSSeal } from "@/components/ui/PSSeal";
 import { MiamiTimeReadout } from "@/components/ui/MiamiClock";
+import { LegalLinks } from "@/components/ui/LegalLinks";
 import { socialLinks } from "@/lib/data";
 import { observeReveals, prefersReducedMotion } from "./reveal";
 
@@ -98,6 +99,7 @@ export function ContactFooter() {
           <div className="rd-footer_left">
             <PSSeal className="w-9 h-9 text-text-primary" />
             <span className="rd-data">© 2026 Paul Skidmore</span>
+            <LegalLinks className="rd-data" />
           </div>
           <span className="rd-data rd-data--teal">
             <MiamiTimeReadout />

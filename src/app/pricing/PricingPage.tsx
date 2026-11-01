@@ -7,6 +7,8 @@ import { SectionLabel } from "@/components/audit/SectionLabel";
 import { TierCard } from "@/components/pricing/TierCard";
 import { PSSeal } from "@/components/ui/PSSeal";
 import { staggerContainer, viewportOnce } from "@/lib/animations";
+import { LegalLinks } from "@/components/ui/LegalLinks";
+import { StickyContact } from "@/components/ui/StickyContact";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const CONTACT_EMAIL = "pskidmore216@gmail.com";
@@ -42,6 +44,8 @@ export function PricingPage() {
       >
         <PSSeal className="w-10 h-10 md:w-12 md:h-12 text-text-primary group-hover:text-accent-coral group-hover:rotate-[8deg] group-hover:scale-105 transition-all duration-300" />
       </Link>
+
+      <StickyContact />
 
       <main className="relative">
         {/* HERO */}
@@ -228,6 +232,9 @@ export function PricingPage() {
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">
             {c.domain}
           </span>
+          <div className="mt-4">
+            <LegalLinks />
+          </div>
         </div>
       </main>
     </MotionConfig>

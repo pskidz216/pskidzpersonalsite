@@ -240,52 +240,74 @@
 }
 .rd-hero_title {
   font-family: var(--font-heading);
-  font-size: clamp(2.6rem, 6.2vw, 5.6rem);
+  font-size: clamp(3.25rem, 8.4vw, 7.75rem);
   font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.015em;
-  max-width: 16ch;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
 }
 .rd-hero_title em {
   font-style: normal;
   color: var(--rd-coral);
 }
-.rd-hero_meta {
-  margin-top: 2.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 2rem;
-  flex-wrap: wrap;
-  color: var(--rd-ink-2);
+.rd-hero_sub {
+  margin-top: 1.25rem;
+  max-width: 34ch;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.1vw, 1.9rem);
+  line-height: 1.22;
+  color: var(--rd-ink);
 }
-.rd-hero_scrollcue {
+.rd-hero_actions {
+  margin-top: 2rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
 }
-.rd-hero_scrollcue i {
-  display: block;
-  width: 1px;
-  height: 3rem;
-  background: rgba(20, 20, 20, 0.35);
-  animation: rd-cue 2.4s var(--rd-ease-sig) infinite;
-  transform-origin: top;
+.rd-hero_actions .rd-btn-ghost {
+  color: var(--rd-ink);
+  background: rgba(250, 250, 248, 0.78);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
-@keyframes rd-cue {
-  0% {
-    transform: scaleY(0);
+/* Slide the photo right so the headline runs beside the face, not across it. */
+@media (min-width: 1024px) {
+  .rd-hero_media {
+    left: 30%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 26%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 26%);
   }
-  45% {
-    transform: scaleY(1);
-    transform-origin: top;
+}
+@media (max-width: 640px) {
+  /* Short phones grow the hero rather than pushing the headline under the nav. */
+  .rd-hero {
+    height: auto;
+    min-height: 100svh;
+    padding-top: 12rem;
   }
-  46% {
-    transform-origin: bottom;
+  .rd-hero_media {
+    inset: 0 0 auto 0;
+    height: 390px;
   }
-  100% {
-    transform: scaleY(0);
-    transform-origin: bottom;
+  .rd-hero_media img {
+    object-position: 50% 10%;
+  }
+  .rd-hero_scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 250, 248, 0.2) 0%,
+      rgba(250, 250, 248, 0.25) 130px,
+      rgba(250, 250, 248, 0.97) 360px
+    );
+  }
+  .rd-hero_content {
+    padding-bottom: 8.5rem;
+  }
+  .rd-hero_actions a {
+    width: 100%;
+    justify-content: center;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
   }
 }
 
@@ -1216,7 +1238,6 @@
   .rd-banner_inner {
     height: 80svh;
   }
-  .rd-hero_scrollcue i,
   .rd-node i {
     animation: none;
   }

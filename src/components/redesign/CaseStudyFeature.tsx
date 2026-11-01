@@ -63,7 +63,7 @@ export function CaseStudyFeature() {
           <img
             className="rd-feature_back"
             src={f.back.src}
-            alt=""
+            alt={f.back.alt}
             width={1100}
             height={556}
             loading="lazy"
