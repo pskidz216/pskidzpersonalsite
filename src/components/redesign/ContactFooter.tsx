@@ -94,7 +94,7 @@ export function ContactFooter() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Résumé ↗
+            Resume ↗
           </a>
         </div>
         <div className="rd-footer_meta">

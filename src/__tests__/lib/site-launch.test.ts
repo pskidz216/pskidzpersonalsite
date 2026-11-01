@@ -149,6 +149,15 @@ describe("the role Paul is looking for", () => {
   });
 });
 
+describe("the resume", () => {
+  it("is labeled plainly, without accent marks, and is served as a PDF", () => {
+    const footer = source("src/components/redesign/ContactFooter.tsx");
+    expect(footer).toMatch(/Resume ↗/);
+    expect(footer).not.toMatch(/Résumé/);
+    expect(fs.readFileSync(path.join(root, "public/Paul-Skidmore-Resume.pdf")).subarray(0, 4).toString()).toBe("%PDF");
+  });
+});
+
 describe("sideways scroll", () => {
   it("keeps the mist layer from widening the page", () => {
     const css = source("src/app/redesign.css");
