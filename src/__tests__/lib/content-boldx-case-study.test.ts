@@ -48,6 +48,8 @@ describe("BoldX case study content", () => {
     expect(boldxCaseStudy.hero.image.src).toBe("/work/boldx/brand-rocket.webp");
     expect(boldxCaseStudy.hero.image.alt).toMatch(/rocket/i);
     expect(boldxCaseStudy.hero.image.alt).toMatch(/connector/i);
+    expect(boldxCaseStudy.hero.image.alt).toMatch(/clouds/i);
+    expect(boldxCaseStudy.hero.image.alt).toMatch(/X mark/);
   });
 
   it("keeps FckYourWebsite off the site", () => {
@@ -67,7 +69,7 @@ describe("BoldX case study content", () => {
     const career = careerEntries.find((e) => e.id === "boldx");
     const boldxBuilds = projects.filter((p) => /BoldX/.test(p.name + p.description));
     const claims = everything + JSON.stringify(career) + JSON.stringify(boldxBuilds);
-    expect(claims).not.toMatch(/SDR|outbound|sales[- ]intelligence|Clay|Apollo|Instantly|Heyreach|n8n/i);
+    expect(claims).not.toMatch(/SDR|outbound|sales[- ]intelligence|Clay|Apollo|Instantly|Heyreach/i);
     expect(projects.some((p) => p.name === "BoldX Sales Agent")).toBe(false);
   });
 
@@ -93,8 +95,19 @@ describe("BoldX case study content", () => {
   it("keeps the Murphy handcuff, AI quoting and 'brand guidelines' off every BoldX claim", () => {
     const claims = everything + JSON.stringify(boldxFeature) + JSON.stringify(data);
     expect(claims).not.toMatch(/Murphy|handcuff|AI quoting|automated? quoting|guidelines/i);
-    const lines = boldxCaseStudy.numbers.stats.find((s) => /product lines/.test(s.label));
-    expect(lines?.value).toBe("2");
+  });
+
+  it("keeps InEX off every BoldX claim", () => {
+    const claims = everything + JSON.stringify(boldxFeature) + JSON.stringify(data);
+    expect(claims).not.toMatch(/\bInEX\b/i);
+    expect(claims).not.toMatch(/two (launches|product lines)/i);
+  });
+
+  it("runs the numbers in order, pipeline to target, with short parallel labels", () => {
+    const { stats } = boldxCaseStudy.numbers;
+    expect(stats.map((s) => s.value)).toEqual(["$11.6M", "147", "$500K", "$24M"]);
+    for (const stat of stats) expect(stat.label.length).toBeLessThanOrEqual(27);
+    expect(stats.some((s) => /product lines/.test(s.label))).toBe(false);
   });
 
   it("says the quote pipeline was built with AI agents to see quotes live, and the expiry emails moved customers to buy", () => {
@@ -105,7 +118,16 @@ describe("BoldX case study content", () => {
     expect(expiry?.detail).toMatch(/buy|purchase|order/i);
   });
 
-  it("shows both Zoom backgrounds in the gallery", () => {
-    expect(boldxCaseStudy.gallery.items.filter((i) => /zoom/i.test(i.caption))).toHaveLength(2);
+  it("shows no Zoom background Paul did not build", () => {
+    expect(boldxCaseStudy.gallery.items.filter((i) => /zoom/i.test(i.caption + i.src))).toHaveLength(0);
+  });
+
+  it("names no Flask or Next.js anywhere on the site, and credits n8n and Popl", () => {
+    const claims = everything + JSON.stringify(boldxFeature) + JSON.stringify(data);
+    expect(claims).not.toMatch(/flask|next\.?js/i);
+    expect(boldxCaseStudy.stack.items).toContain("n8n");
+    expect(boldxCaseStudy.stack.items).toContain("Popl");
+    const ledger = boldxCaseStudy.ledger.flatMap((g) => g.entries);
+    expect(ledger.some((e) => /Popl/.test(e.title) && /company/i.test(e.title + e.detail))).toBe(true);
   });
 });

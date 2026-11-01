@@ -53,30 +53,32 @@ export function BoldxPage() {
       <main className="relative bg-bg-primary text-text-primary">
         {/* HERO */}
         <section className="px-6 md:px-12 lg:px-20 pt-28 md:pt-36 pb-16 md:pb-24">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-16 items-center">
-            <div>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, ease }}
-                className="font-mono text-[11px] md:text-xs uppercase tracking-[0.22em] text-accent-teal mb-6"
-              >
-                {c.eyebrow}
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, ease }}
-                className="font-heading font-black leading-[0.95] tracking-[-0.03em] mb-6"
-                style={{ fontSize: "clamp(2.75rem, 7vw, 5.5rem)" }}
-              >
-                {c.hero.h1}
-              </motion.h1>
+          <div className="max-w-6xl mx-auto grid gap-10 md:gap-14">
+            <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-6 md:gap-16 md:items-end">
+              <div>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease }}
+                  className="font-mono text-[11px] md:text-xs uppercase tracking-[0.22em] text-accent-teal mb-6"
+                >
+                  {c.eyebrow}
+                </motion.p>
+                <motion.h1
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.9, ease }}
+                  className="font-heading font-black leading-[0.95] tracking-[-0.03em] [text-wrap:balance]"
+                  style={{ fontSize: "clamp(2.75rem, 7vw, 5.5rem)" }}
+                >
+                  {c.hero.h1}
+                </motion.h1>
+              </div>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3, ease }}
-                className="font-body text-text-secondary text-lg md:text-xl leading-relaxed max-w-xl"
+                className="font-body text-text-secondary text-lg leading-relaxed max-w-xl"
               >
                 {c.hero.sub}
               </motion.p>
@@ -93,7 +95,7 @@ export function BoldxPage() {
                 alt={c.hero.image.alt}
                 width={1600}
                 height={900}
-                className="w-full h-auto rounded-xl shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
+                className="w-full h-auto rounded-xl shadow-[0_30px_80px_rgba(0,0,0,0.32)]"
               />
             </motion.figure>
           </div>
@@ -162,24 +164,28 @@ export function BoldxPage() {
         {/* NUMBERS */}
         <section className="px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-bg-dark text-text-inverse">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-3 mb-12">
+            <div className="flex items-center gap-3 mb-10 md:mb-14">
               <span className="block w-1.5 h-1.5 rounded-full bg-accent-coral" aria-hidden />
               <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">
                 {c.numbers.label}
               </span>
+              <span className="h-[1px] flex-1 bg-white/15" aria-hidden />
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+            <dl className="m-0 grid grid-cols-2 lg:grid-cols-4 gap-y-10">
               {c.numbers.stats.map((stat) => (
-                <div key={stat.label}>
-                  <div className="font-heading font-black tracking-[-0.03em] leading-[0.9] tabular-nums text-[clamp(2.5rem,6vw,4.5rem)]">
-                    {stat.value}
-                  </div>
-                  <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted mt-4 leading-relaxed max-w-[22ch]">
+                <div
+                  key={stat.label}
+                  className="flex flex-col-reverse justify-end gap-4 border-l border-white/15 pl-4 md:pl-6 pr-2"
+                >
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted leading-relaxed">
                     {stat.label}
-                  </div>
+                  </dt>
+                  <dd className="m-0 font-heading font-black tracking-[-0.03em] leading-[0.9] tabular-nums text-[clamp(2.25rem,4.6vw,3.75rem)]">
+                    {stat.value}
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
         </section>
 

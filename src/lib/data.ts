@@ -78,7 +78,7 @@ export const careerEntries: CareerEntry[] = [
     dateRange: "2025 — 2026",
     type: "corporate",
     description:
-      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity, a 32-page catalog, the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Smart Ladder and InEX, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
+      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity, a 32-page catalog, the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Smart Ladder, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
     metric: { value: "147", label: "deals closed-won" },
     tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
@@ -113,7 +113,7 @@ export const skillBlocks: SkillBlock[] = [
     title: "Product Strategy",
     description:
       "From concept to MVP, fast. Using AI to accelerate prototyping, build internal tools, and ship products that would've taken teams of ten.",
-    tools: "Next.js, Rapid Prototyping, Claude Code",
+    tools: "Rapid Prototyping, Claude Code",
   },
   {
     title: "Brand & Creative",
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     tag: "Wireframe Audit",
     description:
       "AI-built interactive wireframes exploring layout directions for a luxury fragrance brand.",
-    tech: "Next.js, Claude Code, HTML/CSS Prototyping",
+    tech: "Claude Code, HTML/CSS Prototyping",
     image: "/projects/wireframe-prototype.png",
   },
   {
@@ -181,7 +181,7 @@ export const projects: Project[] = [
     tag: "Quiz Engine",
     description:
       "A 7-step quiz that turns a person's answers into personalized supplement recommendations across nine brand partners, ending on a results page built to be shared.",
-    tech: "Next.js, Supabase, Tailwind",
+    tech: "Supabase, Tailwind",
     image: "/projects/human-os.png",
   },
   {
@@ -189,7 +189,7 @@ export const projects: Project[] = [
     tag: "Parallax Experience",
     description:
       "A spiritual wellness platform built around scroll-driven parallax motion — custom GSAP and Framer Motion choreography with Lenis smooth-scroll on every section.",
-    tech: "Next.js, GSAP, Framer Motion, Lenis",
+    tech: "GSAP, Framer Motion, Lenis",
     image: "/projects/spiritual-site.png",
     video: "/projects/spiritual-site.mp4",
   },

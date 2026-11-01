@@ -22,7 +22,7 @@ export const boldxCaseStudy = {
     sub: "A hermetic-connector and precision-machining manufacturer selling into aerospace and defense. For nearly two years I owned go-to-market end to end: brand, marketing, pipeline, close and customer success, with a three-person team. Here is what I built and what it did.",
     image: {
       src: "/work/boldx/brand-rocket.webp",
-      alt: "A machined stainless hermetic connector with gold pins in the foreground, a rocket lifting off behind it in deep red light, the BoldX Industries mark in the sky",
+      alt: "A rocket climbing above the clouds on a column of red fire, a machined hermetic connector in the foreground, and BOLD in white across the black of space with the BoldX X mark standing alone beside it",
     },
   },
   start: {
@@ -87,7 +87,7 @@ export const boldxCaseStudy = {
         {
           title: "Quote-to-HubSpot app",
           detail:
-            "Next.js and OCR. Reads supplier and customer quote PDFs and creates the deals in HubSpot. Seventeen deals and about $270K of pipeline moved in one observed day.",
+            "Reads supplier and customer quote PDFs with OCR and creates the deals in HubSpot. Seventeen deals and about $270K of pipeline moved in one observed day.",
         },
         {
           title: "Quote-expiry email campaign",
@@ -97,7 +97,7 @@ export const boldxCaseStudy = {
         {
           title: "Orders dashboard",
           detail:
-            "Flask over the ERP exports: open orders, declined sales, pending quotes, week over week.",
+            "Built over the ERP exports: open orders, declined sales, pending quotes, week over week.",
         },
         {
           title: "Weekly pipeline reporting",
@@ -114,6 +114,11 @@ export const boldxCaseStudy = {
           detail:
             "Stood up company-wide communication on Microsoft Teams and SharePoint so sales, operations and the shop floor ran one process.",
         },
+        {
+          title: "Popl, company-wide",
+          detail:
+            "Integrated Popl.co across the company: branded digital business cards with a QR code, so a new contact was one scan away.",
+        },
       ],
     },
     {
@@ -123,10 +128,6 @@ export const boldxCaseStudy = {
           title: "American Labor Ladders",
           detail:
             "Product site and manual for the Game Changer Smart Ladder, the first sensor-equipped ladder built for injury prevention. Live at americanlaborladders.com.",
-        },
-        {
-          title: "InEX",
-          detail: "Launch materials for a third product line.",
         },
         {
           title: "Content engine",
@@ -149,10 +150,10 @@ export const boldxCaseStudy = {
   numbers: {
     label: "The numbers",
     stats: [
-      { value: "$11.6M", label: "quoted through the pipeline I built" },
+      { value: "$11.6M", label: "quoted through my pipeline" },
       { value: "147", label: "deals closed-won" },
       { value: "$500K", label: "inventory buyout negotiated" },
-      { value: "2", label: "product lines launched" },
+      { value: "$24M", label: "revenue target set" },
     ],
   },
   broke: {
@@ -167,8 +168,8 @@ export const boldxCaseStudy = {
       "HubSpot",
       "Claude",
       "ElevenLabs",
-      "Next.js",
-      "Flask",
+      "n8n",
+      "Popl",
       "Canva",
       "Higgsfield",
       "Craft CMS",
@@ -187,8 +188,6 @@ export const boldxCaseStudy = {
       { src: "/work/boldx/chart-seal-types.webp", alt: "Chart of hermetic seal types from a BoldX article", caption: "From the glass-to-metal sealing article" },
       { src: "/work/boldx/linkedin-banner.webp", alt: "BoldX LinkedIn banner", caption: "LinkedIn banner" },
       { src: "/work/boldx/tee.webp", alt: "White T-shirt mockup with the BoldX mark", caption: "Apparel" },
-      { src: "/work/boldx/zoom-background.webp", alt: "BoldX Zoom background, dark version with the white logo", caption: "Zoom background" },
-      { src: "/work/boldx/zoom-background-2026.webp", alt: "Virtual meeting background: Paul Skidmore, VP, Sales & Marketing, a Connect with me QR code and the BoldX logo over brushed metal", caption: "Zoom background with name and title" },
     ] as GalleryItem[],
   },
   closing: {
