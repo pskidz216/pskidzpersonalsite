@@ -90,6 +90,12 @@ describe("the BoldX row in Builds", () => {
     expect(row?.description).toMatch(/quote pipeline/);
     expect(row?.description).toMatch(/PBExpo/);
   });
+
+  it("previews as the X mark alone", () => {
+    expect(row?.image).toBe("/work/boldx/x-mark-preview.webp");
+    expect(exists("public/work/boldx/x-mark-preview.webp")).toBe(true);
+    expect(exists("public/work/boldx/catalog-cover-wide.webp")).toBe(false);
+  });
 });
 
 describe("Human OS", () => {
