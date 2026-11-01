@@ -121,6 +121,8 @@ describe("BoldX case study content", () => {
   it("shows only the clean meeting background Paul built", () => {
     const backgrounds = boldxCaseStudy.gallery.items.filter((i) => /zoom|meeting background/i.test(i.caption + i.src));
     expect(backgrounds.map((i) => i.src)).toEqual(["/work/boldx/zoom-background-name-title.webp"]);
+    expect(backgrounds[0]?.alt).toMatch(/GTM Manager, Sales, Marketing & Customer Success/);
+    expect(backgrounds[0]?.alt).not.toMatch(/Vice President/);
   });
 
   it("names no Flask or Next.js anywhere on the site, and credits n8n and Popl", () => {

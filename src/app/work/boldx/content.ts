@@ -80,7 +80,7 @@ const galleryRows: GalleryItem[][] = [
     {
       src: "/work/boldx/zoom-background-name-title.webp",
       ratio: 1.778,
-      alt: "Meeting background: Paul Skidmore, Vice President, Sales & Marketing, with the BoldX logo over charcoal and a thin red diagonal",
+      alt: "Meeting background: Paul Skidmore, GTM Manager, Sales, Marketing & Customer Success, with the BoldX logo over charcoal and a thin red diagonal",
       caption: "Meeting background",
     },
     {
