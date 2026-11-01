@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
+import { AnalyticsConsent } from "@/components/ui/AnalyticsConsent";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paulskidmoreii.com"),
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className="min-h-full">
         <ScrollProgressBar />
         <SmoothScroll>{children}</SmoothScroll>
+        <AnalyticsConsent />
       </body>
     </html>
   );

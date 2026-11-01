@@ -7,7 +7,6 @@ const description =
 export const metadata: Metadata = {
   title: "Pricing — Paul Skidmore",
   description,
-  robots: { index: false, follow: false },
   openGraph: {
     title: "Pricing — Paul Skidmore",
     description,

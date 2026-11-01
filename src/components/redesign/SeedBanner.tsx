@@ -45,7 +45,7 @@ export function SeedBanner() {
         <div className="rd-banner_media" ref={mediaRef}>
           <video
             src="/projects/spiritual-site.mp4"
-            poster="/projects/seed-poster.png"
+            poster="/projects/seed-poster.webp"
             autoPlay
             muted
             loop

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { motion, MotionConfig } from "framer-motion";
+import { LegalLinks } from "@/components/ui/LegalLinks";
+import { StickyContact } from "@/components/ui/StickyContact";
 import { BoldxGallery, DarkSectionLabel } from "./BoldxGallery";
 import { boldxCaseStudy } from "./content";
 
@@ -50,6 +52,8 @@ export function BoldxPage() {
           </span>
         </span>
       </Link>
+
+      <StickyContact />
 
       <main className="relative bg-bg-primary text-text-primary">
         {/* HERO */}
@@ -259,6 +263,9 @@ export function BoldxPage() {
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted mt-14">
               {c.domain}
             </p>
+            <div className="mt-4">
+              <LegalLinks />
+            </div>
           </div>
         </section>
       </main>

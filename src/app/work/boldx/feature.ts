@@ -15,5 +15,8 @@ export const boldxFeature = {
     src: "/work/boldx/catalog-cover.webp",
     alt: "Cover of the BoldX product catalog: a red-lit machined part and the line Deep Well to Deep Space",
   },
-  back: { src: "/work/boldx/bible-cover.webp" },
+  back: {
+    src: "/work/boldx/bible-cover.webp",
+    alt: "Cover of the BoldX Brand Strategy and Branding Bible",
+  },
 } as const;

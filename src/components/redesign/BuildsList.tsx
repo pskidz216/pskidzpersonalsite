@@ -42,7 +42,7 @@ export function BuildsList() {
             </span>
             <span className="rd-preview" aria-hidden>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={project.image} alt="" />
+              <img src={project.image} alt={`Preview of ${project.name}`} />
             </span>
           </>
         );
