@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PSSeal } from "@/components/ui/PSSeal";
 import { navLinks } from "@/lib/data";
+import { requestOpenSection } from "@/lib/openSection";
 
 const isPath = (href: string) => href.startsWith("/");
 
@@ -12,6 +13,7 @@ export function RedesignNav() {
 
   function handleClick(href: string) {
     setMobileOpen(false);
+    requestOpenSection(href);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   }
 

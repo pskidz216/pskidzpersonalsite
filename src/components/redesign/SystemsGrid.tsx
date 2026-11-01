@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { skillBlocks } from "@/lib/data";
+import { allIndexes, toggleIndex } from "@/lib/openSection";
+import { DropdownPanel, DropdownToggle, useOpenRequest } from "@/components/ui/Dropdown";
 import { observeReveals } from "./reveal";
 
 /**
@@ -10,6 +12,10 @@ import { observeReveals } from "./reveal";
  */
 export function SystemsGrid() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [openCards, setOpenCards] = useState<ReadonlySet<number>>(new Set());
+  const openAll = useCallback(() => setOpenCards(allIndexes(skillBlocks.length)), []);
+  useOpenRequest("skills", openAll);
+  const everyOpen = openCards.size === skillBlocks.length;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -33,6 +39,15 @@ export function SystemsGrid() {
           personal where it matters.
         </p>
       </div>
+      <div className="rd-systems_controls" data-rd-reveal="opacity">
+        <button
+          type="button"
+          className="rd-systems_all rd-data"
+          onClick={() => setOpenCards(everyOpen ? new Set() : allIndexes(skillBlocks.length))}
+        >
+          {everyOpen ? "Close all" : "Open all"}
+        </button>
+      </div>
       <div className="rd-systems_grid">
         {skillBlocks.map((block, i) => (
           <div className="rd-syscard" data-rd-reveal="" key={block.title}>
@@ -44,9 +59,19 @@ export function SystemsGrid() {
               <i />
               <i />
             </div>
-            <h3>{block.title}</h3>
-            <p>{block.description}</p>
-            <div className="rd-syscard_tools rd-data">{block.tools}</div>
+            <h3>
+              <DropdownToggle
+                open={openCards.has(i)}
+                controls={`system-panel-${i}`}
+                onToggle={() => setOpenCards((current) => toggleIndex(current, i))}
+              >
+                {block.title}
+              </DropdownToggle>
+            </h3>
+            <DropdownPanel id={`system-panel-${i}`} open={openCards.has(i)}>
+              <p>{block.description}</p>
+              <div className="rd-syscard_tools rd-data">{block.tools}</div>
+            </DropdownPanel>
           </div>
         ))}
       </div>
