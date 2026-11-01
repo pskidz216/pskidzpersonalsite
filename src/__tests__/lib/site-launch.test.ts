@@ -1,8 +1,10 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
-import { heroContent, projects } from "@/lib/data";
+import { heroContent, projects, reelBand } from "@/lib/data";
+import * as data from "@/lib/data";
 import { boldxFeature } from "@/app/work/boldx/feature";
+import { boldxCaseStudy } from "@/app/work/boldx/content";
 import { privacySections, termsSections } from "@/lib/legal";
 import { readConsent, writeConsent, CONSENT_KEY } from "@/lib/analyticsConsent";
 import sitemap from "@/app/sitemap";
@@ -43,6 +45,140 @@ describe("calls to action on inner pages", () => {
   });
 });
 
+describe("the Spiritual Site and its seed film", () => {
+  it("are gone from the home page, the copy, the styles and the public files", () => {
+    expect(JSON.stringify(data)).not.toMatch(/spiritual|seed film|parallax/i);
+    expect(source("src/app/page.tsx")).not.toMatch(/SeedBanner/);
+    expect(exists("src/components/redesign/SeedBanner.tsx")).toBe(false);
+    expect(source("src/app/redesign.css")).not.toMatch(/rd-banner|seed banner/);
+    for (const file of ["spiritual-site.mp4", "spiritual-site.webp", "seed-poster.webp"]) {
+      expect(exists(`public/projects/${file}`), file).toBe(false);
+    }
+    expect(projects.some((p) => /spiritual/i.test(p.name))).toBe(false);
+  });
+});
+
+describe("the reel band that replaces it", () => {
+  it("runs the part-to-mission clips and links to the case study", () => {
+    expect(source("src/app/page.tsx")).toMatch(/<ReelBand \/>/);
+    expect(reelBand.tiles).toHaveLength(5);
+    expect(reelBand.cta.href).toBe("/work/boldx");
+    expect(reelBand.eyebrow).toMatch(/BoldX Industries/);
+    expect(reelBand.tiles.filter((t) => t.onPhone)).toHaveLength(2);
+    for (const tile of reelBand.tiles) {
+      expect(tile.alt.length, tile.video).toBeGreaterThan(20);
+      expect(kb(`public${tile.video}`), tile.video).toBeLessThanOrEqual(1024);
+      expect(kb(`public${tile.poster}`), tile.poster).toBeLessThanOrEqual(100);
+    }
+  });
+
+  it("shares one player with the case-study gallery", () => {
+    expect(source("src/components/redesign/ReelBand.tsx")).toMatch(/<LoopingReel/);
+    expect(source("src/app/work/boldx/BoldxGallery.tsx")).toMatch(/<LoopingReel/);
+    expect(source("src/components/ui/LoopingReel.tsx")).toMatch(/prefersReducedMotion/);
+  });
+});
+
+describe("the BoldX row in Builds", () => {
+  const row = projects.find((p) => p.name === "BoldX Industries");
+
+  it("shows the whole job, not just the brand", () => {
+    expect(row?.tag).toBe("Full Go-To-Market");
+    for (const piece of ["Brand Bible", "Live Quote Pipeline", "AI Agents", "HubSpot", "n8n", "Email Campaigns", "Contracts", "Cinematic Reels", "Popl"]) {
+      expect(row?.tech, piece).toContain(piece);
+    }
+    expect(row?.description).toMatch(/go-to-market end to end/i);
+    expect(row?.description).toMatch(/quote pipeline/);
+    expect(row?.description).toMatch(/PBExpo/);
+  });
+
+  it("previews as the X mark alone", () => {
+    expect(row?.image).toBe("/work/boldx/x-mark-preview.webp");
+    expect(exists("public/work/boldx/x-mark-preview.webp")).toBe(true);
+    expect(exists("public/work/boldx/catalog-cover-wide.webp")).toBe(false);
+  });
+});
+
+describe("Human OS", () => {
+  it("is gone from Builds and the public files", () => {
+    expect(JSON.stringify(data)).not.toMatch(/human ?os/i);
+    expect(exists("public/projects/human-os.png")).toBe(false);
+  });
+});
+
+describe("the certifications section", () => {
+  it("is called what it is, in the section and the nav", () => {
+    const section = source("src/components/redesign/CredentialsList.tsx");
+    expect(section).toMatch(/^\s*Certifications\s*$/m);
+    expect(section).not.toMatch(/paper trail/i);
+    expect(data.navLinks).toContainEqual({ label: "Certifications", href: "#certifications" });
+  });
+});
+
+describe("the case-study page title", () => {
+  it("leads with strategy, sales and marketing and fits in 60 characters", () => {
+    const page = source("src/app/work/boldx/page.tsx");
+    const title = page.match(/const title = "([^"]+)"/)?.[1] ?? "";
+    expect(title).toMatch(/strategy, sales and marketing/i);
+    expect(title.length).toBeLessThanOrEqual(60);
+    expect(title).not.toMatch(/built the BoldX brand/);
+    for (const image of ["src/app/work/boldx/opengraph-image.tsx", "src/app/opengraph-image.tsx"]) {
+      expect(source(image), image).not.toMatch(/BoldX brand|BoldX Industries brand/);
+    }
+    const description = page.match(/"(Case study[^"]+)"/)?.[1] ?? "";
+    expect(description.length).toBeGreaterThanOrEqual(70);
+    expect(description.length).toBeLessThanOrEqual(160);
+  });
+});
+
+describe("the role Paul is looking for", () => {
+  it("asks for business development or sales, on a good team, in any business", () => {
+    const footer = source("src/components/redesign/ContactFooter.tsx").replace(/\s+/g, " ");
+    expect(footer).toMatch(/business development or sales role/);
+    expect(footer).toMatch(/team that works well together/);
+    expect(footer).toMatch(/long-term or fractional/);
+    expect(footer).toMatch(/healthcare/);
+    expect(footer).toMatch(/business agnostic/);
+    expect(footer).toMatch(/get my hands dirty/);
+    expect(footer).not.toMatch(/CRO|VP Sales|\$5M|[Pp]artnerships/);
+    const layout = source("src/app/layout.tsx");
+    expect(layout).not.toMatch(/operator roles|[Pp]artnerships/);
+    expect(layout).toMatch(/business development and sales roles/);
+    const description = layout.match(/description:\s*"([^"]+)"/)?.[1] ?? "";
+    expect(description.length).toBeGreaterThanOrEqual(70);
+    expect(description.length).toBeLessThanOrEqual(160);
+  });
+});
+
+describe("AEO and GEO at BoldX", () => {
+  it("appears with its result in the ledger, the Builds row and the career entry", () => {
+    const entries = boldxCaseStudy.ledger.flatMap((g) => g.entries);
+    const entry = entries.find((e) => /AEO/.test(e.title));
+    expect(entry?.title).toMatch(/GEO/);
+    expect(entry?.detail).toMatch(/0% to 10%/);
+    expect(entry?.detail).toMatch(/six months/);
+    expect(projects.find((p) => p.name === "BoldX Industries")?.tech).toContain("AEO/GEO");
+    const career = data.careerEntries.find((e) => e.id === "boldx");
+    expect(career?.description).toMatch(/AEO\/GEO visibility from 0% to 10%/);
+  });
+});
+
+describe("the resume", () => {
+  it("is labeled plainly, without accent marks, and is served as a PDF", () => {
+    const footer = source("src/components/redesign/ContactFooter.tsx");
+    expect(footer).toMatch(/Resume ↗/);
+    expect(footer).not.toMatch(/Résumé/);
+    expect(fs.readFileSync(path.join(root, "public/Paul-Skidmore-Resume.pdf")).subarray(0, 4).toString()).toBe("%PDF");
+  });
+});
+
+describe("sideways scroll", () => {
+  it("keeps the mist layer from widening the page", () => {
+    const css = source("src/app/redesign.css");
+    expect(css).toMatch(/\.rd-seam-wrap \{[^}]*overflow-x: clip/);
+  });
+});
+
 describe("favicon set", () => {
   it("serves a real icon file and a manifest", () => {
     expect(exists("src/app/favicon.ico.bak")).toBe(false);
@@ -71,12 +207,17 @@ describe("images", () => {
     expect(boldxFeature.back.alt.length).toBeGreaterThan(8);
   });
 
+  it("shows the Bible cover on the home card with the real logo and no date", () => {
+    expect(boldxFeature.back.src).toBe("/work/boldx/brand-bible-cover.webp");
+    expect(boldxFeature.back.alt).toMatch(/BoldX logo/);
+    expect(exists("public/work/boldx/brand-bible-cover.webp")).toBe(true);
+    expect(exists("public/work/boldx/bible-cover.webp")).toBe(false);
+  });
+
   it("keeps everything the home page loads under 300 KB", () => {
     const hero = source("src/components/redesign/RedesignHero.tsx").match(/src="(\/images\/[^"]+)"/)?.[1];
     expect(hero).toMatch(/\.webp$/);
-    const poster = source("src/components/redesign/SeedBanner.tsx").match(/poster="([^"]+)"/)?.[1];
-    expect(poster).toMatch(/\.webp$/);
-    for (const file of [hero as string, poster as string, ...projects.map((p) => p.image)]) {
+    for (const file of [hero as string, ...reelBand.tiles.map((t) => t.poster), ...projects.map((p) => p.image)]) {
       expect(kb(`public${file}`), file).toBeLessThanOrEqual(300);
     }
   });

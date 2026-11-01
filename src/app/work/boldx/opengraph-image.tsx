@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "I built the BoldX brand — Paul Skidmore";
+export const alt = "I built BoldX's strategy, sales and marketing — Paul Skidmore";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -43,19 +43,14 @@ export default async function OG() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", marginTop: "auto" }}>
-          <div style={{ fontSize: 150, fontWeight: 900, lineHeight: 0.95, letterSpacing: "-0.03em" }}>
-            I built the
+          <div style={{ fontSize: 112, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em" }}>
+            I built BoldX&apos;s
           </div>
-          <div
-            style={{
-              fontSize: 150,
-              fontWeight: 900,
-              lineHeight: 0.95,
-              letterSpacing: "-0.03em",
-              color: "#E8735A",
-            }}
-          >
-            BoldX brand.
+          <div style={{ fontSize: 112, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em", color: "#E8735A" }}>
+            strategy, sales
+          </div>
+          <div style={{ fontSize: 112, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em", color: "#E8735A" }}>
+            and marketing.
           </div>
         </div>
 

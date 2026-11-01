@@ -67,9 +67,11 @@ export function ContactFooter() {
           Let&#39;s talk
         </h2>
         <p className="rd-contact_sub" data-rd-reveal="">
-          Available now. Looking for a VP Sales &amp; Marketing or CRO seat at
-          a $5M–$150M industrial or B2B company, or a fractional operator
-          engagement. Remote US or South Florida; Miami based.
+          Available now. I&#39;m looking for a business development or sales role
+          on a team that works well together, where my network and AI help a
+          company grow, long-term or fractional. Tech, AI, healthcare,
+          manufacturing: I&#39;m business agnostic and just love to get my hands
+          dirty. Remote US or South Florida; Miami based.
         </p>
         <div className="rd-contact_actions" data-rd-reveal="">
           <a className="rd-btn-coral" href={emailHref}>
@@ -92,7 +94,7 @@ export function ContactFooter() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Résumé ↗
+            Resume ↗
           </a>
         </div>
         <div className="rd-footer_meta">

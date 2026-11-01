@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { certifications } from "@/lib/data";
+import { DropdownPanel, DropdownToggle, useOpenRequest } from "@/components/ui/Dropdown";
 import { observeReveals } from "./reveal";
 
 /**
@@ -10,6 +11,9 @@ import { observeReveals } from "./reveal";
  */
 export function CredentialsList() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [open, setOpen] = useState(false);
+  const openSection = useCallback(() => setOpen(true), []);
+  useOpenRequest("certifications", openSection);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -19,35 +23,46 @@ export function CredentialsList() {
 
   return (
     <section
-      className="rd-section--paper rd-pad rd-pad--tight-top"
+      className="rd-section--paper rd-pad rd-pad--tight-top rd-dropsection"
+      data-open={open}
       id="certifications"
       ref={sectionRef}
     >
       <div className="rd-certs_head">
-        <h2 data-rd-reveal="">The paper trail</h2>
+        <h2 data-rd-reveal="">
+          <DropdownToggle
+            open={open}
+            controls="certifications-panel"
+            onToggle={() => setOpen((current) => !current)}
+          >
+            Certifications
+          </DropdownToggle>
+        </h2>
         <span className="rd-data rd-data--teal" data-rd-reveal="opacity">
-          [ 004 — {certifications.length} certifications ]
+          [ 004 — {certifications.length} earned ]
         </span>
       </div>
-      <div>
-        {certifications.map((cert) => (
-          <div
-            className="rd-cert-row"
-            data-rd-reveal="opacity"
-            key={`${cert.name}-${cert.date}`}
-          >
-            <span className="rd-cert-row_name">{cert.name}</span>
-            <span
-              className={`rd-cert-row_issuer rd-data ${
-                cert.issuer === "Anthropic" ? "rd-cert-row_issuer--anthropic" : ""
-              }`}
+      <DropdownPanel id="certifications-panel" open={open}>
+        <div className="rd-certs_list">
+          {certifications.map((cert) => (
+            <div
+              className="rd-cert-row"
+              data-rd-reveal="opacity"
+              key={`${cert.name}-${cert.date}`}
             >
-              {cert.issuer}
-            </span>
-            <span className="rd-cert-row_date rd-data">{cert.date}</span>
-          </div>
-        ))}
-      </div>
+              <span className="rd-cert-row_name">{cert.name}</span>
+              <span
+                className={`rd-cert-row_issuer rd-data ${
+                  cert.issuer === "Anthropic" ? "rd-cert-row_issuer--anthropic" : ""
+                }`}
+              >
+                {cert.issuer}
+              </span>
+              <span className="rd-cert-row_date rd-data">{cert.date}</span>
+            </div>
+          ))}
+        </div>
+      </DropdownPanel>
     </section>
   );
 }

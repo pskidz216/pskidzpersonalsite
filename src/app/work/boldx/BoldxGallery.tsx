@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, type CSSProperties } from "react";
-import { prefersReducedMotion } from "@/components/redesign/reveal";
+import { type CSSProperties } from "react";
+import { LoopingReel } from "@/components/ui/LoopingReel";
 import type { GalleryItem } from "./content";
 
 /** Section label for the dark bands: dot, mono caption, hairline. */
@@ -19,45 +19,6 @@ export function DarkSectionLabel({ children }: { children: string }) {
 
 const mediaClass = "block w-full h-auto rounded-lg object-cover bg-black ring-1 ring-white/10";
 
-/** Plays only while on screen; stays on its poster for reduced motion. */
-function GalleryReel({ item }: { item: GalleryItem }) {
-  const ref = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = ref.current;
-    if (!video || prefersReducedMotion()) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          // A refused autoplay leaves the poster up, which is the designed fallback.
-          video.play().catch(() => undefined);
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.25 }
-    );
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <video
-      ref={ref}
-      src={item.video}
-      poster={item.src}
-      aria-label={item.alt}
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      className={mediaClass}
-      style={{ aspectRatio: item.ratio }}
-    />
-  );
-}
-
 function GalleryTile({ item }: { item: GalleryItem }) {
   // Phones: landscape work runs full width first, portrait work pairs up below it.
   const phoneLayout =
@@ -68,7 +29,13 @@ function GalleryTile({ item }: { item: GalleryItem }) {
       style={{ "--ratio": item.ratio } as CSSProperties}
     >
       {item.video ? (
-        <GalleryReel item={item} />
+        <LoopingReel
+          src={item.video}
+          poster={item.src}
+          label={item.alt}
+          className={mediaClass}
+          style={{ aspectRatio: item.ratio }}
+        />
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
         <img

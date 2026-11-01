@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 export const alt =
-  "Paul Skidmore. Built the BoldX Industries brand, 2025–2026. Open to the next operator seat.";
+  "Paul Skidmore. Built BoldX's strategy, sales and marketing, 2025–2026. Ready to work.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -64,7 +64,7 @@ export default async function OG() {
                 maxWidth: 560,
               }}
             >
-              Built the BoldX Industries brand, 2025–2026. Open to the next operator seat.
+              Built BoldX&apos;s strategy, sales and marketing, 2025–2026. Ready to work.
             </div>
           </div>
           <div

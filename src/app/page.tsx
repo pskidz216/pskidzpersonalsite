@@ -4,7 +4,7 @@ import { RedesignHero } from "@/components/redesign/RedesignHero";
 import { IntroSection } from "@/components/redesign/IntroSection";
 import { CaseStudyFeature } from "@/components/redesign/CaseStudyFeature";
 import { RecordGallery } from "@/components/redesign/RecordGallery";
-import { SeedBanner } from "@/components/redesign/SeedBanner";
+import { ReelBand } from "@/components/redesign/ReelBand";
 import { SystemsGrid } from "@/components/redesign/SystemsGrid";
 import { BuildsList } from "@/components/redesign/BuildsList";
 import { CredentialsList } from "@/components/redesign/CredentialsList";
@@ -20,7 +20,7 @@ export default function Home() {
         <IntroSection />
         <CaseStudyFeature />
         <RecordGallery />
-        <SeedBanner />
+        <ReelBand />
         <SystemsGrid />
         <BuildsList />
         <CredentialsList />

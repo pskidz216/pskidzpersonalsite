@@ -5,12 +5,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { registerScrollTrigger } from "@/lib/gsapLenis";
 import { heroContent } from "@/lib/data";
+import { requestOpenSection } from "@/lib/openSection";
 import { observeReveals, prefersReducedMotion } from "./reveal";
 
 function scrollToSection(event: MouseEvent<HTMLAnchorElement>, href: string) {
   const target = document.querySelector(href);
   if (!target) return;
   event.preventDefault();
+  requestOpenSection(href);
   target.scrollIntoView({ behavior: "smooth" });
 }
 

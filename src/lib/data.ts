@@ -78,7 +78,7 @@ export const careerEntries: CareerEntry[] = [
     dateRange: "2025 — 2026",
     type: "corporate",
     description:
-      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity, a 32-page catalog, the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Smart Ladder, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
+      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity, a 32-page catalog, the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Took AEO/GEO visibility from 0% to 10% in six months. Launched the Smart Ladder, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
     metric: { value: "147", label: "deals closed-won" },
     tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
@@ -136,11 +136,11 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "BoldX Industries",
-    tag: "Brand System",
+    tag: "Full Go-To-Market",
     description:
-      "Brand bible, identity, a 32-page catalog, a 12-month plan and the 2026–2028 strategy for an aerospace and defense manufacturer. The full case study.",
-    tech: "Brand Strategy, Identity, Catalog Design, Canva",
-    image: "/work/boldx/catalog-cover-wide.webp",
+      "Go-to-market end to end for an aerospace and defense manufacturer: the brand bible and identity, a 32-page catalog, the 2026–2028 strategy, a live quote pipeline built with AI agents, quote-expiry email campaigns, long-term contracts, weekly cinematic reels, the Smart Ladder launch and the PBExpo booth. The full case study.",
+    tech: "Brand Bible, Go-To-Market Strategy, Live Quote Pipeline, AI Agents, HubSpot, n8n, Email Campaigns, AEO/GEO, Contracts, Cinematic Reels, Popl",
+    image: "/work/boldx/x-mark-preview.webp",
     href: "/work/boldx",
   },
   {
@@ -176,23 +176,6 @@ export const projects: Project[] = [
     tech: "Python, Playwright, SQLite",
     image: "/projects/signal-agent.png",
   },
-  {
-    name: "Human OS",
-    tag: "Quiz Engine",
-    description:
-      "A 7-step quiz that turns a person's answers into personalized supplement recommendations across nine brand partners, ending on a results page built to be shared.",
-    tech: "Supabase, Tailwind",
-    image: "/projects/human-os.png",
-  },
-  {
-    name: "Spiritual Site",
-    tag: "Parallax Experience",
-    description:
-      "A spiritual wellness platform built around scroll-driven parallax motion — custom GSAP and Framer Motion choreography with Lenis smooth-scroll on every section.",
-    tech: "GSAP, Framer Motion, Lenis",
-    image: "/projects/spiritual-site.webp",
-    video: "/projects/spiritual-site.mp4",
-  },
 ];
 
 const heroTitleLead = "I'm";
@@ -211,12 +194,57 @@ export const heroContent = {
   ],
 };
 
+/** The home-page strip of real BoldX reels; two tiles show on phones. */
+export const reelBand = {
+  eyebrow: "[ Selected work: weekly cinematic reels · BoldX Industries ]",
+  title: "The part, then the mission.",
+  sub: "A weekly reel system that put BoldX parts in the places they serve: carriers, jets, submarines. Art-directed by me, generated on Higgsfield.",
+  cta: { label: "See the BoldX case study", href: "/work/boldx" },
+  tiles: [
+    {
+      video: "/work/boldx/reels/part-macro.mp4",
+      poster: "/work/boldx/reels/part-macro.webp",
+      label: "The part",
+      alt: "Macro shot of a hermetic connector resting among others on a dark tray",
+      onPhone: false,
+    },
+    {
+      video: "/work/boldx/reels/jet-launch.mp4",
+      poster: "/work/boldx/reels/jet-launch.webp",
+      label: "The launch",
+      alt: "A fighter jet launching down an aircraft carrier's catapult in a burst of flame",
+      onPhone: true,
+    },
+    {
+      video: "/work/boldx/reels/pressure-hull.mp4",
+      poster: "/work/boldx/reels/pressure-hull.webp",
+      label: "The hull",
+      alt: "A connector seated in the bolted steel wall of a submarine's pressure hull",
+      onPhone: false,
+    },
+    {
+      video: "/work/boldx/reels/sub-surface.mp4",
+      poster: "/work/boldx/reels/sub-surface.webp",
+      label: "The dive",
+      alt: "A submarine cutting through open ocean as spray bursts around its sail",
+      onPhone: true,
+    },
+    {
+      video: "/work/boldx/reels/sub-descent.mp4",
+      poster: "/work/boldx/reels/sub-descent.webp",
+      label: "The deep",
+      alt: "A submarine descending through teal water with bubbles rising above it",
+      onPhone: false,
+    },
+  ],
+};
+
 export const navLinks = [
   { label: "The Record", href: "#experience" },
   { label: "Systems", href: "#skills" },
   { label: "Builds", href: "#built" },
   { label: "BoldX", href: "/work/boldx" },
-  { label: "Credentials", href: "#certifications" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Off the Clock", href: "#offclock" },
   { label: "Work with me", href: "/pricing" },
 ];

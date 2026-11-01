@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { BoldxPage } from "./BoldxPage";
 
-const title = "I built the BoldX brand — Paul Skidmore";
+const title = "BoldX strategy, sales and marketing — Paul Skidmore";
 const description =
-  "Case study, 2025–2026: brand bible, identity, catalog and plan for an aerospace manufacturer, plus the systems behind $11.6M in quoted pipeline.";
+  "Case study, 2025–2026: strategy, sales and marketing for an aerospace manufacturer, from the brand bible to the systems behind $11.6M in quoted pipeline.";
 
 export const metadata: Metadata = {
   title,
