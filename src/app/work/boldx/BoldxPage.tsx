@@ -89,11 +89,11 @@ export function BoldxPage() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/work/boldx/bible-cover.webp"
-                alt={c.hero.coverAlt}
-                width={1100}
-                height={556}
-                className="w-full h-auto rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-timeline-line"
+                src={c.hero.image.src}
+                alt={c.hero.image.alt}
+                width={1600}
+                height={900}
+                className="w-full h-auto rounded-xl shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
               />
             </motion.figure>
           </div>
@@ -139,11 +139,8 @@ export function BoldxPage() {
                       {group.entries.map((entry) => (
                         <li
                           key={entry.title}
-                          className="grid sm:grid-cols-[110px_1fr] gap-1 sm:gap-6 py-5 border-b border-timeline-line"
+                          className="py-5 border-b border-timeline-line"
                         >
-                          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted pt-1 tabular-nums">
-                            {entry.when}
-                          </span>
                           <div>
                             <h3 className="font-body font-semibold text-lg leading-snug mb-1">
                               {entry.title}

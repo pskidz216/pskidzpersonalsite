@@ -16,10 +16,11 @@ describe("BoldX home-page highlight", () => {
     expect(boldxFeature.cta).toMatch(/case study/i);
   });
 
-  it("shows four dated or counted facts", () => {
+  it("shows four counted facts, none of them a date", () => {
     expect(boldxFeature.facts).toHaveLength(4);
     for (const fact of boldxFeature.facts) {
       expect(fact.value).toMatch(/\d/);
+      expect(fact.value).not.toMatch(/20\d\d/);
       expect(fact.label.length).toBeGreaterThan(8);
     }
   });
@@ -35,5 +36,11 @@ describe("BoldX home-page highlight", () => {
     expect(inPublic(boldxFeature.back.src)).toBe(true);
     for (const project of projects) expect(inPublic(project.image), project.name).toBe(true);
     for (const item of boldxCaseStudy.gallery.items) expect(inPublic(item.src), item.src).toBe(true);
+    expect(inPublic(boldxCaseStudy.hero.image.src)).toBe(true);
+  });
+
+  it("keeps the month-and-year stamps off the home intro stats", () => {
+    const intro = fs.readFileSync(path.join(process.cwd(), "src/components/redesign/IntroSection.tsx"), "utf8");
+    expect(intro).not.toMatch(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/);
   });
 });

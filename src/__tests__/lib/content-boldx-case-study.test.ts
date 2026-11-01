@@ -29,13 +29,29 @@ describe("BoldX case study content", () => {
     expect(everything).not.toMatch(/Power of|Àṣẹ|Ase\b/);
   });
 
-  it("dates every ledger entry and states the end of the role once", () => {
+  it("carries no dates: no when column, no month on any caption, stat, paragraph or the career entry", () => {
+    const career = careerEntries.find((e) => e.id === "boldx");
+    const copy = everything + JSON.stringify(boldxFeature) + JSON.stringify(career);
+    expect(copy).not.toMatch(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b/);
+    expect(copy).not.toMatch(/\b(January|February|March|April|June|July|August|September|October|November|December)\b/);
+    expect(copy).not.toMatch(/YTD/);
+    expect(boldxCaseStudy.hero.sub).not.toMatch(/dated/);
     for (const group of boldxCaseStudy.ledger) {
-      for (const entry of group.entries) {
-        expect(entry.when).toMatch(/20\d\d/);
-      }
+      for (const entry of group.entries) expect("when" in entry).toBe(false);
     }
-    expect(boldxCaseStudy.closing.ended).toMatch(/October 2026/);
+    for (const item of boldxCaseStudy.gallery.items) expect(item.caption).not.toMatch(/20\d\d/);
+    for (const stat of boldxCaseStudy.numbers.stats) expect(stat.label).not.toMatch(/20\d\d/);
+    expect(boldxCaseStudy.closing.ended).toMatch(/\$24M/);
+  });
+
+  it("opens on the rocket-and-connector hero, not the white Bible cover", () => {
+    expect(boldxCaseStudy.hero.image.src).toBe("/work/boldx/brand-rocket.webp");
+    expect(boldxCaseStudy.hero.image.alt).toMatch(/rocket/i);
+    expect(boldxCaseStudy.hero.image.alt).toMatch(/connector/i);
+  });
+
+  it("keeps FckYourWebsite off the site", () => {
+    expect(JSON.stringify(data)).not.toMatch(/fckyourwebsite|fuck/i);
   });
 
   it("is linked from Builds and credits the ladder site to BoldX", () => {

@@ -78,8 +78,8 @@ export const careerEntries: CareerEntry[] = [
     dateRange: "2025 — 2026",
     type: "corporate",
     description:
-      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity (January 2025), a 32-page catalog (October 2025), the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won, January–August 2026. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Smart Ladder and InEX, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
-    metric: { value: "147", label: "deals closed-won, 2026 YTD" },
+      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity, a 32-page catalog, the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Launched the Smart Ladder and InEX, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
+    metric: { value: "147", label: "deals closed-won" },
     tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
 ];
@@ -142,14 +142,6 @@ export const projects: Project[] = [
     tech: "Brand Strategy, Identity, Catalog Design, Canva",
     image: "/work/boldx/catalog-cover-wide.webp",
     href: "/work/boldx",
-  },
-  {
-    name: "FckYourWebsite",
-    tag: "Audit SaaS",
-    description:
-      "A productized website audit. The buyer pays, a pipeline captures their site with Playwright, Claude Opus tears it apart against modern conversion principles, and a branded punch-list PDF lands in their inbox — no call, no upsell.",
-    tech: "Next.js, Stripe, Supabase, Playwright, Anthropic SDK",
-    image: "/projects/fckyourwebsite.png",
   },
   {
     name: "AI Wireframe Prototype",
