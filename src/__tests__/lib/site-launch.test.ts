@@ -133,7 +133,8 @@ describe("the case-study page title", () => {
 describe("the role Paul is looking for", () => {
   it("asks for business development and partnerships, not a CRO seat", () => {
     const footer = source("src/components/redesign/ContactFooter.tsx").replace(/\s+/g, " ");
-    expect(footer).toMatch(/business development or Director of Partnerships/);
+    expect(footer).toMatch(/business development, sales or Director of Partnerships/);
+    expect(footer).toMatch(/team that works well together/);
     expect(footer).toMatch(/network/);
     expect(footer).toMatch(/long-term or fractional/);
     expect(footer).toMatch(/Tech, AI, manufacturing, industrial/);
@@ -141,7 +142,7 @@ describe("the role Paul is looking for", () => {
     expect(footer).not.toMatch(/CRO|VP Sales|\$5M/);
     const layout = source("src/app/layout.tsx");
     expect(layout).not.toMatch(/operator roles/);
-    expect(layout).toMatch(/business development and partnerships/);
+    expect(layout).toMatch(/business development, sales and partnerships/);
     const description = layout.match(/description:\s*"([^"]+)"/)?.[1] ?? "";
     expect(description.length).toBeGreaterThanOrEqual(70);
     expect(description.length).toBeLessThanOrEqual(160);
