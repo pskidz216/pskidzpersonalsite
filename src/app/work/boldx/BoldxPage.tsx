@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, MotionConfig } from "framer-motion";
+import { BoldxGallery, DarkSectionLabel } from "./BoldxGallery";
 import { boldxCaseStudy } from "./content";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -164,13 +165,7 @@ export function BoldxPage() {
         {/* NUMBERS */}
         <section className="px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-bg-dark text-text-inverse">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-3 mb-10 md:mb-14">
-              <span className="block w-1.5 h-1.5 rounded-full bg-accent-coral" aria-hidden />
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">
-                {c.numbers.label}
-              </span>
-              <span className="h-[1px] flex-1 bg-white/15" aria-hidden />
-            </div>
+            <DarkSectionLabel>{c.numbers.label}</DarkSectionLabel>
             <dl className="m-0 grid grid-cols-2 lg:grid-cols-4 gap-y-10">
               {c.numbers.stats.map((stat) => (
                 <div
@@ -231,31 +226,7 @@ export function BoldxPage() {
           </div>
         </section>
 
-        {/* GALLERY */}
-        <section className="px-6 md:px-12 lg:px-20 py-16 md:py-24 bg-bg-secondary">
-          <div className="max-w-6xl mx-auto">
-            <SectionLabel>{c.gallery.label}</SectionLabel>
-            <div className="columns-2 md:columns-3 gap-4 md:gap-6">
-              {c.gallery.items.map((item) => (
-                <figure
-                  key={item.src}
-                  className="m-0 mb-4 md:mb-6 break-inside-avoid"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    loading="lazy"
-                    className="w-full h-auto rounded-lg border border-timeline-line bg-bg-primary"
-                  />
-                  <figcaption className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-text-muted mt-2 leading-relaxed">
-                    {item.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
+        <BoldxGallery label={c.gallery.label} rows={c.gallery.rows} />
 
         {/* CLOSING */}
         <section className="px-6 md:px-12 lg:px-20 py-20 md:py-28">

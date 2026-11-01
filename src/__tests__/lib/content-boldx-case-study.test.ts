@@ -118,8 +118,9 @@ describe("BoldX case study content", () => {
     expect(expiry?.detail).toMatch(/buy|purchase|order/i);
   });
 
-  it("shows no Zoom background Paul did not build", () => {
-    expect(boldxCaseStudy.gallery.items.filter((i) => /zoom/i.test(i.caption + i.src))).toHaveLength(0);
+  it("shows only the clean meeting background Paul built", () => {
+    const backgrounds = boldxCaseStudy.gallery.items.filter((i) => /zoom|meeting background/i.test(i.caption + i.src));
+    expect(backgrounds.map((i) => i.src)).toEqual(["/work/boldx/zoom-background-name-title.webp"]);
   });
 
   it("names no Flask or Next.js anywhere on the site, and credits n8n and Popl", () => {

@@ -13,7 +13,90 @@ export interface GalleryItem {
   src: string;
   alt: string;
   caption: string;
+  /** Width over height of the file; rows are justified from it. */
+  ratio: number;
+  /** A silent, looping reel; `src` is then its poster frame. */
+  video?: string;
 }
+
+const galleryRows: GalleryItem[][] = [
+  [
+    {
+      src: "/work/boldx/reel-carrier-poster.webp",
+      video: "/work/boldx/reel-carrier.mp4",
+      ratio: 0.5625,
+      alt: "Weekly reel: a BoldX connector in macro cutting to the deck of an aircraft carrier, ending on the BoldX logo",
+      caption: "Weekly reel: carrier",
+    },
+    {
+      src: "/work/boldx/brand-sign.webp",
+      ratio: 1.504,
+      alt: "The BoldX Industries sign on the Batavia building at dusk under a pink sky",
+      caption: "The mark on the building, Batavia",
+    },
+    {
+      src: "/work/boldx/reel-submarine-poster.webp",
+      video: "/work/boldx/reel-submarine.mp4",
+      ratio: 0.5625,
+      alt: "Weekly reel: a submarine breaking the surface, from the series that puts BoldX parts in the places they serve",
+      caption: "Weekly reel: submarine",
+    },
+  ],
+  [
+    {
+      src: "/work/boldx/blog-hero-swiss.webp",
+      ratio: 1.778,
+      alt: "Blog hero reading Swiss vs. Conventional CNC over a lathe cutting under coolant, with the BoldX logo",
+      caption: "Blog hero: Swiss vs. conventional",
+    },
+    {
+      src: "/work/boldx/linkedin-cover-swiss.webp",
+      ratio: 1.778,
+      alt: "LinkedIn cover reading Swiss or Conventional? above two machined parts on dark steel, with the BoldX logo",
+      caption: "LinkedIn cover: the same article",
+    },
+  ],
+  [
+    {
+      src: "/work/boldx/catalog-cover.webp",
+      ratio: 0.7727,
+      alt: "Cover of the BoldX product catalog: a red-lit machined part and the line Deep Well to Deep Space",
+      caption: "Product catalog",
+    },
+    {
+      src: "/work/boldx/ladder-site.webp",
+      ratio: 1.6,
+      alt: "The American Labor Ladders website: the Game Changer Smart Ladder on deep navy beside the headline American Labor Ladder",
+      caption: "americanlaborladders.com",
+    },
+    {
+      src: "/work/boldx/quote-expiry-email.webp",
+      ratio: 0.8,
+      alt: "The quote-expiry email, shown with sample data: Your Quote Is Expiring, a Keep My Quote Active button and one-click reasons for not moving forward",
+      caption: "Quote-expiry email",
+    },
+  ],
+  [
+    {
+      src: "/work/boldx/zoom-background-name-title.webp",
+      ratio: 1.778,
+      alt: "Meeting background: Paul Skidmore, Vice President, Sales & Marketing, with the BoldX logo over charcoal and a thin red diagonal",
+      caption: "Meeting background",
+    },
+    {
+      src: "/work/boldx/social-inconel.webp",
+      ratio: 1,
+      alt: "Sparks flying from an end mill cutting Inconel in a dark machine",
+      caption: "Social series: cutting Inconel",
+    },
+    {
+      src: "/work/boldx/social-connector.webp",
+      ratio: 1,
+      alt: "A hermetic connector with gold pins on brushed steel, catching red light",
+      caption: "Social series: hermetic connectors",
+    },
+  ],
+];
 
 export const boldxCaseStudy = {
   eyebrow: "[ Case study — BoldX Industries · Batavia, OH · 2025–2026 ]",
@@ -177,18 +260,8 @@ export const boldxCaseStudy = {
   },
   gallery: {
     label: "The work",
-    items: [
-      { src: "/work/boldx/bible-cover.webp", alt: "Cover of the BoldX Brand Strategy and Branding Bible", caption: "Brand Strategy & Branding Bible" },
-      { src: "/work/boldx/bible-p14.webp", alt: "A spread from the brand bible: Brand Belief in white on a red panel, the belief statement on the right", caption: "The bible's Brand Belief spread" },
-      { src: "/work/boldx/catalog-cover.webp", alt: "Cover of the BoldX product catalog: a red-lit machined part and the line Deep Well to Deep Space", caption: "Product catalog" },
-      { src: "/work/boldx/bible-p09.webp", alt: "A spread from the brand bible on the buyer's pain points, red panel on the left", caption: "The bible's audience chapter" },
-      { src: "/work/boldx/identity-lockups.webp", alt: "Identity page showing the primary logo, the lockup without the tagline and the icon", caption: "Primary logo, lockup and icon" },
-      { src: "/work/boldx/ladder-og.webp", alt: "Share image for the American Labor Ladders website", caption: "American Labor Ladders site" },
-      { src: "/work/boldx/connector-comparison.webp", alt: "Comparison graphic of MIL-spec circular connector series", caption: "MIL-spec connector comparison" },
-      { src: "/work/boldx/chart-seal-types.webp", alt: "Chart of hermetic seal types from a BoldX article", caption: "From the glass-to-metal sealing article" },
-      { src: "/work/boldx/linkedin-banner.webp", alt: "BoldX LinkedIn banner", caption: "LinkedIn banner" },
-      { src: "/work/boldx/tee.webp", alt: "White T-shirt mockup with the BoldX mark", caption: "Apparel" },
-    ] as GalleryItem[],
+    rows: galleryRows,
+    items: galleryRows.flat(),
   },
   closing: {
     ended: "The role ended with the 2026 number set at $24M. I hope they hit it.",

@@ -39,6 +39,34 @@ describe("BoldX home-page highlight", () => {
     expect(inPublic(boldxCaseStudy.hero.image.src)).toBe(true);
   });
 
+  it("runs the gallery on reels and finished work, with every file present and within budget", () => {
+    const { rows, items } = boldxCaseStudy.gallery;
+    expect(rows.flat()).toEqual(items);
+    for (const row of rows) {
+      expect(row.length).toBeGreaterThanOrEqual(2);
+      expect(row.length).toBeLessThanOrEqual(3);
+    }
+    const size = (src: string) => fs.statSync(path.join(process.cwd(), "public", src)).size;
+    const reels = items.filter((i) => i.video);
+    expect(reels.length).toBeGreaterThanOrEqual(2);
+    for (const item of items) {
+      expect(item.ratio, item.src).toBeGreaterThan(0);
+      expect(size(item.src), item.src).toBeLessThanOrEqual(300 * 1024);
+      if (item.video) {
+        expect(inPublic(item.video), item.video).toBe(true);
+        expect(size(item.video), item.video).toBeLessThanOrEqual(3 * 1024 * 1024);
+      }
+    }
+  });
+
+  it("drops the document pages from the gallery and shows the sign, the ladder site and the expiry email", () => {
+    const srcs = boldxCaseStudy.gallery.items.map((i) => i.src).join(" ");
+    expect(srcs).not.toMatch(/bible-|identity-lockups|chart-seal|connector-comparison|tee\.|linkedin-banner|ladder-og/);
+    expect(srcs).toMatch(/brand-sign/);
+    expect(srcs).toMatch(/ladder-site/);
+    expect(srcs).toMatch(/quote-expiry-email/);
+  });
+
   it("counts no launches the site no longer shows, in metadata or the Record card", () => {
     for (const file of ["src/app/work/boldx/page.tsx", "src/components/redesign/RecordGallery.tsx"]) {
       const source = fs.readFileSync(path.join(process.cwd(), file), "utf8");
