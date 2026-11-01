@@ -78,6 +78,20 @@ describe("the reel band that replaces it", () => {
   });
 });
 
+describe("the BoldX row in Builds", () => {
+  const row = projects.find((p) => p.name === "BoldX Industries");
+
+  it("shows the whole job, not just the brand", () => {
+    expect(row?.tag).toBe("Full Go-To-Market");
+    for (const piece of ["Brand Bible", "Live Quote Pipeline", "AI Agents", "HubSpot", "n8n", "Email Campaigns", "Contracts", "Cinematic Reels", "Popl"]) {
+      expect(row?.tech, piece).toContain(piece);
+    }
+    expect(row?.description).toMatch(/go-to-market end to end/i);
+    expect(row?.description).toMatch(/quote pipeline/);
+    expect(row?.description).toMatch(/PBExpo/);
+  });
+});
+
 describe("sideways scroll", () => {
   it("keeps the mist layer from widening the page", () => {
     const css = source("src/app/redesign.css");
@@ -111,6 +125,13 @@ describe("images", () => {
     expect(source("src/components/redesign/BuildsList.tsx")).not.toMatch(/alt=""/);
     expect(source("src/components/redesign/CaseStudyFeature.tsx")).not.toMatch(/alt=""/);
     expect(boldxFeature.back.alt.length).toBeGreaterThan(8);
+  });
+
+  it("shows the Bible cover on the home card with the real logo and no date", () => {
+    expect(boldxFeature.back.src).toBe("/work/boldx/brand-bible-cover.webp");
+    expect(boldxFeature.back.alt).toMatch(/BoldX logo/);
+    expect(exists("public/work/boldx/brand-bible-cover.webp")).toBe(true);
+    expect(exists("public/work/boldx/bible-cover.webp")).toBe(false);
   });
 
   it("keeps everything the home page loads under 300 KB", () => {

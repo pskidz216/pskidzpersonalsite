@@ -136,10 +136,10 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "BoldX Industries",
-    tag: "Brand System",
+    tag: "Full Go-To-Market",
     description:
-      "Brand bible, identity, a 32-page catalog, a 12-month plan and the 2026–2028 strategy for an aerospace and defense manufacturer. The full case study.",
-    tech: "Brand Strategy, Identity, Catalog Design, Canva",
+      "Go-to-market end to end for an aerospace and defense manufacturer: the brand bible and identity, a 32-page catalog, the 2026–2028 strategy, a live quote pipeline built with AI agents, quote-expiry email campaigns, long-term contracts, weekly cinematic reels, the Smart Ladder launch and the PBExpo booth. The full case study.",
+    tech: "Brand Bible, Go-To-Market Strategy, Live Quote Pipeline, AI Agents, HubSpot, n8n, Email Campaigns, Contracts, Cinematic Reels, Popl",
     image: "/work/boldx/catalog-cover-wide.webp",
     href: "/work/boldx",
   },
