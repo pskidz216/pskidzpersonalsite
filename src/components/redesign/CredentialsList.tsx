@@ -24,9 +24,9 @@ export function CredentialsList() {
       ref={sectionRef}
     >
       <div className="rd-certs_head">
-        <h2 data-rd-reveal="">The paper trail</h2>
+        <h2 data-rd-reveal="">Certifications</h2>
         <span className="rd-data rd-data--teal" data-rd-reveal="opacity">
-          [ 004 — {certifications.length} certifications ]
+          [ 004 — {certifications.length} earned ]
         </span>
       </div>
       <div>

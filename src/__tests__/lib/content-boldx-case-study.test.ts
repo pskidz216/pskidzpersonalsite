@@ -8,7 +8,8 @@ const everything = JSON.stringify(boldxCaseStudy);
 
 describe("BoldX case study content", () => {
   it("says the thesis in the first sentence", () => {
-    expect(boldxCaseStudy.hero.h1).toBe("I built the BoldX brand.");
+    expect(boldxCaseStudy.hero.h1).toBe("I built BoldX's strategy, sales and marketing.");
+    expect(boldxCaseStudy.hero.sub).toMatch(/strategy, sales, marketing, brand/);
   });
 
   it("never discloses BoldX revenue, customers by name, or plan targets", () => {

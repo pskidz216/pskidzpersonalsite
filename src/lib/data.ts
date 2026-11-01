@@ -176,14 +176,6 @@ export const projects: Project[] = [
     tech: "Python, Playwright, SQLite",
     image: "/projects/signal-agent.png",
   },
-  {
-    name: "Human OS",
-    tag: "Quiz Engine",
-    description:
-      "A 7-step quiz that turns a person's answers into personalized supplement recommendations across nine brand partners, ending on a results page built to be shared.",
-    tech: "Supabase, Tailwind",
-    image: "/projects/human-os.png",
-  },
 ];
 
 const heroTitleLead = "I'm";
@@ -252,7 +244,7 @@ export const navLinks = [
   { label: "Systems", href: "#skills" },
   { label: "Builds", href: "#built" },
   { label: "BoldX", href: "/work/boldx" },
-  { label: "Credentials", href: "#certifications" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Off the Clock", href: "#offclock" },
   { label: "Work with me", href: "/pricing" },
 ];

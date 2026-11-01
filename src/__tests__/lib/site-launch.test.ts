@@ -92,6 +92,38 @@ describe("the BoldX row in Builds", () => {
   });
 });
 
+describe("Human OS", () => {
+  it("is gone from Builds and the public files", () => {
+    expect(JSON.stringify(data)).not.toMatch(/human ?os/i);
+    expect(exists("public/projects/human-os.png")).toBe(false);
+  });
+});
+
+describe("the certifications section", () => {
+  it("is called what it is, in the section and the nav", () => {
+    const section = source("src/components/redesign/CredentialsList.tsx");
+    expect(section).toMatch(/>Certifications</);
+    expect(section).not.toMatch(/paper trail/i);
+    expect(data.navLinks).toContainEqual({ label: "Certifications", href: "#certifications" });
+  });
+});
+
+describe("the case-study page title", () => {
+  it("leads with strategy, sales and marketing and fits in 60 characters", () => {
+    const page = source("src/app/work/boldx/page.tsx");
+    const title = page.match(/const title = "([^"]+)"/)?.[1] ?? "";
+    expect(title).toMatch(/strategy, sales and marketing/i);
+    expect(title.length).toBeLessThanOrEqual(60);
+    expect(title).not.toMatch(/built the BoldX brand/);
+    for (const image of ["src/app/work/boldx/opengraph-image.tsx", "src/app/opengraph-image.tsx"]) {
+      expect(source(image), image).not.toMatch(/BoldX brand|BoldX Industries brand/);
+    }
+    const description = page.match(/"(Case study[^"]+)"/)?.[1] ?? "";
+    expect(description.length).toBeGreaterThanOrEqual(70);
+    expect(description.length).toBeLessThanOrEqual(160);
+  });
+});
+
 describe("sideways scroll", () => {
   it("keeps the mist layer from widening the page", () => {
     const css = source("src/app/redesign.css");

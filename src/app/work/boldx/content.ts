@@ -101,8 +101,8 @@ const galleryRows: GalleryItem[][] = [
 export const boldxCaseStudy = {
   eyebrow: "[ Case study — BoldX Industries · Batavia, OH · 2025–2026 ]",
   hero: {
-    h1: "I built the BoldX brand.",
-    sub: "A hermetic-connector and precision-machining manufacturer selling into aerospace and defense. For nearly two years I owned go-to-market end to end: brand, marketing, pipeline, close and customer success, with a three-person team. Here is what I built and what it did.",
+    h1: "I built BoldX's strategy, sales and marketing.",
+    sub: "A hermetic-connector and precision-machining manufacturer selling into aerospace and defense. For nearly two years I owned go-to-market end to end: strategy, sales, marketing, brand and customer success, with a three-person team. Here is what I built and what it did.",
     image: {
       src: "/work/boldx/brand-rocket.webp",
       alt: "A rocket climbing above the clouds on a column of red fire, a machined hermetic connector in the foreground, and BOLD in white across the black of space with the BoldX X mark standing alone beside it",
