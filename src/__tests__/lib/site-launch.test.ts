@@ -4,6 +4,7 @@ import path from "node:path";
 import { heroContent, projects, reelBand } from "@/lib/data";
 import * as data from "@/lib/data";
 import { boldxFeature } from "@/app/work/boldx/feature";
+import { boldxCaseStudy } from "@/app/work/boldx/content";
 import { privacySections, termsSections } from "@/lib/legal";
 import { readConsent, writeConsent, CONSENT_KEY } from "@/lib/analyticsConsent";
 import sitemap from "@/app/sitemap";
@@ -146,6 +147,19 @@ describe("the role Paul is looking for", () => {
     const description = layout.match(/description:\s*"([^"]+)"/)?.[1] ?? "";
     expect(description.length).toBeGreaterThanOrEqual(70);
     expect(description.length).toBeLessThanOrEqual(160);
+  });
+});
+
+describe("AEO and GEO at BoldX", () => {
+  it("appears with its result in the ledger, the Builds row and the career entry", () => {
+    const entries = boldxCaseStudy.ledger.flatMap((g) => g.entries);
+    const entry = entries.find((e) => /AEO/.test(e.title));
+    expect(entry?.title).toMatch(/GEO/);
+    expect(entry?.detail).toMatch(/0% to 10%/);
+    expect(entry?.detail).toMatch(/six months/);
+    expect(projects.find((p) => p.name === "BoldX Industries")?.tech).toContain("AEO/GEO");
+    const career = data.careerEntries.find((e) => e.id === "boldx");
+    expect(career?.description).toMatch(/AEO\/GEO visibility from 0% to 10%/);
   });
 });
 

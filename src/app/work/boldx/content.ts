@@ -218,6 +218,11 @@ export const boldxCaseStudy = {
             "A weekly cinematic reel system, four long-form articles on hermetic connectors with original charts, and a daily LinkedIn and X outreach hub.",
         },
         {
+          title: "AEO and GEO strategy",
+          detail:
+            "Started the company's answer-engine and generative-engine optimization, so buyers asking AI tools could find BoldX. Took visibility from 0% to 10% in six months.",
+        },
+        {
           title: "Email campaigns",
           detail:
             "The 2027 forecast and account-standards campaigns in HubSpot, each with three-touch follow-ups.",
