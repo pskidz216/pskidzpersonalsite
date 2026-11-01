@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 import path from "node:path";
-import { heroContent, projects } from "@/lib/data";
+import { heroContent, projects, reelBand } from "@/lib/data";
+import * as data from "@/lib/data";
 import { boldxFeature } from "@/app/work/boldx/feature";
 import { privacySections, termsSections } from "@/lib/legal";
 import { readConsent, writeConsent, CONSENT_KEY } from "@/lib/analyticsConsent";
@@ -43,6 +44,47 @@ describe("calls to action on inner pages", () => {
   });
 });
 
+describe("the Spiritual Site and its seed film", () => {
+  it("are gone from the home page, the copy, the styles and the public files", () => {
+    expect(JSON.stringify(data)).not.toMatch(/spiritual|seed film|parallax/i);
+    expect(source("src/app/page.tsx")).not.toMatch(/SeedBanner/);
+    expect(exists("src/components/redesign/SeedBanner.tsx")).toBe(false);
+    expect(source("src/app/redesign.css")).not.toMatch(/rd-banner|seed banner/);
+    for (const file of ["spiritual-site.mp4", "spiritual-site.webp", "seed-poster.webp"]) {
+      expect(exists(`public/projects/${file}`), file).toBe(false);
+    }
+    expect(projects.some((p) => /spiritual/i.test(p.name))).toBe(false);
+  });
+});
+
+describe("the reel band that replaces it", () => {
+  it("runs the part-to-mission clips and links to the case study", () => {
+    expect(source("src/app/page.tsx")).toMatch(/<ReelBand \/>/);
+    expect(reelBand.tiles).toHaveLength(5);
+    expect(reelBand.cta.href).toBe("/work/boldx");
+    expect(reelBand.eyebrow).toMatch(/BoldX Industries/);
+    expect(reelBand.tiles.filter((t) => t.onPhone)).toHaveLength(2);
+    for (const tile of reelBand.tiles) {
+      expect(tile.alt.length, tile.video).toBeGreaterThan(20);
+      expect(kb(`public${tile.video}`), tile.video).toBeLessThanOrEqual(1024);
+      expect(kb(`public${tile.poster}`), tile.poster).toBeLessThanOrEqual(100);
+    }
+  });
+
+  it("shares one player with the case-study gallery", () => {
+    expect(source("src/components/redesign/ReelBand.tsx")).toMatch(/<LoopingReel/);
+    expect(source("src/app/work/boldx/BoldxGallery.tsx")).toMatch(/<LoopingReel/);
+    expect(source("src/components/ui/LoopingReel.tsx")).toMatch(/prefersReducedMotion/);
+  });
+});
+
+describe("sideways scroll", () => {
+  it("keeps the mist layer from widening the page", () => {
+    const css = source("src/app/redesign.css");
+    expect(css).toMatch(/\.rd-seam-wrap \{[^}]*overflow-x: clip/);
+  });
+});
+
 describe("favicon set", () => {
   it("serves a real icon file and a manifest", () => {
     expect(exists("src/app/favicon.ico.bak")).toBe(false);
@@ -74,9 +116,7 @@ describe("images", () => {
   it("keeps everything the home page loads under 300 KB", () => {
     const hero = source("src/components/redesign/RedesignHero.tsx").match(/src="(\/images\/[^"]+)"/)?.[1];
     expect(hero).toMatch(/\.webp$/);
-    const poster = source("src/components/redesign/SeedBanner.tsx").match(/poster="([^"]+)"/)?.[1];
-    expect(poster).toMatch(/\.webp$/);
-    for (const file of [hero as string, poster as string, ...projects.map((p) => p.image)]) {
+    for (const file of [hero as string, ...reelBand.tiles.map((t) => t.poster), ...projects.map((p) => p.image)]) {
       expect(kb(`public${file}`), file).toBeLessThanOrEqual(300);
     }
   });

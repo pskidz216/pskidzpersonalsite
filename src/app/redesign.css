@@ -360,6 +360,8 @@
 }
 .rd-seam-wrap {
   position: relative;
+  /* The scaled mist layer must not widen the page. Clip keeps the sticky layer working. */
+  overflow-x: clip;
 }
 
 /* ---------- sections ---------- */
@@ -620,57 +622,92 @@
   transform-origin: left;
 }
 
-/* ---------- seed banner ---------- */
-.rd-banner {
-  background: var(--rd-warm);
-  width: 100%;
+/* ---------- reel band ---------- */
+.rd-reels {
+  background: var(--rd-ink);
+  color: #fff;
   position: relative;
 }
-.rd-banner_inner {
-  width: 100%;
-  height: 150svh;
+.rd-reels_head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem 4rem;
+  padding: clamp(4rem, 9vw, 8rem) 4vw clamp(2.5rem, 4vw, 4rem);
+}
+.rd-reels_eyebrow {
+  color: #6ee7e7;
+}
+.rd-reels_title {
+  margin-top: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 6.4vw, 6.25rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+}
+.rd-reels_side {
+  flex: 0 1 26rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.rd-reels_side p {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.5;
+}
+.rd-reels_strip {
+  display: flex;
+  gap: 2px;
+  height: clamp(24rem, 35.5vw, 46rem);
+}
+.rd-reels_tile {
   position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
   overflow: hidden;
+  background: #000;
+  transition: flex-grow 0.7s var(--rd-ease-sig);
 }
-.rd-banner_media {
-  position: absolute;
-  inset: -20% 0;
-  will-change: transform;
+.rd-reels_tile:hover {
+  flex-grow: 1.7;
 }
-.rd-banner_media video {
+.rd-reels_tile video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 62%;
 }
-.rd-banner_scrim {
+.rd-reels_tile figcaption {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(250, 250, 248, 0.35),
-    transparent 18%,
-    transparent 82%,
-    rgba(250, 250, 248, 0.4)
-  );
-}
-.rd-banner_caption {
-  position: absolute;
-  bottom: 3rem;
-  left: 4vw;
-  z-index: 2;
+  left: 1rem;
+  bottom: 0.9rem;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding: 1rem 1.25rem;
-  background: rgba(20, 20, 20, 0.35);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--rd-radius-hover);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
-.rd-banner_caption .rd-data--teal {
-  color: #6ee7e7;
+@media (max-width: 767px) {
+  .rd-reels_tile--desktop,
+  .rd-reels_num {
+    display: none;
+  }
+  .rd-reels_strip {
+    height: auto;
+  }
+  .rd-reels_tile {
+    aspect-ratio: 9 / 16;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rd-reels_tile {
+    transition: none;
+  }
+  .rd-reels_tile:hover {
+    flex-grow: 1;
+  }
 }
 
 /* ---------- systems ---------- */
@@ -1234,9 +1271,6 @@
     width: 100%;
     height: auto;
     min-height: 60svh;
-  }
-  .rd-banner_inner {
-    height: 80svh;
   }
   .rd-node i {
     animation: none;

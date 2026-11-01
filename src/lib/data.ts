@@ -184,15 +184,6 @@ export const projects: Project[] = [
     tech: "Supabase, Tailwind",
     image: "/projects/human-os.png",
   },
-  {
-    name: "Spiritual Site",
-    tag: "Parallax Experience",
-    description:
-      "A spiritual wellness platform built around scroll-driven parallax motion — custom GSAP and Framer Motion choreography with Lenis smooth-scroll on every section.",
-    tech: "GSAP, Framer Motion, Lenis",
-    image: "/projects/spiritual-site.webp",
-    video: "/projects/spiritual-site.mp4",
-  },
 ];
 
 const heroTitleLead = "I'm";
@@ -208,6 +199,51 @@ export const heroContent = {
     { label: "Check out how I helped BoldX", href: "/work/boldx", primary: true },
     { label: "Here's what I do", href: "#skills", primary: false },
     { label: "See my portfolio below", href: "#built", primary: false },
+  ],
+};
+
+/** The home-page strip of real BoldX reels; two tiles show on phones. */
+export const reelBand = {
+  eyebrow: "[ Selected work: weekly cinematic reels · BoldX Industries ]",
+  title: "The part, then the mission.",
+  sub: "A weekly reel system that put BoldX parts in the places they serve: carriers, jets, submarines. Art-directed by me, generated on Higgsfield.",
+  cta: { label: "See the BoldX case study", href: "/work/boldx" },
+  tiles: [
+    {
+      video: "/work/boldx/reels/part-macro.mp4",
+      poster: "/work/boldx/reels/part-macro.webp",
+      label: "The part",
+      alt: "Macro shot of a hermetic connector resting among others on a dark tray",
+      onPhone: false,
+    },
+    {
+      video: "/work/boldx/reels/jet-launch.mp4",
+      poster: "/work/boldx/reels/jet-launch.webp",
+      label: "The launch",
+      alt: "A fighter jet launching down an aircraft carrier's catapult in a burst of flame",
+      onPhone: true,
+    },
+    {
+      video: "/work/boldx/reels/pressure-hull.mp4",
+      poster: "/work/boldx/reels/pressure-hull.webp",
+      label: "The hull",
+      alt: "A connector seated in the bolted steel wall of a submarine's pressure hull",
+      onPhone: false,
+    },
+    {
+      video: "/work/boldx/reels/sub-surface.mp4",
+      poster: "/work/boldx/reels/sub-surface.webp",
+      label: "The dive",
+      alt: "A submarine cutting through open ocean as spray bursts around its sail",
+      onPhone: true,
+    },
+    {
+      video: "/work/boldx/reels/sub-descent.mp4",
+      poster: "/work/boldx/reels/sub-descent.webp",
+      label: "The deep",
+      alt: "A submarine descending through teal water with bubbles rising above it",
+      onPhone: false,
+    },
   ],
 };
 
