@@ -235,6 +235,14 @@ describe("privacy and terms", () => {
     expect(terms).toMatch(/Florida/);
   });
 
+  it("have a share image and a way to get in touch, like every other page", () => {
+    for (const file of ["src/app/privacy/page.tsx", "src/app/terms/page.tsx"]) {
+      const page = source(file);
+      expect(page.match(/images: \["\/opengraph-image"\]/g), file).toHaveLength(2);
+    }
+    expect(source("src/components/ui/LegalPage.tsx")).toMatch(/<StickyContact/);
+  });
+
   it("is linked from every page's footer", () => {
     for (const file of [
       "src/components/redesign/ContactFooter.tsx",
@@ -280,6 +288,13 @@ describe("analytics consent", () => {
     expect(readConsent(blocked)).toBeNull();
     expect(readConsent(null)).toBeNull();
     expect(writeConsent(blocked, "declined")).toBe(false);
+  });
+
+  it("sits in a slim bar on larger screens, clear of the hero buttons", () => {
+    const gate = source("src/components/ui/AnalyticsConsent.tsx");
+    expect(gate).toMatch(/md:inset-x-6/);
+    expect(gate).toMatch(/md:flex/);
+    expect(gate).not.toMatch(/md:max-w-sm/);
   });
 
   it("only loads analytics after a yes", () => {

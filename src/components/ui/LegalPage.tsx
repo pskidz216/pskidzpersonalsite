@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { LEGAL_UPDATED, type LegalSection } from "@/lib/legal";
 import { LegalLinks } from "./LegalLinks";
+import { StickyContact } from "./StickyContact";
 
 export function LegalPage({ title, sections }: { title: string; sections: LegalSection[] }) {
   return (
     <main className="min-h-screen bg-bg-primary text-text-primary px-6 md:px-12 py-16 md:py-24">
+      <StickyContact />
       <article className="mx-auto max-w-2xl">
         <Link
           href="/"

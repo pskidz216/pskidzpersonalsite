@@ -9,8 +9,8 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title, description, type: "website" },
-  twitter: { card: "summary_large_image", title, description },
+  openGraph: { title, description, type: "website", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
 };
 
 export default function PrivacyRoute() {
