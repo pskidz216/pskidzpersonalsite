@@ -109,7 +109,7 @@ describe("Human OS", () => {
 describe("the certifications section", () => {
   it("is called what it is, in the section and the nav", () => {
     const section = source("src/components/redesign/CredentialsList.tsx");
-    expect(section).toMatch(/>Certifications</);
+    expect(section).toMatch(/^\s*Certifications\s*$/m);
     expect(section).not.toMatch(/paper trail/i);
     expect(data.navLinks).toContainEqual({ label: "Certifications", href: "#certifications" });
   });
@@ -132,18 +132,18 @@ describe("the case-study page title", () => {
 });
 
 describe("the role Paul is looking for", () => {
-  it("asks for business development and partnerships, not a CRO seat", () => {
+  it("asks for business development or sales, on a good team, in any business", () => {
     const footer = source("src/components/redesign/ContactFooter.tsx").replace(/\s+/g, " ");
-    expect(footer).toMatch(/business development, sales or Director of Partnerships/);
+    expect(footer).toMatch(/business development or sales role/);
     expect(footer).toMatch(/team that works well together/);
-    expect(footer).toMatch(/network/);
     expect(footer).toMatch(/long-term or fractional/);
-    expect(footer).toMatch(/Tech, AI, manufacturing, industrial/);
-    expect(footer).toMatch(/skill set plus AI/);
-    expect(footer).not.toMatch(/CRO|VP Sales|\$5M/);
+    expect(footer).toMatch(/healthcare/);
+    expect(footer).toMatch(/business agnostic/);
+    expect(footer).toMatch(/get my hands dirty/);
+    expect(footer).not.toMatch(/CRO|VP Sales|\$5M|[Pp]artnerships/);
     const layout = source("src/app/layout.tsx");
-    expect(layout).not.toMatch(/operator roles/);
-    expect(layout).toMatch(/business development, sales and partnerships/);
+    expect(layout).not.toMatch(/operator roles|[Pp]artnerships/);
+    expect(layout).toMatch(/business development and sales roles/);
     const description = layout.match(/description:\s*"([^"]+)"/)?.[1] ?? "";
     expect(description.length).toBeGreaterThanOrEqual(70);
     expect(description.length).toBeLessThanOrEqual(160);
