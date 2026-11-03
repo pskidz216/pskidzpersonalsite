@@ -8,7 +8,7 @@ import { observeReveals, prefersReducedMotion } from "./reveal";
 
 const stats = [
   { value: "12", accent: "+", label: "Years in revenue" },
-  { value: "$18.3", accent: "M", label: "Quoted through my BoldX pipeline" },
+  { value: "$15.5", accent: "M", label: "Closed-won at BoldX" },
   { value: "16", accent: "", label: "Certifications" },
   { value: "06", accent: "", label: "Chapters" },
 ];

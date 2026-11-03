@@ -239,7 +239,7 @@ export const boldxCaseStudy = {
     label: "The numbers",
     stats: [
       { value: "$18.3M", label: "quoted through my pipeline" },
-      { value: "$4.6M", label: "won across 212 deals" },
+      { value: "$15.5M", label: "won across 212+ deals" },
       { value: "$500K", label: "inventory buyout negotiated" },
       { value: "$24M", label: "revenue target set" },
     ],
