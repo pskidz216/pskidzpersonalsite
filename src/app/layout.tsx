@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     description: shareDescription,
     type: "website",
     url: "https://paulskidmoreii.com",
-    siteName: "Paul Skidmore",
+    // LinkedIn shows the site name under the card title; the title already carries the name.
+    siteName: "About Me · Available now",
   },
   twitter: {
     card: "summary_large_image",
