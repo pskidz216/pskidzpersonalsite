@@ -13,8 +13,11 @@ describe("BoldX case study content", () => {
   });
 
   it("never discloses BoldX revenue, customers by name, or plan targets", () => {
-    // BoldX's revenue by year and the plan's targets; the $11.6M quoted figure is Paul's own pipeline output and stays.
-    expect(everything).not.toMatch(/\$1[789](\.\d)?M|\$25M|\$40M|\$50M|\$40–50M|17,7|17,0|18,8/);
+    // BoldX's revenue by year and the plan's targets. The $18.3M quoted total is Paul's own pipeline
+    // output, not revenue: it stays, labelled as quoted, and is taken out before the revenue check.
+    expect(everything).toMatch(/"value":"\$18\.3M","label":"quoted through my pipeline"/);
+    const withoutPipeline = everything.replaceAll("$18.3M", "");
+    expect(withoutPipeline).not.toMatch(/\$1[789](\.\d)?M|\$25M|\$40M|\$50M|\$40–50M|17,7|17,0|18,8/);
     expect(everything).not.toMatch(
       /\b(ITT|Eaton|Trimble|L3 ?Harris|Cummins|Esterline|Clippard|Honeywell|Parker|Safran|Williams International)\b/
     );
@@ -106,7 +109,7 @@ describe("BoldX case study content", () => {
 
   it("runs the numbers in order, pipeline to target, with short parallel labels", () => {
     const { stats } = boldxCaseStudy.numbers;
-    expect(stats.map((s) => s.value)).toEqual(["$11.6M", "147", "$500K", "$24M"]);
+    expect(stats.map((s) => s.value)).toEqual(["$18.3M", "$4.6M", "$500K", "$24M"]);
     for (const stat of stats) expect(stat.label.length).toBeLessThanOrEqual(27);
     expect(stats.some((s) => /product lines/.test(s.label))).toBe(false);
   });

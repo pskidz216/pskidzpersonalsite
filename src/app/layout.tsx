@@ -4,24 +4,27 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
 import { AnalyticsConsent } from "@/components/ui/AnalyticsConsent";
 
+// What LinkedIn and other link previews show under the link.
+const shareTitle = "Paul Skidmore: sales and business development";
+const shareDescription =
+  "12 years in revenue, from the operating room to building BoldX's go-to-market and the AI behind its pipeline: $18.3M quoted, $4.6M won across 212 deals. 16 certifications. Open to business development and sales roles. Miami, FL.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://paulskidmoreii.com"),
   title: "Paul Skidmore | Revenue Operator · Brand Builder · Miami",
   description:
-    "Sales and marketing leader who built BoldX's go-to-market and the AI behind its pipeline. Open to business development and sales roles. Miami, FL.",
+    "Sales leader who built BoldX's pipeline: it quoted $18.3M and won $4.6M. Open to business development and sales roles. Miami, FL.",
   openGraph: {
-    title: "Paul Skidmore",
-    description:
-      "Built BoldX's go-to-market and the AI behind its pipeline. Open to business development and sales roles.",
+    title: shareTitle,
+    description: shareDescription,
     type: "website",
     url: "https://paulskidmoreii.com",
     siteName: "Paul Skidmore",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paul Skidmore",
-    description:
-      "Built BoldX's go-to-market and the AI behind its pipeline. Open to business development and sales roles.",
+    title: shareTitle,
+    description: shareDescription,
   },
 };
 

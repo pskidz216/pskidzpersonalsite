@@ -26,7 +26,9 @@ describe("BoldX home-page highlight", () => {
   });
 
   it("keeps the same guards as the case study", () => {
-    expect(everything).not.toMatch(/\$1[789](\.\d)?M|\$25M|\$40M|\$50M|17,7|17,0|18,8/);
+    // The $18.3M quoted pipeline total is not revenue: it stays, labelled as quoted.
+    expect(everything).toMatch(/"value":"\$18\.3M","label":"Quoted through the pipeline I built"/);
+    expect(everything.replaceAll("$18.3M", "")).not.toMatch(/\$1[789](\.\d)?M|\$25M|\$40M|\$50M|17,7|17,0|18,8/);
     expect(everything).not.toMatch(/SDR|outbound|sales[- ]intelligence|Clay|Apollo/i);
     expect(everything).not.toMatch(/BOLDx|BoldX Enterprises|BXE|Power of|Àṣẹ|Ase\b/);
   });

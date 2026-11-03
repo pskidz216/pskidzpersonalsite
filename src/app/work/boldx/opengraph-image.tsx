@@ -43,14 +43,17 @@ export default async function OG() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", marginTop: "auto" }}>
-          <div style={{ fontSize: 112, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em" }}>
+          <div style={{ fontSize: 100, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em" }}>
             I built BoldX&apos;s
           </div>
-          <div style={{ fontSize: 112, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em", color: "#E8735A" }}>
+          <div style={{ fontSize: 100, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em", color: "#E8735A" }}>
             strategy, sales
           </div>
-          <div style={{ fontSize: 112, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em", color: "#E8735A" }}>
+          <div style={{ fontSize: 100, fontWeight: 900, lineHeight: 0.98, letterSpacing: "-0.03em", color: "#E8735A" }}>
             and marketing.
+          </div>
+          <div style={{ marginTop: 28, fontSize: 38, fontWeight: 700, letterSpacing: "-0.01em" }}>
+            $18.3M quoted · $4.6M won · 212 deals
           </div>
         </div>
 
@@ -59,7 +62,7 @@ export default async function OG() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
-            marginTop: 56,
+            marginTop: 44,
             fontSize: 22,
             fontWeight: 600,
             letterSpacing: "0.16em",
