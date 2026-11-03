@@ -5,8 +5,8 @@ export const boldxFeature = {
   sub: "Hermetic connectors and precision machining for aerospace and defense. For nearly two years I owned go-to-market end to end: the strategy, the brand bible, the catalog, quote-to-close on HubSpot, the Smart Ladder launch, the contracts and the number.",
   facts: [
     { value: "25 pages", label: "Brand Strategy & Branding Bible" },
-    { value: "32 pages", label: "Product catalog, every QPL series" },
-    { value: "147", label: "Deals closed-won on the pipeline I built" },
+    { value: "$18.3M", label: "Quoted through the pipeline I built" },
+    { value: "$4.6M", label: "Won across 212 deals" },
     { value: "$24M", label: "2026 revenue target set" },
   ],
   cta: "Read the case study",

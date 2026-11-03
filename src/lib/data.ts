@@ -78,8 +78,8 @@ export const careerEntries: CareerEntry[] = [
     dateRange: "2025 — 2026",
     type: "corporate",
     description:
-      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity, a 32-page catalog, the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $11.6M quoted and 147 deals closed-won. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Took AEO/GEO visibility from 0% to 10% in six months. Launched the Smart Ladder, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
-    metric: { value: "147", label: "deals closed-won" },
+      "Owned go-to-market end to end for an aerospace and defense manufacturer of hermetic connectors and precision CNC parts: brand, marketing, pipeline, close and customer success, with a three-person team, pacing about 20% year-over-year growth. Rebuilt the brand from the bible up: strategy and identity, a 32-page catalog, the 12-month marketing plan and the 2026–2028 sales strategy. Put the quote pipeline on HubSpot in real time, built with AI agents, where before it took a phone call or an emailed spreadsheet; $18.3M quoted and $4.6M won across 212 deals. Converted one-off work into long-term contracts, negotiated a $500K inventory buyout, and set the 2026 revenue target at $24M. Took AEO/GEO visibility from 0% to 10% in six months. Launched the Smart Ladder, built the American Labor Ladders site, and ran the company's PBExpo 2026 booth.",
+    metric: { value: "$4.6M", label: "won across 212 deals" },
     tags: ["Brand Build", "Aerospace & Defense", "AI-Powered Sales", "HubSpot/ERP Integration"],
   },
 ];
