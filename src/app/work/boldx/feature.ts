@@ -6,7 +6,7 @@ export const boldxFeature = {
   facts: [
     { value: "25 pages", label: "Brand Strategy & Branding Bible" },
     { value: "$18.3M", label: "Quoted through the pipeline I built" },
-    { value: "$4.6M", label: "Won across 212 deals" },
+    { value: "$15.5M", label: "Won across 212+ deals" },
     { value: "$24M", label: "2026 revenue target set" },
   ],
   cta: "Read the case study",

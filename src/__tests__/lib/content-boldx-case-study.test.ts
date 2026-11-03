@@ -109,7 +109,7 @@ describe("BoldX case study content", () => {
 
   it("runs the numbers in order, pipeline to target, with short parallel labels", () => {
     const { stats } = boldxCaseStudy.numbers;
-    expect(stats.map((s) => s.value)).toEqual(["$18.3M", "$4.6M", "$500K", "$24M"]);
+    expect(stats.map((s) => s.value)).toEqual(["$18.3M", "$15.5M", "$500K", "$24M"]);
     for (const stat of stats) expect(stat.label.length).toBeLessThanOrEqual(27);
     expect(stats.some((s) => /product lines/.test(s.label))).toBe(false);
   });

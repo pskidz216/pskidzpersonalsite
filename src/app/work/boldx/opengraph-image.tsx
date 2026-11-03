@@ -53,7 +53,7 @@ export default async function OG() {
             and marketing.
           </div>
           <div style={{ marginTop: 28, fontSize: 38, fontWeight: 700, letterSpacing: "-0.01em" }}>
-            $18.3M quoted · $4.6M won · 212 deals
+            $18.3M quoted · $15.5M won · 212+ deals
           </div>
         </div>
 
