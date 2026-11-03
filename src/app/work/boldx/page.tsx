@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: shareTitle,
     description: shareDescription,
+    // LinkedIn shows the site name under the card title in place of the URL.
+    siteName: "BoldX Case Study",
     type: "article",
     url: "https://paulskidmoreii.com/work/boldx",
   },

@@ -84,6 +84,10 @@ describe("the share copy LinkedIn shows under each link", () => {
     expect(layout.match(/description: shareDescription/g)).toHaveLength(2);
   });
 
+  it("names the case study \"BoldX Case Study\" on the line LinkedIn shows under the card title", () => {
+    expect(source("src/app/work/boldx/page.tsx")).toMatch(/openGraph: \{[^}]*siteName: "BoldX Case Study"/);
+  });
+
   it("prints the totals on the case-study share image", () => {
     expect(source("src/app/work/boldx/opengraph-image.tsx")).toMatch(
       /\$18\.3M quoted · \$15\.5M won · 212\+ deals/
