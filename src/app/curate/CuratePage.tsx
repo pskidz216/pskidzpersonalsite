@@ -6,10 +6,13 @@ import { LegalLinks } from "@/components/ui/LegalLinks";
 import { StickyContact } from "@/components/ui/StickyContact";
 import { socialLinks } from "@/lib/data";
 import { EngineSection } from "./EngineSection";
-import { curatePlan, type Goal, type Move } from "./content";
+import type { CuratePlan, Goal, Move } from "./content";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const pad = "px-6 md:px-12 lg:px-20";
+
+/** Plan data arrives as props from the server, so it never ships in this client bundle. */
+type PlanProps = { plan: CuratePlan };
 
 function SectionLabel({ children, accent = "coral" }: { children: string; accent?: "coral" | "teal" }) {
   return (
@@ -36,8 +39,8 @@ function H2({ id, children }: { id: string; children: string }) {
   );
 }
 
-function Hero() {
-  const c = curatePlan;
+function Hero({ plan }: PlanProps) {
+  const c = plan;
   return (
     <section className={`${pad} pt-28 md:pt-36 pb-16 md:pb-20`}>
       <div className="max-w-6xl mx-auto">
@@ -94,8 +97,8 @@ function Hero() {
   );
 }
 
-function Built() {
-  const b = curatePlan.built;
+function Built({ plan }: PlanProps) {
+  const b = plan.built;
   return (
     <section className={`${pad} py-16 md:py-24 bg-bg-secondary`} aria-labelledby="h-built">
       <div className="max-w-6xl mx-auto">
@@ -211,8 +214,8 @@ function GoalBlock({ goal }: { goal: Goal }) {
   );
 }
 
-function Plan() {
-  const p = curatePlan.plan;
+function Plan({ plan }: PlanProps) {
+  const p = plan.plan;
   return (
     <section className={`${pad} py-16 md:py-24`} aria-labelledby="h-plan">
       <div className="max-w-6xl mx-auto">
@@ -222,7 +225,7 @@ function Plan() {
           <p className="font-body text-lg text-text-secondary leading-relaxed m-0 max-w-xl">{p.intro}</p>
         </div>
         <div className="grid gap-16 md:gap-24">
-          {curatePlan.goals.map((g) => (
+          {plan.goals.map((g) => (
             <GoalBlock key={g.id} goal={g} />
           ))}
         </div>
@@ -231,8 +234,8 @@ function Plan() {
   );
 }
 
-function Days() {
-  const d = curatePlan.days;
+function Days({ plan }: PlanProps) {
+  const d = plan.days;
   return (
     <section className={`${pad} py-16 md:py-24`} aria-labelledby="h-days">
       <div className="max-w-6xl mx-auto">
@@ -265,8 +268,8 @@ function Days() {
   );
 }
 
-function Report() {
-  const r = curatePlan.report;
+function Report({ plan }: PlanProps) {
+  const r = plan.report;
   return (
     <section className={`${pad} py-16 md:py-24 bg-bg-secondary`} aria-labelledby="h-report">
       <div className="max-w-6xl mx-auto">
@@ -298,8 +301,8 @@ function Report() {
   );
 }
 
-function Closing() {
-  const c = curatePlan.closing;
+function Closing({ plan }: PlanProps) {
+  const c = plan.closing;
   const email = socialLinks.find((link) => link.label === "Email")?.href;
   return (
     <section className={`${pad} py-20 md:py-28`} aria-labelledby="h-close">
@@ -328,7 +331,7 @@ function Closing() {
             {c.secondary.label}
           </Link>
         </div>
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted mt-14">{curatePlan.domain}</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted mt-14">{plan.domain}</p>
         <div className="mt-4">
           <LegalLinks />
         </div>
@@ -338,7 +341,7 @@ function Closing() {
 }
 
 /** The hero animates on mount; everything below is static and readable at rest. */
-export function CuratePage() {
+export function CuratePage({ plan }: PlanProps) {
   return (
     <MotionConfig reducedMotion="user">
       <Link
@@ -354,13 +357,13 @@ export function CuratePage() {
       </Link>
       <StickyContact />
       <main className="relative bg-bg-primary text-text-primary">
-        <Hero />
-        <Built />
-        <Plan />
-        <EngineSection />
-        <Days />
-        <Report />
-        <Closing />
+        <Hero plan={plan} />
+        <Built plan={plan} />
+        <Plan plan={plan} />
+        <EngineSection engine={plan.engine} />
+        <Days plan={plan} />
+        <Report plan={plan} />
+        <Closing plan={plan} />
       </main>
     </MotionConfig>
   );

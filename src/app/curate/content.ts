@@ -355,3 +355,5 @@ export const curatePlan = {
     secondary: { label: "See the BoldX case study", href: "/work/boldx" },
   },
 } as const;
+
+export type CuratePlan = typeof curatePlan;
