@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/audit", "/bond-no-9", "/pristine-login", "/api/"],
+        disallow: ["/audit", "/curate", "/bond-no-9", "/pristine-login", "/api/"],
       },
     ],
     sitemap: "https://www.paulskidmoreii.com/sitemap.xml",
