@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { CuratePage } from "./CuratePage";
+import { curatePlan } from "./content";
+import { CurateLogin } from "./CurateLogin";
+import { hasCurateAccess } from "./session";
 
 const title = "How I'd run sales at Curate · Paul Skidmore";
 const description =
@@ -23,6 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CurateRoute() {
-  return <CuratePage />;
+/** Password-gated: the plan renders only after the visitor unlocks it (see access.ts). */
+export default async function CurateRoute() {
+  return (await hasCurateAccess()) ? <CuratePage plan={curatePlan} /> : <CurateLogin />;
 }

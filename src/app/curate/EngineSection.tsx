@@ -1,9 +1,8 @@
 import { MorningList } from "./MorningList";
-import { curatePlan } from "./content";
+import type { CuratePlan } from "./content";
 
 /** The Ramp-style outbound engine: eight steps, a working sample of the morning list, guardrails and the scoreboard. */
-export function EngineSection() {
-  const e = curatePlan.engine;
+export function EngineSection({ engine: e }: { engine: CuratePlan["engine"] }) {
   return (
     <section
       id="outbound-engine"
